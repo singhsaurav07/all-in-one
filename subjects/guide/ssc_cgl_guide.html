@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL 2026 — Syllabus &amp; Combined Study Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#182849;
+    --ink-soft:#2c3f68;
+    --paper:#f3ead8;
+    --paper-dark:#e8ddc4;
+    --stamp:#a3382a;
+    --seal:#a9812a;
+    --charcoal:#241f16;
+    --line:#c7b998;
+    --good:#3f6e52;
+    --good-bg:#e3ecdf;
+    --mid:#a3382a;
+    --mid-bg:#f3e2dc;
+    --low:#7a6a3f;
+    --low-bg:#eee3c9;
+    --white:#fffdf7;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  ::selection{background:var(--seal); color:var(--white);}
+
+  h1,h2,h3,h4{
+    font-family:'Spectral', serif;
+    margin:0;
+    color:var(--ink);
+    font-weight:700;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  a{color:var(--ink);}
+
+  /* ---------- background texture ---------- */
+  body{
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(24,40,73,0.06) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  /* ---------- HEADER / ADMIT CARD ---------- */
+  .card-header{
+    max-width:1040px;
+    margin:28px auto 0;
+    background:var(--white);
+    border:2px solid var(--ink);
+    position:relative;
+    padding:34px 40px 28px;
+    box-shadow:6px 6px 0 rgba(24,40,73,0.15);
+  }
+  .card-header::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-11px;
+    height:22px;
+    background-image: radial-gradient(circle at 11px 11px, var(--paper) 9px, transparent 10px);
+    background-size:22px 22px;
+    background-position:0 0;
+  }
+  .eyebrow-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    display:inline-block;
+    padding:4px 10px;
+    background:var(--paper);
+  }
+  .card-header h1{
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.05;
+    margin:14px 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .card-header .sub{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:60ch;
+  }
+  .seal{
+    flex:0 0 auto;
+    width:104px;
+    height:104px;
+  }
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin-top:26px;
+    border-top:1px dashed var(--line);
+    padding-top:18px;
+  }
+  .stat-strip div{
+    border-left:1px dashed var(--line);
+    padding:0 16px;
+    text-align:left;
+  }
+  .stat-strip div:first-child{border-left:none; padding-left:0;}
+  .stat-strip .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:22px;
+    font-weight:600;
+    color:var(--stamp);
+  }
+  .stat-strip .lbl{
+    font-size:12px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- TAB NAV (ticket stubs) ---------- */
+  .tabs-wrap{
+    max-width:1040px;
+    margin:26px auto 0;
+    padding:0 4px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tab-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.03em;
+    background:var(--paper-dark);
+    border:1.5px solid var(--ink);
+    border-bottom:none;
+    color:var(--ink);
+    padding:10px 18px;
+    cursor:pointer;
+    border-radius:6px 6px 0 0;
+    position:relative;
+    top:1px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .tab-btn.active{
+    background:var(--ink);
+    color:var(--white);
+  }
+  .tab-btn:hover:not(.active){
+    background:#ddd0ac;
+  }
+
+  main{
+    max-width:1040px;
+    margin:0 auto 80px;
+    background:var(--white);
+    border:2px solid var(--ink);
+    border-top:none;
+    padding:6px;
+  }
+  .panel{
+    display:none;
+    padding:34px 40px 44px;
+    animation:fade .25s ease;
+  }
+  .panel.active{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
+
+  .clause-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--stamp);
+    font-weight:600;
+    margin-right:8px;
+  }
+  section.block{margin-bottom:38px;}
+  section.block:last-child{margin-bottom:0;}
+  h2.block-title{
+    font-size:24px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px;
+    margin-bottom:18px;
+    display:flex;
+    align-items:baseline;
+  }
+  h3.sub-title{
+    font-size:18px;
+    margin-bottom:10px;
+    color:var(--stamp);
+  }
+  p.note{
+    font-size:14px;
+    color:var(--ink-soft);
+    border-left:3px solid var(--seal);
+    padding:8px 14px;
+    background:var(--low-bg);
+    margin:14px 0;
+  }
+
+  /* pattern table */
+  table.pattern{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+    margin-bottom:8px;
+  }
+  table.pattern caption{
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  table.pattern th, table.pattern td{
+    border:1px solid var(--line);
+    padding:9px 12px;
+    text-align:left;
+  }
+  table.pattern th{
+    background:var(--ink);
+    color:var(--white);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  table.pattern tr:nth-child(even) td{background:var(--paper);}
+
+  /* subject cards for syllabus */
+  .subject-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:680px){ .subject-grid{grid-template-columns:1fr;} .stat-strip{grid-template-columns:1fr 1fr;} .stat-strip div{border-left:none; border-top:1px dashed var(--line); padding:10px 0 0;} .stat-strip div:nth-child(odd){padding-left:0;} }
+
+  .subject-card{
+    border:1.5px solid var(--ink);
+    padding:16px 18px;
+    position:relative;
+    background:var(--white);
+  }
+  .subject-card::before{
+    content:attr(data-tag);
+    position:absolute;
+    top:-11px; left:14px;
+    background:var(--stamp);
+    color:var(--white);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    padding:2px 8px;
+    letter-spacing:.05em;
+  }
+  .subject-card h4{
+    font-size:16.5px;
+    margin:6px 0 10px;
+  }
+  .subject-card ul{
+    margin:0; padding-left:18px;
+    font-size:13.8px;
+  }
+  .subject-card li{margin-bottom:5px;}
+  .weight-pill{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    padding:1px 6px;
+    border-radius:3px;
+    margin-left:6px;
+    vertical-align:1px;
+  }
+  .w-high{background:var(--good-bg); color:var(--good); border:1px solid var(--good);}
+  .w-mid{background:var(--low-bg); color:var(--low); border:1px solid var(--low);}
+  .w-low{background:#eee; color:#777; border:1px solid #bbb;}
+
+  /* weightage bars */
+  .wbar-row{
+    display:grid;
+    grid-template-columns:210px 1fr 60px;
+    align-items:center;
+    gap:12px;
+    margin-bottom:9px;
+    font-size:13.5px;
+  }
+  .wbar-track{
+    background:var(--paper-dark);
+    border:1px solid var(--line);
+    height:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .wbar-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--stamp), var(--seal));
+  }
+  .wbar-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    text-align:right;
+    color:var(--ink-soft);
+  }
+  .weightage-group{margin-bottom:26px;}
+
+  /* plan phases */
+  .phase{
+    border:1.5px solid var(--ink);
+    margin-bottom:22px;
+  }
+  .phase-head{
+    background:var(--ink);
+    color:var(--white);
+    padding:10px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .phase-head h3{color:var(--white); margin:0; font-size:17px;}
+  .phase-head span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    background:var(--stamp);
+    padding:3px 9px;
+  }
+  .phase-body{padding:16px 18px;}
+  table.plan{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+  }
+  table.plan th, table.plan td{
+    border:1px solid var(--line);
+    padding:8px 10px;
+    vertical-align:top;
+    text-align:left;
+  }
+  table.plan th{
+    background:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    font-size:11.5px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+
+  .daily-hours{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:16px 0 6px;
+  }
+  @media (max-width:680px){.daily-hours{grid-template-columns:1fr 1fr;}}
+  .hour-card{
+    text-align:center;
+    border:1px dashed var(--line);
+    padding:14px 8px;
+    background:var(--paper);
+  }
+  .hour-card .big{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:22px;
+    color:var(--stamp);
+    font-weight:600;
+  }
+  .hour-card .sm{font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em;}
+
+  footer{
+    max-width:1040px;
+    margin:0 auto 60px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:0 20px;
+  }
+  footer .stamp-line{
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card-header">
+  <div class="eyebrow-row">
+    <div>
+      <span class="eyebrow">Preparation Dossier · Combined Graduate Level</span>
+      <h1>SSC CGL 2026</h1>
+      <p class="sub">Complete Tier&nbsp;1 + Tier&nbsp;2 syllabus, previous-year topic weightage, and one combined study plan built around where the marks actually come from.</p>
+    </div>
+    <svg class="seal" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="#a3382a" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#a3382a" stroke-width="1"/>
+      <path id="sealcircle" fill="none" d="M60,60 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/>
+      <text font-family="IBM Plex Mono, monospace" font-size="8.4" fill="#a3382a" letter-spacing="2">
+        <textPath href="#sealcircle" startOffset="2%">SYLLABUS • WEIGHTAGE • STUDY PLAN •</textPath>
+      </text>
+      <text x="60" y="56" text-anchor="middle" font-family="Spectral, serif" font-weight="700" font-size="15" fill="#182849">SSC</text>
+      <text x="60" y="72" text-anchor="middle" font-family="Spectral, serif" font-weight="700" font-size="15" fill="#182849">CGL</text>
+    </svg>
+  </div>
+
+  <div class="stat-strip">
+    <div><div class="num">100 / 200</div><div class="lbl">Tier 1 — Questions / Marks</div></div>
+    <div><div class="num">60 min</div><div class="lbl">Tier 1 duration, 15 min/section</div></div>
+    <div><div class="num">450</div><div class="lbl">Tier 2 Paper 1 total marks</div></div>
+    <div><div class="num">Tier 2</div><div class="lbl">Decides final merit &amp; rank</div></div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <button class="tab-btn active" data-tab="pattern">01 · Exam Pattern</button>
+  <button class="tab-btn" data-tab="tier1">02 · Tier 1 Syllabus</button>
+  <button class="tab-btn" data-tab="tier2">03 · Tier 2 Syllabus</button>
+  <button class="tab-btn" data-tab="weightage">04 · Weightage Analysis</button>
+  <button class="tab-btn" data-tab="plan">05 · Study Plan</button>
+</div>
+
+<main>
+
+  <!-- PANEL 1: PATTERN -->
+  <div class="panel active" id="panel-pattern">
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">1.1</span>Tier 1 — Screening Stage</h2>
+      <table class="pattern">
+        <caption>Computer-based test · qualifying only, marks not counted toward final merit</caption>
+        <tr><th>Section</th><th>Questions</th><th>Marks</th><th>Time</th></tr>
+        <tr><td>General Intelligence &amp; Reasoning</td><td>25</td><td>50</td><td rowspan="4" style="vertical-align:middle">60 minutes total<br><span class="mono" style="font-size:12px;color:var(--ink-soft)">15 min sectional lock/subject</span></td></tr>
+        <tr><td>General Awareness</td><td>25</td><td>50</td></tr>
+        <tr><td>Quantitative Aptitude</td><td>25</td><td>50</td></tr>
+        <tr><td>English Comprehension</td><td>25</td><td>50</td></tr>
+        <tr><th>Total</th><th>100</th><th>200</th><th></th></tr>
+      </table>
+      <p class="note">Negative marking: −0.50 per wrong answer. Sectional timing means you cannot borrow time from a strong subject to rescue a weak one — each 25-question block gets its own 15-minute clock.</p>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">1.2</span>Tier 2 — Selection Stage</h2>
+      <table class="pattern">
+        <caption>Paper 1 is compulsory for every post; Papers 2 and 3 apply only to specific posts</caption>
+        <tr><th>Paper</th><th>Who takes it</th><th>Content</th><th>Marks</th></tr>
+        <tr>
+          <td>Paper 1 — Section I</td><td>All candidates</td>
+          <td>Mathematical Abilities (30Q) + Reasoning &amp; General Intelligence (30Q)</td>
+          <td>180</td>
+        </tr>
+        <tr>
+          <td>Paper 1 — Section II</td><td>All candidates</td>
+          <td>English Language &amp; Comprehension (45Q) + General Awareness (25Q)</td>
+          <td>210</td>
+        </tr>
+        <tr>
+          <td>Paper 1 — Section III</td><td>All candidates</td>
+          <td>Computer Knowledge (qualifying) + Data Entry Speed Test (qualifying)</td>
+          <td>60 (CBT part)</td>
+        </tr>
+        <tr>
+          <td>Paper 2</td><td>Junior Statistical Officer (JSO) only</td>
+          <td>Statistics — 100 questions</td>
+          <td>200</td>
+        </tr>
+        <tr>
+          <td>Paper 3</td><td>Assistant Audit / Accounts Officer (AAO) only</td>
+          <td>Finance &amp; Accounts + Economics &amp; Governance — 100 questions</td>
+          <td>200</td>
+        </tr>
+      </table>
+      <p class="note">Negative marking in Tier 2 Paper 1 is a full −1 mark per wrong answer — noticeably stricter than Tier 1. Every section of Paper 1 must be individually cleared; a strong Maths score cannot offset a failed English section.</p>
+    </section>
+
+    <section class="block">
+      <h3 class="sub-title">Why this matters for planning</h3>
+      <p>Tier 1 treats all four subjects as equals — 25 marks each. Tier 2 does not: English &amp; Comprehension alone carries 135 of the 390 scored marks in Paper 1, more than Maths and Reasoning combined with GA. A combined study plan should build breadth for Tier 1 first, then tilt hard toward English depth and advanced Maths for Tier 2.</p>
+    </section>
+  </div>
+
+  <!-- PANEL 2: TIER 1 -->
+  <div class="panel" id="panel-tier1">
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">2.1</span>Tier 1 Syllabus — Subject by Subject</h2>
+      <div class="subject-grid">
+
+        <div class="subject-card" data-tag="25 Q / 50 M">
+          <h4>Quantitative Aptitude</h4>
+          <ul>
+            <li>Number system, simplification, HCF/LCM <span class="weight-pill w-mid">steady</span></li>
+            <li>Percentage, ratio &amp; proportion <span class="weight-pill w-high">high</span></li>
+            <li>Profit, loss &amp; discount <span class="weight-pill w-high">high</span></li>
+            <li>Simple &amp; compound interest <span class="weight-pill w-mid">steady</span></li>
+            <li>Time, speed &amp; distance; time &amp; work <span class="weight-pill w-mid">steady</span></li>
+            <li>Average, mixture &amp; alligation</li>
+            <li>Mensuration (2D &amp; 3D)</li>
+            <li>Geometry — lines, triangles, circles <span class="weight-pill w-high">high</span></li>
+            <li>Algebra — basic identities, equations <span class="weight-pill w-high">high</span></li>
+            <li>Trigonometry &amp; heights/distances</li>
+            <li>Data interpretation — tables, bar &amp; pie charts</li>
+          </ul>
+        </div>
+
+        <div class="subject-card" data-tag="25 Q / 50 M">
+          <h4>General Intelligence &amp; Reasoning</h4>
+          <ul>
+            <li>Analogy &amp; classification <span class="weight-pill w-high">high</span></li>
+            <li>Series — number, alphabet, figure <span class="weight-pill w-high">high</span></li>
+            <li>Coding–decoding</li>
+            <li>Blood relations &amp; direction sense</li>
+            <li>Syllogism &amp; statement–conclusion <span class="weight-pill w-mid">steady</span></li>
+            <li>Venn diagrams &amp; figure counting</li>
+            <li>Non-verbal: mirror &amp; water images, paper folding</li>
+            <li>Matrix &amp; word formation</li>
+            <li>Sitting arrangement &amp; puzzles <span class="weight-pill w-mid">steady</span></li>
+          </ul>
+        </div>
+
+        <div class="subject-card" data-tag="25 Q / 50 M">
+          <h4>English Comprehension</h4>
+          <ul>
+            <li>Error detection &amp; sentence improvement <span class="weight-pill w-high">high</span></li>
+            <li>Fill in the blanks &amp; cloze passage <span class="weight-pill w-high">high</span></li>
+            <li>Synonyms, antonyms &amp; homonyms</li>
+            <li>One-word substitution</li>
+            <li>Idioms &amp; phrases</li>
+            <li>Spelling / misspelt word correction</li>
+            <li>Active–passive voice; direct–indirect speech</li>
+            <li>Sentence rearrangement (jumbled words/sentences)</li>
+            <li>Reading comprehension <span class="weight-pill w-high">high</span></li>
+          </ul>
+        </div>
+
+        <div class="subject-card" data-tag="25 Q / 50 M">
+          <h4>General Awareness</h4>
+          <ul>
+            <li>Current affairs — last 6–12 months <span class="weight-pill w-high">high</span></li>
+            <li>Static GK: books, awards, important days</li>
+            <li>History — freedom movement, ancient/medieval highlights</li>
+            <li>Geography — India-focused, physical &amp; economic</li>
+            <li>Polity — Constitution, governance bodies</li>
+            <li>Economy — basic concepts, budget, schemes</li>
+            <li>General science — physics, chemistry, biology basics <span class="weight-pill w-mid">steady</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL 3: TIER 2 -->
+  <div class="panel" id="panel-tier2">
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">3.1</span>Paper 1 — Compulsory for Every Post</h2>
+      <div class="subject-grid">
+        <div class="subject-card" data-tag="30 Q / 90 M">
+          <h4>Mathematical Abilities</h4>
+          <ul>
+            <li>Same base topics as Tier 1 Quant, at a deeper, more calculation-heavy level</li>
+            <li>Advanced algebra &amp; polynomial identities <span class="weight-pill w-high">high</span></li>
+            <li>Geometry &amp; coordinate geometry <span class="weight-pill w-high">high</span></li>
+            <li>Trigonometry incl. heights &amp; distances <span class="weight-pill w-mid">steady</span></li>
+            <li>Mensuration — 3D solids in more depth</li>
+            <li>Data interpretation — multi-step, comparative</li>
+            <li>Statistics &amp; probability basics <span class="weight-pill w-mid">rising</span></li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="30 Q / 90 M">
+          <h4>Reasoning &amp; General Intelligence</h4>
+          <ul>
+            <li>All Tier 1 reasoning topics, longer and more layered puzzles</li>
+            <li>Verbal reasoning: syllogism, statement-conclusion <span class="weight-pill w-mid">steady</span></li>
+            <li>Non-verbal reasoning: series, mirror/water images</li>
+            <li>Higher-order puzzles &amp; seating arrangement <span class="weight-pill w-high">high</span></li>
+            <li>Data sufficiency &amp; logical Venn diagrams</li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="45 Q / 135 M">
+          <h4>English Language &amp; Comprehension</h4>
+          <ul>
+            <li>Grammar &amp; vocabulary — the largest single weight block in Tier 2 <span class="weight-pill w-high">highest</span></li>
+            <li>Cloze test &amp; para-jumbles</li>
+            <li>Reading comprehension — longer passages, more of them <span class="weight-pill w-high">high</span></li>
+            <li>Error spotting &amp; sentence improvement</li>
+            <li>One-word substitution, idioms, phrasal verbs</li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="25 Q / 75 M">
+          <h4>General Awareness</h4>
+          <ul>
+            <li>Same domains as Tier 1, with more static/factual depth</li>
+            <li>Current affairs, 8–10 months prior to exam <span class="weight-pill w-mid">steady</span></li>
+            <li>Schemes, appointments, awards, sports</li>
+            <li>Economic &amp; scientific developments in the news</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title" style="margin-top:24px;">Section III — Qualifying Modules</h3>
+      <div class="subject-grid">
+        <div class="subject-card" data-tag="Module I">
+          <h4>Computer Knowledge Test</h4>
+          <ul>
+            <li>Computer basics, hardware &amp; software</li>
+            <li>MS Office (Word, Excel, PowerPoint)</li>
+            <li>Internet, email, networking basics</li>
+            <li>Basic cyber security &amp; abbreviations</li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0;">Qualifying only — must clear, doesn't add to merit marks.</p>
+        </div>
+        <div class="subject-card" data-tag="Module II">
+          <h4>Data Entry Speed Test (DEST)</h4>
+          <ul>
+            <li>Typing a given passage on computer within a fixed time</li>
+            <li>Assessed on speed, not on multiple-choice marks</li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0;">Qualifying only. Practise typing speed weekly — this is a habit, not a topic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">3.2</span>Paper 2 &amp; Paper 3 — Post-Specific</h2>
+      <div class="subject-grid">
+        <div class="subject-card" data-tag="JSO · 100 Q / 200 M">
+          <h4>Paper 2 — Statistics</h4>
+          <ul>
+            <li>Collection, classification &amp; presentation of data</li>
+            <li>Measures of central tendency &amp; dispersion</li>
+            <li>Correlation &amp; regression</li>
+            <li>Probability theory &amp; random variables</li>
+            <li>Sampling theory &amp; statistical inference</li>
+            <li>Analysis of variance, time series</li>
+            <li>Index numbers</li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="AAO · 100 Q / 200 M">
+          <h4>Paper 3 — Finance, Accounts &amp; Economics</h4>
+          <ul>
+            <li>Basic accounting principles &amp; financial statements</li>
+            <li>Fundamentals of auditing</li>
+            <li>Economic concepts — demand, supply, markets</li>
+            <li>Indian economy &amp; government finance</li>
+            <li>Role of government: budgeting, fiscal policy</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Only attempt Paper 2 or Paper 3 if you're targeting JSO or AAO posts specifically. For most other posts, mastering Paper 1 is the entire Tier 2 job.</p>
+    </section>
+  </div>
+
+  <!-- PANEL 4: WEIGHTAGE -->
+  <div class="panel" id="panel-weightage">
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">4.1</span>Topic-Wise Weightage — Previous Papers</h2>
+      <p class="note">SSC does not publish an official topic-wise weightage. The figures below are approximate question counts derived from analysis of recent SSC CGL papers, meant to guide priority — not a guaranteed distribution for the next exam.</p>
+
+      <div class="weightage-group">
+        <h3 class="sub-title">Tier 1 — Quantitative Aptitude (out of 25)</h3>
+        <div class="wbar-row"><div>Percentage, Ratio, Profit &amp; Loss</div><div class="wbar-track"><div class="wbar-fill" style="width:88%"></div></div><div class="wbar-num">5–6 Q</div></div>
+        <div class="wbar-row"><div>Geometry &amp; Mensuration</div><div class="wbar-track"><div class="wbar-fill" style="width:80%"></div></div><div class="wbar-num">4–5 Q</div></div>
+        <div class="wbar-row"><div>Algebra</div><div class="wbar-track"><div class="wbar-fill" style="width:64%"></div></div><div class="wbar-num">3–4 Q</div></div>
+        <div class="wbar-row"><div>SI/CI, Time &amp; Work, Speed</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">3 Q</div></div>
+        <div class="wbar-row"><div>Trigonometry</div><div class="wbar-track"><div class="wbar-fill" style="width:40%"></div></div><div class="wbar-num">2 Q</div></div>
+        <div class="wbar-row"><div>Number system &amp; DI</div><div class="wbar-track"><div class="wbar-fill" style="width:40%"></div></div><div class="wbar-num">2 Q</div></div>
+      </div>
+
+      <div class="weightage-group">
+        <h3 class="sub-title">Tier 1 — Reasoning (out of 25)</h3>
+        <div class="wbar-row"><div>Analogy, Classification, Series</div><div class="wbar-track"><div class="wbar-fill" style="width:84%"></div></div><div class="wbar-num">5 Q</div></div>
+        <div class="wbar-row"><div>Puzzles &amp; seating arrangement</div><div class="wbar-track"><div class="wbar-fill" style="width:64%"></div></div><div class="wbar-num">3–4 Q</div></div>
+        <div class="wbar-row"><div>Coding–decoding, blood relations</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">3 Q</div></div>
+        <div class="wbar-row"><div>Syllogism &amp; Venn diagrams</div><div class="wbar-track"><div class="wbar-fill" style="width:48%"></div></div><div class="wbar-num">2–3 Q</div></div>
+        <div class="wbar-row"><div>Non-verbal (mirror/water/folding)</div><div class="wbar-track"><div class="wbar-fill" style="width:40%"></div></div><div class="wbar-num">2 Q</div></div>
+      </div>
+
+      <div class="weightage-group">
+        <h3 class="sub-title">Tier 1 — English (out of 25)</h3>
+        <div class="wbar-row"><div>Error detection &amp; improvement</div><div class="wbar-track"><div class="wbar-fill" style="width:80%"></div></div><div class="wbar-num">4–5 Q</div></div>
+        <div class="wbar-row"><div>Fill blanks &amp; cloze test</div><div class="wbar-track"><div class="wbar-fill" style="width:72%"></div></div><div class="wbar-num">4 Q</div></div>
+        <div class="wbar-row"><div>Reading comprehension</div><div class="wbar-track"><div class="wbar-fill" style="width:64%"></div></div><div class="wbar-num">3–4 Q</div></div>
+        <div class="wbar-row"><div>Synonyms/antonyms, one-word sub</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">3 Q</div></div>
+        <div class="wbar-row"><div>Idioms, spelling, rearrangement</div><div class="wbar-track"><div class="wbar-fill" style="width:48%"></div></div><div class="wbar-num">2–3 Q</div></div>
+      </div>
+
+      <div class="weightage-group">
+        <h3 class="sub-title">Tier 1 — General Awareness (out of 25)</h3>
+        <div class="wbar-row"><div>Current affairs</div><div class="wbar-track"><div class="wbar-fill" style="width:88%"></div></div><div class="wbar-num">5–8 Q</div></div>
+        <div class="wbar-row"><div>History &amp; Polity</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">3–4 Q</div></div>
+        <div class="wbar-row"><div>Geography &amp; Economy</div><div class="wbar-track"><div class="wbar-fill" style="width:48%"></div></div><div class="wbar-num">3 Q</div></div>
+        <div class="wbar-row"><div>General Science</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">3–4 Q</div></div>
+      </div>
+
+      <div class="weightage-group">
+        <h3 class="sub-title">Tier 2 Paper 1 — Section-Level Marks Share</h3>
+        <div class="wbar-row"><div>English (45 Q)</div><div class="wbar-track"><div class="wbar-fill" style="width:100%"></div></div><div class="wbar-num">135 M</div></div>
+        <div class="wbar-row"><div>Maths (30 Q)</div><div class="wbar-track"><div class="wbar-fill" style="width:67%"></div></div><div class="wbar-num">90 M</div></div>
+        <div class="wbar-row"><div>Reasoning (30 Q)</div><div class="wbar-track"><div class="wbar-fill" style="width:67%"></div></div><div class="wbar-num">90 M</div></div>
+        <div class="wbar-row"><div>General Awareness (25 Q)</div><div class="wbar-track"><div class="wbar-fill" style="width:56%"></div></div><div class="wbar-num">75 M</div></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h3 class="sub-title">Priority Buckets, at a Glance</h3>
+      <div class="subject-grid">
+        <div class="subject-card" data-tag="Master first">
+          <h4><span class="weight-pill w-high">High priority</span></h4>
+          <ul>
+            <li>Geometry &amp; Mensuration</li>
+            <li>Algebra</li>
+            <li>Reading Comprehension</li>
+            <li>Error Detection / Sentence Improvement</li>
+            <li>Current Affairs (rolling, last 6–10 months)</li>
+            <li>Puzzles &amp; Seating Arrangement</li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="Keep steady">
+          <h4><span class="weight-pill w-mid">Medium priority</span></h4>
+          <ul>
+            <li>Profit &amp; Loss, SI/CI, Time &amp; Work</li>
+            <li>Coding-decoding, Blood Relations</li>
+            <li>Cloze Test, Synonyms/Antonyms</li>
+            <li>General Science</li>
+            <li>Statistics &amp; Probability basics (Tier 2)</li>
+          </ul>
+        </div>
+        <div class="subject-card" data-tag="Don't skip, spend less">
+          <h4><span class="weight-pill w-low">Lower priority</span></h4>
+          <ul>
+            <li>Partnership, Boats &amp; Streams</li>
+            <li>Non-verbal reasoning (mirror/water)</li>
+            <li>World Geography (non-India)</li>
+            <li>Static miscellaneous GK (books/awards)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL 5: STUDY PLAN -->
+  <div class="panel" id="panel-plan">
+    <section class="block">
+      <h2 class="block-title"><span class="clause-num">5.1</span>Combined 16-Week Study Plan</h2>
+      <p>Built around a single principle: study Tier 1 and Tier 2 as one syllabus, not two exams. Tier 2 tests the same four subjects at a harder level, so early weeks build the base both stages need, and later weeks tilt toward what only Tier 2 rewards — deep English and advanced Maths.</p>
+
+      <div class="daily-hours">
+        <div class="hour-card"><div class="big">3–4 hrs</div><div class="sm">Working / studying candidates</div></div>
+        <div class="hour-card"><div class="big">6–7 hrs</div><div class="sm">Full-time preparation</div></div>
+        <div class="hour-card"><div class="big">6 days</div><div class="sm">Study days per week</div></div>
+        <div class="hour-card"><div class="big">1 day</div><div class="sm">Weekly full mock + review</div></div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><h3>Phase 1 — Foundation</h3><span>Weeks 1–4</span></div>
+        <div class="phase-body">
+          <table class="plan">
+            <tr><th>Focus</th><th>What to cover</th><th>Why</th></tr>
+            <tr><td>Quant basics</td><td>Number system, percentage, ratio, profit &amp; loss, SI/CI</td><td>These feed almost every later Maths topic in both tiers</td></tr>
+            <tr><td>Reasoning basics</td><td>Analogy, classification, series, coding-decoding</td><td>High Tier 1 weightage, quick to learn, fast marks</td></tr>
+            <tr><td>English grammar</td><td>Tenses, articles, prepositions, error spotting basics</td><td>Grammar rules are reused in every English question type ahead</td></tr>
+            <tr><td>GA — static base</td><td>Polity basics, Indian history timeline, geography of India</td><td>Static GK compounds slowly; start early to avoid cramming</td></tr>
+            <tr><td>Daily habit</td><td>Start a running current-affairs notebook, 20 min/day</td><td>Current affairs is the single highest-yield GA topic</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><h3>Phase 2 — High-Weightage Depth</h3><span>Weeks 5–8</span></div>
+        <div class="phase-body">
+          <table class="plan">
+            <tr><th>Focus</th><th>What to cover</th><th>Why</th></tr>
+            <tr><td>Advanced Maths</td><td>Geometry, mensuration, algebra, trigonometry basics</td><td>Highest-weightage Maths block across both tiers</td></tr>
+            <tr><td>Reasoning — puzzles</td><td>Seating arrangement, syllogism, Venn diagrams, blood relations</td><td>Second-highest scoring cluster; needs practice reps, not theory</td></tr>
+            <tr><td>English — comprehension</td><td>Reading comprehension technique, cloze test, para-jumbles</td><td>Prepares directly for Tier 2's much heavier English section</td></tr>
+            <tr><td>GA — current affairs</td><td>Weekly compilation review; schemes, appointments, awards</td><td>Refresh before it goes stale by exam day</td></tr>
+            <tr><td>Practice</td><td>Start topic-wise timed quizzes (15 min/quiz)</td><td>Builds the sectional-timing discipline Tier 1 demands</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><h3>Phase 3 — Tier 2 Tilt</h3><span>Weeks 9–12</span></div>
+        <div class="phase-body">
+          <table class="plan">
+            <tr><th>Focus</th><th>What to cover</th><th>Why</th></tr>
+            <tr><td>English depth</td><td>Vocabulary building, idioms, advanced grammar, longer passages</td><td>English is 135/390 marks in Tier 2 Paper 1 — the single biggest lever</td></tr>
+            <tr><td>Advanced Maths II</td><td>Coordinate geometry, data interpretation, statistics &amp; probability basics</td><td>Tier 2-only depth that Tier 1 barely touches</td></tr>
+            <tr><td>Reasoning — higher order</td><td>Data sufficiency, layered puzzles, logical Venn diagrams</td><td>Tier 2 reasoning questions run longer and stack multiple conditions</td></tr>
+            <tr><td>Computer knowledge</td><td>MS Office, internet basics, hardware/software terms</td><td>Qualifying module — clear it early, don't leave to the last week</td></tr>
+            <tr><td>Typing practice</td><td>10–15 min/day on a typing tool</td><td>DEST is a speed habit that needs weeks, not days, to build</td></tr>
+            <tr><td>If targeting JSO/AAO</td><td>Begin Statistics or Finance &amp; Economics syllabus in parallel</td><td>These are separate 200-mark papers needing dedicated runway</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><h3>Phase 4 — Mocks &amp; Revision</h3><span>Weeks 13–16</span></div>
+        <div class="phase-body">
+          <table class="plan">
+            <tr><th>Focus</th><th>What to cover</th><th>Why</th></tr>
+            <tr><td>Full-length mocks</td><td>2–3 Tier 1 mocks/week, alternating with Tier 2 Paper 1 mocks</td><td>Simulates real sectional timing and negative marking pressure</td></tr>
+            <tr><td>Error log review</td><td>Revisit every wrong answer from mocks; retest those topics</td><td>Highest-return activity in the final stretch</td></tr>
+            <tr><td>High-priority revision only</td><td>Geometry, algebra, comprehension, current affairs, puzzles</td><td>No time left to re-learn low-weightage topics from scratch</td></tr>
+            <tr><td>Speed &amp; accuracy drills</td><td>Timed sectional quizzes at Tier 1 and Tier 2 difficulty</td><td>Marks lost to slow solving are the easiest marks to recover</td></tr>
+            <tr><td>Final week</td><td>Light revision, sleep schedule, mock review only — no new topics</td><td>Protects accuracy and composure on exam day</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h3 class="sub-title">Weekly Rhythm (Any Phase)</h3>
+      <table class="pattern">
+        <tr><th>Day</th><th>Suggested Focus</th></tr>
+        <tr><td>Mon – Tue</td><td>Quant: new topic + practice set</td></tr>
+        <tr><td>Wed – Thu</td><td>Reasoning + English, alternating days</td></tr>
+        <tr><td>Fri</td><td>General Awareness + current affairs consolidation</td></tr>
+        <tr><td>Sat</td><td>Full or sectional mock test</td></tr>
+        <tr><td>Sun</td><td>Mock review, error log, light revision</td></tr>
+      </table>
+      <p class="note">Disclaimer: SSC does not publish an official weightage breakdown. The priorities and figures here are drawn from analysis of recent previous-year papers and are meant to guide time allocation — treat the full syllabus as required, and revalidate details against the official SSC CGL notification and syllabus PDF at ssc.gov.in.</p>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="stamp-line">
+    Built for exam planning purposes · Always cross-check dates, marks and syllabus against the official SSC CGL notification at <strong>ssc.gov.in</strong> before finalising your strategy.
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+      window.scrollTo({top: document.querySelector('.tabs-wrap').offsetTop - 10, behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>

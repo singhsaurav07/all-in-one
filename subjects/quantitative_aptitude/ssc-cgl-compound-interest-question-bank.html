@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest — SSC CGL Question Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3E7;
+    --paper-raised:#FFFFFF;
+    --ink:#1C2B45;
+    --ink-soft:#4A5872;
+    --rule:#D9D0BC;
+    --gold:#B9860B;
+    --gold-soft:#F0E3BE;
+    --easy:#3F7D58;
+    --easy-bg:#E4F0E8;
+    --medium:#B9860B;
+    --medium-bg:#F6ECD0;
+    --hard:#A6403D;
+    --hard-bg:#F5E0DD;
+    --stamp:#A6403D;
+    --correct:#2E7D46;
+    --wrong:#B0413E;
+    --radius:10px;
+    --shadow: 0 1px 2px rgba(28,43,69,.06), 0 6px 18px rgba(28,43,69,.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  h1,h2,h3{font-family:'Fraunces',serif; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:56px 24px 40px;
+    max-width:1100px;
+    margin:0 auto;
+    border-bottom:1px solid var(--rule);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;background:var(--gold);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(32px,5vw,52px);
+    font-weight:700;
+    color:var(--ink);
+    max-width:820px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+    position:relative;
+  }
+  .hero p.lead{
+    max-width:640px;
+    margin-top:16px;
+    font-size:16.5px;
+    color:var(--ink-soft);
+  }
+  .stat-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:32px;
+  }
+  .stat-card{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:14px 20px;
+    min-width:140px;
+    box-shadow:var(--shadow);
+  }
+  .stat-card .num{
+    font-family:'Fraunces',serif;
+    font-size:28px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .stat-card .lbl{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:2px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  .stat-card.gold .num{color:var(--gold);}
+
+  /* ---------- TOP NAV ---------- */
+  .top-nav{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:var(--ink);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .top-nav-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:11px 24px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .top-nav-brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--gold);
+    white-space:nowrap;
+    letter-spacing:.01em;
+  }
+  .top-nav-links{
+    display:flex;
+    gap:8px;
+    flex:1;
+  }
+  .nav-btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    color:rgba(255,255,255,.72);
+    background:transparent;
+    border:1px solid rgba(255,255,255,.16);
+    padding:7px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:background .15s, color .15s, border-color .15s;
+    white-space:nowrap;
+  }
+  .nav-btn .nav-ico{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    opacity:.85;
+  }
+  .nav-btn:hover{
+    border-color:var(--gold);
+    color:#fff;
+  }
+  .nav-btn.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+  }
+  .nav-btn.active .nav-ico{opacity:1;}
+  .nav-btn-top{
+    color:rgba(255,255,255,.5);
+    border-color:transparent;
+    padding:7px 10px;
+    display:none;
+  }
+  .nav-btn-top:hover{color:#fff;}
+  .nav-btn-top.show{display:inline-flex;}
+  .jump-to-questions{
+    display:flex;
+    justify-content:center;
+    margin-top:32px;
+  }
+  .nav-btn-cta{
+    background:var(--ink);
+    color:#fff;
+    border-color:var(--ink);
+    padding:11px 22px;
+    font-size:13.5px;
+  }
+  .nav-btn-cta:hover{background:#101c30; color:#fff;}
+  #formula-sheet, #question-bank{scroll-margin-top:64px;}
+
+  /* ---------- SECTION WRAPPER ---------- */
+  .section{
+    max-width:1100px;
+    margin:0 auto;
+    padding:48px 24px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:12px;
+  }
+  .section-head h2{font-size:26px;}
+  .section-head .tag-note{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .btn-toggle-formula{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink);
+    background:var(--gold-soft);
+    border:1.5px solid var(--gold);
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:background .15s;
+  }
+  .btn-toggle-formula:hover{background:#ecd99a;}
+  .btn-toggle-formula .chevron{
+    font-size:11px;
+    transition:transform .2s;
+    display:inline-block;
+  }
+  .btn-toggle-formula.open .chevron{transform:rotate(180deg);}
+  .formula-body{
+    display:none;
+    margin-top:22px;
+  }
+  .formula-body.open{display:block;}
+
+  /* ---------- FORMULA SHEET ---------- */
+  .formula-sheet-intro{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    max-width:720px;
+    margin:-8px 0 28px;
+  }
+  .formula-group{margin-bottom:34px;}
+  .formula-group:last-child{margin-bottom:0;}
+  .formula-group-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .formula-group-num{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:15px;
+    color:#fff;
+    background:var(--ink);
+    width:28px; height:28px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .formula-group-head h3{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .formula-group-head .grp-sub{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+    margin-left:auto;
+    white-space:nowrap;
+  }
+  .formula-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:16px;
+  }
+  .formula-card{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--gold);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+  }
+  .formula-card .fc-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .formula-card h4{
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.3;
+  }
+  .formula-card .use-when{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--gold);
+    background:var(--gold-soft);
+    padding:3px 8px;
+    border-radius:20px;
+    white-space:nowrap;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .formula-card .f{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15.5px;
+    font-weight:600;
+    background:var(--gold-soft);
+    color:#5c4207;
+    padding:10px 12px;
+    border-radius:6px;
+    margin-bottom:10px;
+    word-break:break-word;
+    line-height:1.4;
+  }
+  .formula-card .f small{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:11.5px;
+    color:#8a6a1a;
+    margin-top:3px;
+  }
+  .formula-card .explain{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+    line-height:1.55;
+  }
+  .formula-card .example-box{
+    margin-top:auto;
+    background:var(--paper);
+    border:1px dashed var(--rule);
+    border-radius:8px;
+    padding:10px 12px;
+    font-size:12.5px;
+    color:var(--ink);
+  }
+  .formula-card .example-box .ex-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--easy);
+    font-weight:700;
+    margin-bottom:4px;
+    display:block;
+  }
+  .formula-card .tip-line{
+    font-size:12px;
+    color:var(--gold);
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid var(--rule);
+    display:flex;
+    gap:6px;
+  }
+  .formula-card .tip-line::before{content:"💡"; flex-shrink:0;}
+
+  /* ---------- FILTER BAR ---------- */
+  .filter-bar{
+    position:sticky;
+    top:48px;
+    z-index:20;
+    background:rgba(247,243,231,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+    padding:14px 24px;
+  }
+  .filter-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .filter-inner select, .filter-inner input[type="search"]{
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    padding:8px 12px;
+    border-radius:8px;
+    border:1px solid var(--rule);
+    background:var(--paper-raised);
+    color:var(--ink);
+  }
+  .filter-inner input[type="search"]{min-width:200px; flex:1;}
+  .toggle-chip{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    padding:7px 12px;
+    border-radius:20px;
+    border:1px solid var(--rule);
+    background:var(--paper-raised);
+    cursor:pointer;
+    user-select:none;
+    color:var(--ink-soft);
+  }
+  .toggle-chip input{accent-color:var(--gold);}
+  .toggle-chip.active{
+    border-color:var(--stamp);
+    color:var(--stamp);
+    background:var(--hard-bg);
+  }
+  .result-count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  /* ---------- QUESTION CARD ---------- */
+  #q-list{display:flex; flex-direction:column; gap:18px;}
+  .qcard{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:14px;
+    padding:22px 24px 20px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .qcard-top{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:10px;
+  }
+  .qnum{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:20px;
+    color:var(--gold);
+    min-width:42px;
+  }
+  .qmeta{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+  .badge{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    padding:3px 9px;
+    border-radius:20px;
+    font-weight:600;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  .badge.diff-easy{color:var(--easy); background:var(--easy-bg);}
+  .badge.diff-medium{color:var(--medium); background:var(--medium-bg);}
+  .badge.diff-hard{color:var(--hard); background:var(--hard-bg);}
+  .badge.cat{color:var(--ink-soft); background:#EFEADA; }
+  .stamp-badge{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    color:#fff;
+    background:var(--stamp);
+    padding:3px 10px;
+    border-radius:20px;
+    letter-spacing:.03em;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+  }
+  .stamp-badge::before{content:"✓";}
+  .qtext{
+    font-size:16px;
+    color:var(--ink);
+    margin:6px 0 16px;
+    line-height:1.55;
+  }
+  .options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  @media(max-width:560px){ .options{grid-template-columns:1fr;} }
+  .opt{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border:1px solid var(--rule);
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14.5px;
+    background:var(--paper);
+    transition:border-color .15s, background .15s;
+  }
+  .opt:hover{border-color:var(--gold);}
+  .opt .bub{
+    width:24px; height:24px;
+    border-radius:50%;
+    border:1.5px solid var(--ink-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    flex-shrink:0;
+    color:var(--ink-soft);
+  }
+  .opt.selected{border-color:var(--ink); background:var(--gold-soft);}
+  .opt.selected .bub{border-color:var(--ink); background:var(--ink); color:#fff;}
+  .opt.reveal-correct{border-color:var(--correct); background:var(--easy-bg);}
+  .opt.reveal-correct .bub{background:var(--correct); border-color:var(--correct); color:#fff;}
+  .opt.reveal-wrong{border-color:var(--wrong); background:var(--hard-bg);}
+  .opt.reveal-wrong .bub{background:var(--wrong); border-color:var(--wrong); color:#fff;}
+
+  .qfoot{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .btn-reveal{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    padding:9px 16px;
+    border-radius:8px;
+    border:1.5px solid var(--ink);
+    background:var(--ink);
+    color:#fff;
+    cursor:pointer;
+  }
+  .btn-reveal:hover{background:#101c30;}
+  .btn-reveal.is-open{background:var(--paper-raised); color:var(--ink);}
+
+  .answer-panel{
+    display:none;
+    margin-top:14px;
+    padding:14px 16px;
+    background:#FBF8F0;
+    border:1px dashed var(--gold);
+    border-radius:10px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .answer-panel.open{display:block;}
+  .answer-panel .ans-line{
+    font-weight:700;
+    color:var(--correct);
+    margin-bottom:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+  }
+
+  /* ---------- PAGINATION ---------- */
+  .pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    margin-top:30px;
+  }
+  .pagination button{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:9px 16px;
+    border-radius:8px;
+    border:1px solid var(--ink);
+    background:var(--paper-raised);
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .pagination button:disabled{opacity:.35; cursor:default;}
+  .pagination span{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft);}
+
+  .empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+
+  footer{
+    text-align:center;
+    padding:36px 24px 50px;
+    color:var(--ink-soft);
+    font-size:12.5px;
+    border-top:1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Quantitative Aptitude · SSC CGL Tier-I &amp; Tier-II</div>
+  <h1>Compound Interest — the <em>complete</em> question bank</h1>
+  <p class="lead" id="hero-lead">Exam-calibrated questions covering every pattern SSC CGL has tested — basic CI, half-yearly &amp; quarterly compounding, CI–SI differences, successive rates, instalment loans, and Tier-II level mixed problems. Answers and step-by-step explanations stay hidden until you tap to reveal them.</p>
+  <div class="stat-row">
+    <div class="stat-card"><div class="num" id="stat-total">–</div><div class="lbl">Total Questions</div></div>
+    <div class="stat-card gold"><div class="num" id="stat-asked">–</div><div class="lbl">Verified Exam Questions</div></div>
+    <div class="stat-card"><div class="num" id="stat-types">–</div><div class="lbl">Question Types</div></div>
+    <div class="stat-card"><div class="num">E · M · H</div><div class="lbl">Difficulty Spread</div></div>
+  </div>
+</div>
+
+<div class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <span class="top-nav-brand">CI · SSC CGL</span>
+    <div class="top-nav-links">
+      <button class="nav-btn" data-target="formula-sheet"><span class="nav-ico">∑</span> Formula Sheet</button>
+      <button class="nav-btn" data-target="question-bank"><span class="nav-ico">?</span> Question Bank</button>
+    </div>
+    <button class="nav-btn nav-btn-top" id="back-to-top" title="Back to top">↑ Top</button>
+  </div>
+</div>
+
+<div class="section" id="formula-sheet">
+  <div class="section-head">
+    <h2>Formula Sheet</h2>
+    <button class="btn-toggle-formula" id="formula-toggle">
+      <span id="formula-toggle-label">Show Formula Sheet</span>
+      <span class="chevron" id="formula-chevron">▾</span>
+    </button>
+  </div>
+  <p class="formula-sheet-intro">12 formulas, grouped by what they're <em>for</em> — from the core CI formula to reverse-engineering shortcuts — each with a worked example. Tap above to expand.</p>
+  <div id="formula-body" class="formula-body">
+    <div id="formula-groups"></div>
+    <div class="jump-to-questions">
+      <button class="nav-btn nav-btn-cta" data-target="question-bank">Jump to Question Bank →</button>
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar" id="question-bank">
+  <div class="filter-inner">
+    <select id="f-category"><option value="">All Categories</option></select>
+    <select id="f-difficulty">
+      <option value="">All Difficulty</option>
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    <label class="toggle-chip" id="f-asked-chip">
+      <input type="checkbox" id="f-asked"> Verified exam questions only
+    </label>
+    <input type="search" id="f-search" placeholder="Search keywords (e.g. half-yearly, instalment)…">
+    <span class="result-count" id="result-count">loading…</span>
+  </div>
+</div>
+
+<div class="section" style="padding-top:32px;">
+  <div id="q-list"></div>
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<footer>
+  Built for SSC CGL aspirants · Questions are pattern-matched to actual exam difficulty · Verified-exam questions are marked with a stamp badge and cite the sitting they were adapted from.
+</footer>
+
+<script>
+const QUESTIONS = [{"id": 1, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on a sum of ₹5,000 for 2 years at 10% per annum, interest being compounded annually.", "options": ["₹1,155", "₹1,000", "₹945", "₹1,050"], "answer": 3, "explanation": "A = P(1+R/100)^T = 5000×(1+10/100)^2 = ₹6,050. CI = A − P = ₹6,050 − ₹5,000 = ₹1,050."}, {"id": 2, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on a sum of ₹8,000 for 2 years at 5% per annum, interest being compounded annually.", "options": ["₹738", "₹902", "₹820", "₹800"], "answer": 2, "explanation": "A = P(1+R/100)^T = 8000×(1+5/100)^2 = ₹8,820. CI = A − P = ₹8,820 − ₹8,000 = ₹820."}, {"id": 3, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on a sum of ₹12,000 for 3 years at 10% per annum, interest being compounded annually.", "options": ["₹3,600", "₹3,574.80", "₹4,369.20", "₹3,972"], "answer": 3, "explanation": "A = P(1+R/100)^T = 12000×(1+10/100)^3 = ₹15,972. CI = A − P = ₹15,972 − ₹12,000 = ₹3,972."}, {"id": 4, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on a sum of ₹25,000 for 2 years at 8% per annum, interest being compounded annually.", "options": ["₹4,000", "₹4,576", "₹4,160", "₹3,744"], "answer": 2, "explanation": "A = P(1+R/100)^T = 25000×(1+8/100)^2 = ₹29,160. CI = A − P = ₹29,160 − ₹25,000 = ₹4,160."}, {"id": 5, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on a sum of ₹16,000 for 2 years at 15% per annum, interest being compounded annually.", "options": ["₹4,800", "₹5,676", "₹4,644", "₹5,160"], "answer": 3, "explanation": "A = P(1+R/100)^T = 16000×(1+15/100)^2 = ₹21,160. CI = A − P = ₹21,160 − ₹16,000 = ₹5,160."}, {"id": 6, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on a sum of ₹7,500 for 2 years at 20% per annum, interest being compounded annually.", "options": ["₹3,000", "₹2,970", "₹3,630", "₹3,300"], "answer": 3, "explanation": "A = P(1+R/100)^T = 7500×(1+20/100)^2 = ₹10,800. CI = A − P = ₹10,800 − ₹7,500 = ₹3,300."}, {"id": 7, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on a sum of ₹20,000 for 3 years at 12% per annum, interest being compounded annually.", "options": ["₹8,908.42", "₹7,200", "₹8,098.56", "₹7,288.70"], "answer": 2, "explanation": "A = P(1+R/100)^T = 20000×(1+12/100)^3 = ₹28,098.56. CI = A − P = ₹28,098.56 − ₹20,000 = ₹8,098.56."}, {"id": 8, "category": "Basic CI (Annual Compounding)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on a sum of ₹6,250 for 2 years at 4% per annum, interest being compounded annually.", "options": ["₹500", "₹459", "₹510", "₹561"], "answer": 2, "explanation": "A = P(1+R/100)^T = 6250×(1+4/100)^2 = ₹6,760. CI = A − P = ₹6,760 − ₹6,250 = ₹510."}, {"id": 9, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹10,000 for 1 year(s) at 20% per annum, compounded half-yearly.", "options": ["₹2,200", "₹2,000", "₹1,995", "₹2,100"], "answer": 3, "explanation": "Since interest is compounded half-yearly, rate per period = 10% and number of periods = 2. A = 10000×(1+10/100)^2 = ₹12,100. CI = ₹12,100 − ₹10,000 = ₹2,100."}, {"id": 10, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹8,000 for 1.5 year(s) at 10% per annum, compounded half-yearly.", "options": ["₹1,197.95", "₹1,341", "₹1,200", "₹1,261"], "answer": 3, "explanation": "Since interest is compounded half-yearly, rate per period = 5% and number of periods = 3. A = 8000×(1+5/100)^3 = ₹9,261. CI = ₹9,261 − ₹8,000 = ₹1,261."}, {"id": 11, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹40,000 for 1 year(s) at 8% per annum, compounded half-yearly.", "options": ["₹3,100.80", "₹3,200", "₹3,264", "₹3,664"], "answer": 2, "explanation": "Since interest is compounded half-yearly, rate per period = 4% and number of periods = 2. A = 40000×(1+4/100)^2 = ₹43,264. CI = ₹43,264 − ₹40,000 = ₹3,264."}, {"id": 12, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹16,000 for 2 year(s) at 10% per annum, compounded half-yearly.", "options": ["₹3,608.10", "₹3,275.69", "₹3,200", "₹3,448.10"], "answer": 3, "explanation": "Since interest is compounded half-yearly, rate per period = 5% and number of periods = 4. A = 16000×(1+5/100)^4 = ₹19,448.10. CI = ₹19,448.10 − ₹16,000 = ₹3,448.10."}, {"id": 13, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹5,000 for 1 year(s) at 12% per annum, compounded quarterly.", "options": ["₹627.54", "₹600", "₹596.16", "₹677.54"], "answer": 0, "explanation": "Since interest is compounded quarterly, rate per period = 3% and number of periods = 4. A = 5000×(1+3/100)^4 = ₹5,627.54. CI = ₹5,627.54 − ₹5,000 = ₹627.54."}, {"id": 14, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹20,000 for 0.5 year(s) at 8% per annum, compounded quarterly.", "options": ["₹767.60", "₹808", "₹1,008", "₹800"], "answer": 1, "explanation": "Since interest is compounded quarterly, rate per period = 2% and number of periods = 2. A = 20000×(1+2/100)^2 = ₹20,808. CI = ₹20,808 − ₹20,000 = ₹808."}, {"id": 15, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on ₹64,000 for 1 year(s) at 5% per annum, compounded half-yearly.", "options": ["₹3,200", "₹3,078", "₹3,880", "₹3,240"], "answer": 3, "explanation": "Since interest is compounded half-yearly, rate per period = 2.5% and number of periods = 2. A = 64000×(1+2.5/100)^2 = ₹67,240. CI = ₹67,240 − ₹64,000 = ₹3,240."}, {"id": 16, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹10,000 for 1 year(s) at 40% per annum, compounded quarterly.", "options": ["₹4,000", "₹4,408.95", "₹4,641", "₹4,741"], "answer": 2, "explanation": "Since interest is compounded quarterly, rate per period = 10% and number of periods = 4. A = 10000×(1+10/100)^4 = ₹14,641. CI = ₹14,641 − ₹10,000 = ₹4,641."}, {"id": 17, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹25,000 for 1 year(s) at 4% per annum, compounded quarterly.", "options": ["₹964.35", "₹1,265.10", "₹1,000", "₹1,015.10"], "answer": 3, "explanation": "Since interest is compounded quarterly, rate per period = 1% and number of periods = 4. A = 25000×(1+1/100)^4 = ₹26,015.10. CI = ₹26,015.10 − ₹25,000 = ₹1,015.10."}, {"id": 18, "category": "Half-Yearly & Quarterly Compounding", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹12,000 for 1.5 year(s) at 20% per annum, compounded half-yearly.", "options": ["₹3,972", "₹3,600", "₹4,092", "₹3,773.40"], "answer": 0, "explanation": "Since interest is compounded half-yearly, rate per period = 10% and number of periods = 3. A = 12000×(1+10/100)^3 = ₹15,972. CI = ₹15,972 − ₹12,000 = ₹3,972."}, {"category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern (based on a documented SSC CGL question)", "difficulty": "medium", "question": "The difference between the compound interest and the simple interest on a certain sum of money, denoted ₹x, at 9% per annum for 2 years is ₹20.25. Find the value of x.", "options": ["₹2,000", "₹2,500", "₹3,000", "₹3,000"], "answer": 1, "explanation": "For 2 years, Difference between CI and SI = P×(R/100)^2. So ₹20.25 = P×(9/100)^2 = P×0.0081. P = ₹20.25 ÷ 0.0081 = ₹2,500.", "id": 19}, {"id": 20, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the difference between the compound interest and simple interest on ₹20,000 for 2 years at 10% per annum.", "options": ["₹200", "₹220", "₹100", "₹400"], "answer": 0, "explanation": "Difference = P×(R/100)^2 = 20000×(10/100)^2 = ₹200."}, {"id": 21, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the difference between the compound interest and simple interest on ₹5,000 for 2 years at 20% per annum.", "options": ["₹400", "₹205", "₹100", "₹200"], "answer": 3, "explanation": "Difference = P×(R/100)^2 = 5000×(20/100)^2 = ₹200."}, {"id": 22, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the difference between the compound interest and simple interest on ₹8,000 for 3 years at 5% per annum.", "options": ["₹30.50", "₹69", "₹61", "₹122"], "answer": 2, "explanation": "CI = ₹1,261, SI = ₹1,200. Difference = CI − SI = ₹61."}, {"id": 23, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the difference between the compound interest and simple interest on ₹15,000 for 3 years at 10% per annum.", "options": ["₹232.50", "₹465", "₹930", "₹480"], "answer": 1, "explanation": "CI = ₹4,965, SI = ₹4,500. Difference = CI − SI = ₹465."}, {"id": 24, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the difference between the compound interest and simple interest on ₹25,000 for 2 years at 8% per annum.", "options": ["₹320", "₹185", "₹160", "₹80"], "answer": 2, "explanation": "Difference = P×(R/100)^2 = 25000×(8/100)^2 = ₹160."}, {"id": 25, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the difference between the compound interest and simple interest on ₹40,000 for 2 years at 5% per annum.", "options": ["₹140", "₹50", "₹200", "₹100"], "answer": 3, "explanation": "Difference = P×(R/100)^2 = 40000×(5/100)^2 = ₹100."}, {"id": 26, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the difference between the compound interest and simple interest on ₹12,500 for 2 years at 4% per annum.", "options": ["₹40", "₹32.50", "₹20", "₹10"], "answer": 2, "explanation": "Difference = P×(R/100)^2 = 12500×(4/100)^2 = ₹20."}, {"id": 27, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the difference between the compound interest and simple interest on ₹6,000 for 3 years at 10% per annum.", "options": ["₹192", "₹372", "₹186", "₹93"], "answer": 2, "explanation": "CI = ₹1,986, SI = ₹1,800. Difference = CI − SI = ₹186."}, {"id": 28, "category": "Difference between CI and SI", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the difference between the compound interest and simple interest on ₹50,000 for 2 years at 6% per annum.", "options": ["₹180", "₹360", "₹90", "₹230"], "answer": 0, "explanation": "Difference = P×(R/100)^2 = 50000×(6/100)^2 = ₹180."}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of ₹10,000 amounts to ₹12,100 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["12%", "5%", "10%", "8%"], "answer": 2, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹12,100 = 10,000×(1+R/100)^2. (1+R/100)^2 = 1.21 ⇒ 1+R/100 = 1.1 ⇒ R = 10%.", "id": 29}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of ₹15,000 amounts to ₹21,600 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["15%", "18%", "22%", "20%"], "answer": 3, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹21,600 = 15,000×(1+R/100)^2. (1+R/100)^2 = 1.44 ⇒ 1+R/100 = 1.2 ⇒ R = 20%.", "id": 30}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of ₹5,000 amounts to ₹7,200 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["15%", "20%", "22%", "18%"], "answer": 1, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹7,200 = 5,000×(1+R/100)^2. (1+R/100)^2 = 1.44 ⇒ 1+R/100 = 1.2 ⇒ R = 20%.", "id": 31}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of ₹4,000 amounts to ₹6,250 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["27%", "23%", "25%", "20%"], "answer": 2, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹6,250 = 4,000×(1+R/100)^2. (1+R/100)^2 = 1.5625 ⇒ 1+R/100 = 1.25 ⇒ R = 25%.", "id": 32}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of ₹16,000 amounts to ₹25,000 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["23%", "25%", "20%", "27%"], "answer": 1, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹25,000 = 16,000×(1+R/100)^2. (1+R/100)^2 = 1.5625 ⇒ 1+R/100 = 1.25 ⇒ R = 25%.", "id": 33}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of ₹8,000 amounts to ₹10,648 in 3 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["8%", "12%", "10%", "5%"], "answer": 2, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹10,648 = 8,000×(1+R/100)^3. (1+R/100)^3 = 1.331 ⇒ 1+R/100 = 1.1 ⇒ R = 10%.", "id": 34}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of ₹6,400 amounts to ₹10,000 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["20%", "27%", "23%", "25%"], "answer": 3, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹10,000 = 6,400×(1+R/100)^2. (1+R/100)^2 = 1.5625 ⇒ 1+R/100 = 1.25 ⇒ R = 25%.", "id": 35}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of ₹12,000 amounts to ₹14,520 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["12%", "10%", "8%", "5%"], "answer": 1, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹14,520 = 12,000×(1+R/100)^2. (1+R/100)^2 = 1.21 ⇒ 1+R/100 = 1.1 ⇒ R = 10%.", "id": 36}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of ₹9,000 amounts to ₹15,210 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["25%", "28%", "30%", "32%"], "answer": 2, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹15,210 = 9,000×(1+R/100)^2. (1+R/100)^2 = 1.69 ⇒ 1+R/100 = 1.3 ⇒ R = 30%.", "id": 37}, {"category": "Find the Rate of Interest", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of ₹2,500 amounts to ₹4,900 in 2 years at compound interest, compounded annually. Find the rate of interest per annum.", "options": ["35%", "42%", "38%", "40%"], "answer": 3, "explanation": "Let rate = R%. A = P(1+R/100)^T → ₹4,900 = 2,500×(1+R/100)^2. (1+R/100)^2 = 1.96 ⇒ 1+R/100 = 1.4 ⇒ R = 40%.", "id": 38}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "The compound interest on a certain sum for 2 years at 10% per annum, compounded annually, is ₹1,680. Find the sum.", "options": ["₹10,000", "₹8,000", "₹9,200", "₹6,800"], "answer": 1, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+10/100)^2 − 1 = 0.21. So P = CI ÷ 0.21 = ₹1,680 ÷ 0.21 = ₹8,000.", "id": 39}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "The compound interest on a certain sum for 2 years at 20% per annum, compounded annually, is ₹6,600. Find the sum.", "options": ["₹17,000", "₹17,250", "₹12,750", "₹15,000"], "answer": 3, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+20/100)^2 − 1 = 0.44. So P = CI ÷ 0.44 = ₹6,600 ÷ 0.44 = ₹15,000.", "id": 40}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "The compound interest on a certain sum for 2 years at 5% per annum, compounded annually, is ₹2,050. Find the sum.", "options": ["₹22,000", "₹17,000", "₹20,000", "₹23,000"], "answer": 2, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+5/100)^2 − 1 = 0.1025. So P = CI ÷ 0.1025 = ₹2,050 ÷ 0.1025 = ₹20,000.", "id": 41}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "The compound interest on a certain sum for 3 years at 10% per annum, compounded annually, is ₹3,972. Find the sum.", "options": ["₹13,800", "₹14,000", "₹12,000", "₹10,200"], "answer": 2, "explanation": "CI = P[(1+R/100)^3 − 1]. Here (1+10/100)^3 − 1 = 0.331. So P = CI ÷ 0.331 = ₹3,972 ÷ 0.331 = ₹12,000.", "id": 42}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "The compound interest on a certain sum for 2 years at 25% per annum, compounded annually, is ₹5,400. Find the sum.", "options": ["₹11,040", "₹11,600", "₹8,160", "₹9,600"], "answer": 3, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+25/100)^2 − 1 = 0.5625. So P = CI ÷ 0.5625 = ₹5,400 ÷ 0.5625 = ₹9,600.", "id": 43}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "The compound interest on a certain sum for 2 years at 8% per annum, compounded annually, is ₹1,040. Find the sum.", "options": ["₹6,250", "₹7,187.50", "₹5,312.50", "₹8,250"], "answer": 0, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+8/100)^2 − 1 = 0.1664. So P = CI ÷ 0.1664 = ₹1,040 ÷ 0.1664 = ₹6,250.", "id": 44}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "The compound interest on a certain sum for 2 years at 10% per annum, compounded annually, is ₹2,940. Find the sum.", "options": ["₹14,000", "₹16,000", "₹16,100", "₹11,900"], "answer": 0, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+10/100)^2 − 1 = 0.21. So P = CI ÷ 0.21 = ₹2,940 ÷ 0.21 = ₹14,000.", "id": 45}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "The compound interest on a certain sum for 3 years at 20% per annum, compounded annually, is ₹8,190. Find the sum.", "options": ["₹13,250", "₹11,250", "₹12,937.50", "₹9,562.50"], "answer": 1, "explanation": "CI = P[(1+R/100)^3 − 1]. Here (1+20/100)^3 − 1 = 0.728. So P = CI ÷ 0.728 = ₹8,190 ÷ 0.728 = ₹11,250.", "id": 46}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "The compound interest on a certain sum for 3 years at 5% per annum, compounded annually, is ₹2,837.25. Find the sum.", "options": ["₹20,000", "₹18,000", "₹15,300", "₹20,700"], "answer": 1, "explanation": "CI = P[(1+R/100)^3 − 1]. Here (1+5/100)^3 − 1 = 0.157625. So P = CI ÷ 0.157625 = ₹2,837.25 ÷ 0.157625 = ₹18,000.", "id": 47}, {"category": "Find the Principal", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "The compound interest on a certain sum for 2 years at 4% per annum, compounded annually, is ₹612. Find the sum.", "options": ["₹9,500", "₹8,625", "₹6,375", "₹7,500"], "answer": 3, "explanation": "CI = P[(1+R/100)^2 − 1]. Here (1+4/100)^2 − 1 = 0.0816. So P = CI ÷ 0.0816 = ₹612 ÷ 0.0816 = ₹7,500.", "id": 48}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹8,000 for 2 1/4 years at 10% per annum, compounded annually.", "options": ["₹1,922", "₹2,075.76", "₹1,768.24", "₹2,072"], "answer": 0, "explanation": "Split time = 2 years + 1/4 year. A = P(1+R/100)^2 × [1 + (1/4×R)/100] = 8,000×(1+10/100)^2 × [1 + (1/4×10)/100] = ₹9,922. CI = A − P = ₹9,922 − ₹8,000 = ₹1,922.", "id": 49}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹12,500 for 1 2/5 years at 8% per annum, compounded annually.", "options": ["₹1,546.56", "₹1,432", "₹1,317.44", "₹1,582"], "answer": 1, "explanation": "Split time = 1 years + 2/5 year. A = P(1+R/100)^1 × [1 + (2/5×R)/100] = 12,500×(1+8/100)^1 × [1 + (2/5×8)/100] = ₹13,932. CI = A − P = ₹13,932 − ₹12,500 = ₹1,432.", "id": 50}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹10,000 for 2 1/3 years at 12% per annum, compounded annually.", "options": ["₹3,045.76", "₹3,195.76", "₹2,802.10", "₹3,289.42"], "answer": 0, "explanation": "Split time = 2 years + 1/3 year. A = P(1+R/100)^2 × [1 + (1/3×R)/100] = 10,000×(1+12/100)^2 × [1 + (1/3×12)/100] = ₹13,045.76. CI = A − P = ₹13,045.76 − ₹10,000 = ₹3,045.76.", "id": 51}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "Find the compound interest on ₹6,000 for 1 1/2 years at 10% per annum, compounded annually.", "options": ["₹855.60", "₹1,080", "₹930", "₹1,004.40"], "answer": 2, "explanation": "Split time = 1 years + 1/2 year. A = P(1+R/100)^1 × [1 + (1/2×R)/100] = 6,000×(1+10/100)^1 × [1 + (1/2×10)/100] = ₹6,930. CI = A − P = ₹6,930 − ₹6,000 = ₹930.", "id": 52}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹16,000 for 2 1/2 years at 5% per annum, compounded annually.", "options": ["₹2,247.48", "₹2,231", "₹2,081", "₹1,914.52"], "answer": 2, "explanation": "Split time = 2 years + 1/2 year. A = P(1+R/100)^2 × [1 + (1/2×R)/100] = 16,000×(1+5/100)^2 × [1 + (1/2×5)/100] = ₹18,081. CI = A − P = ₹18,081 − ₹16,000 = ₹2,081.", "id": 53}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹9,000 for 1 2/5 years at 20% per annum, compounded annually.", "options": ["₹2,814", "₹2,877.12", "₹2,450.88", "₹2,664"], "answer": 3, "explanation": "Split time = 1 years + 2/5 year. A = P(1+R/100)^1 × [1 + (2/5×R)/100] = 9,000×(1+20/100)^1 × [1 + (2/5×20)/100] = ₹11,664. CI = A − P = ₹11,664 − ₹9,000 = ₹2,664.", "id": 54}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹20,000 for 1 3/5 years at 10% per annum, compounded annually.", "options": ["₹3,585.60", "₹3,320", "₹3,054.40", "₹3,470"], "answer": 1, "explanation": "Split time = 1 years + 3/5 year. A = P(1+R/100)^1 × [1 + (3/5×R)/100] = 20,000×(1+10/100)^1 × [1 + (3/5×10)/100] = ₹23,320. CI = A − P = ₹23,320 − ₹20,000 = ₹3,320.", "id": 55}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹7,500 for 2 2/5 years at 4% per annum, compounded annually.", "options": ["₹801.13", "₹891.79", "₹682.45", "₹741.79"], "answer": 3, "explanation": "Split time = 2 years + 2/5 year. A = P(1+R/100)^2 × [1 + (2/5×R)/100] = 7,500×(1+4/100)^2 × [1 + (2/5×4)/100] = ₹8,241.79. CI = A − P = ₹8,241.79 − ₹7,500 = ₹741.79.", "id": 56}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Find the compound interest on ₹5,000 for 2 1/4 years at 20% per annum, compounded annually.", "options": ["₹2,764.80", "₹2,355.20", "₹2,710", "₹2,560"], "answer": 3, "explanation": "Split time = 2 years + 1/4 year. A = P(1+R/100)^2 × [1 + (1/4×R)/100] = 5,000×(1+20/100)^2 × [1 + (1/4×20)/100] = ₹7,560. CI = A − P = ₹7,560 − ₹5,000 = ₹2,560.", "id": 57}, {"category": "Compound Interest for Fractional Time", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Find the compound interest on ₹18,000 for 1 1/3 years at 15% per annum, compounded annually.", "options": ["₹3,885", "₹3,735", "₹3,436.20", "₹4,033.80"], "answer": 1, "explanation": "Split time = 1 years + 1/3 year. A = P(1+R/100)^1 × [1 + (1/3×R)/100] = 18,000×(1+15/100)^1 × [1 + (1/3×15)/100] = ₹21,735. CI = A − P = ₹21,735 − ₹18,000 = ₹3,735.", "id": 58}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of money at compound interest becomes 2 times itself in 3 years. In how many years will it become 4 times itself, at the same rate, compounded annually?", "options": ["6 years", "3 years", "9 years", "8 years"], "answer": 0, "explanation": "A sum becomes 2 times itself in 3 years at CI (annual compounding). To become 4 times (= 2^2), it needs 2 such periods, i.e. 2×3 = 6 years.", "id": 59}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of money at compound interest becomes 2 times itself in 4 years. In how many years will it become 4 times itself, at the same rate, compounded annually?", "options": ["10 years", "8 years", "4 years", "12 years"], "answer": 1, "explanation": "A sum becomes 2 times itself in 4 years at CI (annual compounding). To become 4 times (= 2^2), it needs 2 such periods, i.e. 2×4 = 8 years.", "id": 60}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of money at compound interest becomes 3 times itself in 5 years. In how many years will it become 9 times itself, at the same rate, compounded annually?", "options": ["12 years", "10 years", "15 years", "5 years"], "answer": 1, "explanation": "A sum becomes 3 times itself in 5 years at CI (annual compounding). To become 9 times (= 3^2), it needs 2 such periods, i.e. 2×5 = 10 years.", "id": 61}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of money at compound interest becomes 2 times itself in 6 years. In how many years will it become 8 times itself, at the same rate, compounded annually?", "options": ["20 years", "12 years", "24 years", "18 years"], "answer": 3, "explanation": "A sum becomes 2 times itself in 6 years at CI (annual compounding). To become 8 times (= 2^3), it needs 3 such periods, i.e. 3×6 = 18 years.", "id": 62}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of money at compound interest becomes 3 times itself in 4 years. In how many years will it become 9 times itself, at the same rate, compounded annually?", "options": ["12 years", "8 years", "4 years", "10 years"], "answer": 1, "explanation": "A sum becomes 3 times itself in 4 years at CI (annual compounding). To become 9 times (= 3^2), it needs 2 such periods, i.e. 2×4 = 8 years.", "id": 63}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of money at compound interest becomes 2 times itself in 10 years. In how many years will it become 8 times itself, at the same rate, compounded annually?", "options": ["32 years", "30 years", "40 years", "20 years"], "answer": 1, "explanation": "A sum becomes 2 times itself in 10 years at CI (annual compounding). To become 8 times (= 2^3), it needs 3 such periods, i.e. 3×10 = 30 years.", "id": 64}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A sum of money at compound interest becomes 2 times itself in 7 years. In how many years will it become 4 times itself, at the same rate, compounded annually?", "options": ["21 years", "16 years", "14 years", "7 years"], "answer": 2, "explanation": "A sum becomes 2 times itself in 7 years at CI (annual compounding). To become 4 times (= 2^2), it needs 2 such periods, i.e. 2×7 = 14 years.", "id": 65}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of money at compound interest becomes 3 times itself in 8 years. In how many years will it become 27 times itself, at the same rate, compounded annually?", "options": ["16 years", "26 years", "32 years", "24 years"], "answer": 3, "explanation": "A sum becomes 3 times itself in 8 years at CI (annual compounding). To become 27 times (= 3^3), it needs 3 such periods, i.e. 3×8 = 24 years.", "id": 66}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A sum of money at compound interest becomes 2 times itself in 6 years. In how many years will it become 16 times itself, at the same rate, compounded annually?", "options": ["26 years", "24 years", "30 years", "18 years"], "answer": 1, "explanation": "A sum becomes 2 times itself in 6 years at CI (annual compounding). To become 16 times (= 2^4), it needs 4 such periods, i.e. 4×6 = 24 years.", "id": 67}, {"category": "Doubling, Trebling & Multiple-Time Growth", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A sum of money at compound interest becomes 2 times itself in 9 years. In how many years will it become 4 times itself, at the same rate, compounded annually?", "options": ["27 years", "20 years", "9 years", "18 years"], "answer": 3, "explanation": "A sum becomes 2 times itself in 9 years at CI (annual compounding). To become 4 times (= 2^2), it needs 2 such periods, i.e. 2×9 = 18 years.", "id": 68}, {"category": "Successive Rates & Scheme Comparison", "tag": "Asked in SSC CGL Tier-II — 2019 (verified pattern)", "difficulty": "hard", "question": "Rahul invested equal sums of money in two schemes, A and B, both compounded annually for 2 years. In scheme A, the rate of interest was 10% per annum and the compound interest earned was ₹1050.0. In scheme B, the rate of interest was 12% per annum. What compound interest was earned under scheme B?", "options": ["₹1,207.50", "₹1,144.80", "₹1,272", "₹1,399.20"], "answer": 2, "explanation": "Equal sums were invested in scheme A (10% p.a.) and scheme B (12% p.a.), both CI for 2 years. CI in A = P×[(1+10/100)^2−1] = ₹1050.0 ⇒ P = ₹1050.0 ÷ 0.21 = ₹5,000. CI in B = ₹5,000×[(1+12/100)^2−1] = ₹1,272.", "id": 69}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "₹20,000 is invested for 2 years, compounded annually, at 5% per annum for the first year and 10% per annum for the second year. Find the total compound interest earned.", "options": ["₹3,100", "₹2,635", "₹3,410", "₹3,000"], "answer": 0, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 20,000×(1+5/100)×(1+10/100) = ₹23,100. CI = A − P = ₹3,100.", "id": 70}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "₹15,000 is invested for 2 years, compounded annually, at 8% per annum for the first year and 12% per annum for the second year. Find the total compound interest earned.", "options": ["₹3,458.40", "₹2,672.40", "₹3,144", "₹3,000"], "answer": 2, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 15,000×(1+8/100)×(1+12/100) = ₹18,144. CI = A − P = ₹3,144.", "id": 71}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "₹25,000 is invested for 2 years, compounded annually, at 20% per annum for the first year and 25% per annum for the second year. Find the total compound interest earned.", "options": ["₹11,250", "₹12,500", "₹13,750", "₹10,625"], "answer": 1, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 25,000×(1+20/100)×(1+25/100) = ₹37,500. CI = A − P = ₹12,500.", "id": 72}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "₹12,000 is invested for 2 years, compounded annually, at 10% per annum for the first year and 15% per annum for the second year. Find the total compound interest earned.", "options": ["₹3,000", "₹3,180", "₹3,498", "₹2,703"], "answer": 1, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 12,000×(1+10/100)×(1+15/100) = ₹15,180. CI = A − P = ₹3,180.", "id": 73}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "₹18,000 is invested for 2 years, compounded annually, at 25% per annum for the first year and 20% per annum for the second year. Find the total compound interest earned.", "options": ["₹9,900", "₹7,650", "₹9,000", "₹8,100"], "answer": 2, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 18,000×(1+25/100)×(1+20/100) = ₹27,000. CI = A − P = ₹9,000.", "id": 74}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "₹8,000 is invested for 2 years, compounded annually, at 5% per annum for the first year and 5% per annum for the second year. Find the total compound interest earned.", "options": ["₹800", "₹820", "₹697", "₹902"], "answer": 1, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 8,000×(1+5/100)×(1+5/100) = ₹8,820. CI = A − P = ₹820.", "id": 75}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "₹16,000 is invested for 2 years, compounded annually, at 12.5% per annum for the first year and 20% per annum for the second year. Find the total compound interest earned.", "options": ["₹4,760", "₹6,160", "₹5,200", "₹5,600"], "answer": 3, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 16,000×(1+12.5/100)×(1+20/100) = ₹21,600. CI = A − P = ₹5,600.", "id": 76}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "₹30,000 is invested for 2 years, compounded annually, at 10% per annum for the first year and 10% per annum for the second year. Find the total compound interest earned.", "options": ["₹6,930", "₹5,355", "₹6,300", "₹6,000"], "answer": 2, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 30,000×(1+10/100)×(1+10/100) = ₹36,300. CI = A − P = ₹6,300.", "id": 77}, {"category": "Successive Rates & Scheme Comparison", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "₹9,600 is invested for 2 years, compounded annually, at 25% per annum for the first year and 12% per annum for the second year. Find the total compound interest earned.", "options": ["₹4,224", "₹3,840", "₹3,264", "₹3,552"], "answer": 1, "explanation": "Amount = P(1+R1/100)(1+R2/100) = 9,600×(1+25/100)×(1+12/100) = ₹13,440. CI = A − P = ₹3,840.", "id": 78}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A loan is to be repaid in two equal annual instalments of ₹2,100 each, interest being compounded annually at 10% per annum. Find the total interest paid on the loan.", "options": ["₹638.68", "₹597.37", "₹555.37", "₹472.06"], "answer": 2, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹2,100 each at 10% p.a. CI: L = ₹2,100/(1+10/100) + ₹2,100/(1+10/100)^2 = ₹3,644.63. Total paid = 2×₹2,100 = ₹4,200. Interest paid = Total paid − L = ₹4,200 − ₹3,644.63 = ₹555.37.", "id": 79}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A loan is to be repaid in two equal annual instalments of ₹4,410 each, interest being compounded annually at 5% per annum. Find the total interest paid on the loan.", "options": ["₹620", "₹708.20", "₹713", "₹527"], "answer": 0, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹4,410 each at 5% p.a. CI: L = ₹4,410/(1+5/100) + ₹4,410/(1+5/100)^2 = ₹8,200. Total paid = 2×₹4,410 = ₹8,820. Interest paid = Total paid − L = ₹8,820 − ₹8,200 = ₹620.", "id": 80}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Asked in SSC CGL Tier-II — 13 Sep 2019 (verified pattern)", "difficulty": "hard", "question": "A loan is to be repaid in two equal annual instalments of ₹6,760 each, interest being compounded annually at 8% per annum. Find the total interest paid on the loan.", "options": ["₹1,684.90", "₹1,600.33", "₹1,465.13", "₹1,245.36"], "answer": 2, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹6,760 each at 8% p.a. CI: L = ₹6,760/(1+8/100) + ₹6,760/(1+8/100)^2 = ₹12,054.87. Total paid = 2×₹6,760 = ₹13,520. Interest paid = Total paid − L = ₹13,520 − ₹12,054.87 = ₹1,465.13.", "id": 81}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A loan is to be repaid in two equal annual instalments of ₹13,230 each, interest being compounded annually at 10% per annum. Find the total interest paid on the loan.", "options": ["₹3,763.44", "₹3,498.84", "₹4,023.67", "₹2,974.01"], "answer": 1, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹13,230 each at 10% p.a. CI: L = ₹13,230/(1+10/100) + ₹13,230/(1+10/100)^2 = ₹22,961.16. Total paid = 2×₹13,230 = ₹26,460. Interest paid = Total paid − L = ₹26,460 − ₹22,961.16 = ₹3,498.84.", "id": 82}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "A loan is to be repaid in two equal annual instalments of ₹1,050 each, interest being compounded annually at 5% per annum. Find the total interest paid on the loan.", "options": ["₹147.62", "₹168.62", "₹125.48", "₹169.76"], "answer": 0, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹1,050 each at 5% p.a. CI: L = ₹1,050/(1+5/100) + ₹1,050/(1+5/100)^2 = ₹1,952.38. Total paid = 2×₹1,050 = ₹2,100. Interest paid = Total paid − L = ₹2,100 − ₹1,952.38 = ₹147.62.", "id": 83}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A loan is to be repaid in two equal annual instalments of ₹26,620 each, interest being compounded annually at 15% per annum. Find the total interest paid on the loan.", "options": ["₹11,458.17", "₹8,469.09", "₹10,496.03", "₹9,963.63"], "answer": 3, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹26,620 each at 15% p.a. CI: L = ₹26,620/(1+15/100) + ₹26,620/(1+15/100)^2 = ₹43,276.37. Total paid = 2×₹26,620 = ₹53,240. Interest paid = Total paid − L = ₹53,240 − ₹43,276.37 = ₹9,963.63.", "id": 84}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A loan is to be repaid in two equal annual instalments of ₹3,630 each, interest being compounded annually at 10% per annum. Find the total interest paid on the loan.", "options": ["₹816", "₹960", "₹1,104", "₹1,032.60"], "answer": 1, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹3,630 each at 10% p.a. CI: L = ₹3,630/(1+10/100) + ₹3,630/(1+10/100)^2 = ₹6,300. Total paid = 2×₹3,630 = ₹7,260. Interest paid = Total paid − L = ₹7,260 − ₹6,300 = ₹960.", "id": 85}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Asked in SSC CGL Tier-II — 2019 (verified pattern)", "difficulty": "hard", "question": "A loan is to be repaid in two equal annual instalments of ₹44,100 each, interest being compounded annually at 5% per annum. Find the total interest paid on the loan.", "options": ["₹5,270", "₹6,200", "₹7,130", "₹7,082"], "answer": 1, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹44,100 each at 5% p.a. CI: L = ₹44,100/(1+5/100) + ₹44,100/(1+5/100)^2 = ₹82,000. Total paid = 2×₹44,100 = ₹88,200. Interest paid = Total paid − L = ₹88,200 − ₹82,000 = ₹6,200.", "id": 86}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "A loan is to be repaid in two equal annual instalments of ₹12,100 each, interest being compounded annually at 10% per annum. Find the total interest paid on the loan.", "options": ["₹2,720", "₹3,442", "₹3,200", "₹3,680"], "answer": 2, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹12,100 each at 10% p.a. CI: L = ₹12,100/(1+10/100) + ₹12,100/(1+10/100)^2 = ₹21,000. Total paid = 2×₹12,100 = ₹24,200. Interest paid = Total paid − L = ₹24,200 − ₹21,000 = ₹3,200.", "id": 87}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "A loan is to be repaid in two equal annual instalments of ₹5,324 each, interest being compounded annually at 15% per annum. Find the total interest paid on the loan.", "options": ["₹2,099.21", "₹1,992.73", "₹1,693.82", "₹2,291.64"], "answer": 1, "explanation": "Let the loan amount be L. Since it is repaid in 2 equal yearly instalments of ₹5,324 each at 15% p.a. CI: L = ₹5,324/(1+15/100) + ₹5,324/(1+15/100)^2 = ₹8,655.27. Total paid = 2×₹5,324 = ₹10,648. Interest paid = Total paid − L = ₹10,648 − ₹8,655.27 = ₹1,992.73.", "id": 88}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "If the amount received at the end of the 2nd and 3rd year at compound interest on a certain principal are ₹9,331.20 and ₹10,077.70 respectively, what is the rate of interest?", "options": ["8%", "6%", "12%", "10%"], "answer": 0, "explanation": "If A2 and A3 are amounts at the end of 2nd and 3rd year, then A3 − A2 = interest on A2 for 1 year = A2×R/100. So R = [(A3−A2)/A2]×100 = [(₹10,077.70−₹9,331.20)/₹9,331.20]×100 = 8%.", "id": 89}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "The effective annual rate of interest corresponding to a nominal rate of 8% per annum compounded half-yearly is:", "options": ["8.16%", "8%", "9.16%", "9%"], "answer": 0, "explanation": "Effective annual rate = [(1+R/200)^2 − 1]×100 = [(1+8/200)^2 − 1]×100 = 8.16%.", "id": 90}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "The effective annual rate of interest corresponding to a compound interest rate of 9% per annum payable half-yearly is:", "options": ["9%", "9.2025%", "9.333%", "9.81%"], "answer": 1, "explanation": "Effective annual rate = [(1+9/200)^2 − 1]×100 = [(1.045)^2 − 1]×100 = 9.2025%.", "id": 91}, {"category": "Mixed & Tier-II Level Questions", "tag": "Asked in SSC MTS — 20 Aug 2019 (Morning)", "difficulty": "hard", "question": "The interest is compounded annually at 20% per annum. If the interest on a certain sum in the 2nd year is ₹250, what will be the interest on the same sum in the 5th year?", "options": ["₹300", "₹360", "₹432", "₹500"], "answer": 2, "explanation": "Under annual CI, interest of any year = interest of previous year × (1+R/100). Interest grows by a factor of (1+20/100) each subsequent year. Interest in year 5 = Interest in year 2 × (1+20/100)^3 = 250×1.728 = ₹432.", "id": 92}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "hard", "question": "Rahul invested equal sums of money in two schemes, A and B, for 2 years each, compounded annually. In scheme A, the rate of interest was 10% per annum, and the compound interest earned was ₹5,250. In scheme B, the rate of interest was 12% per annum. How much interest will be earned under scheme B after 2 years?", "options": ["₹6,996", "₹6,360", "₹5,724", "₹6,300"], "answer": 1, "explanation": "Equal sums (₹25,000 each) were invested in scheme A at 10% and scheme B at 12% p.a. CI for 2 years. CI in A = 25,000×[(1+10/100)^2−1] = ₹5,250 (matches given value). CI in B = 25,000×[(1+12/100)^2−1] = ₹6,360.", "id": 93}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "Anil invested ₹10,000 at 20% per annum and Sunil invested ₹15,000 at 10% per annum, both compounded annually for 2 years. What is the total compound interest earned by both of them together?", "options": ["₹6,795", "₹7,707.50", "₹7,550", "₹8,305"], "answer": 2, "explanation": "Person 1 invests ₹10,000 at 20% p.a.: CI = 10,000×[(1+20/100)^2−1] = ₹4,400. Person 2 invests ₹15,000 at 10% p.a.: CI = 15,000×[(1+10/100)^2−1] = ₹3,150. Total CI = ₹4,400 + ₹3,150 = ₹7,550.", "id": 94}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern (based on previous papers)", "difficulty": "hard", "question": "A certain sum of money, invested at compound interest (compounded annually) at a fixed rate, amounts to ₹18,600 in 3 years and ₹27,900 in 6 years. Find the sum.", "options": ["₹11,160", "₹12,400", "₹10,540", "₹13,640"], "answer": 1, "explanation": "Let the sum be P at rate r% CI. Given P(1+r)^3 = ₹18,600 and P(1+r)^6 = ₹27,900. Dividing: (1+r)^3 = ₹27,900/₹18,600 = 1.5. So P = ₹18,600 ÷ 1.5 = ₹12,400.", "id": 95}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "The value of a machine depreciates at 12.5% per annum. If its present value is ₹64,000, find its value after 3 years.", "options": ["₹36,443.75", "₹49,306.25", "₹40,000", "₹42,875"], "answer": 3, "explanation": "Depreciated value = V0(1−R/100)^T = 64,000×(1−12.5/100)^3 = ₹42,875.", "id": 96}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "easy", "question": "The population of a town increases at the rate of 5% per annum. If the present population is 40,000, what will be the population after 2 years?", "options": ["44,000", "46,305", "41,895", "44,100"], "answer": 3, "explanation": "Population after T years = P0(1+R/100)^T = 40,000×(1+5/100)^2 = ₹44,100.", "id": 97}, {"category": "Mixed & Tier-II Level Questions", "tag": "Practice · SSC CGL Pattern", "difficulty": "medium", "question": "If ₹15,000 is invested at 10% per annum compound interest (compounded annually), find the interest earned in the 3rd year alone.", "options": ["₹1,815", "₹1,500", "₹1,996.50", "₹1,650"], "answer": 0, "explanation": "Interest for 3rd year = amount at start of 3rd year × R/100. Amount at start of 3rd year = P(1+R/100)^2 = 18150.0. Interest for 3rd year = 18150.0×10/100 = ₹1,815.", "id": 98}, {"category": "Mixed & Tier-II Level Questions", "tag": "Asked in SSC CGL Tier-II — 08 Aug 2022", "difficulty": "hard", "question": "Vipul and Manish invested ₹15,000 and ₹20,000 respectively at the rate of 20% per annum and 30% per annum respectively, on compound interest (compounded annually). If the time period is 3 years for both, what is the total compound interest earned by Vipul and Manish together?", "options": ["₹32,480", "₹31,688", "₹29,460", "₹34,860"], "answer": 3, "explanation": "Vipul: CI = 15,000×[(1+20/100)^3−1] = ₹10,920. Manish: CI = 20,000×[(1+30/100)^3−1] = ₹23,940. Total CI = ₹10,920 + ₹23,940 = ₹34,860.", "id": 99}, {"category": "Half-Yearly & Quarterly Compounding", "tag": "Asked in SSC CGL Tier-II — 26 Oct 2023", "difficulty": "hard", "question": "The compound interest on ₹10,000 at 20% per annum is ₹4,641. If the interest is compounded half-yearly, for how many years was the principal invested?", "options": ["4", "6", "3", "2"], "answer": 3, "explanation": "Nominal annual rate = 20%, so half-yearly rate = 10%. CI = ₹4,641 on ₹10,000 means Amount = ₹14,641, and 10,000×(1.1)^n = 14,641. Since (1.1)^4 = 1.4641, n = 4 half-year periods = 2 years.", "id": 100}, {"category": "Half-Yearly & Quarterly Compounding", "tag": "Asked in SSC CGL Tier-II — 11 Sep 2019", "difficulty": "hard", "question": "What will be the compound interest on a sum of ₹31,250 for 2 years at 12% per annum, if the interest is compounded every 8 months?", "options": ["₹8,106", "₹8,116", "₹8,016", "₹8,156"], "answer": 1, "explanation": "Rate per 8-month period = 12%×(8/12) = 8%. Number of periods in 2 years (24 months) = 24/8 = 3. A = 31,250×(1.08)^3 = ₹39,366. CI = A − P = ₹39,366 − ₹31,250 = ₹8,116.", "id": 101}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Asked in SSC CGL — 24 Aug 2021 (Afternoon)", "difficulty": "hard", "question": "Atul borrowed a sum of ₹12,000 and agreed to repay it by paying ₹4,800 at the end of the first year and ₹9,240 at the end of the second year, fully clearing the loan. What is the rate of compound interest, compounded annually?", "options": ["10%", "12%", "8⅝%", "8%"], "answer": 0, "explanation": "Let 1+R/100 = x. Amount after year 1 minus first repayment, compounded again, must equal the second repayment exactly: [12,000x − 4,800]x = 9,240. This gives 12,000x² − 4,800x − 9,240 = 0, i.e. 100x² − 40x − 77 = 0. Solving, x = 1.1, so R = 10%.", "id": 102}, {"category": "Mixed & Tier-II Level Questions", "tag": "Asked in SSC CGL — 05 Mar 2020 (Afternoon)", "difficulty": "hard", "question": "A and B together borrowed a sum of ₹51,750 at 7% per annum compound interest, in such a way that A repays their share after 3 years and B repays their share after 4 years, with both payments being equal in amount. What sum (in ₹) was borrowed by A?", "options": ["₹25,000", "₹25,650", "₹24,860", "₹26,750"], "answer": 3, "explanation": "Let A borrow 'a' and B borrow 'b', with a + b = 51,750. Since A's payment after 3 years equals B's payment after 4 years: a(1.07)³ = b(1.07)⁴ ⇒ a = 1.07b. Substituting: 1.07b + b = 51,750 ⇒ 2.07b = 51,750 ⇒ b = 25,000, so a = 1.07×25,000 = ₹26,750.", "id": 103}, {"category": "Loan Repayment in Equal Instalments (CI)", "tag": "Asked in SSC CPO — 10 Nov 2022 (Morning)", "difficulty": "hard", "question": "A man borrowed ₹50,000 from a bank at 10% per annum, compounded annually. At the end of every year he pays ₹15,000 towards the loan. How much does he still owe the bank after three such payments? (This exact pattern also recurs in SSC CGL Tier-II papers.)", "options": ["₹16,900", "₹15,800", "₹15,200", "₹16,200"], "answer": 0, "explanation": "Year 1: 50,000×1.10 = 55,000; pays 15,000 ⇒ owes 40,000. Year 2: 40,000×1.10 = 44,000; pays 15,000 ⇒ owes 29,000. Year 3: 29,000×1.10 = 31,900; pays 15,000 ⇒ owes ₹16,900.", "id": 104}, {"category": "Mixed & Tier-II Level Questions", "tag": "Asked in SSC MTS — 22 Aug 2019 (Evening)", "difficulty": "hard", "question": "If the compound interest for the 3rd year, at 8% per annum, on a certain sum is ₹3,600, what is the difference between the compound interest for the 4th year and the 5th year (nearest to ₹1)?", "options": ["₹304", "₹335", "₹288", "₹311"], "answer": 3, "explanation": "Under annual CI, each year's interest = previous year's interest × (1+R/100). Interest in 4th year = 3,600×1.08 = ₹3,888. Interest in 5th year = 3,888×1.08 = ₹4,199.04. Difference = ₹4,199.04 − ₹3,888 ≈ ₹311.", "id": 105}, {"category": "Find the Principal", "tag": "Asked in SSC MTS — 21 Aug 2019 (Evening)", "difficulty": "hard", "question": "What is the present value of ₹14,739 payable after 3 years, at the rate of 6.25% per annum compound interest?", "options": ["₹12,184", "₹12,288", "₹12,473", "₹12,148"], "answer": 1, "explanation": "Present value = Future value ÷ (1+R/100)^T = ₹14,739 ÷ (1.0625)^3 = ₹14,739 ÷ 1.19946 ≈ ₹12,288.", "id": 106}, {"category": "Find the Principal", "tag": "Asked in SSC CGL — 2016 (1st Sitting)", "difficulty": "easy", "question": "A certain sum will amount to ₹12,100 in 2 years at 10% per annum compound interest, compounded annually. Find the sum.", "options": ["₹10,500", "₹11,000", "₹10,000", "₹9,500"], "answer": 2, "explanation": "A = P(1+R/100)^T ⇒ ₹12,100 = P×(1.10)² = P×1.21. So P = ₹12,100 ÷ 1.21 = ₹10,000.", "id": 107}];
+
+const FORMULA_GROUPS = [
+  {
+    title: "The Core Formula",
+    sub: "start here",
+    cards: [
+      {
+        h: "Amount &amp; Compound Interest",
+        use: "every CI question",
+        f: "A = P(1 + R/100)^T <small>CI = A − P</small>",
+        explain: "P grows by R% of itself, and that growth is reinvested — so next year's interest is earned on last year's interest too. A is the total pile of money at the end; CI is just the growth part.",
+        example: "P = ₹10,000, R = 10%, T = 2 yrs → A = 10,000 × (1.1)² = ₹12,100 → CI = ₹2,100.",
+        tip: "Memorise this cold — every other formula on this page is a shortcut built on top of it."
+      },
+      {
+        h: "CI vs SI — how they diverge",
+        use: "conceptual traps",
+        f: "Year 1: CI = SI &nbsp;·&nbsp; Year 2 onward: CI &gt; SI",
+        explain: "In the very first year there's no 'interest on interest' yet, so CI and SI are identical. The gap only opens up from the second year, because CI starts charging interest on the previous year's interest too.",
+        example: "₹1,000 at 10%: after 1 yr both give ₹100 interest. After 2 yrs, SI gives ₹200 but CI gives ₹210 — the extra ₹10 is interest on the first year's ₹100.",
+        tip: null
+      }
+    ]
+  },
+  {
+    title: "Compounding Frequency",
+    sub: "half-yearly · quarterly · n-monthly",
+    cards: [
+      {
+        h: "Half-Yearly Compounding",
+        use: "\"compounded half-yearly\"",
+        f: "A = P(1 + (R/2)/100)^(2T)",
+        explain: "Halve the rate, double the number of periods — because interest is now credited twice a year instead of once. This is the single most common compounding-frequency trap in SSC CGL.",
+        example: "P = ₹10,000, R = 20% p.a., T = 1 yr → rate/period = 10%, periods = 2 → A = 10,000×(1.1)² = ₹12,100.",
+        tip: "Always convert rate and time together — students who forget to double T are the most common wrong-answer source here."
+      },
+      {
+        h: "Quarterly Compounding",
+        use: "\"compounded quarterly\"",
+        f: "A = P(1 + (R/4)/100)^(4T)",
+        explain: "Same idea as half-yearly, but interest is credited 4 times a year: divide the rate by 4, multiply the time by 4.",
+        example: "P = ₹5,000, R = 12% p.a., T = 1 yr → rate/period = 3%, periods = 4 → A = 5,000×(1.03)⁴ ≈ ₹5,627.54.",
+        tip: null
+      },
+      {
+        h: "Any n-Monthly Compounding",
+        use: "e.g. \"compounded every 8 months\"",
+        f: "rate/period = R × (n/12) <small>periods = T(months) ÷ n</small>",
+        explain: "SSC occasionally compounds on an unusual cycle (every 8 months, every 4 months). The logic is identical to half-yearly/quarterly — just work out what fraction of a year one period is.",
+        example: "₹31,250 at 12% p.a., compounded every 8 months, for 2 years → rate/period = 12×(8/12) = 8%, periods = 24/8 = 3 → A = 31,250×(1.08)³ = ₹39,366.",
+        tip: null
+      },
+      {
+        h: "Effective Annual Rate",
+        use: "\"nominal vs effective rate\" questions",
+        f: "Effective R = [(1 + r/100)ⁿ − 1] × 100",
+        explain: "The nominal rate (quoted per annum) understates what you actually earn once compounding happens more than once a year. This converts a per-period rate into the true equivalent yearly rate.",
+        example: "9% p.a. compounded half-yearly: r = 4.5% per period, n = 2 → Effective R = [(1.045)² − 1]×100 = 9.2025%.",
+        tip: null
+      }
+    ]
+  },
+  {
+    title: "Fractional Time",
+    sub: "e.g. 2¾ years",
+    cards: [
+      {
+        h: "Compound Interest for a Broken Number of Years",
+        use: "time like 1⅖ or 2¾ years",
+        f: "A = P(1+R/100)^n × [1 + (f × R)/100]",
+        explain: "Split the time into a whole-year part (n) and a leftover fraction (f). Compound normally for the whole years, then charge simple interest for just the fractional year on top — this is the standard SSC convention.",
+        example: "₹8,000 for 2¼ years at 10% → n = 2, f = ¼ → A = 8,000×(1.1)² × [1 + (¼×10)/100] = 9,680×1.025 = ₹9,922.",
+        tip: "Don't compound the fractional year — that's a common mistake. It always gets simple interest treatment."
+      }
+    ]
+  },
+  {
+    title: "Reverse-Engineering Shortcuts",
+    sub: "the fastest-scoring formulas in the exam",
+    cards: [
+      {
+        h: "CI − SI Difference (2 years)",
+        use: "\"difference between CI and SI\"",
+        f: "CI − SI = P(R/100)²",
+        explain: "For exactly 2 years, the entire gap between CI and SI collapses to this one clean term — it's literally just the interest earned on the first year's interest. Hugely time-saving vs. calculating CI and SI separately.",
+        example: "P = ₹20,000, R = 10%, T = 2 yrs → Difference = 20,000×(0.10)² = ₹200.",
+        tip: "If a question gives you the CI−SI difference and asks for P, just divide by (R/100)² — no need to solve for A at all."
+      },
+      {
+        h: "CI − SI Difference (3 years)",
+        use: "3-year difference variant",
+        f: "CI − SI = P(R/100)² × [3 + R/100]",
+        explain: "Comes from expanding (1+R/100)³ with the binomial theorem and stripping out everything except the 'interest-on-interest' terms. Rarely needed from scratch — just apply it directly.",
+        example: "P = ₹8,000, R = 5%, T = 3 yrs → Difference = 8,000×(0.05)²×[3+0.05] = 8,000×0.0025×3.05 = ₹61.",
+        tip: null
+      },
+      {
+        h: "Doubling / Multiple-Time Growth",
+        use: "\"becomes k times in T years — find years to become m times\"",
+        f: "If a sum → k× in T years, it → kᵐ× in (m·T) years",
+        explain: "This is a property of exponential (CI) growth, not a new formula: since A = P(1+R/100)^T, repeating the same T-year stretch m times just raises the growth factor to the power m. No need to ever find R.",
+        example: "A sum doubles in 4 years. To become 8× (= 2³), it needs 3 such doubling-periods → 3×4 = 12 years.",
+        tip: "This is a guaranteed 5-second question once you spot the pattern — never solve for the rate first."
+      },
+      {
+        h: "Interest Earned in the nth Year Alone",
+        use: "\"interest in the 3rd year\" / \"5th year\"",
+        f: "Iₙ = Iₙ₋₁ × (1 + R/100)",
+        explain: "Each year's interest is simply the previous year's interest grown by one more period at rate R — because CI is being charged on a principal that's now bigger by last year's interest.",
+        example: "Interest in year 2 is ₹250 at 20% p.a. → Interest in year 5 = 250×(1.2)³ = ₹432.",
+        tip: null
+      },
+      {
+        h: "Rate from Two Consecutive Amounts",
+        use: "given A at end of year 2 and year 3",
+        f: "R = [(A₃ − A₂) / A₂] × 100",
+        explain: "The jump from one year's amount to the next is exactly one year's interest on that amount — so the rate falls straight out without ever finding the principal.",
+        example: "A₂ = ₹9,331.20, A₃ = ₹10,077.70 → R = [(10,077.70−9,331.20)/9,331.20]×100 = 8%.",
+        tip: null
+      }
+    ]
+  },
+  {
+    title: "Applied &amp; Real-World Variants",
+    sub: "loans · schemes · depreciation",
+    cards: [
+      {
+        h: "Successive / Two Different Rates",
+        use: "rate changes mid-way (e.g. year 1 vs year 2)",
+        f: "A = P(1+R1/100)(1+R2/100)",
+        explain: "Simply chain a separate growth factor for each year's own rate — no averaging, no shortcuts. Works for any number of rate changes by adding more factors.",
+        example: "₹10,000 at 10% then 20% → A = 10,000×1.10×1.20 = ₹13,200 → CI = ₹3,200.",
+        tip: "Never average the two rates — (R1+R2)/2 gives the wrong answer because compounding is multiplicative, not additive."
+      },
+      {
+        h: "Loan in 2 Equal Annual Instalments",
+        use: "\"loan repaid in two equal instalments\"",
+        f: "Loan = x/(1+R/100) + x/(1+R/100)²",
+        explain: "Each instalment is worth less in today's money the later it's paid — so the loan amount is the sum of the present values of both instalments, discounted back at the CI rate.",
+        example: "Instalment x = ₹6,760 at 8% → Loan = 6,760/1.08 + 6,760/1.08² ≈ ₹12,055 → Interest paid ≈ ₹1,465.",
+        tip: "This is present-value thinking — the reverse of the amount formula. Extend to 3 instalments by adding a third term with power 3."
+      },
+      {
+        h: "Depreciation (reverse CI)",
+        use: "machine/asset value falling over time",
+        f: "V = V₀(1 − R/100)^T",
+        explain: "Identical mechanics to compound growth, just with the base shrinking instead of growing each period — subtract instead of add inside the bracket.",
+        example: "Machine worth ₹64,000, depreciating 12.5% p.a., after 3 yrs → V = 64,000×(0.875)³ = ₹42,875.",
+        tip: null
+      }
+    ]
+  }
+];
+
+function renderFormulas(){
+  const wrap = document.getElementById('formula-groups');
+  wrap.innerHTML = FORMULA_GROUPS.map((g, gi) => `
+    <div class="formula-group">
+      <div class="formula-group-head">
+        <span class="formula-group-num">${gi+1}</span>
+        <h3>${g.title}</h3>
+        <span class="grp-sub">${g.sub}</span>
+      </div>
+      <div class="formula-grid">
+        ${g.cards.map(c => `
+          <div class="formula-card">
+            <div class="fc-head">
+              <h4>${c.h}</h4>
+              <span class="use-when">${c.use}</span>
+            </div>
+            <div class="f">${c.f}</div>
+            <p class="explain">${c.explain}</p>
+            <div class="example-box">
+              <span class="ex-label">Worked example</span>
+              ${c.example}
+            </div>
+            ${c.tip ? `<div class="tip-line">${c.tip}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+const PAGE_SIZE = 8;
+let currentPage = 1;
+let filtered = QUESTIONS.slice();
+
+function populateCategoryFilter(){
+  const sel = document.getElementById('f-category');
+  const cats = [...new Set(QUESTIONS.map(q=>q.category))];
+  cats.forEach(c=>{
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+  });
+}
+
+function applyFilters(){
+  const cat = document.getElementById('f-category').value;
+  const diff = document.getElementById('f-difficulty').value;
+  const askedOnly = document.getElementById('f-asked').checked;
+  const search = document.getElementById('f-search').value.trim().toLowerCase();
+
+  filtered = QUESTIONS.filter(q=>{
+    if(cat && q.category !== cat) return false;
+    if(diff && q.difficulty !== diff) return false;
+    if(askedOnly && !q.tag.startsWith('Asked in')) return false;
+    if(search){
+      const hay = (q.question+' '+q.category+' '+q.tag).toLowerCase();
+      if(!hay.includes(search)) return false;
+    }
+    return true;
+  });
+  currentPage = 1;
+  document.getElementById('result-count').textContent = filtered.length + ' question' + (filtered.length===1?'':'s');
+  renderPage();
+}
+
+function diffLabel(d){ return d.charAt(0).toUpperCase()+d.slice(1); }
+
+function renderPage(){
+  const list = document.getElementById('q-list');
+  if(filtered.length === 0){
+    list.innerHTML = '<div class="empty-state">No questions match these filters. Try clearing a filter or search term.</div>';
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  if(currentPage > totalPages) currentPage = totalPages;
+  const start = (currentPage-1)*PAGE_SIZE;
+  const pageItems = filtered.slice(start, start+PAGE_SIZE);
+
+  list.innerHTML = pageItems.map((q, i)=>{
+    const globalIndex = start+i+1;
+    const asked = q.tag.startsWith('Asked in');
+    const optsHtml = q.options.map((opt, oi)=>`
+      <div class="opt" data-oi="${oi}">
+        <span class="bub">${String.fromCharCode(65+oi)}</span>
+        <span class="opt-text">${opt}</span>
+      </div>
+    `).join('');
+    return `
+      <div class="qcard" data-id="${q.id}">
+        <div class="qcard-top">
+          <div class="qnum mono">${String(globalIndex).padStart(2,'0')}</div>
+          <div style="flex:1;">
+            <div class="qmeta">
+              <span class="badge cat">${q.category}</span>
+              <span class="badge diff-${q.difficulty}">${diffLabel(q.difficulty)}</span>
+              ${asked ? `<span class="stamp-badge">${q.tag.replace('Asked in ','')}</span>` : `<span class="badge cat" style="background:transparent;border:1px dashed var(--rule);">Practice Question</span>`}
+            </div>
+            <div class="qtext">${q.question}</div>
+          </div>
+        </div>
+        <div class="options">${optsHtml}</div>
+        <div class="qfoot">
+          <button class="btn-reveal" data-action="reveal">Show Answer &amp; Explanation</button>
+        </div>
+        <div class="answer-panel">
+          <div class="ans-line">Correct answer: ${String.fromCharCode(65+q.answer)}) ${q.options[q.answer]}</div>
+          <div>${q.explanation}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages){
+  const el = document.getElementById('pagination');
+  if(totalPages <= 1){ el.innerHTML=''; return; }
+  el.innerHTML = `
+    <button id="prev-btn" ${currentPage===1?'disabled':''}>← Prev</button>
+    <span>Page ${currentPage} of ${totalPages}</span>
+    <button id="next-btn" ${currentPage===totalPages?'disabled':''}>Next →</button>
+  `;
+  document.getElementById('prev-btn')?.addEventListener('click', ()=>{ currentPage--; renderPage(); window.scrollTo({top:document.getElementById('formula-sheet').offsetTop-10, behavior:'smooth'}); });
+  document.getElementById('next-btn')?.addEventListener('click', ()=>{ currentPage++; renderPage(); window.scrollTo({top:document.getElementById('formula-sheet').offsetTop-10, behavior:'smooth'}); });
+}
+
+document.getElementById('q-list').addEventListener('click', (e)=>{
+  const card = e.target.closest('.qcard');
+  if(!card) return;
+  const qid = Number(card.dataset.id);
+  const q = QUESTIONS.find(x=>x.id===qid);
+
+  const optEl = e.target.closest('.opt');
+  if(optEl){
+    card.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+    optEl.classList.add('selected');
+    return;
+  }
+
+  const btn = e.target.closest('[data-action="reveal"]');
+  if(btn){
+    const panel = card.querySelector('.answer-panel');
+    const isOpen = panel.classList.toggle('open');
+    btn.classList.toggle('is-open', isOpen);
+    btn.textContent = isOpen ? 'Hide Answer & Explanation' : 'Show Answer & Explanation';
+    if(isOpen){
+      card.querySelectorAll('.opt').forEach(o=>{
+        const oi = Number(o.dataset.oi);
+        if(oi === q.answer){ o.classList.add('reveal-correct'); }
+        else if(o.classList.contains('selected')){ o.classList.add('reveal-wrong'); }
+      });
+    } else {
+      card.querySelectorAll('.opt').forEach(o=>{
+        o.classList.remove('reveal-correct','reveal-wrong');
+      });
+    }
+    return;
+  }
+});
+
+document.getElementById('f-category').addEventListener('change', applyFilters);
+document.getElementById('f-difficulty').addEventListener('change', applyFilters);
+document.getElementById('f-asked').addEventListener('change', function(){
+  document.getElementById('f-asked-chip').classList.toggle('active', this.checked);
+  applyFilters();
+});
+document.getElementById('f-search').addEventListener('input', applyFilters);
+
+function renderStats(){
+  document.getElementById('stat-total').textContent = QUESTIONS.length;
+  document.getElementById('stat-asked').textContent = QUESTIONS.filter(q=>q.tag.startsWith('Asked in')).length;
+  document.getElementById('stat-types').textContent = new Set(QUESTIONS.map(q=>q.category)).size;
+  document.getElementById('hero-lead').innerHTML = QUESTIONS.length + ' exam-calibrated questions covering every pattern SSC CGL has tested — basic CI, half-yearly &amp; quarterly compounding, CI–SI differences, successive rates, instalment loans, and Tier-II level mixed problems. Answers and step-by-step explanations stay hidden until you tap to reveal them.';
+}
+
+renderStats();
+renderFormulas();
+populateCategoryFilter();
+applyFilters();
+
+/* ---------- FORMULA SHEET: collapse/expand ---------- */
+const formulaToggle = document.getElementById('formula-toggle');
+const formulaBody = document.getElementById('formula-body');
+const formulaLabel = document.getElementById('formula-toggle-label');
+
+function setFormulaOpen(open){
+  formulaBody.classList.toggle('open', open);
+  formulaToggle.classList.toggle('open', open);
+  formulaLabel.textContent = open ? 'Hide Formula Sheet' : 'Show Formula Sheet';
+}
+formulaToggle.addEventListener('click', ()=> setFormulaOpen(!formulaBody.classList.contains('open')));
+setFormulaOpen(false); // hidden by default
+
+/* ---------- TOP NAV: smooth scroll + scroll-spy + back-to-top ---------- */
+document.querySelectorAll('[data-target]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(btn.dataset.target === 'formula-sheet') setFormulaOpen(true);
+    const el = document.getElementById(btn.dataset.target);
+    if(el) requestAnimationFrame(()=> el.scrollIntoView({behavior:'smooth', block:'start'}));
+  });
+});
+
+const backToTopBtn = document.getElementById('back-to-top');
+backToTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+const navButtons = document.querySelectorAll('.top-nav-links .nav-btn');
+function updateNavState(){
+  const formulaTop = document.getElementById('formula-sheet').offsetTop;
+  const qbTop = document.getElementById('question-bank').offsetTop;
+  const scrollPos = window.scrollY + 90;
+  const activeTarget = scrollPos >= qbTop ? 'question-bank' : (scrollPos >= formulaTop ? 'formula-sheet' : null);
+  navButtons.forEach(b=> b.classList.toggle('active', b.dataset.target === activeTarget));
+  backToTopBtn.classList.toggle('show', window.scrollY > 420);
+}
+window.addEventListener('scroll', updateNavState, {passive:true});
+window.addEventListener('resize', updateNavState);
+updateNavState();
+</script>
+
+</body>
+</html>

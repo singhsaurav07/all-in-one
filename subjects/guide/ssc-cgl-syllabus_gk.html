@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL Syllabus — History · Geography · Polity · Current Affairs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1826;
+    --bg-2:#0B1220;
+    --panel:#17233A;
+    --panel-2:#1D2C48;
+    --panel-line: rgba(203,161,53,0.18);
+    --ink:#EEE7D6;
+    --ink-dim:#9FA9C0;
+    --ink-faint:#6C7691;
+    --gold:#CBA135;
+    --gold-bright:#E7C365;
+    --maroon:#B25849;
+    --teal:#4E9187;
+    --steel:#5D85B8;
+    --violet:#8E7FCB;
+    --rule: rgba(238,231,214,0.14);
+    --shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 1200px 600px at 15% -10%, rgba(203,161,53,0.08), transparent 60%),
+      radial-gradient(ellipse 1000px 700px at 100% 0%, rgba(78,145,135,0.07), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  ::selection{ background:var(--gold); color:#1a1305; }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- HEADER / MASTHEAD ---------- */
+  header.masthead{
+    border-bottom:1px solid var(--panel-line);
+    padding:38px 0 0 0;
+    position:relative;
+  }
+  .eyebrow-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-bottom:14px;
+  }
+  .eyebrow-row .divider-dot{ color:var(--gold); margin:0 8px; }
+
+  .title-block{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:32px;
+    padding-bottom:22px; flex-wrap:wrap;
+  }
+  h1.doc-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(34px, 5.4vw, 58px);
+    line-height:1.02;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  h1.doc-title em{
+    font-style:italic; font-weight:400; color:var(--gold-bright);
+  }
+  .doc-sub{
+    font-size:15px; color:var(--ink-dim); max-width:420px; line-height:1.55;
+    padding-bottom:6px;
+  }
+
+  .seal{
+    flex-shrink:0;
+    width:104px; height:104px; border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    transform:rotate(-6deg);
+  }
+  .seal::before{
+    content:'';
+    position:absolute; inset:6px;
+    border:1px dashed rgba(203,161,53,0.5);
+    border-radius:50%;
+  }
+  .seal-text{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-bright); text-align:center; line-height:1.5;
+  }
+  .seal-text .big{ font-size:15px; font-weight:600; display:block; letter-spacing:.02em; color:var(--ink); }
+
+  .rule-double{
+    height:6px; border-top:1px solid var(--gold); border-bottom:1px solid var(--gold);
+    opacity:.55; margin-bottom:0;
+  }
+
+  /* ---------- EXAM PATTERN STRIP ---------- */
+  .pattern-strip{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .pattern-cell{
+    padding:18px 22px; border-left:1px solid var(--panel-line);
+  }
+  .pattern-cell:first-child{ border-left:none; }
+  .pattern-cell .label{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px;
+  }
+  .pattern-cell .value{ font-size:14.5px; color:var(--ink); line-height:1.5; }
+  .pattern-cell .value b{ color:var(--gold-bright); font-weight:600; }
+
+  @media (max-width:760px){
+    .pattern-strip{ grid-template-columns:repeat(2,1fr); }
+    .pattern-cell:nth-child(3){ border-left:none; }
+  }
+
+  /* ---------- NAV TABS ---------- */
+  nav.subject-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,24,38,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .nav-inner{
+    display:flex; gap:6px; overflow-x:auto; padding:14px 0;
+    scrollbar-width:none;
+  }
+  .nav-inner::-webkit-scrollbar{ display:none; }
+  .nav-btn{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600; font-size:13.5px;
+    background:transparent; border:1px solid var(--rule);
+    color:var(--ink-dim);
+    padding:9px 18px; border-radius:100px; cursor:pointer;
+    white-space:nowrap;
+    transition:all .18s ease;
+    display:flex; align-items:center; gap:8px;
+  }
+  .nav-btn .dot{ width:7px; height:7px; border-radius:50%; background:currentColor; opacity:.6; }
+  .nav-btn:hover{ color:var(--ink); border-color:var(--ink-faint); }
+  .nav-btn.active{
+    color:#12100a; border-color:transparent;
+  }
+  .nav-btn.active[data-c="maroon"]{ background:var(--maroon); }
+  .nav-btn.active[data-c="teal"]{ background:var(--teal); }
+  .nav-btn.active[data-c="gold"]{ background:var(--gold); }
+  .nav-btn.active[data-c="steel"]{ background:var(--steel); }
+
+  .search-box{
+    margin-left:auto; flex-shrink:0;
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--rule); border-radius:100px;
+    padding:8px 16px; min-width:200px;
+  }
+  .search-box input{
+    background:none; border:none; outline:none; color:var(--ink);
+    font-family:'IBM Plex Sans'; font-size:13px; width:100%;
+  }
+  .search-box input::placeholder{ color:var(--ink-faint); }
+  .search-box svg{ flex-shrink:0; opacity:.5; }
+
+  /* ---------- SUBJECT SECTIONS ---------- */
+  main{ padding:56px 0 100px; }
+  section.subject{ margin-bottom:88px; scroll-margin-top:86px; }
+  section.subject:last-child{ margin-bottom:20px; }
+
+  .subject-head{
+    display:flex; align-items:center; gap:20px; margin-bottom:8px;
+  }
+  .subject-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--ink-faint);
+    border:1px solid var(--rule); border-radius:50%;
+    width:38px; height:38px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  h2.subject-title{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(26px,3.4vw,36px);
+    margin:0; letter-spacing:-.01em;
+  }
+  .subject-meta{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--ink-faint); letter-spacing:.06em; margin-left:auto;
+    text-align:right; white-space:nowrap;
+  }
+  .subject-desc{
+    color:var(--ink-dim); font-size:14.5px; max-width:680px;
+    margin:12px 0 28px 58px; line-height:1.6;
+  }
+
+  .progress-track{
+    height:3px; background:var(--rule); border-radius:2px; overflow:hidden;
+    margin:0 0 34px 58px; max-width:680px;
+  }
+  .progress-fill{ height:100%; width:0%; transition:width .3s ease; }
+
+  .chapters{ margin-left:0; display:flex; flex-direction:column; gap:12px; }
+
+  .chapter{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:14px;
+    overflow:hidden;
+    transition:border-color .18s ease;
+  }
+  .chapter:hover{ border-color:rgba(203,161,53,0.35); }
+
+  .chapter-head{
+    display:flex; align-items:center; gap:16px;
+    padding:18px 22px; cursor:pointer;
+    user-select:none;
+  }
+  .chapter-check{
+    width:20px; height:20px; border-radius:5px; flex-shrink:0;
+    border:1.5px solid var(--ink-faint);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:all .15s ease;
+  }
+  .chapter-check.done{ background:var(--gold); border-color:var(--gold); }
+  .chapter-check svg{ opacity:0; transition:opacity .1s; }
+  .chapter-check.done svg{ opacity:1; }
+
+  .chapter-idx{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:var(--ink-faint); width:26px; flex-shrink:0;
+  }
+  .chapter-title{
+    font-family:'IBM Plex Sans'; font-weight:600; font-size:16px;
+    flex:1; line-height:1.4;
+  }
+  .chapter-title .done-text{ text-decoration:line-through; color:var(--ink-faint); }
+
+  .tier-tags{ display:flex; gap:6px; flex-shrink:0; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:10px; font-weight:600;
+    letter-spacing:.05em; padding:4px 9px; border-radius:100px;
+    border:1px solid currentColor;
+  }
+  .tag.t1{ color:var(--steel); }
+  .tag.t2{ color:var(--gold-bright); }
+  .weight-badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    color:var(--ink-faint); flex-shrink:0; width:88px; text-align:right;
+  }
+  .chev{ flex-shrink:0; color:var(--ink-faint); transition:transform .22s ease; }
+  .chapter.open .chev{ transform:rotate(180deg); }
+
+  .chapter-body{
+    max-height:0; overflow:hidden; transition:max-height .28s ease;
+  }
+  .chapter-body-inner{
+    padding:0 22px 22px 62px;
+    border-top:1px solid var(--rule);
+    padding-top:16px;
+    margin-top:-1px;
+  }
+  .topic-list{
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .topic-chip{
+    font-size:13px; color:var(--ink-dim);
+    background:var(--panel-2);
+    border:1px solid var(--rule);
+    padding:6px 12px; border-radius:8px;
+    line-height:1.4;
+  }
+  .topic-chip.hl{ background:rgba(203,161,53,0.18); color:var(--gold-bright); border-color:rgba(203,161,53,0.45); }
+
+  .chapter-hidden{ display:none !important; }
+
+  /* accent variables per subject */
+  .subject[data-accent="maroon"] .subject-num{ color:var(--maroon); border-color:var(--maroon); }
+  .subject[data-accent="maroon"] .progress-fill{ background:var(--maroon); }
+  .subject[data-accent="teal"] .subject-num{ color:var(--teal); border-color:var(--teal); }
+  .subject[data-accent="teal"] .progress-fill{ background:var(--teal); }
+  .subject[data-accent="gold"] .subject-num{ color:var(--gold); border-color:var(--gold); }
+  .subject[data-accent="gold"] .progress-fill{ background:var(--gold); }
+  .subject[data-accent="steel"] .subject-num{ color:var(--steel); border-color:var(--steel); }
+  .subject[data-accent="steel"] .progress-fill{ background:var(--steel); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--panel-line);
+    padding:30px 0 50px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:640px){
+    .subject-desc, .progress-track{ margin-left:0; }
+    .chapter-body-inner{ padding-left:22px; }
+    .weight-badge{ display:none; }
+    .subject-meta{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow-row">
+      <span>SSC · COMBINED GRADUATE LEVEL EXAMINATION <span class="divider-dot">•</span> GENERAL AWARENESS REFERENCE</span>
+      <span>TIER 1 + TIER 2</span>
+    </div>
+    <div class="title-block">
+      <div>
+        <h1 class="doc-title">GA Syllabus <em>Register</em></h1>
+        <p class="doc-sub">A chapter-wise breakdown of History, Geography, Polity and Current Affairs for SSC CGL Tier 1 &amp; Tier 2 — every topic mapped, nothing left to guess.</p>
+      </div>
+      <div class="seal">
+        <div class="seal-text">EXAM READY<span class="big">GA</span>2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="rule-double"></div>
+  <div class="wrap">
+    <div class="pattern-strip">
+      <div class="pattern-cell">
+        <div class="label">Tier 1 · GA Section</div>
+        <div class="value"><b>25 Qs</b> · 50 marks · part of 100 Q / 60 min paper. Qualifying only, −0.5 per wrong.</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="label">Tier 2 · GK-GS Section</div>
+        <div class="value"><b>25 Qs</b> · deeper &amp; article-specific. Counts toward final merit, −1 per wrong.</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="label">Typical weightage</div>
+        <div class="value">History <b>5–7</b> · Polity <b>3–5</b> · Geography <b>3–4</b> · Current Affairs <b>5–7</b> Qs</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="label">Best sources</div>
+        <div class="value">Lucent GK · NCERT VI–XII · Laxmikanth (Polity) · 6–12 month CA capsule</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="subject-nav">
+  <div class="wrap nav-inner">
+    <button class="nav-btn active" data-target="history" data-c="maroon"><span class="dot"></span>History</button>
+    <button class="nav-btn" data-target="geography" data-c="teal"><span class="dot"></span>Geography</button>
+    <button class="nav-btn" data-target="polity" data-c="gold"><span class="dot"></span>Polity</button>
+    <button class="nav-btn" data-target="currentaffairs" data-c="steel"><span class="dot"></span>Current Affairs</button>
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Filter topics or chapters…">
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="mainContent"></main>
+
+<footer class="wrap">
+  <span>Compiled for SSC CGL 2026 aspirants — tick chapters off as you revise them.</span>
+  <span id="overallProgress">0 / 0 chapters revised</span>
+</footer>
+
+<script>
+const DATA = [
+  {
+    id:"history", title:"History", accent:"maroon", num:"01",
+    desc:"Ancient, medieval and modern Indian history plus Art & Culture — the highest-weightage static GK subject in both tiers.",
+    chapters:[
+      {t:"Prehistoric Age & Indus Valley Civilization", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Paleolithic, Mesolithic, Neolithic ages","Harappan sites: Mohenjodaro, Harappa, Lothal, Dholavira, Kalibangan","Town planning & drainage system","Seals, script, trade & economy","Religion & society","Theories of decline"]},
+      {t:"Vedic Age", tier:["T1","T2"], w:"1 Q",
+        topics:["Early Vedic (Rigvedic) polity & society","Later Vedic period changes","Varna system & Ashrama","Economic life & land ownership","Religious beliefs, rituals & literature","Vedas, Upanishads, Vedangas"]},
+      {t:"Religious Movements (6th Century BC)", tier:["T1","T2"], w:"1 Q",
+        topics:["Causes for rise of new religions","Mahavira & Jainism — doctrines, sects (Digambara/Svetambara)","Gautam Buddha & Buddhism — Four Noble Truths, Eightfold Path","Buddhist councils & literature","Ajivika sect"]},
+      {t:"Mahajanapadas & Rise of Magadha", tier:["T1","T2"], w:"1 Q",
+        topics:["16 Mahajanapadas overview","Bimbisara & Ajatashatru","Shishunaga dynasty","Nanda dynasty"]},
+      {t:"Mauryan Empire", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Chandragupta Maurya & Chanakya's Arthashastra","Bindusara","Ashoka — Kalinga war, Dhamma, edicts & inscriptions","Mauryan administration & economy","Decline of the Mauryas"]},
+      {t:"Post-Mauryan Dynasties & Sangam Age", tier:["T1","T2"], w:"1 Q",
+        topics:["Shungas & Kanvas","Indo-Greeks, Shakas, Parthians","Kushanas — Kanishka & era","Satavahanas of the Deccan","Sangam literature & polity","Chola, Chera, Pandya kingdoms"]},
+      {t:"Gupta Empire — Golden Age", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Chandragupta I, Samudragupta's conquests","Chandragupta II Vikramaditya","Administration & society","Science: Aryabhata, Varahamihira","Literature: Kalidasa","Art, architecture & Ajanta paintings","Huna invasions & decline"]},
+      {t:"Post-Gupta & Regional Kingdoms", tier:["T1","T2"], w:"1 Q",
+        topics:["Harshavardhana & Harshacharita","Pallavas of Kanchi","Chalukyas of Badami","Rashtrakutas","Gurjara-Pratiharas"]},
+      {t:"Early Medieval India", tier:["T1","T2"], w:"1 Q",
+        topics:["Arab conquest of Sindh","Mahmud of Ghazni's invasions","Muhammad Ghori & Battle of Tarain","Rajput kingdoms & Prithviraj Chauhan"]},
+      {t:"Delhi Sultanate", tier:["T1","T2"], w:"2 Q",
+        topics:["Slave (Mamluk) dynasty — Qutbuddin Aibak, Iltutmish, Razia Sultan","Khalji dynasty — Alauddin Khalji's market reforms","Tughlaq dynasty — Muhammad bin Tughlaq's experiments","Sayyid & Lodi dynasties","Sultanate administration & revenue system"]},
+      {t:"Vijayanagara & Bahmani Kingdoms", tier:["T1","T2"], w:"1 Q",
+        topics:["Founding by Harihara & Bukka","Krishnadeva Raya & Battle of Talikota","Administration & Nayankara system","Bahmani Sultanate & its successor states"]},
+      {t:"Bhakti & Sufi Movements", tier:["T1","T2"], w:"1 Q",
+        topics:["Bhakti saints: Ramanuja, Kabir, Guru Nanak, Chaitanya, Mirabai, Namdev","Nirguna & Saguna traditions","Sufi silsilas: Chishti, Suhrawardi","Sufi saints: Nizamuddin Auliya, Moinuddin Chishti"]},
+      {t:"Mughal Empire", tier:["T1","T2"], w:"2–3 Q",
+        topics:["Babur — founding & Battle of Panipat (1526)","Humayun & Sher Shah Suri's reforms","Akbar — Din-i-Ilahi, Mansabdari & Rajput policy","Jahangir & Nur Jahan","Shah Jahan — architecture & Taj Mahal","Aurangzeb's policies & empire's decline","Later Mughals"]},
+      {t:"Maratha Empire", tier:["T1","T2"], w:"1 Q",
+        topics:["Shivaji — rise, coronation, Ashtapradhan council","Sambhaji & Rajaram","Peshwa era — Balaji Vishwanath to Baji Rao II","Anglo-Maratha Wars"]},
+      {t:"Advent of Europeans in India", tier:["T1","T2"], w:"1 Q",
+        topics:["Portuguese — Vasco da Gama, Francisco de Almeida, Afonso de Albuquerque","Dutch & French East India Companies","British East India Company's arrival","Carnatic Wars","Battle of Plassey (1757) & Battle of Buxar (1764)"]},
+      {t:"British Expansion & Consolidation", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Governor-Generals: Warren Hastings to Dalhousie","Anglo-Mysore Wars — Hyder Ali, Tipu Sultan","Anglo-Sikh Wars — Ranjit Singh's kingdom","Subsidiary Alliance (Wellesley) & Doctrine of Lapse (Dalhousie)","Land revenue systems: Permanent, Ryotwari, Mahalwari"]},
+      {t:"Revolt of 1857", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Causes — political, economic, social, military, religious","Course of the revolt & key leaders (Rani Lakshmibai, Tantia Tope, Nana Saheb)","Centres of the uprising","Reasons for failure","Government of India Act 1858 & end of Company rule"]},
+      {t:"Socio-Religious Reform Movements", tier:["T1","T2"], w:"1 Q",
+        topics:["Raja Ram Mohan Roy & Brahmo Samaj","Swami Dayanand Saraswati & Arya Samaj","Ramakrishna Mission & Swami Vivekananda","Aligarh Movement — Sir Syed Ahmed Khan","Theosophical Society","Social reforms: sati abolition, widow remarriage, women's education"]},
+      {t:"Rise of Indian Nationalism", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Formation of Indian National Congress (1885)","Moderate phase leaders & methods","Extremist phase — Lal-Bal-Pal","Partition of Bengal (1905) & Swadeshi Movement","Formation of Muslim League"]},
+      {t:"Gandhian Era", tier:["T1","T2"], w:"2–3 Q",
+        topics:["Champaran & Kheda Satyagraha, Ahmedabad mill strike","Rowlatt Act & Jallianwala Bagh massacre","Khilafat & Non-Cooperation Movement","Simon Commission & Nehru Report","Civil Disobedience Movement & Dandi March","Round Table Conferences & Poona Pact","Quit India Movement (1942)"]},
+      {t:"Revolutionary Movements & INA", tier:["T1","T2"], w:"1 Q",
+        topics:["Ghadar Party & Komagata Maru","Anushilan & Jugantar groups","HRA/HSRA — Bhagat Singh, Chandrashekhar Azad","Subhas Chandra Bose & Forward Bloc","Indian National Army (Azad Hind Fauj)"]},
+      {t:"Constitutional Developments & Independence", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Indian Councils Acts 1861/1892/1909 (Morley-Minto)","Government of India Act 1919 (Montagu-Chelmsford)","Government of India Act 1935","Cripps Mission, Cabinet Mission, Mountbatten Plan","Partition & Independence (1947)"]},
+      {t:"Art & Culture", tier:["T1","T2"], w:"2–3 Q",
+        topics:["Temple architecture: Nagara, Dravida, Vesara styles","Indo-Islamic architecture & Mughal monuments","Paintings: Mughal, Rajput, Madhubani, Warli, Pattachitra","Classical dances: Bharatanatyam, Kathak, Odissi, Kathakali, Manipuri, Kuchipudi, Mohiniyattam, Sattriya","Hindustani & Carnatic music, musical instruments","Indian handicrafts & fairs/festivals","UNESCO World Heritage Sites in India","Tribal culture & folk traditions"]}
+    ]
+  },
+  {
+    id:"geography", title:"Geography", accent:"teal", num:"02",
+    desc:"Physical, Indian and World geography — a compact but scoring subject drawing heavily from NCERT Class VI–XII.",
+    chapters:[
+      {t:"Solar System & Universe", tier:["T1","T2"], w:"1 Q",
+        topics:["Origin of the universe — Big Bang theory","Solar system, planets & their features","Sun, Moon, eclipses","Earth's origin, shape, motions — rotation & revolution","Latitude, longitude, Equator, Tropics, IST"]},
+      {t:"Interior of the Earth & Geomorphology", tier:["T1","T2"], w:"1 Q",
+        topics:["Earth's layers: crust, mantle, core","Rocks — igneous, sedimentary, metamorphic","Plate tectonics & continental drift","Volcanoes & earthquakes","Landforms: mountains, plateaus, plains","Weathering & erosion — rivers, glaciers, wind"]},
+      {t:"Climatology", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Atmosphere — composition & layers","Insolation & heat budget","Pressure belts & planetary winds","Humidity, clouds & precipitation types","Cyclones — tropical & temperate","Global climate classification (Koeppen)"]},
+      {t:"Oceanography", tier:["T1","T2"], w:"1 Q",
+        topics:["Ocean relief features — ridges, trenches, shelves","Ocean salinity & temperature","Ocean currents — warm & cold","Tides — causes & types","Coral reefs & their distribution"]},
+      {t:"Indian Physical Geography", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Physiographic divisions: Himalayas, Northern Plains, Peninsular Plateau, Coastal Plains, Islands","Himalayan ranges — Greater, Lesser, Shiwalik","Peninsular plateau — Deccan, Malwa, Chotanagpur","Indian islands: Andaman & Nicobar, Lakshadweep"]},
+      {t:"Indian Drainage System", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Himalayan rivers: Ganga, Indus, Brahmaputra systems","Peninsular rivers: Godavari, Krishna, Kaveri, Narmada, Tapi","Water divides & river basins","Major lakes of India","Dams & multipurpose river valley projects"]},
+      {t:"Indian Climate", tier:["T1","T2"], w:"1 Q",
+        topics:["Monsoon mechanism — southwest & northeast","Seasons of India","Factors affecting Indian climate","Rainfall distribution & regional variation","El Nino / La Nina effects"]},
+      {t:"Indian Soils, Vegetation & Wildlife", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Soil types: alluvial, black, red, laterite, arid, forest","Natural vegetation & forest types","National parks, wildlife & biosphere reserves","Project Tiger, Project Elephant","Biodiversity hotspots of India"]},
+      {t:"Agriculture in India", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Cropping seasons: Kharif, Rabi, Zaid","Major crops & producing states — rice, wheat, cotton, sugarcane, tea, coffee","Irrigation systems & major projects","Green Revolution, White Revolution, Blue Revolution","Agricultural regions & land use pattern"]},
+      {t:"Minerals & Energy Resources", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Metallic minerals: iron ore, bauxite, copper, manganese","Non-metallic minerals: mica, limestone","Coal & petroleum belts of India","Power resources: hydel, thermal, nuclear","Renewable energy: solar, wind, tidal"]},
+      {t:"Indian Industries", tier:["T1","T2"], w:"1 Q",
+        topics:["Iron & steel industry — major plants","Textile industry — cotton, jute, silk","IT & electronics industry hubs","Industrial regions of India","Industrial policy overview"]},
+      {t:"Population, Transport & Human Geography", tier:["T1","T2"], w:"1 Q",
+        topics:["Census of India — population trends, density, sex ratio, literacy","Urbanization & migration patterns","Rail, road, waterway & port network","Major ports of India","Human development indicators"]},
+      {t:"World Geography — Physical Features", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Continents & oceans overview","World's major mountain ranges & deserts","Major world rivers","Countries, capitals & currencies","Important straits, canals & islands"]},
+      {t:"World Economic & Political Geography", tier:["T1","T2"], w:"1 Q",
+        topics:["World agricultural regions & cropping patterns","Global mineral & energy distribution","Time zones & International Date Line","Regional trade blocs & geopolitical groupings"]},
+      {t:"Environment, Ecology & Map Work", tier:["T1","T2"], w:"1 Q",
+        topics:["Ecosystem basics & food chains","Biodiversity conservation & protected areas","Environmental conventions & agreements","Tropic of Cancer/Capricorn, key parallels & meridians through India","Map-based location identification"]}
+    ]
+  },
+  {
+    id:"polity", title:"Polity", accent:"gold", num:"03",
+    desc:"The Constitution, governance machinery and institutions — Tier 2 probes specific Articles and amendment years, so precision matters here.",
+    chapters:[
+      {t:"Constitutional Framework & Evolution", tier:["T1","T2"], w:"1 Q",
+        topics:["Historical background — Regulating Act to Independence Act 1947","Constituent Assembly — formation, composition, key committees","Sources of the Indian Constitution","Preamble — meaning & keywords","Salient features: federal, parliamentary, written, rigid-flexible"]},
+      {t:"Union, its Territory & Citizenship", tier:["T1","T2"], w:"1 Q",
+        topics:["Articles 1–4 — Union & States, new state formation","Citizenship — Articles 5–11","Acquisition & termination of citizenship","Overseas Citizen of India (OCI)"]},
+      {t:"Fundamental Rights", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Articles 12–35 overview","Right to Equality (14–18)","Right to Freedom (19–22)","Right against Exploitation (23–24)","Right to Freedom of Religion (25–28)","Cultural & Educational Rights (29–30)","Right to Constitutional Remedies (32) & writs — habeas corpus, mandamus, prohibition, certiorari, quo warranto"]},
+      {t:"Directive Principles & Fundamental Duties", tier:["T1","T2"], w:"1 Q",
+        topics:["Part IV — Articles 36–51, classification of DPSPs","Significance & criticism of DPSPs","Part IVA — Article 51A, the 11 Fundamental Duties","42nd Amendment & addition of duties"]},
+      {t:"Union Executive", tier:["T1","T2"], w:"1–2 Q",
+        topics:["President — election, qualifications, powers (Articles 52–78)","Ordinance-making power & veto powers","Vice President — role & election","Prime Minister & Council of Ministers","Attorney General of India"]},
+      {t:"Parliament", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Lok Sabha & Rajya Sabha — composition, tenure, qualifications","Sessions, quorum, prorogation, dissolution","Legislative procedure — ordinary & money bills","Budget process & types of grants","Parliamentary committees — PAC, Estimates Committee","Question Hour, Zero Hour, motions"]},
+      {t:"Judiciary", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Supreme Court — composition, jurisdiction, appointment of judges","Collegium system","High Courts & subordinate courts","Judicial review & judicial activism","Public Interest Litigation (PIL)"]},
+      {t:"State Government", tier:["T1","T2"], w:"1 Q",
+        topics:["Governor — appointment, powers, discretionary role","Chief Minister & State Council of Ministers","State Legislature — Vidhan Sabha & Vidhan Parishad","Relationship between Governor & State Government"]},
+      {t:"Local Self-Government", tier:["T1","T2"], w:"1 Q",
+        topics:["73rd Amendment — Panchayati Raj institutions","Gram Sabha, Panchayat Samiti, Zila Parishad","74th Amendment — Municipalities","Types of urban local bodies","73rd/74th Schedule subjects"]},
+      {t:"Centre–State Relations", tier:["T1","T2"], w:"1 Q",
+        topics:["Legislative relations — Union, State, Concurrent Lists","Administrative relations & All India Services","Financial relations & Finance Commission's role","Inter-State Council & Zonal Councils","Emergency provisions — National (352), State (356), Financial (360)"]},
+      {t:"Constitutional Bodies", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Election Commission of India — composition & functions","Comptroller and Auditor General (CAG)","Union Public Service Commission & State PSCs","Finance Commission — role in devolution","Attorney General & Advocate General"]},
+      {t:"Statutory & Non-Constitutional Bodies", tier:["T1","T2"], w:"1 Q",
+        topics:["NITI Aayog — structure & role (replaced Planning Commission)","Central Bureau of Investigation (CBI)","Central Vigilance Commission (CVC)","National Human Rights Commission (NHRC)","Lokpal & Lokayukta","SEBI, RBI's constitutional standing"]},
+      {t:"Elections in India", tier:["T1","T2"], w:"1 Q",
+        topics:["Electoral system & delimitation","Representation of the People Act, 1950 & 1951","Political parties — national & state recognition criteria","Anti-Defection Law (10th Schedule)","Electoral reforms — EVM, VVPAT, model code of conduct"]},
+      {t:"Constitutional Amendments", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Amendment procedure — Article 368","42nd Amendment (1976) — 'Mini Constitution'","44th Amendment (1978)","73rd & 74th Amendments — local bodies","101st Amendment — GST","103rd Amendment — EWS reservation","Key amendments at a glance"]},
+      {t:"Schedules & Landmark Articles", tier:["T1","T2"], w:"1 Q",
+        topics:["Overview of all 12 Schedules","Quick-reference Articles: 1, 14, 19, 21, 32, 44, 51A, 356, 368","Difference between Fundamental Rights & DPSPs"]},
+      {t:"Landmark Judgments", tier:["T1","T2"], w:"1 Q",
+        topics:["Kesavananda Bharati case — Basic Structure Doctrine","Golaknath case","Maneka Gandhi vs Union of India","Minerva Mills case","S.R. Bommai case — President's Rule limits"]}
+    ]
+  },
+  {
+    id:"currentaffairs", title:"Current Affairs", accent:"steel", num:"04",
+    desc:"The single highest-yield GA topic — a rolling 6–12 month window before the exam. Refresh this section closest to your exam date.",
+    chapters:[
+      {t:"National Affairs & Government Schemes", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Key government welfare & flagship schemes","Cabinet decisions & new policies","National appointments — key government & institutional posts","Major national events & inaugurations","State-level developments of national relevance"]},
+      {t:"International Affairs & Summits", tier:["T1","T2"], w:"1 Q",
+        topics:["G20, G7, SCO, BRICS, SAARC developments","United Nations & related bodies' updates","Bilateral & multilateral summits","India's foreign policy engagements & treaties"]},
+      {t:"Economy & Banking Updates", tier:["T1","T2"], w:"1 Q",
+        topics:["Union Budget highlights","RBI monetary policy & repo rate changes","Banking sector reforms & new financial institutions","Economic Survey key indicators","GDP, inflation & fiscal data releases"]},
+      {t:"Science & Technology News", tier:["T1","T2"], w:"1 Q",
+        topics:["ISRO missions & satellite launches","Defence technology & indigenous systems","Digital India & IT initiatives","Notable scientific discoveries & research"]},
+      {t:"Awards, Honours & Appointments", tier:["T1","T2"], w:"1–2 Q",
+        topics:["Padma Awards & Bharat Ratna","Nobel Prizes across categories","National Film & literary awards","Key appointments — government, judiciary, international bodies"]},
+      {t:"Sports Current Affairs", tier:["T1","T2"], w:"1 Q",
+        topics:["Olympics, Asian Games, Commonwealth Games updates","Major tournament winners — cricket, hockey, badminton, etc.","National sports awards","Notable records & retirements"]},
+      {t:"Books, Authors & Obituaries", tier:["T1","T2"], w:"1 Q",
+        topics:["Recently released notable books & their authors","Autobiographies & biographies in the news","Eminent personalities in the news (passing away)"]},
+      {t:"Important Days & Index Reports", tier:["T1","T2"], w:"1 Q",
+        topics:["Notable international & national observance days","Global Hunger Index, Human Development Index, Happiness Index","Ease of Doing Business & other global rankings"]},
+      {t:"Defence & Security", tier:["T1","T2"], w:"1 Q",
+        topics:["Joint military exercises with other nations","Defence deals & indigenous equipment induction","Border & internal security developments"]},
+      {t:"Environment & Climate Action", tier:["T1","T2"], w:"1 Q",
+        topics:["COP summits & climate agreements","New wildlife sanctuaries, biosphere reserve notifications","India's renewable energy & sustainability targets"]}
+    ]
+  }
+];
+
+const mount = document.getElementById('mainContent');
+let doneSet = new Set();
+
+function render(){
+  mount.innerHTML = DATA.map(subj => `
+    <section class="subject" id="${subj.id}" data-accent="${subj.accent}">
+      <div class="subject-head">
+        <div class="subject-num">${subj.num}</div>
+        <h2 class="subject-title">${subj.title}</h2>
+        <div class="subject-meta">${subj.chapters.length} chapters · <span class="prog-label" data-subj="${subj.id}">0/${subj.chapters.length} done</span></div>
+      </div>
+      <p class="subject-desc">${subj.desc}</p>
+      <div class="progress-track"><div class="progress-fill" id="fill-${subj.id}"></div></div>
+      <div class="chapters">
+        ${subj.chapters.map((c,i) => `
+          <div class="chapter" data-subj="${subj.id}" data-idx="${i}" data-search="${(c.t+' '+c.topics.join(' ')).toLowerCase()}">
+            <div class="chapter-head">
+              <div class="chapter-check" data-key="${subj.id}-${i}">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#12100a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="chapter-idx">${String(i+1).padStart(2,'0')}</span>
+              <span class="chapter-title">${c.t}</span>
+              <div class="tier-tags">${c.tier.map(t=>`<span class="tag ${t.toLowerCase()==='t1'?'t1':'t2'}">${t}</span>`).join('')}</div>
+              <span class="weight-badge">~${c.w}</span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="chapter-body">
+              <div class="chapter-body-inner">
+                <div class="topic-list">
+                  ${c.topics.map(top => `<span class="topic-chip">${top}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+  `).join('');
+
+  attachHandlers();
+  updateAllProgress();
+}
+
+function attachHandlers(){
+  document.querySelectorAll('.chapter-head').forEach(head=>{
+    head.addEventListener('click', (e)=>{
+      if(e.target.closest('.chapter-check')) return;
+      const chapter = head.parentElement;
+      const body = chapter.querySelector('.chapter-body');
+      const isOpen = chapter.classList.contains('open');
+      if(isOpen){
+        body.style.maxHeight = null;
+        chapter.classList.remove('open');
+      } else {
+        chapter.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  document.querySelectorAll('.chapter-check').forEach(chk=>{
+    chk.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const key = chk.dataset.key;
+      const titleEl = chk.parentElement.querySelector('.chapter-title');
+      if(doneSet.has(key)){
+        doneSet.delete(key);
+        chk.classList.remove('done');
+        titleEl.classList.remove('done-text');
+      } else {
+        doneSet.add(key);
+        chk.classList.add('done');
+        titleEl.classList.add('done-text');
+      }
+      updateAllProgress();
+    });
+  });
+}
+
+function updateAllProgress(){
+  let totalAll=0, doneAll=0;
+  DATA.forEach(subj=>{
+    const total = subj.chapters.length;
+    let done = 0;
+    subj.chapters.forEach((c,i)=>{ if(doneSet.has(subj.id+'-'+i)) done++; });
+    const fill = document.getElementById('fill-'+subj.id);
+    if(fill) fill.style.width = (done/total*100)+'%';
+    const label = document.querySelector(`.prog-label[data-subj="${subj.id}"]`);
+    if(label) label.textContent = `${done}/${total} done`;
+    totalAll+=total; doneAll+=done;
+  });
+  document.getElementById('overallProgress').textContent = `${doneAll} / ${totalAll} chapters revised`;
+}
+
+// nav tabs
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.dataset.target);
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// scroll spy
+const sections = () => DATA.map(s=>document.getElementById(s.id)).filter(Boolean);
+window.addEventListener('scroll', ()=>{
+  let current = DATA[0].id;
+  sections().forEach(sec=>{
+    if(sec.getBoundingClientRect().top < 140) current = sec.id;
+  });
+  document.querySelectorAll('.nav-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.target === current);
+  });
+}, {passive:true});
+
+// search filter
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.chapter').forEach(ch=>{
+    const match = !q || ch.dataset.search.includes(q);
+    ch.classList.toggle('chapter-hidden', !match);
+    if(match && q){
+      ch.classList.add('open');
+      const body = ch.querySelector('.chapter-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      // highlight matching chip
+      ch.querySelectorAll('.topic-chip').forEach(chip=>{
+        chip.classList.toggle('hl', chip.textContent.toLowerCase().includes(q));
+      });
+    } else if(!q){
+      ch.querySelectorAll('.topic-chip').forEach(chip=>chip.classList.remove('hl'));
+    }
+  });
+});
+
+render();
+</script>
+</body>
+</html>

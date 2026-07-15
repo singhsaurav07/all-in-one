@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice &amp; Narration — SSC CGL Reference Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16223D;
+    --ink-soft:#2b3a5c;
+    --paper:#FBF9F4;
+    --paper-dim:#F1EDE1;
+    --line: #DAD3BF;
+    --gold:#B9791F;
+    --gold-soft:#F3E3C6;
+    --teal:#2F6E6E;
+    --teal-soft:#DEEDEB;
+    --maroon:#8C2F39;
+    --maroon-soft:#F3DEE0;
+    --text:#22262E;
+    --text-dim:#5b5f66;
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+  }
+  h1,h2,h3,h4{ font-family:'Source Serif 4', serif; color:var(--ink); margin:0 0 .4em 0; }
+  a{color:var(--teal);}
+  code, .mono{font-family:'JetBrains Mono',monospace; font-size:.85em;}
+
+  /* ===== Layout shell ===== */
+  .shell{ display:flex; min-height:100vh; }
+
+  /* Spine nav */
+  .spine{
+    width:230px; flex-shrink:0;
+    background:var(--ink);
+    color:#cfd7ea;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:22px 0 30px 0;
+    border-right:6px solid var(--gold);
+  }
+  .spine::-webkit-scrollbar{width:6px;}
+  .spine::-webkit-scrollbar-thumb{background:#39456b;}
+  .spine-title{
+    font-family:'Source Serif 4',serif;
+    color:#fff; font-size:1.05rem; font-weight:600;
+    padding:0 20px 16px 20px; border-bottom:1px solid #2c3a5c; margin-bottom:10px;
+  }
+  .spine-title span{display:block; font-family:'Inter',sans-serif; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-top:4px; font-weight:600;}
+  .spine-group{ padding:12px 20px 6px 20px; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:#8b96b8; font-weight:600;}
+  .spine a{
+    display:flex; gap:10px; align-items:baseline;
+    padding:6px 20px; font-size:.85rem; color:#cfd7ea; text-decoration:none;
+    border-left:3px solid transparent;
+  }
+  .spine a .tag{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--gold); flex-shrink:0; width:32px;}
+  .spine a:hover, .spine a.active{ background:#1d2c4d; border-left-color:var(--gold); color:#fff; }
+
+  /* Main content */
+  main{ flex:1; min-width:0; }
+
+  .hero{
+    background: linear-gradient(180deg, var(--ink) 0%, #1c2c4d 100%);
+    color:#e9edf7; padding:56px 56px 44px 56px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-60px; top:-60px; width:320px; height:320px;
+    border:70px solid rgba(185,121,31,0.12); border-radius:50%;
+  }
+  .hero .kicker{ font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:14px;}
+  .hero h1{ color:#fff; font-size:2.5rem; max-width:720px; margin-bottom:10px;}
+  .hero p.sub{ max-width:640px; color:#b9c3dd; font-size:1.02rem; margin:0; }
+  .hero .stampbar{ display:flex; gap:10px; flex-wrap:wrap; margin-top:26px; position:relative; z-index:1;}
+  .stamp{
+    border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:6px 14px;
+    font-size:.76rem; color:#e2e7f5; display:flex; gap:6px; align-items:center;
+  }
+  .stamp b{color:var(--gold); font-family:'JetBrains Mono',monospace;}
+
+  section.chapter{ padding:40px 56px; border-bottom:1px solid var(--line); }
+  section.chapter:nth-of-type(odd){ background:var(--paper-dim); }
+  .chapter-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:22px; }
+  .chapter-num{ font-family:'JetBrains Mono',monospace; color:var(--gold); font-weight:600; font-size:1.05rem; border:1px solid var(--gold); padding:2px 9px; border-radius:20px; }
+  .chapter-head h2{ font-size:1.55rem; margin:0;}
+  .chapter-head p.desc{ margin:2px 0 0 0; color:var(--text-dim); font-size:.92rem;}
+
+  h3.sub{ font-size:1.08rem; margin-top:30px; border-left:4px solid var(--teal); padding-left:10px; color:var(--ink-soft);}
+
+  table{ width:100%; border-collapse:collapse; margin:16px 0 8px 0; font-size:.9rem; background:#fff;}
+  caption{ text-align:left; font-size:.78rem; color:var(--text-dim); margin-bottom:6px; font-style:italic;}
+  th{ background:var(--ink); color:#fff; text-align:left; padding:9px 12px; font-weight:600; font-size:.82rem;}
+  td{ padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{ background:#f7f4ec;}
+  td.active-cell{ color:var(--teal); }
+  td.passive-cell{ color:var(--maroon); }
+  .arrow{ color:var(--gold); font-weight:700; }
+
+  .rule-box{
+    background:#fff; border:1px solid var(--line); border-left:4px solid var(--ink);
+    padding:14px 18px; margin:14px 0; border-radius:var(--radius); font-size:.93rem;
+  }
+  .rule-box .form{ font-family:'JetBrains Mono',monospace; background:var(--paper-dim); padding:8px 12px; border-radius:3px; display:inline-block; margin:6px 0; font-size:.85rem;}
+
+  .trick{
+    background: var(--gold-soft); border:1px dashed var(--gold);
+    padding:14px 18px; margin:16px 0; border-radius:var(--radius); position:relative;
+  }
+  .trick::before{
+    content:"TRICK"; position:absolute; top:-10px; left:14px; background:var(--gold); color:#fff;
+    font-size:.68rem; font-weight:700; letter-spacing:.08em; padding:2px 10px; border-radius:10px;
+  }
+  .trick p{ margin:6px 0;}
+
+  .pyq{
+    background:var(--teal-soft); border-left:4px solid var(--teal);
+    padding:12px 16px; margin:14px 0; border-radius:var(--radius); font-size:.9rem;
+  }
+  .pyq .lbl{ font-size:.68rem; font-weight:700; letter-spacing:.1em; color:var(--teal); text-transform:uppercase; display:block; margin-bottom:4px;}
+
+  .example{ margin:10px 0; font-size:.93rem; }
+  .example .ex-active{ color:var(--teal); font-weight:600;}
+  .example .ex-passive{ color:var(--maroon); font-weight:600;}
+  .example .ex-direct{ color:var(--teal); font-weight:600;}
+  .example .ex-indirect{ color:var(--maroon); font-weight:600;}
+
+  .errbox{
+    background:var(--maroon-soft); border-left:4px solid var(--maroon);
+    padding:12px 16px; margin:14px 0; border-radius:var(--radius); font-size:.9rem;
+  }
+  .errbox .lbl{ font-size:.68rem; font-weight:700; letter-spacing:.1em; color:var(--maroon); text-transform:uppercase; display:block; margin-bottom:4px;}
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:900px){ .grid2{ grid-template-columns:1fr; } }
+
+  .chip-row{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0;}
+  .chip{ background:#fff; border:1px solid var(--line); padding:5px 12px; border-radius:20px; font-size:.8rem; font-family:'JetBrains Mono',monospace;}
+
+  footer{ padding:30px 56px; background:var(--ink); color:#9aa5c6; font-size:.82rem; text-align:center;}
+  footer b{color:#fff;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    .spine{ position:static; width:100%; height:auto; border-right:none; border-bottom:6px solid var(--gold); }
+    .hero, section.chapter{ padding:30px 22px; }
+  }
+
+  /* ===== Question bank ===== */
+  .qb-intro{ font-size:.92rem; color:var(--text-dim); max-width:640px; margin-bottom:18px;}
+  .qb-chipbar{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+  .qb-chip{
+    font-family:'Inter',sans-serif; font-size:.8rem; font-weight:600; cursor:pointer;
+    background:#fff; border:1px solid var(--line); color:var(--ink-soft);
+    padding:7px 14px; border-radius:20px; transition:background .15s, color .15s;
+  }
+  .qb-chip:hover{ border-color:var(--teal); }
+  .qb-chip.active{ background:var(--ink); color:#fff; border-color:var(--ink); }
+
+  .qb-group{ margin-bottom:10px; }
+  .qb-group.qb-hidden{ display:none; }
+  .qb-group-head{
+    display:flex; align-items:center; gap:12px; padding:12px 16px;
+    background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:var(--radius); cursor:pointer;
+  }
+  .qb-group-head h4{ margin:0; font-size:1rem; flex:1; }
+  .qb-count{ font-size:.76rem; color:var(--text-dim); font-family:'JetBrains Mono',monospace;}
+  .qb-toggle-all{
+    font-family:'Inter',sans-serif; font-size:.74rem; font-weight:600; color:var(--teal);
+    background:var(--teal-soft); border:1px solid var(--teal); border-radius:14px;
+    padding:4px 12px; cursor:pointer;
+  }
+  .qb-list{
+    list-style:none; margin:0; padding:0;
+    max-height:0; overflow:hidden; transition:max-height .25s ease;
+    border:1px solid transparent;
+  }
+  .qb-group.qb-open .qb-list{ max-height:20000px; border-color:var(--line); border-top:none; }
+  .qb-group.qb-open .qb-group-head{ border-radius:var(--radius) var(--radius) 0 0; }
+  .qb-list li{ border-bottom:1px solid var(--line); background:#fff; }
+  .qb-list li:last-child{ border-bottom:none; }
+  .qb-list details{ padding:0; }
+  .qb-list summary{
+    list-style:none; cursor:pointer; padding:10px 16px 10px 44px; font-size:.9rem;
+    position:relative; color:var(--ink-soft);
+  }
+  .qb-list summary::-webkit-details-marker{ display:none; }
+  .qb-list summary::before{
+    content:"Q"; position:absolute; left:14px; top:9px; font-family:'JetBrains Mono',monospace;
+    font-size:.68rem; font-weight:700; color:var(--gold); border:1px solid var(--gold);
+    width:18px; height:18px; text-align:center; line-height:16px; border-radius:50%;
+  }
+  .qb-list details[open] summary::before{ content:"−"; background:var(--gold); color:#fff; }
+  .qb-answer{
+    margin:0 16px 12px 44px; padding:8px 12px; background:var(--maroon-soft);
+    border-left:3px solid var(--maroon); border-radius:3px; font-size:.88rem; color:var(--maroon);
+    font-weight:600;
+  }
+  .qb-toolbar{ display:flex; gap:10px; margin-bottom:18px; }
+  .qb-toolbar button{
+    font-family:'Inter',sans-serif; font-size:.78rem; font-weight:600; color:var(--ink);
+    background:var(--gold-soft); border:1px solid var(--gold); border-radius:16px;
+    padding:6px 14px; cursor:pointer;
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="spine" id="spine">
+    <div class="spine-title">Voice &amp; Narration<span>SSC CGL Manual</span></div>
+
+    <div class="spine-group">Active ⇄ Passive</div>
+    <a href="#ap-basics"><span class="tag">V.1</span> Core formula</a>
+    <a href="#ap-tense"><span class="tag">V.2</span> Tense-wise chart</a>
+    <a href="#ap-modals"><span class="tag">V.3</span> Modal verbs</a>
+    <a href="#ap-imperative"><span class="tag">V.4</span> Imperatives</a>
+    <a href="#ap-interrogative"><span class="tag">V.5</span> Questions</a>
+    <a href="#ap-twoobj"><span class="tag">V.6</span> Two objects</a>
+    <a href="#ap-special"><span class="tag">V.7</span> Special structures</a>
+    <a href="#ap-tricks"><span class="tag">V.8</span> Shortcut kit</a>
+
+    <div class="spine-group">Direct ⇄ Indirect</div>
+    <a href="#ds-basics"><span class="tag">S.1</span> Core rules</a>
+    <a href="#ds-pronoun"><span class="tag">S.2</span> Pronoun map</a>
+    <a href="#ds-time"><span class="tag">S.3</span> Time &amp; place</a>
+    <a href="#ds-tense"><span class="tag">S.4</span> Tense backshift</a>
+    <a href="#ds-modal"><span class="tag">S.5</span> Modal shift</a>
+    <a href="#ds-types"><span class="tag">S.6</span> Sentence types</a>
+    <a href="#ds-tricks"><span class="tag">S.7</span> Shortcut kit</a>
+
+    <div class="spine-group">Exam Bank</div>
+    <a href="#pyq-bank"><span class="tag">E.1</span> Question patterns</a>
+    <a href="#final-drill"><span class="tag">E.2</span> 60-second drill</a>
+
+    <div class="spine-group">Practice Bank</div>
+    <a href="#bank-ap"><span class="tag">Q.1</span> Active-Passive · 200</a>
+    <a href="#bank-ds"><span class="tag">Q.2</span> Direct-Indirect · 200</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <div class="kicker">English Language · Tier-I &amp; Tier-II</div>
+      <h1>Active–Passive Voice &amp; Direct–Indirect Speech</h1>
+      <p class="sub">A single reference built around how SSC CGL actually asks these questions — one-line transformation MCQs, "select the most appropriate" options, and error-spotting traps. Every rule below is paired with the shortcut that gets you to the answer in under 15 seconds.</p>
+      <div class="stampbar">
+        <div class="stamp"><b>2–3</b> questions / Tier-I</div>
+        <div class="stamp"><b>12</b> tense forms covered</div>
+        <div class="stamp"><b>9</b> sentence-type variations</div>
+        <div class="stamp"><b>15 sec</b> target per question</div>
+        <div class="stamp"><b>400</b> practice Qs, answers hidden</div>
+      </div>
+    </div>
+
+    <!-- ================= ACTIVE-PASSIVE ================= -->
+
+    <section class="chapter" id="ap-basics">
+      <div class="chapter-head">
+        <span class="chapter-num">V.1</span>
+        <div><h2>The core formula</h2><p class="desc">Every passive transformation, however complex, reduces to this one move.</p></div>
+      </div>
+
+      <div class="rule-box">
+        <div class="form">Active: Subject + Verb + Object</div><br>
+        <div class="form">Passive: Object + be (in Active's tense) + V<sub>3</sub> + by + Subject</div>
+      </div>
+
+      <div class="example">
+        <span class="ex-active">Active:</span> The chef cooks the meal.<br>
+        <span class="ex-passive">Passive:</span> The meal is cooked by the chef.
+      </div>
+
+      <h3 class="sub">Four things that change, in order</h3>
+      <table>
+        <tr><th>Step</th><th>What happens</th><th>Example</th></tr>
+        <tr><td>1</td><td>Object of active sentence becomes subject of passive</td><td>the meal → <b>The meal</b> …</td></tr>
+        <tr><td>2</td><td>Verb splits into "be" (carrying the original tense) + V₃</td><td>cooks → <b>is cooked</b></td></tr>
+        <tr><td>3</td><td>Subject of active sentence becomes object, introduced by "by"</td><td>… <b>by the chef</b></td></tr>
+        <tr><td>4</td><td>Pronouns flip to the objective case</td><td>I → me, he → him, they → them, we → us</td></tr>
+      </table>
+
+      <div class="trick">
+        <p><b>The "be + V3" lock:</b> whatever tense the active verb is in, the passive verb is always <b>a form of "be" + V₃</b>. Identify the active tense first (from the helping verb / time marker), then just plug the matching "be" from the chart in V.2 — never think about the passive tense from scratch.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ap-tense">
+      <div class="chapter-head">
+        <span class="chapter-num">V.2</span>
+        <div><h2>Tense-wise transformation chart</h2><p class="desc">The single most-tested table in this topic — memorise the "be" form for each tense.</p></div>
+      </div>
+
+      <table>
+        <caption>V₃ = past participle; the object here is "the letter" for consistency</caption>
+        <tr><th>Tense</th><th>Active</th><th>Passive</th></tr>
+        <tr><td>Simple Present</td><td class="active-cell">She writes the letter.</td><td class="passive-cell">The letter is written by her.</td></tr>
+        <tr><td>Present Continuous</td><td class="active-cell">She is writing the letter.</td><td class="passive-cell">The letter is being written by her.</td></tr>
+        <tr><td>Present Perfect</td><td class="active-cell">She has written the letter.</td><td class="passive-cell">The letter has been written by her.</td></tr>
+        <tr><td>Present Perfect Continuous</td><td class="active-cell">She has been writing the letter.</td><td class="passive-cell"><i>No standard passive — SSC treats this as "not transformable"</i></td></tr>
+        <tr><td>Simple Past</td><td class="active-cell">She wrote the letter.</td><td class="passive-cell">The letter was written by her.</td></tr>
+        <tr><td>Past Continuous</td><td class="active-cell">She was writing the letter.</td><td class="passive-cell">The letter was being written by her.</td></tr>
+        <tr><td>Past Perfect</td><td class="active-cell">She had written the letter.</td><td class="passive-cell">The letter had been written by her.</td></tr>
+        <tr><td>Past Perfect Continuous</td><td class="active-cell">She had been writing the letter.</td><td class="passive-cell"><i>Not transformable (same as above)</i></td></tr>
+        <tr><td>Simple Future</td><td class="active-cell">She will write the letter.</td><td class="passive-cell">The letter will be written by her.</td></tr>
+        <tr><td>Future Continuous</td><td class="active-cell">She will be writing the letter.</td><td class="passive-cell"><i>Not transformable</i></td></tr>
+        <tr><td>Future Perfect</td><td class="active-cell">She will have written the letter.</td><td class="passive-cell">The letter will have been written by her.</td></tr>
+        <tr><td>Future Perfect Continuous</td><td class="active-cell">She will have been writing the letter.</td><td class="passive-cell"><i>Not transformable</i></td></tr>
+      </table>
+
+      <div class="trick">
+        <p><b>The "3 continuous tenses" shortcut:</b> Present Perfect Continuous, Past Perfect Continuous, and Future Perfect Continuous have <b>no clean passive form</b>. If an SSC option tries to passivise one of these, it is almost always the wrong option — eliminate it on sight.</p>
+        <p><b>Reading the "be" ladder:</b> is/am/are → was/were → has/have been → had been → will be → will have been. Pick the exact slot matching the active helping verb and you cannot go wrong.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ap-modals">
+      <div class="chapter-head">
+        <span class="chapter-num">V.3</span>
+        <div><h2>Modal verbs</h2><p class="desc">can, could, may, might, must, should, would, ought to, need, has/have to</p></div>
+      </div>
+
+      <div class="rule-box"><div class="form">Modal + be + V₃</div></div>
+
+      <table>
+        <tr><th>Active</th><th></th><th>Passive</th></tr>
+        <tr><td class="active-cell">You can solve this problem.</td><td class="arrow">→</td><td class="passive-cell">This problem can be solved by you.</td></tr>
+        <tr><td class="active-cell">He must finish the work.</td><td class="arrow">→</td><td class="passive-cell">The work must be finished by him.</td></tr>
+        <tr><td class="active-cell">You should return the books.</td><td class="arrow">→</td><td class="passive-cell">The books should be returned by you.</td></tr>
+        <tr><td class="active-cell">She has to submit the form.</td><td class="arrow">→</td><td class="passive-cell">The form has to be submitted by her.</td></tr>
+        <tr><td class="active-cell">They need not inform him.</td><td class="arrow">→</td><td class="passive-cell">He need not be informed (by them).</td></tr>
+      </table>
+
+      <div class="trick"><p><b>Never touch the modal.</b> can, could, may, might, must, shall, should, will, would stay exactly as they are — only the verb after the modal changes to "be + V₃". A modal option that changes tense (e.g. "must" → "had to") without instruction is a distractor.</p></div>
+    </section>
+
+    <section class="chapter" id="ap-imperative">
+      <div class="chapter-head">
+        <span class="chapter-num">V.4</span>
+        <div><h2>Imperative sentences</h2><p class="desc">Orders, requests, advice, and prohibitions each get a different passive opener.</p></div>
+      </div>
+
+      <table>
+        <tr><th>Sentence type</th><th>Passive opener</th><th>Example</th></tr>
+        <tr><td>Command / order</td><td class="mono">Let + object + be + V₃</td><td class="active-cell">Close the door.</td></tr>
+        <tr><td></td><td></td><td class="passive-cell">Let the door be closed.</td></tr>
+        <tr><td>Request</td><td class="mono">You are requested to + V₁ …</td><td class="active-cell">Please help me.</td></tr>
+        <tr><td></td><td></td><td class="passive-cell">You are requested to help me.</td></tr>
+        <tr><td>Advice</td><td class="mono">Subject + should be + V₃</td><td class="active-cell">Drink milk daily.</td></tr>
+        <tr><td></td><td></td><td class="passive-cell">Milk should be drunk daily.</td></tr>
+        <tr><td>Negative command</td><td class="mono">Let + object + not + be + V₃</td><td class="active-cell">Do not insult the poor.</td></tr>
+        <tr><td></td><td></td><td class="passive-cell">Let the poor not be insulted. </td></tr>
+      </table>
+
+      <div class="trick"><p><b>Spot the verb, pick the opener:</b> if the sentence starts with a bare verb (Open, Shut, Bring) → "Let". If it starts with "Please" → "You are requested to". No "please" but clearly polite (Kindly, Would you) → also "requested to". A tone word in the question almost always names which opener to use.</p></div>
+    </section>
+
+    <section class="chapter" id="ap-interrogative">
+      <div class="chapter-head">
+        <span class="chapter-num">V.5</span>
+        <div><h2>Interrogative sentences</h2><p class="desc">Yes/No questions and Wh-questions passivise differently — word order is the trap here.</p></div>
+      </div>
+
+      <table>
+        <tr><th>Type</th><th>Active</th><th>Passive</th></tr>
+        <tr><td>Yes/No (Do/Does/Did)</td><td class="active-cell">Did you post the letter?</td><td class="passive-cell">Was the letter posted by you?</td></tr>
+        <tr><td>Yes/No (helping verb only)</td><td class="active-cell">Is she writing a poem?</td><td class="passive-cell">Is a poem being written by her?</td></tr>
+        <tr><td>What / Which</td><td class="active-cell">What did you buy?</td><td class="passive-cell">What was bought by you?</td></tr>
+        <tr><td>Who (as subject → by whom)</td><td class="active-cell">Who wrote this book?</td><td class="passive-cell">By whom was this book written?</td></tr>
+        <tr><td>Whom (already object)</td><td class="active-cell">Whom did you meet?</td><td class="passive-cell">Who was met by you?</td></tr>
+        <tr><td>Why</td><td class="active-cell">Why did she scold him?</td><td class="passive-cell">Why was he scolded by her?</td></tr>
+      </table>
+
+      <div class="trick">
+        <p><b>The Do/Does/Did trick:</b> these auxiliaries carry only tense, no meaning — they simply convert to the matching form of "be" (Do→Is/Are, Does→Is, Did→Was/Were) and the main verb becomes V₃.</p>
+        <p><b>Who vs Whom:</b> "Who" as subject of an active question always becomes "By whom" in passive. "Whom" (already the object) becomes plain "Who" in passive, since it now sits as the subject.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ap-twoobj">
+      <div class="chapter-head">
+        <span class="chapter-num">V.6</span>
+        <div><h2>Sentences with two objects</h2><p class="desc">give, tell, teach, offer, show, promise, pay, send, award — each produces two valid passive sentences.</p></div>
+      </div>
+
+      <div class="example">
+        <span class="ex-active">Active:</span> The teacher gave the students a book.
+      </div>
+      <table>
+        <tr><th>Passive form</th><th>Result</th></tr>
+        <tr><td>Indirect object as subject <i>(preferred by SSC)</i></td><td class="passive-cell">The students were given a book by the teacher.</td></tr>
+        <tr><td>Direct object as subject</td><td class="passive-cell">A book was given to the students by the teacher.</td></tr>
+      </table>
+      <div class="trick"><p><b>Default to the person:</b> when SSC gives four options with only one "correct" passive, it is almost always the version where the <b>indirect object (the person)</b> becomes the subject — "The students were given…" not "A book was given…". Use the second form only if that specific option is asked for.</p></div>
+    </section>
+
+    <section class="chapter" id="ap-special">
+      <div class="chapter-head">
+        <span class="chapter-num">V.7</span>
+        <div><h2>Special &amp; frequently-tricky structures</h2><p class="desc">These recur across SSC CGL papers as one-off "different" question types.</p></div>
+      </div>
+
+      <div class="grid2">
+        <div class="rule-box">
+          <b>Infinitives (to + V₁)</b><br>
+          <span class="form">to + V₁ → to be + V₃</span><br><br>
+          <span class="active-cell">I have a lot of work to do.</span><br>
+          <span class="passive-cell">I have a lot of work to be done.</span>
+        </div>
+        <div class="rule-box">
+          <b>Causative (get/have something done)</b><br>
+          Already passive in structure — do not alter.<br><br>
+          <span class="active-cell">He got his car repaired.</span><br>
+          <span class="passive-cell">(No further passive; this sentence already carries passive sense.)</span>
+        </div>
+        <div class="rule-box">
+          <b>Quasi-passive (need / require + V-ing)</b><br>
+          <span class="form">needs washing = needs to be washed</span><br><br>
+          <span class="active-cell">This shirt needs washing.</span><br>
+          <span class="passive-cell">This shirt needs to be washed.</span>
+        </div>
+        <div class="rule-box">
+          <b>Reporting "that"-clause (people/they/one say)</b><br>
+          <span class="form">It is said that … / Subject + is said + to-infinitive</span><br><br>
+          <span class="active-cell">People say that he is honest.</span><br>
+          <span class="passive-cell">It is said that he is honest. / He is said to be honest.</span>
+        </div>
+        <div class="rule-box">
+          <b>Sentence beginning with "There"</b><br>
+          Subject stays after "there"; only main verb turns passive.<br><br>
+          <span class="active-cell">There is nobody to help me.</span><br>
+          <span class="passive-cell">There is nobody by whom I can be helped.</span>
+        </div>
+        <div class="rule-box">
+          <b>Impersonal / unknown subject (someone, somebody, one)</b><br>
+          Drop "by + subject" when the doer is vague or unimportant.<br><br>
+          <span class="active-cell">Someone has stolen my bag.</span><br>
+          <span class="passive-cell">My bag has been stolen.</span>
+        </div>
+      </div>
+
+      <div class="errbox">
+        <span class="lbl">Common trap</span>
+        Intransitive verbs (happen, occur, arise, appear, die, sleep, rain, exist, seem) have <b>no passive voice</b> — they take no object. If an SSC option passivises "It rained heavily" or "An accident occurred," that option is automatically wrong.
+      </div>
+    </section>
+
+    <section class="chapter" id="ap-tricks">
+      <div class="chapter-head">
+        <span class="chapter-num">V.8</span>
+        <div><h2>Active–passive shortcut kit</h2><p class="desc">Run this checklist top to bottom on any transformation MCQ.</p></div>
+      </div>
+      <table>
+        <tr><th>#</th><th>Check</th><th>Shortcut</th></tr>
+        <tr><td>1</td><td>Is the given sentence already passive?</td><td>Look for "by" + V₃ pattern — if the question says "change to active," reverse the four-step formula.</td></tr>
+        <tr><td>2</td><td>Identify the active tense first</td><td>Underline the helping verb / time word (yesterday, tomorrow, since, by 2020) — this fixes the exact "be" form needed.</td></tr>
+        <tr><td>3</td><td>Object hunting</td><td>No object in the active sentence (intransitive verb) → no passive is possible; eliminate any option that tries.</td></tr>
+        <tr><td>4</td><td>Pronoun case check</td><td>Subject pronoun (I, he, she, we, they) must flip to object pronoun (me, him, her, us, them) after "by".</td></tr>
+        <tr><td>5</td><td>"By + agent" drop test</td><td>If the doer is "people," "someone," "they" (unspecified) — the cleanest correct option usually drops "by" entirely.</td></tr>
+        <tr><td>6</td><td>Continuous-perfect trap</td><td>Perfect continuous tenses (has/had/will have been + V-ing) have no passive — reject any option attempting one.</td></tr>
+      </table>
+    </section>
+
+    <!-- ================= DIRECT-INDIRECT ================= -->
+
+    <section class="chapter" id="ds-basics">
+      <div class="chapter-head">
+        <span class="chapter-num">S.1</span>
+        <div><h2>Core rules of narration</h2><p class="desc">Four moving parts: reporting verb, tense, pronoun, and time/place words.</p></div>
+      </div>
+      <div class="rule-box">
+        Direct: He said, "I am tired."<br>
+        Indirect: He said that he was tired.
+      </div>
+      <table>
+        <tr><th>Element</th><th>What to check</th></tr>
+        <tr><td>Reporting verb</td><td>Present tense reporting verb ("says," "will say") → <b>no</b> tense backshift needed in the reported clause.</td></tr>
+        <tr><td>Reporting verb</td><td>Past tense reporting verb ("said," "told") → tense of reported clause shifts one step back.</td></tr>
+        <tr><td>Comma + quotation marks</td><td>Removed; replaced by "that" for statements (optional but standard), or left implicit for questions/commands.</td></tr>
+        <tr><td>Pronouns</td><td>Change according to the speaker/listener relationship — see S.2.</td></tr>
+        <tr><td>Time &amp; place words</td><td>now→then, today→that day, here→there, etc. — see S.3.</td></tr>
+      </table>
+      <div class="trick"><p><b>The one exception that overrides everything:</b> if the reported sentence states a universal truth, a habitual action, or a fact still true at the time of reporting, the tense does <b>not</b> change — even after a past reporting verb. <span class="ex-direct">He said, "The sun rises in the east."</span> → <span class="ex-indirect">He said that the sun rises in the east.</span> (never "rose")</p></div>
+    </section>
+
+    <section class="chapter" id="ds-pronoun">
+      <div class="chapter-head">
+        <span class="chapter-num">S.2</span>
+        <div><h2>Pronoun conversion map</h2><p class="desc">The most error-prone step — apply the "1st→subject, 2nd→object, 3rd→unchanged" rule.</p></div>
+      </div>
+      <table>
+        <tr><th>Direct speech pronoun</th><th>Becomes (in indirect)</th></tr>
+        <tr><td>I, we (1st person)</td><td>Same person as the <b>subject</b> of the reporting verb</td></tr>
+        <tr><td>You (2nd person)</td><td>Same person as the <b>object</b> of the reporting verb</td></tr>
+        <tr><td>He, she, it, they (3rd person)</td><td>No change — remain as is</td></tr>
+      </table>
+      <div class="example">
+        <span class="ex-direct">She said to me, "I will help you."</span><br>
+        <span class="ex-indirect">She told me that she would help me.</span>
+      </div>
+      <div class="trick"><p><b>The mirror rule:</b> read the reporting clause first — "Subject said to Object." Then in the reported sentence, every "I" becomes the Subject and every "you" becomes the Object. This single sentence-order check resolves almost every pronoun MCQ.</p></div>
+    </section>
+
+    <section class="chapter" id="ds-time">
+      <div class="chapter-head">
+        <span class="chapter-num">S.3</span>
+        <div><h2>Time &amp; place word changes</h2><p class="desc">Apply only when the reporting verb is in the past tense.</p></div>
+      </div>
+      <table>
+        <tr><th>Direct</th><th>Indirect</th><th>Direct</th><th>Indirect</th></tr>
+        <tr><td>now</td><td>then</td><td>here</td><td>there</td></tr>
+        <tr><td>today</td><td>that day</td><td>ago</td><td>before</td></tr>
+        <tr><td>tomorrow</td><td>the next day / the following day</td><td>thus</td><td>so</td></tr>
+        <tr><td>yesterday</td><td>the day before / the previous day</td><td>these</td><td>those</td></tr>
+        <tr><td>tonight</td><td>that night</td><td>this</td><td>that</td></tr>
+        <tr><td>next week/year</td><td>the following week/year</td><td>come</td><td>go</td></tr>
+        <tr><td>last week/year</td><td>the previous week/year / the week/year before</td><td>bring</td><td>take</td></tr>
+      </table>
+      <div class="trick"><p><b>Skip this table entirely</b> when the reporting verb is in the present or future tense ("says," "will say") — time and place words stay exactly as spoken. This single check eliminates half the wrong options instantly.</p></div>
+    </section>
+
+    <section class="chapter" id="ds-tense">
+      <div class="chapter-head">
+        <span class="chapter-num">S.4</span>
+        <div><h2>Tense backshift chart</h2><p class="desc">One step back on the tense ladder — this is the direct-speech mirror of the V.2 chart.</p></div>
+      </div>
+      <table>
+        <tr><th>Direct (inside quotes)</th><th>Indirect (after past reporting verb)</th></tr>
+        <tr><td>Simple Present</td><td>Simple Past</td></tr>
+        <tr><td>Present Continuous</td><td>Past Continuous</td></tr>
+        <tr><td>Present Perfect</td><td>Past Perfect</td></tr>
+        <tr><td>Simple Past</td><td>Past Perfect</td></tr>
+        <tr><td>Past Continuous</td><td>Past Perfect Continuous</td></tr>
+        <tr><td>Past Perfect</td><td>No change (already the "oldest" tense)</td></tr>
+        <tr><td>Simple Future (will/shall)</td><td>would</td></tr>
+        <tr><td>Future Continuous</td><td>would be + V-ing</td></tr>
+      </table>
+      <div class="trick"><p><b>The "one rung down the ladder" image:</b> Present → Past → Past Perfect is a single ladder with three rungs. A past reporting verb always pushes the tense down exactly one rung. Past Perfect is the bottom rung, so it never moves further.</p></div>
+    </section>
+
+    <section class="chapter" id="ds-modal">
+      <div class="chapter-head">
+        <span class="chapter-num">S.5</span>
+        <div><h2>Modal verb shift</h2><p class="desc">Modals shift on a fixed, memorisable list — the most commonly tested single table in this topic.</p></div>
+      </div>
+      <table>
+        <tr><th>Direct</th><th>Indirect</th></tr>
+        <tr><td>can</td><td>could</td></tr>
+        <tr><td>may</td><td>might</td></tr>
+        <tr><td>will</td><td>would</td></tr>
+        <tr><td>shall (statement)</td><td>would</td></tr>
+        <tr><td>shall (offer/suggestion: "Shall I…?")</td><td>should</td></tr>
+        <tr><td>must (obligation, one-time)</td><td>had to</td></tr>
+        <tr><td>must (rule/strong advice/certainty)</td><td>no change</td></tr>
+        <tr><td>could, would, should, might, ought to, used to, need not</td><td>no change</td></tr>
+      </table>
+      <div class="trick"><p><b>"Must" is the only fork in the road.</b> If "must" expresses a one-off obligation ("I must finish this today") → <b>had to</b>. If it expresses a rule, strong recommendation, or logical certainty ("You must respect elders" / "He must be tired") → <b>must stays must</b>. SSC tests this fork often — read for obligation vs certainty before choosing.</p></div>
+    </section>
+
+    <section class="chapter" id="ds-types">
+      <div class="chapter-head">
+        <span class="chapter-num">S.6</span>
+        <div><h2>Sentence-type variations</h2><p class="desc">Statements, questions, commands, exclamations, and wishes each need a different reporting verb and connector.</p></div>
+      </div>
+
+      <h3 class="sub">1. Assertive (statement)</h3>
+      <div class="example"><span class="ex-direct">He said, "I am happy."</span> → <span class="ex-indirect">He said that he was happy.</span></div>
+
+      <h3 class="sub">2. Interrogative — Yes/No question</h3>
+      <div class="rule-box">Reporting verb "said to" → "asked"; connector "if / whether"; word order reverts to statement order (no auxiliary inversion); question mark removed.</div>
+      <div class="example"><span class="ex-direct">She said to him, "Do you like tea?"</span> → <span class="ex-indirect">She asked him if/whether he liked tea.</span></div>
+
+      <h3 class="sub">3. Interrogative — Wh-question</h3>
+      <div class="rule-box">"said to" → "asked"; the Wh-word itself becomes the connector (no "that," no "if").</div>
+      <div class="example"><span class="ex-direct">He said to me, "Where do you live?"</span> → <span class="ex-indirect">He asked me where I lived.</span></div>
+
+      <h3 class="sub">4. Imperative — command / request / advice</h3>
+      <table>
+        <tr><th>Tone</th><th>Reporting verb</th><th>Connector</th><th>Example</th></tr>
+        <tr><td>Order</td><td>ordered / commanded</td><td>to + V₁ (affirmative) / not to + V₁ (negative)</td><td class="ex-direct">"Leave the room!"</td></tr>
+        <tr><td></td><td></td><td></td><td class="ex-indirect">He ordered him to leave the room.</td></tr>
+        <tr><td>Request</td><td>requested</td><td>to + V₁</td><td class="ex-direct">"Please help me."</td></tr>
+        <tr><td></td><td></td><td></td><td class="ex-indirect">She requested him to help her.</td></tr>
+        <tr><td>Advice</td><td>advised</td><td>to + V₁</td><td class="ex-direct">"You should exercise daily."</td></tr>
+        <tr><td></td><td></td><td></td><td class="ex-indirect">He advised him to exercise daily.</td></tr>
+      </table>
+
+      <h3 class="sub">5. Exclamatory sentences</h3>
+      <div class="rule-box">"said" → exclaimed with joy/sorrow/regret (matched to the emotion); "that" clause replaces the exclamation; interjections (Alas!, Hurrah!, What a…, How…) are converted into descriptive phrases.</div>
+      <div class="example"><span class="ex-direct">She said, "Alas! I have failed."</span> → <span class="ex-indirect">She exclaimed with sorrow that she had failed.</span></div>
+      <div class="example"><span class="ex-direct">He said, "What a beautiful scene it is!"</span> → <span class="ex-indirect">He exclaimed that it was a very beautiful scene.</span></div>
+
+      <h3 class="sub">6. Optative sentences (wishes / prayers)</h3>
+      <div class="rule-box">"said" → wished / prayed</div>
+      <div class="example"><span class="ex-direct">He said, "May you live long!"</span> → <span class="ex-indirect">He wished/prayed that she might live long.</span></div>
+
+      <h3 class="sub">7. "Let" sentences</h3>
+      <table>
+        <tr><th>Meaning of "let"</th><th>Reporting verb / structure</th></tr>
+        <tr><td>Proposal (Let us…)</td><td>suggested/proposed that … should</td></tr>
+        <tr><td>Permission (Let him go)</td><td>allowed him to go</td></tr>
+        <tr><td>Assumption (Let AB be a triangle)</td><td>suppose/assume — usually unchanged</td></tr>
+      </table>
+      <div class="example"><span class="ex-direct">He said, "Let us go for a walk."</span> → <span class="ex-indirect">He suggested that they should go for a walk.</span></div>
+    </section>
+
+    <section class="chapter" id="ds-tricks">
+      <div class="chapter-head">
+        <span class="chapter-num">S.7</span>
+        <div><h2>Direct–indirect shortcut kit</h2><p class="desc">A five-question checklist to run on any narration MCQ.</p></div>
+      </div>
+      <table>
+        <tr><th>#</th><th>Ask yourself</th><th>Shortcut</th></tr>
+        <tr><td>1</td><td>What is the sentence type inside the quotes?</td><td>Statement → "that"; Yes/No question → "if/whether"; Wh-question → the Wh-word itself; Command → "to + V1".</td></tr>
+        <tr><td>2</td><td>Is the reporting verb in the past tense?</td><td>Only then apply tense backshift (S.4) and time/place change (S.3). Present/future reporting verb → leave tense, time, and place untouched.</td></tr>
+        <tr><td>3</td><td>Whose "I" and whose "you"?</td><td>Use the mirror rule from S.2 before touching anything else — this alone resolves most wrong-option traps.</td></tr>
+        <tr><td>4</td><td>Any emotion word (Alas, Hurrah, What, How)?</td><td>Switch reporting verb to "exclaimed with joy/sorrow/wonder" and drop the interjection.</td></tr>
+        <tr><td>5</td><td>Any modal inside the quotes?</td><td>Apply the S.5 table; remember "must" is the only verb needing a judgement call.</td></tr>
+      </table>
+    </section>
+
+    <!-- ================= EXAM BANK ================= -->
+    <section class="chapter" id="pyq-bank">
+      <div class="chapter-head">
+        <span class="chapter-num">E.1</span>
+        <div><h2>How SSC CGL actually frames these questions</h2><p class="desc">Recurring question formats seen across previous Tier-I and Tier-II papers.</p></div>
+      </div>
+
+      <div class="pyq"><span class="lbl">Pattern A — Direct conversion</span>Select the sentence with correct passive/indirect form of the given sentence. (4 options, one correct — the other three each break one rule from V.7/S.7 above.)</div>
+      <div class="pyq"><span class="lbl">Pattern B — Error spotting within voice/narration</span>A sentence is divided into parts; one part contains a voice/narration error (wrong "be" form, missed pronoun shift, wrong tense backshift). Select that part.</div>
+      <div class="pyq"><span class="lbl">Pattern C — Fill in the correct passive/indirect form</span>A sentence with a blank; four word-groups are given as options to complete it correctly.</div>
+      <div class="pyq"><span class="lbl">Pattern D — "No improvement required"</span>One of the four options is often "No improvement," used when the original sentence is already a correct transformation — don't assume an error must exist.</div>
+      <div class="pyq"><span class="lbl">Pattern E — Mixed sentence types</span>Questions increasingly combine a modal + interrogative ("Can you tell me where he lives?") or an imperative + negative ("Don't waste your time") — solve these by applying the checklists (V.8/S.7) rule by rule rather than pattern-matching to a memorised sentence.</div>
+
+      <div class="errbox">
+        <span class="lbl">Where most marks are lost</span>
+        Confusing "whom" (already object) with "who" (subject) in interrogative passive; forgetting the universal-truth exception in narration; applying tense backshift even when the reporting verb is in present tense; and choosing "a book was given to the students" over the SSC-preferred "the students were given a book."
+      </div>
+    </section>
+
+    <section class="chapter" id="final-drill">
+      <div class="chapter-head">
+        <span class="chapter-num">E.2</span>
+        <div><h2>The 60-second drill</h2><p class="desc">Run through this sequence on every single question before marking an answer.</p></div>
+      </div>
+      <div class="grid2">
+        <div class="rule-box">
+          <b>For Active–Passive</b>
+          <ol style="margin:8px 0 0 18px; padding:0;">
+            <li>Find the tense from the helping verb.</li>
+            <li>Check the verb is transitive (has an object).</li>
+            <li>Match the "be" form from the V.2 ladder.</li>
+            <li>Flip subject↔object and the pronoun case.</li>
+            <li>Check for a two-object or infinitive/quasi-passive trap.</li>
+          </ol>
+        </div>
+        <div class="rule-box">
+          <b>For Direct–Indirect</b>
+          <ol style="margin:8px 0 0 18px; padding:0;">
+            <li>Classify the sentence type inside the quotes.</li>
+            <li>Check if the reporting verb is past — decide if backshift applies.</li>
+            <li>Apply the pronoun mirror rule.</li>
+            <li>Convert time/place words only if step 2 says yes.</li>
+            <li>Check for the universal-truth exception and the "must" fork.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="chapter" id="bank-ap">
+      <div class="chapter-head">
+        <span class="chapter-num">Q.1</span>
+        <div><h2>Active–Passive practice bank — 200 questions</h2><p class="desc">Grouped by the exact variations covered in V.1–V.8. Tap a question to reveal its answer.</p></div>
+      </div>
+      <p class="qb-intro">Every sentence below is an active-voice sentence to convert to passive, built across the eight variation types most repeated in past papers. Use the filters to drill one type at a time, or work straight down the full list.</p>
+      <div class="qb-toolbar">
+        <button type="button" class="qb-expand-all" data-scope="ap">Open all groups</button>
+        <button type="button" class="qb-collapse-all" data-scope="ap">Close all groups</button>
+      </div>
+      <div class="qb-chipbar" data-chipbar="ap">
+<button class="qb-chip active" data-target="all" data-scope="ap">All</button>
+<button class="qb-chip" data-target="ap-present" data-scope="ap">Simple Present</button>
+<button class="qb-chip" data-target="ap-past" data-scope="ap">Simple Past</button>
+<button class="qb-chip" data-target="ap-future" data-scope="ap">Simple Future</button>
+<button class="qb-chip" data-target="ap-continuous" data-scope="ap">Continuous Tenses</button>
+<button class="qb-chip" data-target="ap-perfect" data-scope="ap">Perfect Tenses</button>
+<button class="qb-chip" data-target="ap-modals" data-scope="ap">Modals</button>
+<button class="qb-chip" data-target="ap-imperative" data-scope="ap">Imperative Sentences</button>
+<button class="qb-chip" data-target="ap-interrogative" data-scope="ap">Interrogative Sentences</button>
+
+      </div>
+      <div data-bank="ap">
+<div class="qb-group" data-group="ap-present">
+<div class="qb-group-head"><h4>Simple Present</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I write a letter.</summary><div class="qb-answer">A letter is written by me.</div></details></li>
+<li><details><summary>You solve the difficult problem.</summary><div class="qb-answer">The difficult problem is solved by you.</div></details></li>
+<li><details><summary>He waters the plants.</summary><div class="qb-answer">The plants are watered by him.</div></details></li>
+<li><details><summary>She teaches the students.</summary><div class="qb-answer">The students are taught by her.</div></details></li>
+<li><details><summary>We sell the old furniture.</summary><div class="qb-answer">The old furniture is sold by us.</div></details></li>
+<li><details><summary>They bring the books.</summary><div class="qb-answer">The books are brought by them.</div></details></li>
+<li><details><summary>The teacher washes the clothes.</summary><div class="qb-answer">The clothes are washed by the teacher.</div></details></li>
+<li><details><summary>The manager finishes the work.</summary><div class="qb-answer">The work is finished by the manager.</div></details></li>
+<li><details><summary>The doctor prepares the dinner.</summary><div class="qb-answer">The dinner is prepared by the doctor.</div></details></li>
+<li><details><summary>Rahul plants a tree.</summary><div class="qb-answer">A tree is planted by Rahul.</div></details></li>
+<li><details><summary>Priya writes a letter.</summary><div class="qb-answer">A letter is written by Priya.</div></details></li>
+<li><details><summary>The boy solves the difficult problem.</summary><div class="qb-answer">The difficult problem is solved by the boy.</div></details></li>
+<li><details><summary>The girl waters the plants.</summary><div class="qb-answer">The plants are watered by the girl.</div></details></li>
+<li><details><summary>The workers teach the students.</summary><div class="qb-answer">The students are taught by the workers.</div></details></li>
+<li><details><summary>The students sell the old furniture.</summary><div class="qb-answer">The old furniture is sold by the students.</div></details></li>
+<li><details><summary>My friend brings the books.</summary><div class="qb-answer">The books are brought by my friend.</div></details></li>
+<li><details><summary>The chef washes the clothes.</summary><div class="qb-answer">The clothes are washed by the chef.</div></details></li>
+<li><details><summary>The artist finishes the work.</summary><div class="qb-answer">The work is finished by the artist.</div></details></li>
+<li><details><summary>The engineer prepares the dinner.</summary><div class="qb-answer">The dinner is prepared by the engineer.</div></details></li>
+<li><details><summary>The farmer plants a tree.</summary><div class="qb-answer">A tree is planted by the farmer.</div></details></li>
+<li><details><summary>The postman writes a letter.</summary><div class="qb-answer">A letter is written by the postman.</div></details></li>
+<li><details><summary>The librarian solves the difficult problem.</summary><div class="qb-answer">The difficult problem is solved by the librarian.</div></details></li>
+<li><details><summary>The driver waters the plants.</summary><div class="qb-answer">The plants are watered by the driver.</div></details></li>
+<li><details><summary>The gardener teaches the students.</summary><div class="qb-answer">The students are taught by the gardener.</div></details></li>
+<li><details><summary>The officer sells the old furniture.</summary><div class="qb-answer">The old furniture is sold by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-past">
+<div class="qb-group-head"><h4>Simple Past</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I collected the fees.</summary><div class="qb-answer">The fees were collected by me.</div></details></li>
+<li><details><summary>You fed the baby.</summary><div class="qb-answer">The baby was fed by you.</div></details></li>
+<li><details><summary>He painted a beautiful picture.</summary><div class="qb-answer">A beautiful picture was painted by him.</div></details></li>
+<li><details><summary>She completed the project.</summary><div class="qb-answer">The project was completed by her.</div></details></li>
+<li><details><summary>We cleaned the room.</summary><div class="qb-answer">The room was cleaned by us.</div></details></li>
+<li><details><summary>They caught the thief.</summary><div class="qb-answer">The thief was caught by them.</div></details></li>
+<li><details><summary>The teacher bought a new phone.</summary><div class="qb-answer">A new phone was bought by the teacher.</div></details></li>
+<li><details><summary>The manager drew a map.</summary><div class="qb-answer">A map was drawn by the manager.</div></details></li>
+<li><details><summary>The doctor opened the door.</summary><div class="qb-answer">The door was opened by the doctor.</div></details></li>
+<li><details><summary>Rahul checked the answer sheets.</summary><div class="qb-answer">The answer sheets were checked by Rahul.</div></details></li>
+<li><details><summary>Priya collected the fees.</summary><div class="qb-answer">The fees were collected by Priya.</div></details></li>
+<li><details><summary>The boy fed the baby.</summary><div class="qb-answer">The baby was fed by the boy.</div></details></li>
+<li><details><summary>The girl painted a beautiful picture.</summary><div class="qb-answer">A beautiful picture was painted by the girl.</div></details></li>
+<li><details><summary>The workers completed the project.</summary><div class="qb-answer">The project was completed by the workers.</div></details></li>
+<li><details><summary>The students cleaned the room.</summary><div class="qb-answer">The room was cleaned by the students.</div></details></li>
+<li><details><summary>My friend caught the thief.</summary><div class="qb-answer">The thief was caught by my friend.</div></details></li>
+<li><details><summary>The chef bought a new phone.</summary><div class="qb-answer">A new phone was bought by the chef.</div></details></li>
+<li><details><summary>The artist drew a map.</summary><div class="qb-answer">A map was drawn by the artist.</div></details></li>
+<li><details><summary>The engineer opened the door.</summary><div class="qb-answer">The door was opened by the engineer.</div></details></li>
+<li><details><summary>The farmer checked the answer sheets.</summary><div class="qb-answer">The answer sheets were checked by the farmer.</div></details></li>
+<li><details><summary>The postman collected the fees.</summary><div class="qb-answer">The fees were collected by the postman.</div></details></li>
+<li><details><summary>The librarian fed the baby.</summary><div class="qb-answer">The baby was fed by the librarian.</div></details></li>
+<li><details><summary>The driver painted a beautiful picture.</summary><div class="qb-answer">A beautiful picture was painted by the driver.</div></details></li>
+<li><details><summary>The gardener completed the project.</summary><div class="qb-answer">The project was completed by the gardener.</div></details></li>
+<li><details><summary>The officer cleaned the room.</summary><div class="qb-answer">The room was cleaned by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-future">
+<div class="qb-group-head"><h4>Simple Future</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I will close the window.</summary><div class="qb-answer">The window will be closed by me.</div></details></li>
+<li><details><summary>You will submit the report.</summary><div class="qb-answer">The report will be submitted by you.</div></details></li>
+<li><details><summary>He will deliver the goods.</summary><div class="qb-answer">The goods will be delivered by him.</div></details></li>
+<li><details><summary>She will pack the luggage.</summary><div class="qb-answer">The luggage will be packed by her.</div></details></li>
+<li><details><summary>We will cook a delicious meal.</summary><div class="qb-answer">A delicious meal will be cooked by us.</div></details></li>
+<li><details><summary>They will repair the old car.</summary><div class="qb-answer">The old car will be repaired by them.</div></details></li>
+<li><details><summary>The teacher will build a new house.</summary><div class="qb-answer">A new house will be built by the teacher.</div></details></li>
+<li><details><summary>The manager will break the window.</summary><div class="qb-answer">The window will be broken by the manager.</div></details></li>
+<li><details><summary>The doctor will send the parcel.</summary><div class="qb-answer">The parcel will be sent by the doctor.</div></details></li>
+<li><details><summary>Rahul will throw the ball.</summary><div class="qb-answer">The ball will be thrown by Rahul.</div></details></li>
+<li><details><summary>Priya will close the window.</summary><div class="qb-answer">The window will be closed by Priya.</div></details></li>
+<li><details><summary>The boy will submit the report.</summary><div class="qb-answer">The report will be submitted by the boy.</div></details></li>
+<li><details><summary>The girl will deliver the goods.</summary><div class="qb-answer">The goods will be delivered by the girl.</div></details></li>
+<li><details><summary>The workers will pack the luggage.</summary><div class="qb-answer">The luggage will be packed by the workers.</div></details></li>
+<li><details><summary>The students will cook a delicious meal.</summary><div class="qb-answer">A delicious meal will be cooked by the students.</div></details></li>
+<li><details><summary>My friend will repair the old car.</summary><div class="qb-answer">The old car will be repaired by my friend.</div></details></li>
+<li><details><summary>The chef will build a new house.</summary><div class="qb-answer">A new house will be built by the chef.</div></details></li>
+<li><details><summary>The artist will break the window.</summary><div class="qb-answer">The window will be broken by the artist.</div></details></li>
+<li><details><summary>The engineer will send the parcel.</summary><div class="qb-answer">The parcel will be sent by the engineer.</div></details></li>
+<li><details><summary>The farmer will throw the ball.</summary><div class="qb-answer">The ball will be thrown by the farmer.</div></details></li>
+<li><details><summary>The postman will close the window.</summary><div class="qb-answer">The window will be closed by the postman.</div></details></li>
+<li><details><summary>The librarian will submit the report.</summary><div class="qb-answer">The report will be submitted by the librarian.</div></details></li>
+<li><details><summary>The driver will deliver the goods.</summary><div class="qb-answer">The goods will be delivered by the driver.</div></details></li>
+<li><details><summary>The gardener will pack the luggage.</summary><div class="qb-answer">The luggage will be packed by the gardener.</div></details></li>
+<li><details><summary>The officer will cook a delicious meal.</summary><div class="qb-answer">A delicious meal will be cooked by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-continuous">
+<div class="qb-group-head"><h4>Continuous Tenses</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I am bringing the books.</summary><div class="qb-answer">The books are being brought by me.</div></details></li>
+<li><details><summary>You were washing the clothes.</summary><div class="qb-answer">The clothes were being washed by you.</div></details></li>
+<li><details><summary>He is finishing the work.</summary><div class="qb-answer">The work is being finished by him.</div></details></li>
+<li><details><summary>She was preparing the dinner.</summary><div class="qb-answer">The dinner was being prepared by her.</div></details></li>
+<li><details><summary>We are planting a tree.</summary><div class="qb-answer">A tree is being planted by us.</div></details></li>
+<li><details><summary>They were writing a letter.</summary><div class="qb-answer">A letter was being written by them.</div></details></li>
+<li><details><summary>The teacher is solving the difficult problem.</summary><div class="qb-answer">The difficult problem is being solved by the teacher.</div></details></li>
+<li><details><summary>The manager was watering the plants.</summary><div class="qb-answer">The plants were being watered by the manager.</div></details></li>
+<li><details><summary>The doctor is teaching the students.</summary><div class="qb-answer">The students are being taught by the doctor.</div></details></li>
+<li><details><summary>Rahul was selling the old furniture.</summary><div class="qb-answer">The old furniture was being sold by Rahul.</div></details></li>
+<li><details><summary>Priya is bringing the books.</summary><div class="qb-answer">The books are being brought by Priya.</div></details></li>
+<li><details><summary>The boy was washing the clothes.</summary><div class="qb-answer">The clothes were being washed by the boy.</div></details></li>
+<li><details><summary>The girl is finishing the work.</summary><div class="qb-answer">The work is being finished by the girl.</div></details></li>
+<li><details><summary>The workers were preparing the dinner.</summary><div class="qb-answer">The dinner was being prepared by the workers.</div></details></li>
+<li><details><summary>The students are planting a tree.</summary><div class="qb-answer">A tree is being planted by the students.</div></details></li>
+<li><details><summary>My friend was writing a letter.</summary><div class="qb-answer">A letter was being written by my friend.</div></details></li>
+<li><details><summary>The chef is solving the difficult problem.</summary><div class="qb-answer">The difficult problem is being solved by the chef.</div></details></li>
+<li><details><summary>The artist was watering the plants.</summary><div class="qb-answer">The plants were being watered by the artist.</div></details></li>
+<li><details><summary>The engineer is teaching the students.</summary><div class="qb-answer">The students are being taught by the engineer.</div></details></li>
+<li><details><summary>The farmer was selling the old furniture.</summary><div class="qb-answer">The old furniture was being sold by the farmer.</div></details></li>
+<li><details><summary>The postman is bringing the books.</summary><div class="qb-answer">The books are being brought by the postman.</div></details></li>
+<li><details><summary>The librarian was washing the clothes.</summary><div class="qb-answer">The clothes were being washed by the librarian.</div></details></li>
+<li><details><summary>The driver is finishing the work.</summary><div class="qb-answer">The work is being finished by the driver.</div></details></li>
+<li><details><summary>The gardener was preparing the dinner.</summary><div class="qb-answer">The dinner was being prepared by the gardener.</div></details></li>
+<li><details><summary>The officer is planting a tree.</summary><div class="qb-answer">A tree is being planted by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-perfect">
+<div class="qb-group-head"><h4>Perfect Tenses</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I have caught the thief.</summary><div class="qb-answer">The thief has been caught by me.</div></details></li>
+<li><details><summary>You had bought a new phone.</summary><div class="qb-answer">A new phone had been bought by you.</div></details></li>
+<li><details><summary>He has drawn a map.</summary><div class="qb-answer">A map has been drawn by him.</div></details></li>
+<li><details><summary>She had opened the door.</summary><div class="qb-answer">The door had been opened by her.</div></details></li>
+<li><details><summary>We have checked the answer sheets.</summary><div class="qb-answer">The answer sheets have been checked by us.</div></details></li>
+<li><details><summary>They had collected the fees.</summary><div class="qb-answer">The fees had been collected by them.</div></details></li>
+<li><details><summary>The teacher has fed the baby.</summary><div class="qb-answer">The baby has been fed by the teacher.</div></details></li>
+<li><details><summary>The manager had painted a beautiful picture.</summary><div class="qb-answer">A beautiful picture had been painted by the manager.</div></details></li>
+<li><details><summary>The doctor has completed the project.</summary><div class="qb-answer">The project has been completed by the doctor.</div></details></li>
+<li><details><summary>Rahul had cleaned the room.</summary><div class="qb-answer">The room had been cleaned by Rahul.</div></details></li>
+<li><details><summary>Priya has caught the thief.</summary><div class="qb-answer">The thief has been caught by Priya.</div></details></li>
+<li><details><summary>The boy had bought a new phone.</summary><div class="qb-answer">A new phone had been bought by the boy.</div></details></li>
+<li><details><summary>The girl has drawn a map.</summary><div class="qb-answer">A map has been drawn by the girl.</div></details></li>
+<li><details><summary>The workers had opened the door.</summary><div class="qb-answer">The door had been opened by the workers.</div></details></li>
+<li><details><summary>The students have checked the answer sheets.</summary><div class="qb-answer">The answer sheets have been checked by the students.</div></details></li>
+<li><details><summary>My friend had collected the fees.</summary><div class="qb-answer">The fees had been collected by my friend.</div></details></li>
+<li><details><summary>The chef has fed the baby.</summary><div class="qb-answer">The baby has been fed by the chef.</div></details></li>
+<li><details><summary>The artist had painted a beautiful picture.</summary><div class="qb-answer">A beautiful picture had been painted by the artist.</div></details></li>
+<li><details><summary>The engineer has completed the project.</summary><div class="qb-answer">The project has been completed by the engineer.</div></details></li>
+<li><details><summary>The farmer had cleaned the room.</summary><div class="qb-answer">The room had been cleaned by the farmer.</div></details></li>
+<li><details><summary>The postman has caught the thief.</summary><div class="qb-answer">The thief has been caught by the postman.</div></details></li>
+<li><details><summary>The librarian had bought a new phone.</summary><div class="qb-answer">A new phone had been bought by the librarian.</div></details></li>
+<li><details><summary>The driver has drawn a map.</summary><div class="qb-answer">A map has been drawn by the driver.</div></details></li>
+<li><details><summary>The gardener had opened the door.</summary><div class="qb-answer">The door had been opened by the gardener.</div></details></li>
+<li><details><summary>The officer has checked the answer sheets.</summary><div class="qb-answer">The answer sheets have been checked by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-modals">
+<div class="qb-group-head"><h4>Modals</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>I can repair the old car.</summary><div class="qb-answer">The old car can be repaired by me.</div></details></li>
+<li><details><summary>You could build a new house.</summary><div class="qb-answer">A new house could be built by you.</div></details></li>
+<li><details><summary>He may break the window.</summary><div class="qb-answer">The window may be broken by him.</div></details></li>
+<li><details><summary>She might send the parcel.</summary><div class="qb-answer">The parcel might be sent by her.</div></details></li>
+<li><details><summary>We must throw the ball.</summary><div class="qb-answer">The ball must be thrown by us.</div></details></li>
+<li><details><summary>They should close the window.</summary><div class="qb-answer">The window should be closed by them.</div></details></li>
+<li><details><summary>The teacher will have to submit the report.</summary><div class="qb-answer">The report will have to be submitted by the teacher.</div></details></li>
+<li><details><summary>The manager needs to deliver the goods.</summary><div class="qb-answer">The goods need to be delivered by the manager.</div></details></li>
+<li><details><summary>The doctor can pack the luggage.</summary><div class="qb-answer">The luggage can be packed by the doctor.</div></details></li>
+<li><details><summary>Rahul could cook a delicious meal.</summary><div class="qb-answer">A delicious meal could be cooked by Rahul.</div></details></li>
+<li><details><summary>Priya may repair the old car.</summary><div class="qb-answer">The old car may be repaired by Priya.</div></details></li>
+<li><details><summary>The boy might build a new house.</summary><div class="qb-answer">A new house might be built by the boy.</div></details></li>
+<li><details><summary>The girl must break the window.</summary><div class="qb-answer">The window must be broken by the girl.</div></details></li>
+<li><details><summary>The workers should send the parcel.</summary><div class="qb-answer">The parcel should be sent by the workers.</div></details></li>
+<li><details><summary>The students will have to throw the ball.</summary><div class="qb-answer">The ball will have to be thrown by the students.</div></details></li>
+<li><details><summary>My friend needs to close the window.</summary><div class="qb-answer">The window needs to be closed by my friend.</div></details></li>
+<li><details><summary>The chef can submit the report.</summary><div class="qb-answer">The report can be submitted by the chef.</div></details></li>
+<li><details><summary>The artist could deliver the goods.</summary><div class="qb-answer">The goods could be delivered by the artist.</div></details></li>
+<li><details><summary>The engineer may pack the luggage.</summary><div class="qb-answer">The luggage may be packed by the engineer.</div></details></li>
+<li><details><summary>The farmer might cook a delicious meal.</summary><div class="qb-answer">A delicious meal might be cooked by the farmer.</div></details></li>
+<li><details><summary>The postman must repair the old car.</summary><div class="qb-answer">The old car must be repaired by the postman.</div></details></li>
+<li><details><summary>The librarian should build a new house.</summary><div class="qb-answer">A new house should be built by the librarian.</div></details></li>
+<li><details><summary>The driver will have to break the window.</summary><div class="qb-answer">The window will have to be broken by the driver.</div></details></li>
+<li><details><summary>The gardener needs to send the parcel.</summary><div class="qb-answer">The parcel needs to be sent by the gardener.</div></details></li>
+<li><details><summary>The officer can throw the ball.</summary><div class="qb-answer">The ball can be thrown by the officer.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-imperative">
+<div class="qb-group-head"><h4>Imperative Sentences</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>Write a letter.</summary><div class="qb-answer">Let a letter be written.</div></details></li>
+<li><details><summary>Do not paint a beautiful picture.</summary><div class="qb-answer">Let a beautiful picture not be painted.</div></details></li>
+<li><details><summary>Please cook a delicious meal.</summary><div class="qb-answer">You are requested to cook a delicious meal.</div></details></li>
+<li><details><summary>Solve the difficult problem regularly.</summary><div class="qb-answer">The difficult problem should be solved regularly.</div></details></li>
+<li><details><summary>Complete the project.</summary><div class="qb-answer">Let the project be completed.</div></details></li>
+<li><details><summary>Do not repair the old car.</summary><div class="qb-answer">Let the old car not be repaired.</div></details></li>
+<li><details><summary>Please water the plants.</summary><div class="qb-answer">You are requested to water the plants.</div></details></li>
+<li><details><summary>Clean the room regularly.</summary><div class="qb-answer">The room should be cleaned regularly.</div></details></li>
+<li><details><summary>Build a new house.</summary><div class="qb-answer">Let a new house be built.</div></details></li>
+<li><details><summary>Do not teach the students.</summary><div class="qb-answer">Let the students not be taught.</div></details></li>
+<li><details><summary>Please catch the thief.</summary><div class="qb-answer">You are requested to catch the thief.</div></details></li>
+<li><details><summary>Break the window regularly.</summary><div class="qb-answer">The window should be broken regularly.</div></details></li>
+<li><details><summary>Sell the old furniture.</summary><div class="qb-answer">Let the old furniture be sold.</div></details></li>
+<li><details><summary>Do not buy a new phone.</summary><div class="qb-answer">Let a new phone not be bought.</div></details></li>
+<li><details><summary>Please send the parcel.</summary><div class="qb-answer">You are requested to send the parcel.</div></details></li>
+<li><details><summary>Bring the books regularly.</summary><div class="qb-answer">The books should be brought regularly.</div></details></li>
+<li><details><summary>Draw a map.</summary><div class="qb-answer">Let a map be drawn.</div></details></li>
+<li><details><summary>Do not throw the ball.</summary><div class="qb-answer">Let the ball not be thrown.</div></details></li>
+<li><details><summary>Please wash the clothes.</summary><div class="qb-answer">You are requested to wash the clothes.</div></details></li>
+<li><details><summary>Open the door regularly.</summary><div class="qb-answer">The door should be opened regularly.</div></details></li>
+<li><details><summary>Close the window.</summary><div class="qb-answer">Let the window be closed.</div></details></li>
+<li><details><summary>Do not finish the work.</summary><div class="qb-answer">Let the work not be finished.</div></details></li>
+<li><details><summary>Please check the answer sheets.</summary><div class="qb-answer">You are requested to check the answer sheets.</div></details></li>
+<li><details><summary>Submit the report regularly.</summary><div class="qb-answer">The report should be submitted regularly.</div></details></li>
+<li><details><summary>Prepare the dinner.</summary><div class="qb-answer">Let the dinner be prepared.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ap-interrogative">
+<div class="qb-group-head"><h4>Interrogative Sentences</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>Did I write a letter?</summary><div class="qb-answer">Was a letter written by me?</div></details></li>
+<li><details><summary>Do you clean the room?</summary><div class="qb-answer">Is the room cleaned by you?</div></details></li>
+<li><details><summary>Why did he send the parcel?</summary><div class="qb-answer">Why was the parcel sent by him?</div></details></li>
+<li><details><summary>Who finished the work?</summary><div class="qb-answer">By whom was the work finished?</div></details></li>
+<li><details><summary>Did we feed the baby?</summary><div class="qb-answer">Was the baby fed by us?</div></details></li>
+<li><details><summary>Do they repair the old car?</summary><div class="qb-answer">Is the old car repaired by them?</div></details></li>
+<li><details><summary>Why did the teacher sell the old furniture?</summary><div class="qb-answer">Why was the old furniture sold by the teacher?</div></details></li>
+<li><details><summary>Who opened the door?</summary><div class="qb-answer">By whom was the door opened?</div></details></li>
+<li><details><summary>Did the doctor deliver the goods?</summary><div class="qb-answer">Were the goods delivered by the doctor?</div></details></li>
+<li><details><summary>Does Rahul solve the difficult problem?</summary><div class="qb-answer">Is the difficult problem solved by Rahul?</div></details></li>
+<li><details><summary>Why did Priya catch the thief?</summary><div class="qb-answer">Why was the thief caught by Priya?</div></details></li>
+<li><details><summary>Who threw the ball?</summary><div class="qb-answer">By whom was the ball thrown?</div></details></li>
+<li><details><summary>Did the girl prepare the dinner?</summary><div class="qb-answer">Was the dinner prepared by the girl?</div></details></li>
+<li><details><summary>Do the workers paint a beautiful picture?</summary><div class="qb-answer">Is a beautiful picture painted by the workers?</div></details></li>
+<li><details><summary>Why did the students build a new house?</summary><div class="qb-answer">Why was a new house built by the students?</div></details></li>
+<li><details><summary>Who brought the books?</summary><div class="qb-answer">By whom were the books brought?</div></details></li>
+<li><details><summary>Did the chef check the answer sheets?</summary><div class="qb-answer">Were the answer sheets checked by the chef?</div></details></li>
+<li><details><summary>Does the artist pack the luggage?</summary><div class="qb-answer">Is the luggage packed by the artist?</div></details></li>
+<li><details><summary>Why did the engineer water the plants?</summary><div class="qb-answer">Why were the plants watered by the engineer?</div></details></li>
+<li><details><summary>Who bought a new phone?</summary><div class="qb-answer">By whom was a new phone bought?</div></details></li>
+<li><details><summary>Did the postman close the window?</summary><div class="qb-answer">Was the window closed by the postman?</div></details></li>
+<li><details><summary>Does the librarian plant a tree?</summary><div class="qb-answer">Is a tree planted by the librarian?</div></details></li>
+<li><details><summary>Why did the driver complete the project?</summary><div class="qb-answer">Why was the project completed by the driver?</div></details></li>
+<li><details><summary>Who broke the window?</summary><div class="qb-answer">By whom was the window broken?</div></details></li>
+<li><details><summary>Did the officer wash the clothes?</summary><div class="qb-answer">Were the clothes washed by the officer?</div></details></li>
+</ol></div>
+
+      </div>
+    </section>
+
+    <section class="chapter" id="bank-ds">
+      <div class="chapter-head">
+        <span class="chapter-num">Q.2</span>
+        <div><h2>Direct–Indirect practice bank — 200 questions</h2><p class="desc">Grouped by the exact variations covered in S.1–S.7. Tap a question to reveal its answer.</p></div>
+      </div>
+      <p class="qb-intro">Every sentence below is direct speech to convert to indirect (reported) speech, covering all major sentence types tested by SSC CGL. Use the filters to isolate one narration type at a time.</p>
+      <div class="qb-toolbar">
+        <button type="button" class="qb-expand-all" data-scope="ds">Open all groups</button>
+        <button type="button" class="qb-collapse-all" data-scope="ds">Close all groups</button>
+      </div>
+      <div class="qb-chipbar" data-chipbar="ds">
+<button class="qb-chip active" data-target="all" data-scope="ds">All</button>
+<button class="qb-chip" data-target="ds-stmt_present" data-scope="ds">Statements — Present Reporting Verb</button>
+<button class="qb-chip" data-target="ds-stmt_past" data-scope="ds">Statements — Past Reporting Verb</button>
+<button class="qb-chip" data-target="ds-yesno" data-scope="ds">Yes / No Questions</button>
+<button class="qb-chip" data-target="ds-wh" data-scope="ds">Wh-Questions</button>
+<button class="qb-chip" data-target="ds-commands" data-scope="ds">Commands &amp; Orders</button>
+<button class="qb-chip" data-target="ds-requests_advice" data-scope="ds">Requests, Advice &amp; Suggestions</button>
+<button class="qb-chip" data-target="ds-exclaim_optative" data-scope="ds">Exclamatory &amp; Optative</button>
+<button class="qb-chip" data-target="ds-modal" data-scope="ds">Modal Verb Shift</button>
+
+      </div>
+      <div data-bank="ds">
+<div class="qb-group" data-group="ds-stmt_present">
+<div class="qb-group-head"><h4>Statements — Present Reporting Verb</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He says, &quot;I am writing a letter.&quot;</summary><div class="qb-answer">He says that he is writing a letter.</div></details></li>
+<li><details><summary>She says, &quot;I cook a delicious meal every day.&quot;</summary><div class="qb-answer">She says that she cooks a delicious meal every day.</div></details></li>
+<li><details><summary>Rahul says, &quot;I am completing the project.&quot;</summary><div class="qb-answer">Rahul says that he is completing the project.</div></details></li>
+<li><details><summary>Priya says, &quot;I water the plants every day.&quot;</summary><div class="qb-answer">Priya says that she waters the plants every day.</div></details></li>
+<li><details><summary>The teacher says, &quot;I am building a new house.&quot;</summary><div class="qb-answer">The teacher says that he is building a new house.</div></details></li>
+<li><details><summary>The manager says, &quot;I break the window every day.&quot;</summary><div class="qb-answer">The manager says that she breaks the window every day.</div></details></li>
+<li><details><summary>My father says, &quot;I am buying a new phone.&quot;</summary><div class="qb-answer">My father says that he is buying a new phone.</div></details></li>
+<li><details><summary>The doctor says, &quot;I bring the books every day.&quot;</summary><div class="qb-answer">The doctor says that she brings the books every day.</div></details></li>
+<li><details><summary>They say, &quot;I am washing the clothes.&quot;</summary><div class="qb-answer">They say that they are washing the clothes.</div></details></li>
+<li><details><summary>We say, &quot;I finish the work every day.&quot;</summary><div class="qb-answer">We say that we finish the work every day.</div></details></li>
+<li><details><summary>He says, &quot;I am preparing the dinner.&quot;</summary><div class="qb-answer">He says that he is preparing the dinner.</div></details></li>
+<li><details><summary>She says, &quot;I deliver the goods every day.&quot;</summary><div class="qb-answer">She says that she delivers the goods every day.</div></details></li>
+<li><details><summary>Rahul says, &quot;I am packing the luggage.&quot;</summary><div class="qb-answer">Rahul says that he is packing the luggage.</div></details></li>
+<li><details><summary>Priya says, &quot;I paint a beautiful picture every day.&quot;</summary><div class="qb-answer">Priya says that she paints a beautiful picture every day.</div></details></li>
+<li><details><summary>The teacher says, &quot;I am solving the difficult problem.&quot;</summary><div class="qb-answer">The teacher says that he is solving the difficult problem.</div></details></li>
+<li><details><summary>The manager says, &quot;I repair the old car every day.&quot;</summary><div class="qb-answer">The manager says that she repairs the old car every day.</div></details></li>
+<li><details><summary>My father says, &quot;I am cleaning the room.&quot;</summary><div class="qb-answer">My father says that he is cleaning the room.</div></details></li>
+<li><details><summary>The doctor says, &quot;I catch the thief every day.&quot;</summary><div class="qb-answer">The doctor says that she catches the thief every day.</div></details></li>
+<li><details><summary>They say, &quot;I am selling the old furniture.&quot;</summary><div class="qb-answer">They say that they are selling the old furniture.</div></details></li>
+<li><details><summary>We say, &quot;I send the parcel every day.&quot;</summary><div class="qb-answer">We say that we send the parcel every day.</div></details></li>
+<li><details><summary>He says, &quot;I am drawing a map.&quot;</summary><div class="qb-answer">He says that he is drawing a map.</div></details></li>
+<li><details><summary>She says, &quot;I open the door every day.&quot;</summary><div class="qb-answer">She says that she opens the door every day.</div></details></li>
+<li><details><summary>Rahul says, &quot;I am submitting the report.&quot;</summary><div class="qb-answer">Rahul says that he is submitting the report.</div></details></li>
+<li><details><summary>Priya says, &quot;I collect the fees every day.&quot;</summary><div class="qb-answer">Priya says that she collects the fees every day.</div></details></li>
+<li><details><summary>The teacher says, &quot;I am planting a tree.&quot;</summary><div class="qb-answer">The teacher says that he is planting a tree.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-stmt_past">
+<div class="qb-group-head"><h4>Statements — Past Reporting Verb</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said, &quot;I paint a beautiful picture.&quot;</summary><div class="qb-answer">He said that he painted a beautiful picture.</div></details></li>
+<li><details><summary>She said, &quot;I am solving the difficult problem.&quot;</summary><div class="qb-answer">She said that she was solving the difficult problem.</div></details></li>
+<li><details><summary>Rahul said, &quot;I repaired the old car.&quot;</summary><div class="qb-answer">Rahul said that he had repaired the old car.</div></details></li>
+<li><details><summary>Priya said, &quot;I clean the room.&quot;</summary><div class="qb-answer">Priya said that she cleaned the room.</div></details></li>
+<li><details><summary>The teacher said, &quot;I am catching the thief.&quot;</summary><div class="qb-answer">The teacher said that he was catching the thief.</div></details></li>
+<li><details><summary>The manager said, &quot;I sold the old furniture.&quot;</summary><div class="qb-answer">The manager said that she had sold the old furniture.</div></details></li>
+<li><details><summary>My father said, &quot;I send the parcel.&quot;</summary><div class="qb-answer">My father said that he sent the parcel.</div></details></li>
+<li><details><summary>The doctor said, &quot;I am drawing a map.&quot;</summary><div class="qb-answer">The doctor said that she was drawing a map.</div></details></li>
+<li><details><summary>They said, &quot;I opened the door.&quot;</summary><div class="qb-answer">They said that they had opened the door.</div></details></li>
+<li><details><summary>We said, &quot;I submit the report.&quot;</summary><div class="qb-answer">We said that we submitted the report.</div></details></li>
+<li><details><summary>He said, &quot;I am collecting the fees.&quot;</summary><div class="qb-answer">He said that he was collecting the fees.</div></details></li>
+<li><details><summary>She said, &quot;I planted a tree.&quot;</summary><div class="qb-answer">She said that she had planted a tree.</div></details></li>
+<li><details><summary>Rahul said, &quot;I write a letter.&quot;</summary><div class="qb-answer">Rahul said that he wrote a letter.</div></details></li>
+<li><details><summary>Priya said, &quot;I am cooking a delicious meal.&quot;</summary><div class="qb-answer">Priya said that she was cooking a delicious meal.</div></details></li>
+<li><details><summary>The teacher said, &quot;I completed the project.&quot;</summary><div class="qb-answer">The teacher said that he had completed the project.</div></details></li>
+<li><details><summary>The manager said, &quot;I water the plants.&quot;</summary><div class="qb-answer">The manager said that she watered the plants.</div></details></li>
+<li><details><summary>My father said, &quot;I am building a new house.&quot;</summary><div class="qb-answer">My father said that he was building a new house.</div></details></li>
+<li><details><summary>The doctor said, &quot;I broke the window.&quot;</summary><div class="qb-answer">The doctor said that she had broken the window.</div></details></li>
+<li><details><summary>They said, &quot;I buy a new phone.&quot;</summary><div class="qb-answer">They said that they bought a new phone.</div></details></li>
+<li><details><summary>We said, &quot;I am bringing the books.&quot;</summary><div class="qb-answer">We said that we were bringing the books.</div></details></li>
+<li><details><summary>He said, &quot;I washed the clothes.&quot;</summary><div class="qb-answer">He said that he had washed the clothes.</div></details></li>
+<li><details><summary>She said, &quot;I finish the work.&quot;</summary><div class="qb-answer">She said that she finished the work.</div></details></li>
+<li><details><summary>Rahul said, &quot;I am preparing the dinner.&quot;</summary><div class="qb-answer">Rahul said that he was preparing the dinner.</div></details></li>
+<li><details><summary>Priya said, &quot;I delivered the goods.&quot;</summary><div class="qb-answer">Priya said that she had delivered the goods.</div></details></li>
+<li><details><summary>The teacher said, &quot;I pack the luggage.&quot;</summary><div class="qb-answer">The teacher said that he packed the luggage.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-yesno">
+<div class="qb-group-head"><h4>Yes / No Questions</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said to her, &quot;Do you write a letter?&quot;</summary><div class="qb-answer">He asked her if she wrote a letter.</div></details></li>
+<li><details><summary>She said to him, &quot;Did you cook a delicious meal?&quot;</summary><div class="qb-answer">She asked him whether he had cooked a delicious meal.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Will you complete the project?&quot;</summary><div class="qb-answer">Rahul asked me if I would complete the project.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Do you water the plants?&quot;</summary><div class="qb-answer">Priya asked us whether we watered the plants.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Did you build a new house?&quot;</summary><div class="qb-answer">The teacher asked the students if they had built a new house.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Will you break the window?&quot;</summary><div class="qb-answer">The manager asked the workers whether they would break the window.</div></details></li>
+<li><details><summary>My father said to me, &quot;Do you buy a new phone?&quot;</summary><div class="qb-answer">My father asked me if I bought a new phone.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Did you bring the books?&quot;</summary><div class="qb-answer">The doctor asked him whether he had brought the books.</div></details></li>
+<li><details><summary>They said to us, &quot;Will you wash the clothes?&quot;</summary><div class="qb-answer">They asked us if we would wash the clothes.</div></details></li>
+<li><details><summary>We said to them, &quot;Do you finish the work?&quot;</summary><div class="qb-answer">We asked them whether they finished the work.</div></details></li>
+<li><details><summary>He said to her, &quot;Did you prepare the dinner?&quot;</summary><div class="qb-answer">He asked her if she had prepared the dinner.</div></details></li>
+<li><details><summary>She said to him, &quot;Will you deliver the goods?&quot;</summary><div class="qb-answer">She asked him whether he would deliver the goods.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Do you pack the luggage?&quot;</summary><div class="qb-answer">Rahul asked me if I packed the luggage.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Did you paint a beautiful picture?&quot;</summary><div class="qb-answer">Priya asked us whether we had painted a beautiful picture.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Will you solve the difficult problem?&quot;</summary><div class="qb-answer">The teacher asked the students if they would solve the difficult problem.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Do you repair the old car?&quot;</summary><div class="qb-answer">The manager asked the workers whether they repaired the old car.</div></details></li>
+<li><details><summary>My father said to me, &quot;Did you clean the room?&quot;</summary><div class="qb-answer">My father asked me if I had cleaned the room.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Will you catch the thief?&quot;</summary><div class="qb-answer">The doctor asked him whether he would catch the thief.</div></details></li>
+<li><details><summary>They said to us, &quot;Do you sell the old furniture?&quot;</summary><div class="qb-answer">They asked us if we sold the old furniture.</div></details></li>
+<li><details><summary>We said to them, &quot;Did you send the parcel?&quot;</summary><div class="qb-answer">We asked them whether they had sent the parcel.</div></details></li>
+<li><details><summary>He said to her, &quot;Will you draw a map?&quot;</summary><div class="qb-answer">He asked her if she would draw a map.</div></details></li>
+<li><details><summary>She said to him, &quot;Do you open the door?&quot;</summary><div class="qb-answer">She asked him whether he opened the door.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Did you submit the report?&quot;</summary><div class="qb-answer">Rahul asked me if I had submitted the report.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Will you collect the fees?&quot;</summary><div class="qb-answer">Priya asked us whether we would collect the fees.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Do you plant a tree?&quot;</summary><div class="qb-answer">The teacher asked the students if they planted a tree.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-wh">
+<div class="qb-group-head"><h4>Wh-Questions</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said to her, &quot;Where do you write a letter?&quot;</summary><div class="qb-answer">He asked her where she wrote a letter.</div></details></li>
+<li><details><summary>She said to him, &quot;When did you cook a delicious meal?&quot;</summary><div class="qb-answer">She asked him when he had cooked a delicious meal.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Why do you complete the project?&quot;</summary><div class="qb-answer">Rahul asked me why I completed the project.</div></details></li>
+<li><details><summary>Priya said to us, &quot;How did you water the plants?&quot;</summary><div class="qb-answer">Priya asked us how we had watered the plants.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;What time do you build a new house?&quot;</summary><div class="qb-answer">The teacher asked the students what time they built a new house.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Where did you break the window?&quot;</summary><div class="qb-answer">The manager asked the workers where they had broken the window.</div></details></li>
+<li><details><summary>My father said to me, &quot;When do you buy a new phone?&quot;</summary><div class="qb-answer">My father asked me when I bought a new phone.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Why did you bring the books?&quot;</summary><div class="qb-answer">The doctor asked him why he had brought the books.</div></details></li>
+<li><details><summary>They said to us, &quot;How do you wash the clothes?&quot;</summary><div class="qb-answer">They asked us how we washed the clothes.</div></details></li>
+<li><details><summary>We said to them, &quot;What time did you finish the work?&quot;</summary><div class="qb-answer">We asked them what time they had finished the work.</div></details></li>
+<li><details><summary>He said to her, &quot;Where do you prepare the dinner?&quot;</summary><div class="qb-answer">He asked her where she prepared the dinner.</div></details></li>
+<li><details><summary>She said to him, &quot;When did you deliver the goods?&quot;</summary><div class="qb-answer">She asked him when he had delivered the goods.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Why do you pack the luggage?&quot;</summary><div class="qb-answer">Rahul asked me why I packed the luggage.</div></details></li>
+<li><details><summary>Priya said to us, &quot;How did you paint a beautiful picture?&quot;</summary><div class="qb-answer">Priya asked us how we had painted a beautiful picture.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;What time do you solve the difficult problem?&quot;</summary><div class="qb-answer">The teacher asked the students what time they solved the difficult problem.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Where did you repair the old car?&quot;</summary><div class="qb-answer">The manager asked the workers where they had repaired the old car.</div></details></li>
+<li><details><summary>My father said to me, &quot;When do you clean the room?&quot;</summary><div class="qb-answer">My father asked me when I cleaned the room.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Why did you catch the thief?&quot;</summary><div class="qb-answer">The doctor asked him why he had caught the thief.</div></details></li>
+<li><details><summary>They said to us, &quot;How do you sell the old furniture?&quot;</summary><div class="qb-answer">They asked us how we sold the old furniture.</div></details></li>
+<li><details><summary>We said to them, &quot;What time did you send the parcel?&quot;</summary><div class="qb-answer">We asked them what time they had sent the parcel.</div></details></li>
+<li><details><summary>He said to her, &quot;Where do you draw a map?&quot;</summary><div class="qb-answer">He asked her where she drew a map.</div></details></li>
+<li><details><summary>She said to him, &quot;When did you open the door?&quot;</summary><div class="qb-answer">She asked him when he had opened the door.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Why do you submit the report?&quot;</summary><div class="qb-answer">Rahul asked me why I submitted the report.</div></details></li>
+<li><details><summary>Priya said to us, &quot;How did you collect the fees?&quot;</summary><div class="qb-answer">Priya asked us how we had collected the fees.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;What time do you plant a tree?&quot;</summary><div class="qb-answer">The teacher asked the students what time they planted a tree.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-commands">
+<div class="qb-group-head"><h4>Commands &amp; Orders</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said to her, &quot;Write a letter.&quot;</summary><div class="qb-answer">He ordered her to write a letter.</div></details></li>
+<li><details><summary>She said to him, &quot;Do not paint a beautiful picture.&quot;</summary><div class="qb-answer">She ordered him not to paint a beautiful picture.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Cook a delicious meal.&quot;</summary><div class="qb-answer">Rahul ordered me to cook a delicious meal.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Do not solve the difficult problem.&quot;</summary><div class="qb-answer">Priya ordered us not to solve the difficult problem.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Complete the project.&quot;</summary><div class="qb-answer">The teacher ordered the students to complete the project.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Do not repair the old car.&quot;</summary><div class="qb-answer">The manager ordered the workers not to repair the old car.</div></details></li>
+<li><details><summary>My father said to me, &quot;Water the plants.&quot;</summary><div class="qb-answer">My father ordered me to water the plants.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Do not clean the room.&quot;</summary><div class="qb-answer">The doctor ordered him not to clean the room.</div></details></li>
+<li><details><summary>They said to us, &quot;Build a new house.&quot;</summary><div class="qb-answer">They ordered us to build a new house.</div></details></li>
+<li><details><summary>We said to them, &quot;Do not catch the thief.&quot;</summary><div class="qb-answer">We ordered them not to catch the thief.</div></details></li>
+<li><details><summary>He said to her, &quot;Break the window.&quot;</summary><div class="qb-answer">He ordered her to break the window.</div></details></li>
+<li><details><summary>She said to him, &quot;Do not sell the old furniture.&quot;</summary><div class="qb-answer">She ordered him not to sell the old furniture.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Buy a new phone.&quot;</summary><div class="qb-answer">Rahul ordered me to buy a new phone.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Do not send the parcel.&quot;</summary><div class="qb-answer">Priya ordered us not to send the parcel.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Bring the books.&quot;</summary><div class="qb-answer">The teacher ordered the students to bring the books.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Do not draw a map.&quot;</summary><div class="qb-answer">The manager ordered the workers not to draw a map.</div></details></li>
+<li><details><summary>My father said to me, &quot;Wash the clothes.&quot;</summary><div class="qb-answer">My father ordered me to wash the clothes.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;Do not open the door.&quot;</summary><div class="qb-answer">The doctor ordered him not to open the door.</div></details></li>
+<li><details><summary>They said to us, &quot;Finish the work.&quot;</summary><div class="qb-answer">They ordered us to finish the work.</div></details></li>
+<li><details><summary>We said to them, &quot;Do not submit the report.&quot;</summary><div class="qb-answer">We ordered them not to submit the report.</div></details></li>
+<li><details><summary>He said to her, &quot;Prepare the dinner.&quot;</summary><div class="qb-answer">He ordered her to prepare the dinner.</div></details></li>
+<li><details><summary>She said to him, &quot;Do not collect the fees.&quot;</summary><div class="qb-answer">She ordered him not to collect the fees.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Deliver the goods.&quot;</summary><div class="qb-answer">Rahul ordered me to deliver the goods.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Do not plant a tree.&quot;</summary><div class="qb-answer">Priya ordered us not to plant a tree.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Pack the luggage.&quot;</summary><div class="qb-answer">The teacher ordered the students to pack the luggage.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-requests_advice">
+<div class="qb-group-head"><h4>Requests, Advice &amp; Suggestions</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said to her, &quot;Please write a letter.&quot;</summary><div class="qb-answer">He requested her to write a letter.</div></details></li>
+<li><details><summary>She said to him, &quot;You should paint a beautiful picture.&quot;</summary><div class="qb-answer">She advised him to paint a beautiful picture.</div></details></li>
+<li><details><summary>Rahul said, &quot;Let us cook a delicious meal.&quot;</summary><div class="qb-answer">Rahul suggested that they should cook a delicious meal.</div></details></li>
+<li><details><summary>Priya said to us, &quot;Please solve the difficult problem.&quot;</summary><div class="qb-answer">Priya requested us to solve the difficult problem.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;You should complete the project.&quot;</summary><div class="qb-answer">The teacher advised the students to complete the project.</div></details></li>
+<li><details><summary>The manager said, &quot;Let us repair the old car.&quot;</summary><div class="qb-answer">The manager suggested that they should repair the old car.</div></details></li>
+<li><details><summary>My father said to me, &quot;Please water the plants.&quot;</summary><div class="qb-answer">My father requested me to water the plants.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;You should clean the room.&quot;</summary><div class="qb-answer">The doctor advised him to clean the room.</div></details></li>
+<li><details><summary>They said, &quot;Let us build a new house.&quot;</summary><div class="qb-answer">They suggested that they should build a new house.</div></details></li>
+<li><details><summary>We said to them, &quot;Please catch the thief.&quot;</summary><div class="qb-answer">We requested them to catch the thief.</div></details></li>
+<li><details><summary>He said to her, &quot;You should break the window.&quot;</summary><div class="qb-answer">He advised her to break the window.</div></details></li>
+<li><details><summary>She said, &quot;Let us sell the old furniture.&quot;</summary><div class="qb-answer">She suggested that they should sell the old furniture.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;Please buy a new phone.&quot;</summary><div class="qb-answer">Rahul requested me to buy a new phone.</div></details></li>
+<li><details><summary>Priya said to us, &quot;You should send the parcel.&quot;</summary><div class="qb-answer">Priya advised us to send the parcel.</div></details></li>
+<li><details><summary>The teacher said, &quot;Let us bring the books.&quot;</summary><div class="qb-answer">The teacher suggested that they should bring the books.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;Please draw a map.&quot;</summary><div class="qb-answer">The manager requested the workers to draw a map.</div></details></li>
+<li><details><summary>My father said to me, &quot;You should wash the clothes.&quot;</summary><div class="qb-answer">My father advised me to wash the clothes.</div></details></li>
+<li><details><summary>The doctor said, &quot;Let us open the door.&quot;</summary><div class="qb-answer">The doctor suggested that they should open the door.</div></details></li>
+<li><details><summary>They said to us, &quot;Please finish the work.&quot;</summary><div class="qb-answer">They requested us to finish the work.</div></details></li>
+<li><details><summary>We said to them, &quot;You should submit the report.&quot;</summary><div class="qb-answer">We advised them to submit the report.</div></details></li>
+<li><details><summary>He said, &quot;Let us prepare the dinner.&quot;</summary><div class="qb-answer">He suggested that they should prepare the dinner.</div></details></li>
+<li><details><summary>She said to him, &quot;Please collect the fees.&quot;</summary><div class="qb-answer">She requested him to collect the fees.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;You should deliver the goods.&quot;</summary><div class="qb-answer">Rahul advised me to deliver the goods.</div></details></li>
+<li><details><summary>Priya said, &quot;Let us plant a tree.&quot;</summary><div class="qb-answer">Priya suggested that they should plant a tree.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;Please pack the luggage.&quot;</summary><div class="qb-answer">The teacher requested the students to pack the luggage.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-exclaim_optative">
+<div class="qb-group-head"><h4>Exclamatory &amp; Optative</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said, &quot;Alas! I have failed the exam.&quot;</summary><div class="qb-answer">He exclaimed with sorrow that he had failed the exam.</div></details></li>
+<li><details><summary>He said to her, &quot;May you live long!&quot;</summary><div class="qb-answer">He wished/prayed that she might live long.</div></details></li>
+<li><details><summary>She said, &quot;How clever the boy is!&quot;</summary><div class="qb-answer">She exclaimed that the boy was very clever.</div></details></li>
+<li><details><summary>She said to him, &quot;May you succeed in life!&quot;</summary><div class="qb-answer">She wished that he might succeed in life.</div></details></li>
+<li><details><summary>Rahul said, &quot;What a fool I have been!&quot;</summary><div class="qb-answer">Rahul exclaimed with regret that he had been a fool.</div></details></li>
+<li><details><summary>Rahul said to me, &quot;May you win the prize!&quot;</summary><div class="qb-answer">Rahul wished that I might win the prize.</div></details></li>
+<li><details><summary>Priya said, &quot;What a pity that we lost the game!&quot;</summary><div class="qb-answer">Priya exclaimed with regret that it was a pity that she had lost the game.</div></details></li>
+<li><details><summary>Priya said to us, &quot;May God give you strength!&quot;</summary><div class="qb-answer">Priya prayed that God might give us strength.</div></details></li>
+<li><details><summary>The teacher said, &quot;What a beautiful sight it is!&quot;</summary><div class="qb-answer">The teacher exclaimed that it was a very beautiful sight.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;May God bless you!&quot;</summary><div class="qb-answer">The teacher prayed that God might bless the students.</div></details></li>
+<li><details><summary>The manager said, &quot;Hurrah! I have passed the test.&quot;</summary><div class="qb-answer">The manager exclaimed with joy that she had passed the test.</div></details></li>
+<li><details><summary>The manager said to the workers, &quot;May you be happy always!&quot;</summary><div class="qb-answer">The manager wished/prayed that they might be happy always.</div></details></li>
+<li><details><summary>My father said, &quot;Alas! He is no more.&quot;</summary><div class="qb-answer">My father exclaimed with sorrow that he was no more.</div></details></li>
+<li><details><summary>My father said to me, &quot;May you have a long life!&quot;</summary><div class="qb-answer">My father prayed that I might have a long life.</div></details></li>
+<li><details><summary>The doctor said, &quot;Hurrah! We have won the match.&quot;</summary><div class="qb-answer">The doctor exclaimed with joy that she had won the match.</div></details></li>
+<li><details><summary>The doctor said to him, &quot;May you live long!&quot;</summary><div class="qb-answer">The doctor wished/prayed that he might live long.</div></details></li>
+<li><details><summary>They said, &quot;Alas! She has lost her purse.&quot;</summary><div class="qb-answer">They exclaimed with sorrow that she had lost her purse.</div></details></li>
+<li><details><summary>They said to us, &quot;May you succeed in life!&quot;</summary><div class="qb-answer">They wished that we might succeed in life.</div></details></li>
+<li><details><summary>We said, &quot;How hot the weather is today!&quot;</summary><div class="qb-answer">We exclaimed that the weather was very hot that day.</div></details></li>
+<li><details><summary>We said to them, &quot;May you win the prize!&quot;</summary><div class="qb-answer">We wished that they might win the prize.</div></details></li>
+<li><details><summary>He said, &quot;Hurrah! We have won the match.&quot;</summary><div class="qb-answer">He exclaimed with joy that he had won the match.</div></details></li>
+<li><details><summary>He said to her, &quot;May you live long!&quot;</summary><div class="qb-answer">He wished/prayed that she might live long.</div></details></li>
+<li><details><summary>She said, &quot;Alas! She has lost her purse.&quot;</summary><div class="qb-answer">She exclaimed with sorrow that she had lost her purse.</div></details></li>
+<li><details><summary>She said to him, &quot;May you succeed in life!&quot;</summary><div class="qb-answer">She wished that he might succeed in life.</div></details></li>
+<li><details><summary>Rahul said, &quot;How hot the weather is today!&quot;</summary><div class="qb-answer">Rahul exclaimed that the weather was very hot that day.</div></details></li>
+</ol></div>
+<div class="qb-group" data-group="ds-modal">
+<div class="qb-group-head"><h4>Modal Verb Shift</h4><span class="qb-count">25 questions</span><button class="qb-toggle-all" type="button">Reveal all</button></div>
+<ol class="qb-list">
+<li><details><summary>He said, &quot;I can write a letter.&quot;</summary><div class="qb-answer">He said that he could write a letter.</div></details></li>
+<li><details><summary>She said, &quot;I may paint a beautiful picture.&quot;</summary><div class="qb-answer">She said that she might paint a beautiful picture.</div></details></li>
+<li><details><summary>Rahul said, &quot;I will cook a delicious meal.&quot;</summary><div class="qb-answer">Rahul said that he would cook a delicious meal.</div></details></li>
+<li><details><summary>Priya said, &quot;I must solve the difficult problem today.&quot;</summary><div class="qb-answer">Priya said that she had to solve the difficult problem that day.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;You must respect your elders.&quot;</summary><div class="qb-answer">The teacher told the students that they must respect their elders.</div></details></li>
+<li><details><summary>The manager said, &quot;I can repair the old car.&quot;</summary><div class="qb-answer">The manager said that she could repair the old car.</div></details></li>
+<li><details><summary>My father said, &quot;I may water the plants.&quot;</summary><div class="qb-answer">My father said that he might water the plants.</div></details></li>
+<li><details><summary>The doctor said, &quot;I will clean the room.&quot;</summary><div class="qb-answer">The doctor said that she would clean the room.</div></details></li>
+<li><details><summary>They said, &quot;I must build a new house today.&quot;</summary><div class="qb-answer">They said that they had to build a new house that day.</div></details></li>
+<li><details><summary>We said to them, &quot;You must obey the traffic rules.&quot;</summary><div class="qb-answer">We told them that they must obey the traffic rules.</div></details></li>
+<li><details><summary>He said, &quot;I can break the window.&quot;</summary><div class="qb-answer">He said that he could break the window.</div></details></li>
+<li><details><summary>She said, &quot;I may sell the old furniture.&quot;</summary><div class="qb-answer">She said that she might sell the old furniture.</div></details></li>
+<li><details><summary>Rahul said, &quot;I will buy a new phone.&quot;</summary><div class="qb-answer">Rahul said that he would buy a new phone.</div></details></li>
+<li><details><summary>Priya said, &quot;I must send the parcel today.&quot;</summary><div class="qb-answer">Priya said that she had to send the parcel that day.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;You must speak the truth.&quot;</summary><div class="qb-answer">The teacher told the students that they must speak the truth.</div></details></li>
+<li><details><summary>The manager said, &quot;I can draw a map.&quot;</summary><div class="qb-answer">The manager said that she could draw a map.</div></details></li>
+<li><details><summary>My father said, &quot;I may wash the clothes.&quot;</summary><div class="qb-answer">My father said that he might wash the clothes.</div></details></li>
+<li><details><summary>The doctor said, &quot;I will open the door.&quot;</summary><div class="qb-answer">The doctor said that she would open the door.</div></details></li>
+<li><details><summary>They said, &quot;I must finish the work today.&quot;</summary><div class="qb-answer">They said that they had to finish the work that day.</div></details></li>
+<li><details><summary>We said to them, &quot;You must wear a helmet while riding.&quot;</summary><div class="qb-answer">We told them that they must wear a helmet while riding.</div></details></li>
+<li><details><summary>He said, &quot;I can prepare the dinner.&quot;</summary><div class="qb-answer">He said that he could prepare the dinner.</div></details></li>
+<li><details><summary>She said, &quot;I may collect the fees.&quot;</summary><div class="qb-answer">She said that she might collect the fees.</div></details></li>
+<li><details><summary>Rahul said, &quot;I will deliver the goods.&quot;</summary><div class="qb-answer">Rahul said that he would deliver the goods.</div></details></li>
+<li><details><summary>Priya said, &quot;I must plant a tree today.&quot;</summary><div class="qb-answer">Priya said that she had to plant a tree that day.</div></details></li>
+<li><details><summary>The teacher said to the students, &quot;You must finish your homework on time.&quot;</summary><div class="qb-answer">The teacher told the students that they must finish their homework on time.</div></details></li>
+</ol></div>
+
+      </div>
+    </section>
+
+    <footer>
+      Built for focused revision — work through <b>V.1 → V.8</b>, then <b>S.1 → S.7</b>, then attempt the <b>Exam Bank</b> under timed conditions.
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Highlight the active section link in the spine as the user scrolls
+  const links = document.querySelectorAll('.spine a');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    let idx = 0;
+    const y = window.scrollY + 140;
+    sections.forEach((s,i)=>{ if(s.offsetTop <= y) idx = i; });
+    links.forEach(l=>l.classList.remove('active'));
+    if(links[idx]) links[idx].classList.add('active');
+  }
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // ===== Question bank interactivity =====
+  document.querySelectorAll('.qb-group-head').forEach(head=>{
+    head.addEventListener('click', (e)=>{
+      if(e.target.classList.contains('qb-toggle-all')) return;
+      head.parentElement.classList.toggle('qb-open');
+    });
+  });
+
+  document.querySelectorAll('.qb-toggle-all').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const group = btn.closest('.qb-group');
+      group.classList.add('qb-open');
+      const details = group.querySelectorAll('details');
+      const anyClosed = Array.from(details).some(d=>!d.open);
+      details.forEach(d=> d.open = anyClosed);
+      btn.textContent = anyClosed ? 'Hide all' : 'Reveal all';
+    });
+  });
+
+  document.querySelectorAll('.qb-expand-all').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const scope = btn.dataset.scope;
+      document.querySelectorAll(`[data-bank="${scope}"] .qb-group`).forEach(g=>g.classList.add('qb-open'));
+    });
+  });
+  document.querySelectorAll('.qb-collapse-all').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const scope = btn.dataset.scope;
+      document.querySelectorAll(`[data-bank="${scope}"] .qb-group`).forEach(g=>g.classList.remove('qb-open'));
+    });
+  });
+
+  document.querySelectorAll('.qb-chipbar').forEach(bar=>{
+    const scope = bar.dataset.chipbar;
+    bar.querySelectorAll('.qb-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        bar.querySelectorAll('.qb-chip').forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const target = chip.dataset.target;
+        const groups = document.querySelectorAll(`[data-bank="${scope}"] .qb-group`);
+        groups.forEach(g=>{
+          if(target==='all' || g.dataset.group===target){
+            g.classList.remove('qb-hidden');
+            if(target!=='all') g.classList.add('qb-open');
+          } else {
+            g.classList.add('qb-hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

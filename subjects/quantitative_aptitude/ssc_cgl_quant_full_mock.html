@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL Tier 1 — Full Quant Mock (25 Questions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#182849; --ink-soft:#2c3f68;
+    --paper:#f3ead8; --paper-dark:#e8ddc4;
+    --stamp:#a3382a; --seal:#a9812a;
+    --charcoal:#241f16; --line:#c7b998;
+    --good:#3f6e52; --good-bg:#e3ecdf;
+    --bad:#a3382a; --bad-bg:#f3e2dc;
+    --white:#fffdf7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh;
+    background:var(--paper);
+    background-image:radial-gradient(circle at 1px 1px, rgba(24,40,73,0.06) 1px, transparent 0);
+    background-size:22px 22px;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--charcoal);
+    padding:26px 14px 60px;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:920px; margin:0 auto;}
+
+  .head{
+    background:var(--ink); color:var(--white);
+    padding:16px 24px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    border:2px solid var(--ink);
+  }
+  .head .title{font-family:'Spectral', serif; font-weight:700; font-size:20px;}
+  .head .tag{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--paper);}
+
+  .meta-strip{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 24px; border:2px solid var(--ink); border-top:none;
+    background:var(--white);
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft);
+    flex-wrap:wrap; gap:8px;
+  }
+  #stopwatch{
+    background:var(--good-bg); color:var(--good); border:1px solid var(--good);
+    padding:3px 10px; font-weight:600;
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:0;
+    border:2px solid var(--ink); border-top:none;
+    background:var(--white);
+  }
+  @media (max-width:700px){ .layout{grid-template-columns:1fr;} }
+
+  .navigator{
+    border-right:2px solid var(--ink);
+    padding:18px 16px;
+    background:var(--paper);
+  }
+  @media (max-width:700px){ .navigator{border-right:none; border-bottom:2px solid var(--ink);} }
+  .navigator h4{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--ink-soft); margin:0 0 10px;
+  }
+  .nav-grid{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:6px;
+  }
+  .nav-btn{
+    aspect-ratio:1;
+    border:1.5px solid var(--line);
+    background:var(--white);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; font-weight:600;
+    cursor:pointer;
+    color:var(--ink-soft);
+  }
+  .nav-btn.answered{background:var(--seal); color:var(--white); border-color:var(--seal);}
+  .nav-btn.current{outline:2px solid var(--stamp); outline-offset:1px;}
+  .legend{margin-top:14px; font-size:11.5px; color:var(--ink-soft); line-height:1.8;}
+  .legend span{display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:-1px;}
+  .legend .sw-a{background:var(--seal);}
+  .legend .sw-u{background:var(--white); border:1.5px solid var(--line);}
+
+  .qpanel{padding:26px 26px 24px;}
+  .qnum{
+    font-family:'IBM Plex Mono',monospace; color:var(--stamp); font-weight:600; font-size:13px;
+    letter-spacing:.04em; text-transform:uppercase; margin-bottom:6px;
+  }
+  .qtext{font-size:16.5px; line-height:1.6; margin-bottom:18px;}
+  .options{list-style:none; margin:0 0 20px; padding:0;}
+  .options li{margin-bottom:10px;}
+  .opt-btn{
+    width:100%; text-align:left;
+    display:flex; align-items:center; gap:12px;
+    padding:11px 16px;
+    border:1.5px solid var(--line);
+    background:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14.5px;
+    cursor:pointer;
+  }
+  .opt-btn:hover{border-color:var(--ink);}
+  .opt-btn.selected{background:#eadfc4; border-color:var(--ink);}
+  .opt-letter{
+    font-family:'IBM Plex Mono',monospace; font-weight:600;
+    width:22px; height:22px; border:1.5px solid var(--ink); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:12px; flex:0 0 auto;
+  }
+  .opt-btn.selected .opt-letter{background:var(--ink); color:var(--white);}
+
+  .qnav-actions{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  button.ghost{
+    font-family:'IBM Plex Mono',monospace;
+    background:transparent; color:var(--ink);
+    border:1.5px solid var(--ink); padding:10px 18px;
+    font-size:12.5px; letter-spacing:.04em; text-transform:uppercase;
+    cursor:pointer;
+  }
+  button.ghost:disabled{opacity:.35; cursor:not-allowed;}
+  button.primary{
+    font-family:'IBM Plex Mono',monospace;
+    background:var(--stamp); color:var(--white);
+    border:none; padding:10px 20px;
+    font-size:12.5px; letter-spacing:.04em; text-transform:uppercase;
+    cursor:pointer;
+  }
+  button.clear{
+    font-family:'IBM Plex Mono',monospace;
+    background:transparent; color:var(--ink-soft);
+    border:1px dashed var(--line); padding:10px 14px;
+    font-size:12px; text-transform:uppercase; cursor:pointer;
+  }
+
+  .submit-bar{
+    border:2px solid var(--ink); border-top:none;
+    background:var(--white);
+    padding:16px 24px;
+    display:flex; justify-content:flex-end;
+  }
+  .submit-bar button{
+    font-family:'IBM Plex Mono',monospace;
+    background:var(--ink); color:var(--white);
+    border:none; padding:13px 28px;
+    font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    cursor:pointer;
+  }
+
+  /* ---------- RESULTS ---------- */
+  #results{display:none;}
+  .score-card{
+    border:2px solid var(--ink);
+    background:var(--white);
+    padding:26px;
+    margin-top:20px;
+  }
+  .score-card h2{font-size:22px; margin-bottom:16px;}
+  .stat-strip{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    border-top:1px dashed var(--line); padding-top:16px;
+  }
+  @media (max-width:700px){.stat-strip{grid-template-columns:repeat(2,1fr); gap:14px;}}
+  .stat-strip div{border-left:1px dashed var(--line); padding:0 14px; text-align:left;}
+  .stat-strip div:first-child{border-left:none; padding-left:0;}
+  @media (max-width:700px){.stat-strip div{border-left:none; border-top:1px dashed var(--line); padding:10px 0 0;}}
+  .stat-strip .num{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; color:var(--stamp);}
+  .stat-strip .lbl{font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em;}
+
+  .review-list{margin-top:26px;}
+  .review-item{
+    border:1.5px solid var(--line);
+    margin-bottom:14px;
+    padding:16px 18px;
+  }
+  .review-item.right{border-left:4px solid var(--good);}
+  .review-item.wrong{border-left:4px solid var(--bad);}
+  .review-item.skip{border-left:4px solid #b8ac89;}
+  .review-head{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .review-head .qn{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--ink);}
+  .status-pill{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; padding:2px 8px; text-transform:uppercase;
+  }
+  .status-pill.right{background:var(--good-bg); color:var(--good);}
+  .status-pill.wrong{background:var(--bad-bg); color:var(--bad);}
+  .status-pill.skip{background:#efe8d3; color:#7a6a3f;}
+  .review-q{font-size:14.5px; margin-bottom:8px;}
+  .review-ans{font-size:13.5px; margin-bottom:4px;}
+  .review-sol{
+    margin-top:8px; font-size:13.5px; background:#fbf5e4; border-left:3px solid var(--seal);
+    padding:10px 12px; line-height:1.6;
+  }
+
+  .retake-bar{text-align:center; margin-top:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="title">SSC CGL Tier 1 — Full Mock</div>
+    <div class="tag">Quantitative Aptitude · 25 Questions</div>
+  </div>
+  <div class="meta-strip">
+    <span>Marking: <strong class="mono">+2 correct / −0.50 wrong</strong></span>
+    <span>No time limit — <span id="stopwatch" class="mono">00:00</span> elapsed</span>
+  </div>
+
+  <div id="quiz">
+    <div class="layout">
+      <div class="navigator">
+        <h4>Question Navigator</h4>
+        <div class="nav-grid" id="navGrid"></div>
+        <div class="legend">
+          <div><span class="sw-a"></span>Answered</div>
+          <div><span class="sw-u"></span>Not answered</div>
+        </div>
+      </div>
+
+      <div class="qpanel">
+        <div class="qnum" id="qTopic"></div>
+        <div class="qtext" id="qText"></div>
+        <ul class="options" id="qOptions"></ul>
+        <div class="qnav-actions">
+          <button class="ghost" id="prevBtn">← Previous</button>
+          <button class="clear" id="clearBtn">Clear Response</button>
+          <button class="primary" id="nextBtn">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-bar">
+      <button id="submitTestBtn">Submit Test</button>
+    </div>
+  </div>
+
+  <div id="results"></div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    topic: "Q1 · Simple &amp; Compound Interest (Previous Year Question)",
+    text: "The difference between the compound interest and the simple interest on ₹x at 9% per annum for 2 years is ₹20.25. What is the value of x?",
+    options: ["₹2,000","₹2,500","₹3,000","₹3,500"],
+    correct: 1,
+    solution: "For 2 years, CI − SI = P × (r/100)². So 20.25 = x × (9/100)² = x × 0.0081, giving x = 20.25 / 0.0081 = ₹2,500."
+  },
+  {
+    topic: "Q2 · Percentage",
+    text: "40% of a number is 12 more than 25% of the same number. Find the number.",
+    options: ["60","70","80","90"],
+    correct: 2,
+    solution: "Let the number be x. 0.40x − 0.25x = 12 → 0.15x = 12 → x = 80. Check: 40% of 80 = 32, 25% of 80 = 20, difference = 12."
+  },
+  {
+    topic: "Q3 · Ratio &amp; Proportion",
+    text: "The ratio of two numbers is 3∶5. If 4 is added to both numbers, the ratio becomes 2∶3. Find the two numbers.",
+    options: ["9 and 15","12 and 20","15 and 25","18 and 30"],
+    correct: 1,
+    solution: "Let numbers be 3x and 5x. (3x+4)/(5x+4) = 2/3 → 9x+12 = 10x+8 → x = 4. Numbers: 12 and 20."
+  },
+  {
+    topic: "Q4 · Profit &amp; Loss",
+    text: "A shopkeeper marks an article 40% above cost price and then gives a discount of 15%. Find his profit percentage.",
+    options: ["15%","17%","19%","21%"],
+    correct: 2,
+    solution: "Let CP = 100. MP = 140. SP = 140 × 0.85 = 119. Profit = 19, so profit% = 19%."
+  },
+  {
+    topic: "Q5 · Average",
+    text: "The average of 5 consecutive even numbers is 34. Find the largest number.",
+    options: ["36","37","38","40"],
+    correct: 2,
+    solution: "For consecutive even numbers, the average equals the middle term: 34. Numbers are 30, 32, 34, 36, 38. Largest = 38."
+  },
+  {
+    topic: "Q6 · Simple Interest",
+    text: "A sum of money becomes 3 times itself in 8 years at simple interest. Find the rate of interest per annum.",
+    options: ["20%","22.5%","25%","30%"],
+    correct: 2,
+    solution: "Amount = 3P, so SI = 2P. Rate = (SI × 100)/(P × T) = (2P × 100)/(P × 8) = 25%."
+  },
+  {
+    topic: "Q7 · Time &amp; Work",
+    text: "A can complete a piece of work in 12 days and B can complete it in 18 days. Working together, in how many days will they finish it?",
+    options: ["6 days","7 days","7.2 days","8 days"],
+    correct: 2,
+    solution: "Combined rate = 1/12 + 1/18 = 3/36 + 2/36 = 5/36 per day. Time = 36/5 = 7.2 days."
+  },
+  {
+    topic: "Q8 · Time, Speed &amp; Distance",
+    text: "A train 150 m long crosses a pole in 10 seconds. Find its speed in km/h.",
+    options: ["45 km/h","50 km/h","54 km/h","60 km/h"],
+    correct: 2,
+    solution: "Speed = 150 m / 10 s = 15 m/s. Converting: 15 × 18/5 = 54 km/h."
+  },
+  {
+    topic: "Q9 · Mixture &amp; Alligation",
+    text: "In what ratio should tea worth ₹60/kg be mixed with tea worth ₹75/kg so that the mixture is worth ₹65/kg?",
+    options: ["1∶2","2∶1","3∶2","5∶3"],
+    correct: 1,
+    solution: "By alligation: cheaper∶dearer = (75−65)∶(65−60) = 10∶5 = 2∶1."
+  },
+  {
+    topic: "Q10 · Number System",
+    text: "Find the remainder when 2¹⁰⁰ is divided by 7.",
+    options: ["1","2","4","6"],
+    correct: 1,
+    solution: "2³ = 8 ≡ 1 (mod 7). 100 = 3×33 + 1, so 2¹⁰⁰ = (2³)³³ × 2¹ ≡ 1 × 2 = 2 (mod 7)."
+  },
+  {
+    topic: "Q11 · HCF &amp; LCM",
+    text: "The HCF and LCM of two numbers are 12 and 480 respectively. If one number is 60, find the other.",
+    options: ["80","90","96","100"],
+    correct: 2,
+    solution: "Product of two numbers = HCF × LCM = 12 × 480 = 5760. Other number = 5760 / 60 = 96."
+  },
+  {
+    topic: "Q12 · Algebra",
+    text: "If x + 1/x = 5, find the value of x² + 1/x².",
+    options: ["21","23","25","27"],
+    correct: 1,
+    solution: "Squaring both sides: x² + 2 + 1/x² = 25, so x² + 1/x² = 23."
+  },
+  {
+    topic: "Q13 · Algebra",
+    text: "If a + b = 7 and ab = 12, find the value of a² + b².",
+    options: ["21","23","25","29"],
+    correct: 2,
+    solution: "a² + b² = (a+b)² − 2ab = 49 − 24 = 25."
+  },
+  {
+    topic: "Q14 · Geometry — Triangles",
+    text: "The angles of a triangle are in the ratio 2∶3∶4. Find the largest angle.",
+    options: ["60°","70°","80°","90°"],
+    correct: 2,
+    solution: "Sum of ratio parts = 9. Each part = 180/9 = 20°. Largest angle = 4 × 20° = 80°."
+  },
+  {
+    topic: "Q15 · Geometry — Circles",
+    text: "A chord of length 16 cm is at a distance of 6 cm from the centre of a circle. Find the radius of the circle.",
+    options: ["8 cm","9 cm","10 cm","12 cm"],
+    correct: 2,
+    solution: "Half-chord = 8 cm. Radius = √(8² + 6²) = √(64+36) = √100 = 10 cm."
+  },
+  {
+    topic: "Q16 · Mensuration — Cube",
+    text: "The diagonal of a cube is 6√3 cm. Find its volume.",
+    options: ["196 cm³","216 cm³","256 cm³","316 cm³"],
+    correct: 1,
+    solution: "Diagonal = a√3, so a√3 = 6√3 → a = 6 cm. Volume = a³ = 216 cm³."
+  },
+  {
+    topic: "Q17 · Mensuration — Trapezium",
+    text: "Find the area of a trapezium with parallel sides 10 cm and 14 cm, and height 6 cm.",
+    options: ["60 cm²","66 cm²","72 cm²","78 cm²"],
+    correct: 2,
+    solution: "Area = ½ × (sum of parallel sides) × height = ½ × (10+14) × 6 = 72 cm²."
+  },
+  {
+    topic: "Q18 · Trigonometry",
+    text: "Find the value of sin30° + cos60°.",
+    options: ["0.5","1","1.5","2"],
+    correct: 1,
+    solution: "sin30° = 0.5 and cos60° = 0.5. Sum = 1."
+  },
+  {
+    topic: "Q19 · Trigonometry",
+    text: "If tanθ = 3/4 (θ acute), find sinθ + cosθ.",
+    options: ["1","1.2","1.4","1.6"],
+    correct: 2,
+    solution: "Using the 3-4-5 right triangle: sinθ = 3/5, cosθ = 4/5. Sum = 7/5 = 1.4."
+  },
+  {
+    topic: "Q20 · Percentage",
+    text: "A number increased by 20% gives 96. Find the original number.",
+    options: ["72","76","80","84"],
+    correct: 2,
+    solution: "x × 1.2 = 96 → x = 80."
+  },
+  {
+    topic: "Q21 · Percentage — Application",
+    text: "In an election between two candidates, the winner got 60% of the votes and won by 800 votes. Find the total number of votes polled.",
+    options: ["3,000","3,500","4,000","4,500"],
+    correct: 2,
+    solution: "Winning margin = 60% − 40% = 20% of total votes = 800. Total = 800 / 0.20 = 4,000."
+  },
+  {
+    topic: "Q22 · Profit &amp; Loss",
+    text: "By selling an article for ₹720, a man loses 10%. At what price should he sell it to gain 10%?",
+    options: ["₹850","₹870","₹880","₹900"],
+    correct: 2,
+    solution: "CP = 720 / 0.9 = ₹800. For 10% gain, SP = 800 × 1.1 = ₹880."
+  },
+  {
+    topic: "Q23 · Compound Interest",
+    text: "Find the compound interest on ₹8,000 at 10% per annum for 2 years, compounded annually.",
+    options: ["₹1,600","₹1,680","₹1,700","₹1,760"],
+    correct: 1,
+    solution: "Amount = 8000 × (1.1)² = 8000 × 1.21 = ₹9,680. CI = 9,680 − 8,000 = ₹1,680."
+  },
+  {
+    topic: "Q24 · Number Series",
+    text: "The sum of three consecutive odd numbers is 75. Find the largest number.",
+    options: ["25","26","27","29"],
+    correct: 2,
+    solution: "Let the numbers be n−2, n, n+2. Sum = 3n = 75 → n = 25. Numbers: 23, 25, 27. Largest = 27."
+  },
+  {
+    topic: "Q25 · Speed — Trains",
+    text: "Two trains, 120 m and 180 m long, run in opposite directions at speeds of 54 km/h and 36 km/h. Find the time they take to cross each other.",
+    options: ["10 s","11 s","12 s","15 s"],
+    correct: 2,
+    solution: "Relative speed = 54+36 = 90 km/h = 25 m/s. Total length = 120+180 = 300 m. Time = 300/25 = 12 s."
+  }
+];
+
+const answers = new Array(questions.length).fill(null);
+let current = 0;
+let startTime = Date.now();
+let submitted = false;
+let stopwatchInterval;
+
+const navGrid = document.getElementById('navGrid');
+const qTopic = document.getElementById('qTopic');
+const qText = document.getElementById('qText');
+const qOptions = document.getElementById('qOptions');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const clearBtn = document.getElementById('clearBtn');
+const submitTestBtn = document.getElementById('submitTestBtn');
+const stopwatchEl = document.getElementById('stopwatch');
+
+function buildNav(){
+  navGrid.innerHTML = '';
+  questions.forEach((q, i)=>{
+    const b = document.createElement('button');
+    b.className = 'nav-btn' + (answers[i]!==null ? ' answered' : '') + (i===current ? ' current' : '');
+    b.textContent = i+1;
+    b.addEventListener('click', ()=>{ current = i; render(); });
+    navGrid.appendChild(b);
+  });
+}
+
+function render(){
+  const q = questions[current];
+  qTopic.innerHTML = q.topic;
+  qText.textContent = q.text;
+  qOptions.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.options.forEach((optText, i)=>{
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn' + (answers[current]===i ? ' selected' : '');
+    btn.innerHTML = '<span class="opt-letter">'+letters[i]+'</span><span>'+optText+'</span>';
+    btn.addEventListener('click', ()=>{
+      answers[current] = i;
+      buildNav();
+      render();
+    });
+    li.appendChild(btn);
+    qOptions.appendChild(li);
+  });
+  prevBtn.disabled = current === 0;
+  nextBtn.textContent = current === questions.length-1 ? 'Next →' : 'Next →';
+  buildNav();
+}
+
+prevBtn.addEventListener('click', ()=>{ if(current>0){ current--; render(); } });
+nextBtn.addEventListener('click', ()=>{ if(current<questions.length-1){ current++; render(); } });
+clearBtn.addEventListener('click', ()=>{ answers[current] = null; buildNav(); render(); });
+
+function updateStopwatch(){
+  const elapsed = Math.floor((Date.now()-startTime)/1000);
+  const m = String(Math.floor(elapsed/60)).padStart(2,'0');
+  const s = String(elapsed%60).padStart(2,'0');
+  stopwatchEl.textContent = m+':'+s;
+}
+stopwatchInterval = setInterval(updateStopwatch, 1000);
+
+submitTestBtn.addEventListener('click', ()=>{
+  if(submitted) return;
+  const unanswered = answers.filter(a=>a===null).length;
+  if(unanswered > 0){
+    const proceed = confirm(unanswered + ' question(s) unanswered. Submit anyway?');
+    if(!proceed) return;
+  }
+  submitted = true;
+  clearInterval(stopwatchInterval);
+  showResults();
+});
+
+function showResults(){
+  const elapsedSec = Math.floor((Date.now()-startTime)/1000);
+  const em = String(Math.floor(elapsedSec/60)).padStart(2,'0');
+  const es = String(elapsedSec%60).padStart(2,'0');
+
+  let correct=0, wrong=0, skipped=0;
+  answers.forEach((a,i)=>{
+    if(a===null) skipped++;
+    else if(a===questions[i].correct) correct++;
+    else wrong++;
+  });
+  const marks = (correct*2 - wrong*0.5).toFixed(2);
+
+  document.getElementById('quiz').style.display = 'none';
+  const results = document.getElementById('results');
+  results.style.display = 'block';
+
+  let html = '<div class="score-card">';
+  html += '<h2>Test Summary</h2>';
+  html += '<div class="stat-strip">';
+  html += '<div><div class="num">'+marks+'</div><div class="lbl">Marks (out of 50)</div></div>';
+  html += '<div><div class="num">'+correct+'</div><div class="lbl">Correct</div></div>';
+  html += '<div><div class="num">'+wrong+'</div><div class="lbl">Wrong</div></div>';
+  html += '<div><div class="num">'+skipped+'</div><div class="lbl">Unattempted</div></div>';
+  html += '<div><div class="num">'+em+':'+es+'</div><div class="lbl">Total time taken</div></div>';
+  html += '</div></div>';
+
+  html += '<div class="review-list">';
+  const letters = ['A','B','C','D'];
+  questions.forEach((q,i)=>{
+    const a = answers[i];
+    let status = 'skip', label = 'Not Attempted';
+    if(a!==null){
+      if(a===q.correct){ status='right'; label='Correct'; }
+      else { status='wrong'; label='Incorrect'; }
+    }
+    html += '<div class="review-item '+status+'">';
+    html += '<div class="review-head"><span class="qn">Question '+(i+1)+'</span><span class="status-pill '+status+'">'+label+'</span></div>';
+    html += '<div class="review-q">'+q.text+'</div>';
+    html += '<div class="review-ans">Your answer: <strong>'+(a!==null ? letters[a]+'. '+q.options[a] : '—')+'</strong></div>';
+    html += '<div class="review-ans">Correct answer: <strong>'+letters[q.correct]+'. '+q.options[q.correct]+'</strong></div>';
+    html += '<div class="review-sol"><strong>Solution:</strong> '+q.solution+'</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  html += '<div class="retake-bar"><button class="ghost" onclick="location.reload()">Retake Test</button></div>';
+
+  results.innerHTML = html;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+render();
+</script>
+
+</body>
+</html>
