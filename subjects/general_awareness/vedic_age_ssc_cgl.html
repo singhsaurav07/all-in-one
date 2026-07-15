@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Age — SSC CGL Tier 1 & 2 Study Guide</title>
+<style>
+:root{
+  --saffron-deep:#c85a1e;
+  --saffron:#e6791f;
+  --saffron-light:#f4a340;
+  --saffron-pale:#fdeecf;
+  --bg:#f7902b;
+  --cream:#fffaf1;
+  --ink:#2b1c10;
+  --ink-soft:#5a4632;
+  --line:#e8c88a;
+  --green:#0b6e4f;
+  --green-pale:#e5f4ee;
+  --navy:#1f3a5f;
+  --navy-pale:#e9eff7;
+  --red:#a3311b;
+  --red-pale:#fbe6e0;
+  --t1:#1f3a5f;
+  --t2:#a3311b;
+  --shadow: 0 6px 18px rgba(80,40,0,0.18);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, var(--saffron-deep) 0%, var(--bg) 8%, var(--saffron) 45%, var(--saffron-light) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  padding-bottom: 60px;
+}
+h1,h2,h3,h4{ font-family: Georgia, 'Times New Roman', serif; margin:0; }
+
+/* ---------- HEADER ---------- */
+header{
+  padding: 28px 16px 20px;
+  text-align:center;
+  color:#fff;
+}
+header .kicker{
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  opacity:0.9;
+  margin-bottom:6px;
+}
+header h1{
+  font-size: clamp(28px, 5vw, 44px);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+header p.sub{
+  margin-top:8px;
+  font-size:15px;
+  opacity:0.95;
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.chakra-divider{
+  width:100%;
+  max-width:520px;
+  margin:16px auto 4px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.chakra-divider .line{ flex:1; height:2px; background:rgba(255,255,255,0.55);}
+.chakra-divider .dot{ width:8px; height:8px; border-radius:50%; background:#fff;}
+
+/* ---------- STICKY TABS ---------- */
+.tabbar{
+  position: sticky;
+  top:0;
+  z-index: 50;
+  background: var(--saffron-deep);
+  box-shadow: var(--shadow);
+  display:flex;
+  overflow-x:auto;
+  gap:4px;
+  padding: 8px 10px;
+}
+.tabbar button{
+  flex: 0 0 auto;
+  border:none;
+  background: rgba(255,255,255,0.12);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  white-space:nowrap;
+  transition: all .2s ease;
+}
+.tabbar button:hover{ background: rgba(255,255,255,0.25); }
+.tabbar button.active{
+  background: var(--cream);
+  color: var(--saffron-deep);
+}
+
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px 14px 0;
+}
+
+.view{ display:none; animation: fadein .25s ease; }
+.view.active{ display:block; }
+@keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+/* ---------- SEARCH / PROGRESS ---------- */
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  background: rgba(255,255,255,0.85);
+  border-radius:14px;
+  padding:10px 14px;
+  margin-bottom:16px;
+  box-shadow: var(--shadow);
+}
+.toolbar input[type="text"]{
+  flex:1;
+  min-width:160px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:14px;
+  background:#fff;
+}
+.progress-pill{
+  font-size:12px;
+  font-weight:700;
+  background: var(--green-pale);
+  color: var(--green);
+  padding:6px 12px;
+  border-radius:999px;
+}
+
+/* ---------- TOPIC CARD (accordion) ---------- */
+.topic-card{
+  background: var(--cream);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(200,90,30,0.15);
+  overflow:hidden;
+}
+.topic-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 16px 18px;
+  cursor:pointer;
+  background: linear-gradient(90deg, var(--saffron-pale), #fff);
+}
+.topic-num{
+  flex:0 0 auto;
+  width:34px; height:34px;
+  border-radius:50%;
+  background: var(--saffron-deep);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+  font-size:14px;
+}
+.topic-title{ flex:1; }
+.topic-title h3{ font-size:18px; color:var(--ink); }
+.topic-title .desc{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+.freq-badge{
+  flex:0 0 auto;
+  font-size:11px;
+  font-weight:800;
+  padding:4px 9px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.freq-high{ background:var(--red-pale); color:var(--red); }
+.freq-med{ background:#fff3d6; color:#8a5a00; }
+.freq-low{ background:var(--navy-pale); color:var(--navy); }
+.chevron{
+  flex:0 0 auto;
+  transition: transform .25s ease;
+  color: var(--saffron-deep);
+  font-size:18px;
+}
+.topic-card.open .chevron{ transform: rotate(180deg); }
+.topic-body{
+  max-height:0;
+  overflow:hidden;
+  transition: max-height .35s ease;
+  padding: 0 20px;
+}
+.topic-card.open .topic-body{ padding: 6px 20px 20px; }
+
+.topic-body h4{
+  font-size:14.5px;
+  color: var(--saffron-deep);
+  margin: 16px 0 8px;
+  border-left: 4px solid var(--saffron-deep);
+  padding-left:8px;
+}
+.topic-body h4:first-child{ margin-top:6px; }
+.topic-body p{ font-size:14.5px; line-height:1.65; color:var(--ink); margin:6px 0; }
+.topic-body ul{ margin:6px 0; padding-left:20px; }
+.topic-body li{ font-size:14.5px; line-height:1.6; margin-bottom:4px; }
+
+.factbox{
+  background: var(--navy-pale);
+  border-left:4px solid var(--navy);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.factbox b{ color:var(--navy); }
+.mnemonic{
+  background: var(--green-pale);
+  border-left:4px solid var(--green);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.mnemonic b{ color:var(--green); }
+.trap{
+  background: var(--red-pale);
+  border-left:4px solid var(--red);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.trap b{ color:var(--red); }
+
+table.cmp{
+  width:100%;
+  border-collapse:collapse;
+  margin:10px 0;
+  font-size:13.5px;
+}
+table.cmp th{
+  background: var(--saffron-deep);
+  color:#fff;
+  padding:8px 10px;
+  text-align:left;
+}
+table.cmp td{
+  padding:8px 10px;
+  border-bottom:1px solid var(--line);
+}
+table.cmp tr:nth-child(even){ background: #fdf5e6; }
+
+/* ---------- PYQ CARDS ---------- */
+.pyq-card{
+  background:var(--cream);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:12px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--t1);
+}
+.pyq-card.t2{ border-left-color: var(--t2); }
+.pyq-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.tag{
+  font-size:11px;
+  font-weight:700;
+  padding:3px 9px;
+  border-radius:999px;
+}
+.tag.year{ background:var(--navy-pale); color:var(--navy); }
+.tag.topic{ background:var(--saffron-pale); color:var(--saffron-deep); }
+.tag.tier1{ background:var(--navy); color:#fff; }
+.tag.tier2{ background:var(--t2); color:#fff; }
+.tag.pattern{ background:#f0f0f0; color:#555; }
+.pyq-q{ font-size:15px; font-weight:600; margin-bottom:8px; line-height:1.5; }
+.pyq-opts{ list-style:none; padding:0; margin:0 0 8px; }
+.pyq-opts li{
+  font-size:14px;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  margin-bottom:6px;
+  background:#fff;
+}
+.pyq-opts li.correct{
+  background: var(--green-pale);
+  border-color: var(--green);
+  font-weight:700;
+  color:var(--green);
+}
+.pyq-ans{
+  font-size:13px;
+  color:var(--ink-soft);
+  background:#fbf3e2;
+  border-radius:8px;
+  padding:8px 12px;
+  margin-top:4px;
+}
+.reveal-btn{
+  border:none;
+  background:var(--saffron-deep);
+  color:#fff;
+  font-size:12.5px;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.expl{ display:none; margin-top:8px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:8px;}
+.expl.show{ display:block; }
+
+.section-intro{
+  background: rgba(255,255,255,0.9);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:18px;
+  box-shadow: var(--shadow);
+  font-size:14px;
+  line-height:1.6;
+}
+.section-intro h2{ font-size:20px; color:var(--saffron-deep); margin-bottom:6px; }
+
+/* ---------- MEMORIZE COLD (dark quick-revision widget) ---------- */
+.memo-cold{
+  --mc-bg:#171d33;
+  --mc-bg2:#1d2540;
+  --mc-line: rgba(255,255,255,0.08);
+  --mc-head:#f4c542;
+  --mc-text:#c9d3ea;
+  --mc-text-dim:#8d96b8;
+  background: var(--mc-bg);
+  border-radius:16px;
+  padding: 16px 16px 14px;
+  margin: 4px 0 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.memo-cold .mc-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+.memo-cold .mc-pin{ font-size:18px; }
+.memo-cold .mc-title{
+  flex:1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size:17px;
+  font-weight:700;
+  color:#fff;
+}
+.memo-cold .mc-badge{
+  font-size:11px;
+  font-weight:800;
+  background: var(--red-pale);
+  color:#e0526f;
+  background: rgba(224,82,111,0.18);
+  padding:4px 11px;
+  border-radius:999px;
+  border:1px solid rgba(224,82,111,0.4);
+  white-space:nowrap;
+}
+.memo-cold table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+  overflow:hidden;
+  border-radius:10px;
+}
+.memo-cold thead th{
+  text-align:left;
+  font-size:11px;
+  letter-spacing:0.5px;
+  color: var(--mc-head);
+  text-transform:uppercase;
+  padding: 9px 12px;
+  background: rgba(244,197,66,0.08);
+}
+.memo-cold tbody td{
+  padding: 10px 12px;
+  color: var(--mc-text);
+  border-top: 1px solid var(--mc-line);
+}
+.memo-cold tbody tr:nth-child(even){ background: rgba(255,255,255,0.02); }
+.memo-cold tbody td:first-child{ color:#9fb4e8; }
+.memo-cold tbody td:last-child{ color:#fff; font-weight:500; }
+.memo-cold .mc-recall{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-top:12px;
+  background: rgba(90,120,255,0.1);
+  border: 1px solid rgba(120,150,255,0.3);
+  border-radius:10px;
+  padding:12px 14px;
+  font-size:13px;
+  line-height:1.6;
+  color:#c7d2ff;
+}
+.memo-cold .mc-recall .mc-dot{ font-size:15px; flex:0 0 auto; }
+.memo-cold .mc-recall b{ color:#fff; }
+
+footer{
+  text-align:center;
+  color:#fff;
+  font-size:12.5px;
+  opacity:0.85;
+  padding: 30px 16px 10px;
+}
+@media (max-width:480px){
+  .topic-title h3{ font-size:16px; }
+  .pyq-q{ font-size:14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">SSC CGL · Tier 1 &amp; Tier 2 · General Awareness</div>
+  <h1>The Vedic Age</h1>
+  <p class="sub">Complete exam-ready notes, 10-year PYQ bank, and predicted questions — everything you need to answer almost any Vedic Age question that comes up.</p>
+  <div class="chakra-divider"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</header>
+
+<div class="tabbar" id="tabbar">
+  <button class="active" data-view="notes">📖 Study Notes</button>
+  <button data-view="tier1">🎯 Tier 1 PYQs</button>
+  <button data-view="tier2">🎯 Tier 2 PYQs</button>
+  <button data-view="predicted">🔮 Predicted Qs</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= STUDY NOTES ================= -->
+  <div class="view active" id="view-notes">
+    <div class="toolbar">
+      <input type="text" id="searchBox" placeholder="Search topics (e.g. Sabha, Rajasuya, Varna)...">
+      <span class="progress-pill" id="progressPill">0/6 sections opened</span>
+    </div>
+
+    <div class="memo-cold">
+      <div class="mc-head">
+        <span class="mc-pin">📌</span>
+        <span class="mc-title">Key Dates &amp; Numbers — Memorize Cold</span>
+        <span class="mc-badge">High PYQ</span>
+      </div>
+      <table>
+        <thead><tr><th>Fact</th><th>Figure</th></tr></thead>
+        <tbody>
+          <tr><td>Vedic Age — full span</td><td>c. 1500 BCE – 600 BCE</td></tr>
+          <tr><td>Early (Rigvedic) Vedic Age</td><td>c. 1500 BCE – 1000 BCE</td></tr>
+          <tr><td>Later Vedic Age</td><td>c. 1000 BCE – 600 BCE</td></tr>
+          <tr><td>Rig Veda — Mandalas / Hymns</td><td>10 Mandalas, 1,028 hymns</td></tr>
+          <tr><td>Oldest Mandalas of Rig Veda</td><td>Mandalas II–VII ("Family Books")</td></tr>
+          <tr><td>Latest Mandalas of Rig Veda</td><td>Mandalas I &amp; X (Purusha Sukta is in X)</td></tr>
+          <tr><td>Total Upanishads (traditional count)</td><td>108 (≈13 principal ones)</td></tr>
+          <tr><td>Vedangas</td><td>6 (Shiksha, Kalpa, Vyakarana, Nirukta, Chhandas, Jyotisha)</td></tr>
+          <tr><td>Upavedas</td><td>4 (Ayurveda, Dhanurveda, Gandharvaveda, Shilpaveda)</td></tr>
+          <tr><td>Varnas</td><td>4 (Brahmana, Kshatriya, Vaishya, Shudra)</td></tr>
+          <tr><td>Ashramas</td><td>4 (Brahmacharya, Grihastha, Vanaprastha, Sanyasa)</td></tr>
+          <tr><td>Purusharthas</td><td>4 (Dharma, Artha, Kama, Moksha)</td></tr>
+          <tr><td>Ratnins (Later Vedic officials)</td><td>12</td></tr>
+          <tr><td>Battle of Ten Kings — river</td><td>Parushni (modern Ravi)</td></tr>
+          <tr><td>Metal of Early vs Later Vedic Age</td><td>Copper/Bronze → Iron (Krishna Ayas)</td></tr>
+        </tbody>
+      </table>
+      <div class="mc-recall">
+        <span class="mc-dot">🔴</span>
+        <span><b>Quick recall: "1500-1000-600"</b> → Vedic Age starts 1500 BCE, Early Vedic ends / Later Vedic begins 1000 BCE, Later Vedic ends 600 BCE. Then <b>"10-1028-108-6-4"</b> → 10 Mandalas, 1,028 hymns, 108 Upanishads, 6 Vedangas, 4 of everything else (Vedas, Varnas, Ashramas, Purusharthas, Upavedas). Cross-check exact figures asked in MCQs — options often differ by small margins (e.g., 1,017 vs 1,028 hymns), so read choices carefully.</span>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="topic-card" data-idx="1">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">1</div>
+        <div class="topic-title">
+          <h3>Early Vedic (Rigvedic) Polity &amp; Society</h3>
+          <div class="desc">c. 1500–1000 BCE · Sapta Sindhu region</div>
+        </div>
+        <div class="freq-badge freq-high">Very High PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>Timeline &amp; Geography</h4>
+        <p>The Early Vedic (Rigvedic) Age is dated roughly <b>1500–1000 BCE</b>. The Indo-Aryans first settled in the <b>Sapta Sindhu</b> ("land of seven rivers") — the region covering Punjab and parts of Afghanistan, watered by the Indus and its tributaries. The Rig Veda mentions the <b>Sindhu (Indus)</b> most frequently, and the <b>Saraswati</b> is called "Naditama" (best of rivers).</p>
+
+        <h4>Political Organisation</h4>
+        <ul>
+          <li><b>Jana</b> — the tribe; the largest political unit, headed by the <b>Rajan</b> (chief/king). Kingship was largely non-hereditary at this stage and depended on tribal consent.</li>
+          <li><b>Vish</b> → <b>Grama</b> → <b>Kula</b> — descending administrative/social units. The <b>Kula (family)</b> was the smallest unit, headed by the <b>Kulapa</b>.</li>
+          <li>Key officials assisting the Rajan: <b>Purohita</b> (chief priest/advisor), <b>Senani</b> (army commander), <b>Gramani</b> (village head, later a military leader too).</li>
+          <li>No regular taxation system or standing army; the king depended on voluntary gifts (<b>Bali</b>) from the tribe.</li>
+        </ul>
+
+        <h4>Tribal Assemblies</h4>
+        <table class="cmp">
+          <tr><th>Assembly</th><th>Function</th></tr>
+          <tr><td><b>Sabha</b></td><td>Council of elders; select/wealthy members; also acted in a judicial capacity. Women (Sabhavati) could attend.</td></tr>
+          <tr><td><b>Samiti</b></td><td>General tribal assembly of the people; discussed policy matters; could even elect/re-elect the Rajan.</td></tr>
+          <tr><td><b>Vidatha</b></td><td>Oldest assembly — a folk gathering for religious, social, economic &amp; military purposes. Notable for the <b>participation of women</b>.</td></tr>
+          <tr><td><b>Gana</b></td><td>A general term for tribal republican-type assembly/group.</td></tr>
+        </table>
+        <div class="trap"><b>PYQ Trap:</b> Don't confuse Sabha (elite council) with Samiti (general assembly) — Sabha is often called the "assembly of elders/nobles" while Samiti is the "national assembly of the people."</div>
+
+        <h4>Society</h4>
+        <ul>
+          <li>Society was <b>tribal and pastoral</b>, relatively egalitarian — occupation was not yet hereditary and the rigid Varna system had not fully crystallised (it emerges only towards the very end of this period, referenced in the <b>Purusha Sukta</b>, a later addition to the 10th Mandala).</li>
+          <li>Patriarchal, but women enjoyed a relatively respectable position — they attended assemblies (Sabha, Vidatha), and some, like <b>Ghosha, Lopamudra, Apala, Vishwavara</b>, composed Vedic hymns.</li>
+          <li>Marriage was generally monogamous (though polygamy existed among chiefs); child marriage and Sati were absent. Practices like Niyoga are attested.</li>
+          <li>Family was patriarchal (Kula), joint-family system prevailed.</li>
+        </ul>
+
+        <h4>The Battle of Ten Kings (Dasarajna Yuddha)</h4>
+        <p>Fought on the banks of the river <b>Parushni (modern Ravi)</b> between king <b>Sudas</b> of the Bharata clan (Tritsu) and a confederacy of ten tribes (including Purus, Yadus, Turvashas, Anus, Druhyus). Sudas emerged victorious with the help of sage <b>Vasishtha</b> — this event is central to Mandala VII of the Rig Veda.</p>
+
+        <div class="factbox"><b>High-value fact:</b> The smallest unit of Early Vedic polity was the <b>Kula</b> (headed by Kulapa); the largest was the <b>Jana</b> (headed by Rajan). <i>[Asked in SSC CGL Tier 1, 2023]</i></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="topic-card" data-idx="2">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">2</div>
+        <div class="topic-title">
+          <h3>Later Vedic Period Changes</h3>
+          <div class="desc">c. 1000–600 BCE · Ganga–Yamuna Doab</div>
+        </div>
+        <div class="freq-badge freq-high">Very High PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>Shift in Geography &amp; Technology</h4>
+        <p>The centre of Aryan activity shifted east from Sapta Sindhu to the <b>Ganga–Yamuna Doab</b> (Kuru-Panchala region). Use of <b>iron (called "Krishna Ayas" or "Shyama Ayas")</b> enabled forest clearance and settled agriculture, which became the dominant occupation, replacing pastoralism.</p>
+
+        <h4>Political Changes</h4>
+        <ul>
+          <li>Small tribal Janas consolidated into larger kingdoms: <b>Kuru, Panchala, Kosala, Kashi, Videha, Magadha</b> etc.</li>
+          <li>Kingship became more powerful and hereditary; the king performed elaborate sacrifices to legitimise and glorify his authority:
+            <ul>
+              <li><b>Rajasuya</b> — consecration ceremony conferring supreme power.</li>
+              <li><b>Ashvamedha</b> — horse sacrifice asserting unquestioned control over territory.</li>
+              <li><b>Vajapeya</b> — chariot race sacrifice, the king's chariot made to win.</li>
+            </ul>
+          </li>
+          <li><b>Sabha and Samiti</b> continued but lost much of their power and became dominated by nobles and Brahmanas; the <b>Vidatha disappears</b> entirely.</li>
+          <li>The <b>Bali</b> (earlier voluntary gift) became a <b>compulsory tax/tribute</b>; other levies like <b>Bhaga</b> (share of produce) and <b>Shulka</b> appear.</li>
+          <li>Administration grew more complex — texts mention <b>12 Ratnins</b> (jewels/high officials) around the king, including the Purohita, Senani, Gramani, Suta (charioteer), Sangrahitri (treasurer), Bhagadugha (tax collector), Akshavapa (accountant/dice-keeper), Govikartana, Palagala, Kshattri, Takshan, Purapa.</li>
+        </ul>
+
+        <h4>Social Changes</h4>
+        <ul>
+          <li>The <b>Varna system became rigid</b>, hereditary, and occupation-based, with the Brahmana and Kshatriya asserting dominance over the Vaishya and Shudra.</li>
+          <li>Position of women declined — they were excluded from assemblies, and the birth of a daughter began to be viewed unfavourably in some texts (Aitareya Brahmana).</li>
+          <li>The <b>Gotra</b> system (exogamous lineage) and the four-stage <b>Ashrama</b> system developed in this period.</li>
+        </ul>
+
+        <table class="cmp">
+          <tr><th>Aspect</th><th>Early Vedic</th><th>Later Vedic</th></tr>
+          <tr><td>Region</td><td>Sapta Sindhu</td><td>Ganga-Yamuna Doab</td></tr>
+          <tr><td>Economy</td><td>Pastoral (cattle)</td><td>Agrarian (iron tools)</td></tr>
+          <tr><td>Metal</td><td>Copper/Bronze</td><td>Iron (Krishna Ayas)</td></tr>
+          <tr><td>Polity</td><td>Tribal, elective kingship</td><td>Territorial, hereditary kingship</td></tr>
+          <tr><td>Assemblies</td><td>Sabha, Samiti, Vidatha — powerful</td><td>Weakened; Vidatha disappears</td></tr>
+          <tr><td>Varna</td><td>Fluid, occupation-based</td><td>Rigid, birth-based</td></tr>
+          <tr><td>Taxes</td><td>Voluntary Bali</td><td>Compulsory Bali, Bhaga, Shulka</td></tr>
+        </table>
+        <div class="mnemonic"><b>Memory tip:</b> "SAVED" declines in Later Vedic — <b>S</b>abha/<b>S</b>amiti weaken, <b>A</b>griculture rises, <b>V</b>idatha vanishes, <b>E</b>quality (women's status) erodes, <b>D</b>ivision (Varna) hardens.</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="topic-card" data-idx="3">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">3</div>
+        <div class="topic-title">
+          <h3>Varna System &amp; Ashrama</h3>
+          <div class="desc">Social stratification &amp; stages of life</div>
+        </div>
+        <div class="freq-badge freq-high">High PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>The Four Varnas</h4>
+        <p>The origin of the four-fold Varna system is traced to the <b>Purusha Sukta</b> hymn in the <b>10th Mandala of the Rig Veda</b>, which describes the varnas as born from different parts of the cosmic being Purusha's body.</p>
+        <table class="cmp">
+          <tr><th>Varna</th><th>Origin (Purusha Sukta)</th><th>Traditional Occupation</th></tr>
+          <tr><td><b>Brahmana</b></td><td>Mouth</td><td>Priesthood, teaching, learning</td></tr>
+          <tr><td><b>Kshatriya</b></td><td>Arms</td><td>Warfare, administration, ruling</td></tr>
+          <tr><td><b>Vaishya</b></td><td>Thighs</td><td>Trade, agriculture, cattle-rearing</td></tr>
+          <tr><td><b>Shudra</b></td><td>Feet</td><td>Service to the other three varnas</td></tr>
+        </table>
+        <p>In the Early Vedic period, Varna was largely based on occupation and was relatively flexible; by the Later Vedic period it hardened into a birth-based, hereditary system, and untouchability begins to appear at its margins.</p>
+
+        <h4>The Four Ashramas (Stages of Life)</h4>
+        <ul>
+          <li><b>Brahmacharya</b> — student life; celibacy, education under a guru (Gurukul).</li>
+          <li><b>Grihastha</b> — householder stage; marriage, family, earning livelihood — considered the most important, as it supports the other three stages.</li>
+          <li><b>Vanaprastha</b> — gradual withdrawal to forest life, detachment while still guiding family.</li>
+          <li><b>Sanyasa</b> — complete renunciation in pursuit of moksha.</li>
+        </ul>
+        <div class="factbox"><b>Related concept — Purushartha (four aims of life):</b> <b>Dharma</b> (righteous duty), <b>Artha</b> (wealth), <b>Kama</b> (desire), <b>Moksha</b> (liberation).</div>
+        <div class="trap"><b>PYQ Trap:</b> The Ashrama system is <i>not</i> mentioned in the Rig Veda in its developed four-fold form — it fully develops only in the <b>Later Vedic / Dharmashastra</b> period. Don't attribute it to Early Vedic society.</div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="topic-card" data-idx="4">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">4</div>
+        <div class="topic-title">
+          <h3>Economic Life &amp; Land Ownership</h3>
+          <div class="desc">Pastoral wealth → agrarian surplus</div>
+        </div>
+        <div class="freq-badge freq-med">Medium PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>Early Vedic Economy</h4>
+        <ul>
+          <li>Primarily <b>pastoral</b> — cattle (<b>Gau</b>) was the chief measure of wealth; a wealthy man was called <b>Gomat</b>. Wars were often fought over cattle — the word for war, <b>Gavishthi</b>, literally means "search for cows."</li>
+          <li><b>Nishka</b> (a gold ornament/coin-like unit) was used as a medium of exchange; the economy was largely a barter economy — there was no regular currency or organised trade.</li>
+          <li>Land was <b>not privately owned</b>; it belonged to the tribe/community, and there was no revenue system based on land.</li>
+          <li>Limited agriculture existed (barley — <i>Yava</i> — was known), but it was secondary to cattle-rearing.</li>
+        </ul>
+
+        <h4>Later Vedic Economy</h4>
+        <ul>
+          <li><b>Agriculture became the main occupation</b> with the use of <b>iron ploughshares</b> and knowledge of the fertility cycle; crops included rice (<i>Vrihi</i>), wheat, barley, and pulses.</li>
+          <li><b>Land ownership</b> begins to shift — the king/state started claiming rights over land, though private/individual ownership was still emerging and not fully established.</li>
+          <li>Crafts became more specialised: metal-working (iron), carpentry, leather work, weaving, pottery (Painted Grey Ware culture is associated archaeologically with this phase).</li>
+          <li>Trade expanded modestly; guild-like organisation and money economy became prominent only later, in the post-Vedic/Second Urbanisation phase (c. 600 BCE onward) — <b>not yet in the Later Vedic period itself.</b></li>
+        </ul>
+        <div class="mnemonic"><b>Memory tip:</b> Early Vedic = "Cow economy" (Gau, Gomat, Gavishthi). Later Vedic = "Plough economy" (iron ploughshare, settled agriculture, land tax).</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="topic-card" data-idx="5">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">5</div>
+        <div class="topic-title">
+          <h3>Religious Beliefs, Rituals &amp; Literature</h3>
+          <div class="desc">Nature worship → elaborate ritualism → philosophy</div>
+        </div>
+        <div class="freq-badge freq-high">High PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>Early Vedic Religion</h4>
+        <p>Religion centred on the worship of personified <b>natural forces</b>, propitiated through hymns and simple domestic sacrifices (<b>Yajnas</b>) — there was <b>no idol worship and no temples</b> at this stage.</p>
+        <table class="cmp">
+          <tr><th>Deity</th><th>Represents</th><th>PYQ Note</th></tr>
+          <tr><td><b>Indra</b></td><td>War god, rain, thunder ("Purandara" — breaker of forts)</td><td>Most hymns dedicated to him (~250)</td></tr>
+          <tr><td><b>Agni</b></td><td>Fire god; messenger between men and gods</td><td>2nd most hymns (~200)</td></tr>
+          <tr><td><b>Varuna</b></td><td>Guardian of cosmic/moral order (<b>Rta</b>)</td><td>Upholder of natural law</td></tr>
+          <tr><td><b>Soma</b></td><td>Plant/drink deity used in rituals</td><td>Entire Mandala IX dedicated to Soma</td></tr>
+          <tr><td><b>Surya, Ushas, Prithvi, Vayu</b></td><td>Sun, Dawn, Earth, Wind</td><td>Nature deities</td></tr>
+        </table>
+
+        <h4>Later Vedic Religion</h4>
+        <ul>
+          <li>Worship became more <b>ritualistic and complex</b>; elaborate sacrifices (Rajasuya, Ashvamedha, Vajapeya) performed by kings with Brahmana priests playing a dominant, indispensable role.</li>
+          <li><b>Prajapati</b> (creator god) rose to prominence; Indra and Agni declined in relative importance.</li>
+          <li>Growing discontent with ritualism gave rise to <b>philosophical speculation</b> — questioning the nature of the soul (<b>Atman</b>) and the universe (<b>Brahman</b>) — recorded in the <b>Upanishads</b>, which mark the beginning of Vedanta philosophy and set the stage for the later Shramana movements (Buddhism, Jainism).</li>
+        </ul>
+        <div class="factbox"><b>High-value fact:</b> The <b>"Ayurveda"</b> (science of medicine/longevity) is traditionally associated with the <b>Atharvaveda</b>, which contains hymns related to healing, charms and spells. <b>Dhanvantari</b> is revered as the god of Ayurvedic medicine.</div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="topic-card" data-idx="6">
+      <div class="topic-head" onclick="toggleCard(this)">
+        <div class="topic-num">6</div>
+        <div class="topic-title">
+          <h3>Vedas, Upanishads &amp; Vedangas</h3>
+          <div class="desc">The literary corpus — most PYQ-dense topic</div>
+        </div>
+        <div class="freq-badge freq-high">Highest PYQ</div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="topic-body">
+        <h4>The Four Vedas (Samhitas)</h4>
+        <table class="cmp">
+          <tr><th>Veda</th><th>Nature</th><th>Key Facts</th></tr>
+          <tr><td><b>Rig Veda</b></td><td>Hymns (Suktas) in praise of gods</td><td>Oldest Veda; oldest literary work of the Indo-Aryans; 10 Mandalas, 1,028 hymns; Mandalas II–VII are the oldest ("Family Books"); Mandala X has the Purusha Sukta.</td></tr>
+          <tr><td><b>Sama Veda</b></td><td>Verses set to musical chants, mostly borrowed from Rig Veda</td><td>"Book of Chants" — regarded as the origin of Indian classical music (Sangeeta).</td></tr>
+          <tr><td><b>Yajur Veda</b></td><td>Sacrificial formulae (Mantras + prose) explaining ritual procedure</td><td>Only Veda partly in prose; two recensions — <b>Shukla (White)</b> and <b>Krishna (Black) Yajurveda</b>.</td></tr>
+          <tr><td><b>Atharva Veda</b></td><td>Spells, charms, magic, folk medicine</td><td>Latest of the four; reflects non-Aryan/popular folk traditions; source of Ayurveda.</td></tr>
+        </table>
+
+        <h4>Four Layers within Each Veda</h4>
+        <ul>
+          <li><b>Samhita</b> — the core collection of hymns/mantras.</li>
+          <li><b>Brahmana</b> — prose texts explaining ritual and sacrificial procedure (e.g., <i>Aitareya Brahmana, Shatapatha Brahmana</i>).</li>
+          <li><b>Aranyaka</b> — "forest texts," transitional, philosophical-ritual content meant for hermits.</li>
+          <li><b>Upanishad</b> — purely philosophical texts; also called <b>Vedanta</b> ("end of the Veda").</li>
+        </ul>
+
+        <h4>Upanishads</h4>
+        <p>There are traditionally <b>108 Upanishads</b> (around 13 are considered the principal/older ones, e.g., Chandogya, Brihadaranyaka, Katha, Mundaka, Mandukya, Isha, Kena, Taittiriya, Aitareya, Prashna, Svetasvatara). They discuss <b>Atman</b> (self), <b>Brahman</b> (ultimate reality), <b>Karma</b>, and <b>Moksha</b>.</p>
+        <div class="factbox"><b>High-value fact:</b> The national motto <b>"Satyameva Jayate"</b> is taken from the <b>Mundaka Upanishad</b>. <i>[Frequently asked — SSC CPO/CGL]</i></div>
+
+        <h4>The Six Vedangas ("limbs of the Veda")</h4>
+        <table class="cmp">
+          <tr><th>Vedanga</th><th>Deals with</th></tr>
+          <tr><td><b>Shiksha</b></td><td>Phonetics, pronunciation</td></tr>
+          <tr><td><b>Kalpa</b></td><td>Rituals, ceremonies (Kalpasutras)</td></tr>
+          <tr><td><b>Vyakarana</b></td><td>Grammar — <b>Panini's Ashtadhyayi</b> is the classic text here</td></tr>
+          <tr><td><b>Nirukta</b></td><td>Etymology of words (Yaska's Nirukta)</td></tr>
+          <tr><td><b>Chhandas</b></td><td>Metre/prosody</td></tr>
+          <tr><td><b>Jyotisha</b></td><td>Astronomy/astrology, for fixing ritual timing</td></tr>
+        </table>
+        <div class="mnemonic"><b>Memory tip (Vedangas):</b> "<b>S</b>huddh <b>K</b>apde <b>V</b>ale <b>N</b>ete <b>C</b>hand <b>J</b>aldi" → Shiksha, Kalpa, Vyakarana, Nirukta, Chhandas, Jyotisha.</div>
+
+        <h4>The Four Upavedas</h4>
+        <ul>
+          <li><b>Ayurveda</b> (medicine) — linked to Atharvaveda</li>
+          <li><b>Dhanurveda</b> (archery/warfare) — linked to Yajurveda</li>
+          <li><b>Gandharvaveda</b> (music, dance) — linked to Samaveda</li>
+          <li><b>Shilpaveda/Sthapatyaveda</b> (architecture) — linked to Rigveda/Atharvaveda</li>
+        </ul>
+
+        <div class="memo-cold">
+          <div class="mc-head">
+            <span class="mc-pin">📌</span>
+            <span class="mc-title">Vedic Literature — Memorize Cold</span>
+            <span class="mc-badge">Highest PYQ</span>
+          </div>
+          <table>
+            <thead><tr><th>Fact</th><th>Figure</th></tr></thead>
+            <tbody>
+              <tr><td>Rig Veda hymns</td><td>1,028 (sometimes cited as 1,017 excluding 11 Valakhilya hymns)</td></tr>
+              <tr><td>Rig Veda Mandalas</td><td>10</td></tr>
+              <tr><td>Purusha Sukta location</td><td>Rig Veda, Mandala X</td></tr>
+              <tr><td>Yajurveda recensions</td><td>2 — Shukla (White) &amp; Krishna (Black)</td></tr>
+              <tr><td>Layers within each Veda</td><td>4 — Samhita, Brahmana, Aranyaka, Upanishad</td></tr>
+              <tr><td>Upanishads (total / principal)</td><td>108 total / ~13 principal</td></tr>
+              <tr><td>"Satyameva Jayate" source</td><td>Mundaka Upanishad</td></tr>
+              <tr><td>Vedangas</td><td>6</td></tr>
+              <tr><td>Panini's grammar text (Vyakarana)</td><td>Ashtadhyayi</td></tr>
+              <tr><td>Yaska's etymology text (Nirukta)</td><td>Nirukta</td></tr>
+              <tr><td>Upavedas</td><td>4</td></tr>
+            </tbody>
+          </table>
+          <div class="mc-recall">
+            <span class="mc-dot">🔴</span>
+            <span><b>Quick recall: "4-4-108-6-4"</b> → 4 Vedas, each with 4 layers (Samhita-Brahmana-Aranyaka-Upanishad), 108 Upanishads total, 6 Vedangas, 4 Upavedas. Order of the Vedas by age: <b>Rig → Sama → Yajur → Atharva</b>. Watch for MCQs swapping "Rigveda" and "Atharvaveda" as the source of a fact — Rigveda = oldest/hymns, Atharvaveda = latest/magic-medicine.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= TIER 1 PYQs ================= -->
+  <div class="view" id="view-tier1">
+    <div class="section-intro">
+      <h2>Tier 1 — Previous Year Questions</h2>
+      <p>Curated Vedic Age questions actually reported from SSC CGL Tier 1 papers over the last decade, plus long-standing repeaters from the SSC question bank (these keep resurfacing across CGL/CHSL/CPO). Tap "Show Answer" to reveal the answer and explanation.</p>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag tier1">Tier 1</span><span class="tag year">2023</span><span class="tag topic">Polity</span></div>
+      <div class="pyq-q">Q. The smallest unit of the Early Vedic period was:</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Kula (family), headed by the Kulapa. The largest unit was the Jana (tribe), headed by the Rajan.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag tier1">Tier 1</span><span class="tag year">2023</span><span class="tag topic">Vedangas</span></div>
+      <div class="pyq-q">Q. The Ashtadhyayi of Panini is a renowned work on ______.</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Sanskrit Grammar (Vyakarana) — one of the six Vedangas.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. The words "Satyameva Jayate" in the State Emblem of India are taken from:</div>
+      <ul class="pyq-opts">
+        <li>Rig Veda</li>
+        <li>Sama Veda</li>
+        <li class="correct">Mundaka Upanishad</li>
+        <li>Ramayana</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">This is one of the most repeated Vedic-age GK questions across SSC exams — always frame the answer as "Upanishads," specifically the Mundaka Upanishad.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Economy</span></div>
+      <div class="pyq-q">Q. Which of these crops was NOT known to the people of the Vedic period?</div>
+      <ul class="pyq-opts">
+        <li>Barley</li>
+        <li>Wheat</li>
+        <li>Rice</li>
+        <li class="correct">Tobacco</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Tobacco was introduced to India much later (post-16th century, via the Portuguese) — a classic elimination-based question.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Religion</span></div>
+      <div class="pyq-q">Q. Who is hailed as the "God of Medicine" by practitioners of Ayurveda?</div>
+      <ul class="pyq-opts">
+        <li>Susruta</li>
+        <li>Chyavana</li>
+        <li class="correct">Dhanvantari</li>
+        <li>Charaka</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Dhanvantari is considered the divine physician and is associated with the Atharvaveda tradition of healing.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. Which Veda provides the earliest information about the civilisation of the Early Vedic Age?</div>
+      <ul class="pyq-opts">
+        <li>Yajur Veda</li>
+        <li>Atharva Veda</li>
+        <li class="correct">Rig Veda</li>
+        <li>Sama Veda</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">The Rig Veda, being the oldest text, is the primary source for reconstructing Early Vedic (Rigvedic) society and polity.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Society</span></div>
+      <div class="pyq-q">Q. Which assembly of the Vedic period was especially known for the participation of women?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Vidatha — the oldest of the Vedic assemblies, and unique for having female participation (women like Vishpala are mentioned in this context).</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Society</span></div>
+      <div class="pyq-q">Q. The metal first used by the Vedic people was:</div>
+      <ul class="pyq-opts">
+        <li class="correct">Copper</li>
+        <li>Iron</li>
+        <li>Bronze</li>
+        <li>Silver</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Copper (and its alloy bronze) was used in the Early Vedic period; iron ("Krishna Ayas") appears only in the Later Vedic period.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Society</span></div>
+      <div class="pyq-q">Q. In how many Varnas were people of Ancient India divided, and which stood first?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Four Varnas; the Brahmana occupied the first/highest position in the traditional hierarchy.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Geography</span></div>
+      <div class="pyq-q">Q. What was the Rigvedic name of the river Ravi?</div>
+      <ul class="pyq-opts">
+        <li class="correct">Parushni</li>
+        <li>Vitasta</li>
+        <li>Askini</li>
+        <li>Shutudri</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Rigvedic river names are a favourite SSC theme — Ravi=Parushni, Jhelum=Vitasta, Chenab=Askini, Beas=Vipasa, Sutlej=Shutudri, Indus=Sindhu.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. Which Veda contains sacrificial formulae recited during rituals?</div>
+      <ul class="pyq-opts">
+        <li>Rig Veda</li>
+        <li class="correct">Yajur Veda</li>
+        <li>Sama Veda</li>
+        <li>Atharva Veda</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Yajurveda = ritual/sacrificial procedure, partly in prose, with Shukla and Krishna recensions.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. The origin of Indian classical music is traced to which Vedic Samhita?</div>
+      <ul class="pyq-opts">
+        <li>Rig Veda</li>
+        <li class="correct">Sama Veda</li>
+        <li>Yajur Veda</li>
+        <li>Atharva Veda</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Samaveda hymns were meant to be sung/chanted, forming the basis of Indian Sangeeta (music) tradition.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Chronology</span></div>
+      <div class="pyq-q">Q. The Vedic Age in ancient India is generally dated to:</div>
+      <ul class="pyq-opts">
+        <li>600–321 BC</li>
+        <li>1000–600 BC</li>
+        <li class="correct">1500 BC – 600 BC</li>
+        <li>1800–1500 BCE</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Full Vedic Age = c.1500–600 BCE, split into Early Vedic (1500–1000 BCE) and Later Vedic (1000–600 BCE).</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Linguistics</span></div>
+      <div class="pyq-q">Q. The Aryan (Vedic Sanskrit) language belongs to which linguistic family?</div>
+      <ul class="pyq-opts">
+        <li>Sino-Tibetan</li>
+        <li>Dravidian</li>
+        <li>Afro-Asiatic</li>
+        <li class="correct">Indo-European</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">A recurring GA question linking Vedic-age language to the broader Indo-European family shared with European and Iranian languages.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Repeater</span><span class="tag topic">Geography</span></div>
+      <div class="pyq-q">Q. Along which river did the Vedic civilisation primarily flourish in its earliest phase?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> The Saraswati (called "Naditama," best of rivers, in the Rig Veda), alongside the Sindhu (Indus) system in the Sapta Sindhu region.</div>
+    </div>
+  </div>
+
+  <!-- ================= TIER 2 PYQs ================= -->
+  <div class="view" id="view-tier2">
+    <div class="section-intro">
+      <h2>Tier 2 — Previous Year Questions</h2>
+      <p>Tier 2 General Awareness tends to go a level deeper than Tier 1 — expect more analytical, comparison-based, and "which of the following is correctly matched" style questions on the Vedic Age.</p>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Polity</span></div>
+      <div class="pyq-q">Q. Which of the following Vedic assemblies played the most direct role in electing/re-electing the Rajan?</div>
+      <ul class="pyq-opts">
+        <li>Vidatha</li>
+        <li class="correct">Samiti</li>
+        <li>Sabha</li>
+        <li>Gana</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">The Samiti was the general tribal assembly with a political character — it discussed policy and could confirm or select the Rajan, distinguishing it from the more elite Sabha.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Later Vedic</span></div>
+      <div class="pyq-q">Q. Consider the following sacrifices performed by Later Vedic kings — match them with their purpose: (1) Rajasuya (2) Ashvamedha (3) Vajapeya — with (a) horse sacrifice for territorial supremacy (b) chariot race sacrifice (c) royal consecration ceremony.</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> 1-c (Rajasuya = consecration), 2-a (Ashvamedha = horse sacrifice), 3-b (Vajapeya = chariot race). Tier 2 frequently tests these as matching/matrix-type questions.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Economy</span></div>
+      <div class="pyq-q">Q. Which of the following best describes the change in land ownership from the Early to the Later Vedic period?</div>
+      <ul class="pyq-opts">
+        <li>Private ownership existed throughout the Vedic Age</li>
+        <li class="correct">Land was communal/tribal in the Early Vedic period; the king began asserting rights over land in the Later Vedic period as agriculture became central</li>
+        <li>Land ownership was never a concern in Vedic society</li>
+        <li>The Shudras owned all agricultural land</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Tier 2 often frames economic-change questions as analytical statements rather than one-word answers — always link the shift to the rise of iron tools and settled agriculture.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. Arrange the four layers of Vedic literature in their correct chronological/structural order:</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Samhita → Brahmana → Aranyaka → Upanishad. This ordering (core hymns → ritual explanation → forest philosophy → pure philosophy) is a favourite Tier 2 sequencing question.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Society</span></div>
+      <div class="pyq-q">Q. Which of the following statements about the position of women in the Vedic Age is correct?</div>
+      <ul class="pyq-opts">
+        <li>Women's status steadily improved from Early to Later Vedic times</li>
+        <li class="correct">Women had a relatively better position in the Early Vedic period (assembly participation, composing hymns) but their status declined in the Later Vedic period</li>
+        <li>Women held no rights in either period</li>
+        <li>Sati was a common Vedic-age practice</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">A classic "direction of change" question — Tier 2 likes to test the trend (decline), not just isolated facts.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Religion</span></div>
+      <div class="pyq-q">Q. The concept of "Rta" in Vedic religion, associated primarily with the god Varuna, refers to:</div>
+      <ul class="pyq-opts">
+        <li>A form of sacrifice</li>
+        <li class="correct">The cosmic and moral order governing the universe</li>
+        <li>A type of land tax</li>
+        <li>A tribal assembly</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Tier 2 GA sometimes tests conceptual/abstract Vedic terms like Rta, Rna, and Yajna beyond simple factual recall.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Vedangas</span></div>
+      <div class="pyq-q">Q. Which Vedanga deals with phonetics and correct pronunciation of Vedic hymns, and which deals with etymology?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Shiksha = phonetics; Nirukta = etymology (Yaska's Nirukta is the key text). Tier 2 likes to pair up two Vedangas in one question to test depth.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Administration</span></div>
+      <div class="pyq-q">Q. The term "Ratnin" in the Later Vedic period referred to:</div>
+      <ul class="pyq-opts">
+        <li>A land tax</li>
+        <li>A religious ceremony</li>
+        <li class="correct">High officials/dignitaries associated with the royal household and administration</li>
+        <li>A type of coin</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">The 12 Ratnins (including Purohita, Senani, Gramani, Suta, Sangrahitri) reflect the growing administrative complexity of Later Vedic kingdoms — a good indicator of state formation, often tested in Tier 2.</div>
+    </div>
+
+    <div class="pyq-card t2">
+      <div class="pyq-meta"><span class="tag tier2">Tier 2</span><span class="tag topic">Comparative</span></div>
+      <div class="pyq-q">Q. Which of the following is NOT a correct feature of the Early Vedic period as compared to the Later Vedic period?</div>
+      <ul class="pyq-opts">
+        <li>Cattle were the chief form of wealth</li>
+        <li>The Varna system was relatively fluid</li>
+        <li class="correct">Iron tools were extensively used for agriculture</li>
+        <li>Kingship was largely non-hereditary</li>
+      </ul>
+      <button class="reveal-btn" onclick="reveal(this)">Show Explanation</button>
+      <div class="expl">Iron use is a Later Vedic feature, not Early Vedic — a classic "identify the incorrect statement" format common in Tier 2.</div>
+    </div>
+  </div>
+
+  <!-- ================= PREDICTED ================= -->
+  <div class="view" id="view-predicted">
+    <div class="section-intro">
+      <h2>Predicted Questions for Upcoming Exams</h2>
+      <p>Based on a review of question patterns across the last decade of SSC CGL Tier 1 &amp; Tier 2 papers, these areas of the Vedic Age are statistically under-tested relative to their syllabus weight — meaning they carry a higher chance of appearing in upcoming exams. Study these carefully.</p>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Geography</span></div>
+      <div class="pyq-q">Q. Match the Rigvedic river names with their modern names: Vitasta, Askini, Vipasa, Shutudri.</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Vitasta = Jhelum, Askini = Chenab, Vipasa = Beas, Shutudri = Sutlej. High-probability matching question — memorise all 7 river-name pairs (including Sindhu=Indus, Parushni=Ravi).</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Society</span></div>
+      <div class="pyq-q">Q. Which Vedic-age women are known to have composed hymns of the Rig Veda?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Ghosha, Lopamudra, Apala, Vishwavara, Romasha, among others — collectively referred to as "Brahmavadinis." This fact hasn't appeared often recently and is due for testing.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Literature</span></div>
+      <div class="pyq-q">Q. Name the two recensions of the Yajurveda and their key distinguishing feature.</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Shukla (White) Yajurveda — mantras only, in verse; Krishna (Black) Yajurveda — mantras mixed with prose commentary. Frequently confused, good elimination-question material.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Upanishads</span></div>
+      <div class="pyq-q">Q. Which Upanishad is the source of the famous phrase "Ekam Sat Vipra Bahudha Vadanti" (Truth is one, sages call it by many names)?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl">Note: this specific phrase actually originates in the <b>Rig Veda</b> (Mandala I) rather than an Upanishad — a good "trap" question testing whether you can distinguish Rigvedic philosophical lines from Upanishadic ones.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Administration</span></div>
+      <div class="pyq-q">Q. In the Later Vedic period, which official was responsible for tax/revenue collection, and which for accounts?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Bhagadugha = tax/revenue collector; Akshavapa = accountant (also associated with keeping dice for gambling rituals). Detailed Ratnin roles are a likely Tier 2 area.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Comparative</span></div>
+      <div class="pyq-q">Q. Which of the following pairs is INCORRECTLY matched? (a) Sabha–assembly of elders (b) Samiti–general tribal assembly (c) Vidatha–military assembly only (d) Gana–tribal republican group</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer: (c)</b> — Vidatha was not purely military; it was a multi-purpose (religious, social, economic, military) folk assembly, notable for women's participation. Assembly-function mismatches are a reliably tested trap format.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Upavedas</span></div>
+      <div class="pyq-q">Q. Match each Upaveda with its parent Veda: Ayurveda, Dhanurveda, Gandharvaveda, Shilpaveda.</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Ayurveda–Atharvaveda, Dhanurveda–Yajurveda, Gandharvaveda–Samaveda, Shilpaveda–Rigveda/Atharvaveda. Upavedas are a lesser-tested but syllabus-listed sub-topic — solid predicted-question territory.</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Economy</span></div>
+      <div class="pyq-q">Q. What was the significance of the term "Nishka" in Vedic economic life?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> A gold ornament/unit used as a medium of value/exchange in the largely barter-based Early Vedic economy — a precursor concept to currency, worth remembering alongside "Gomat" (cattle-wealthy) and "Gavishthi" (cattle raid/war).</div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-meta"><span class="tag pattern">Predicted</span><span class="tag topic">Polity</span></div>
+      <div class="pyq-q">Q. Which Later Vedic kingdoms are most frequently referenced in the Shatapatha Brahmana as major political powers?</div>
+      <button class="reveal-btn" onclick="reveal(this)">Show Answer</button>
+      <div class="expl"><b>Answer:</b> Kuru and Panchala (in the Doab), along with Kosala and Videha further east — these territorial kingdom names occasionally appear as standalone identification questions.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Vedic Age Study Guide · Built for SSC CGL Tier 1 &amp; Tier 2 preparation · Review the Study Notes tab first, then drill both PYQ banks and the predicted set.
+</footer>
+
+<script>
+function toggleCard(headEl){
+  const card = headEl.closest('.topic-card');
+  const body = card.querySelector('.topic-body');
+  const wasOpen = card.classList.contains('open');
+  if(wasOpen){
+    card.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    card.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 40 + 'px';
+  }
+  updateProgress();
+}
+function updateProgress(){
+  const total = document.querySelectorAll('.topic-card').length;
+  const opened = document.querySelectorAll('.topic-card.open').length;
+  document.getElementById('progressPill').textContent = opened + '/' + total + ' sections opened';
+}
+function reveal(btn){
+  const expl = btn.nextElementSibling;
+  expl.classList.toggle('show');
+  btn.textContent = expl.classList.contains('show') ? 'Hide Answer' : 'Show Answer';
+}
+
+// Tabs
+const tabbar = document.getElementById('tabbar');
+tabbar.addEventListener('click', (e)=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('.tabbar button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const view = btn.dataset.view;
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+view).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Search filter (Study Notes only)
+document.getElementById('searchBox').addEventListener('input', function(e){
+  const q = e.target.value.toLowerCase().trim();
+  document.querySelectorAll('#view-notes .topic-card').forEach(card=>{
+    const text = card.innerText.toLowerCase();
+    card.style.display = (q === '' || text.includes(q)) ? '' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>
