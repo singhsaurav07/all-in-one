@@ -3,29 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>General Awareness - SSC CGL</title>
+<title>SSC CGL Study Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#182849; --paper:#f3ead8; --white:#fffdf7; --stamp:#a3382a; }
-  body{ margin:0; background:var(--paper); font-family:'IBM Plex Sans', sans-serif; padding:40px 20px; }
-  .container{ max-width:800px; margin:0 auto; background:var(--white); border:2px solid var(--ink); padding:40px; box-shadow:6px 6px 0 rgba(0,0,0,0.1); }
-  h1{ font-family:'Spectral', serif; color:var(--ink); border-bottom:2px solid var(--ink); padding-bottom:10px; }
-  a{ color:var(--stamp); text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:14px; }
+  :root{
+    --ink:#182849;
+    --ink-soft:#2c3f68;
+    --paper:#f3ead8;
+    --paper-dark:#e8ddc4;
+    --stamp:#a3382a;
+    --seal:#a9812a;
+    --charcoal:#241f16;
+    --line:#c7b998;
+    --white:#fffdf7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    background-image: radial-gradient(circle at 1px 1px, rgba(24,40,73,0.06) 1px, transparent 0);
+    background-size: 22px 22px;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Spectral', serif;
+    font-size: 48px;
+    color: var(--ink);
+    margin: 0;
+  }
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stamp);
+    font-size: 14px;
+  }
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .subject-card {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    padding: 30px;
+    text-decoration: none;
+    color: var(--charcoal);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 0 rgba(24,40,73,0.1);
+  }
+  .subject-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 rgba(24,40,73,0.15);
+  }
+  .subject-card h2 {
+    font-family: 'Spectral', serif;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: var(--ink);
+  }
+  .subject-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0;
+    flex-grow: 1;
+  }
+  .subject-card .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--seal);
+    margin-top: 20px;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+  .nav-links {
+    margin-top: 40px;
+    text-align: center;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 15px;
+    border-bottom: 1px solid var(--ink);
+  }
 </style>
 </head>
 <body>
+
 <div class="container">
-  <a href="../../index.html">← Back to Hub</a>
-  <h1>General Awareness</h1>
-  <p>Resource page for Static GK and Current Affairs.</p>
-  <ul>
-    <li>History (Ancient, Medieval, Modern)</li>
-    <li>Indian Polity & Constitution</li>
-    <li>Geography (Indian & Physical)</li>
-    <li>General Science</li>
-    <li>Current Affairs</li>
-  </ul>
+  <header>
+    <div class="subtitle">Official Preparation Portal</div>
+    <h1>SSC CGL Subject Hub</h1>
+  </header>
+
+  <div class="subject-grid">
+    <a href="prehistoric_indus_valley_ssc_cgl.html" class="subject-card">
+      <h2>Prehistoric and Indus Valley Civilizations</h2>
+      <p>Overview of early human settlements, tools, and societies.</p>
+      <div class="meta">Tier 1 & 2 • Important Topic</div>
+    </a>
+  </div>
+
+  
 </div>
+
 </body>
 </html>
+
+
+

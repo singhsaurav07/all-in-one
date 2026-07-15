@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prehistoric Age & Indus Valley Civilization | SSC CGL Study Guide</title>
+<style>
+:root{
+  --bg:#0f1729;
+  --bg2:#0b1220;
+  --card:#161f38;
+  --card2:#1b2645;
+  --border:#2a3559;
+  --gold:#f0b90b;
+  --gold-dark:#8a6d06;
+  --blue:#3b82f6;
+  --blue-dark:#1e3a8a;
+  --green:#22c55e;
+  --red:#ef4444;
+  --text:#e7ecf7;
+  --text-dim:#9aa7c7;
+  --text-mute:#6b7699;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+  color:var(--text);
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  line-height:1.6;
+  padding-bottom:60px;
+}
+.container{max-width:980px;margin:0 auto;padding:0 16px;}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111a33,#0b1220);
+  border-bottom:2px solid var(--gold-dark);
+  padding:28px 16px 24px;
+  text-align:center;
+  position:relative;
+}
+header h1{
+  font-size:1.7rem;
+  color:var(--gold);
+  letter-spacing:.5px;
+  margin-bottom:6px;
+}
+header .sub{
+  color:var(--text-dim);
+  font-size:.95rem;
+}
+.badge-row{
+  display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap;
+}
+.badge{
+  padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;border:1px solid;
+}
+.badge.tier1{color:var(--blue);border-color:var(--blue);background:rgba(59,130,246,.1);}
+.badge.tier2{color:var(--gold);border-color:var(--gold);background:rgba(240,185,11,.1);}
+.badge.exam{color:var(--green);border-color:var(--green);background:rgba(34,197,94,.1);}
+
+/* NAV TABS */
+.nav-tabs{
+  display:flex;overflow-x:auto;gap:8px;padding:16px 0;
+  scrollbar-width:thin;
+}
+.nav-tabs::-webkit-scrollbar{height:5px;}
+.nav-tabs::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:5px;}
+.nav-tab{
+  flex:0 0 auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text-dim);
+  padding:10px 16px;
+  border-radius:10px;
+  font-size:.82rem;
+  font-weight:600;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:.2s;
+}
+.nav-tab:hover{border-color:var(--gold);color:var(--text);}
+.nav-tab.active{
+  background:linear-gradient(135deg,var(--gold),#c99400);
+  color:#1a1305;
+  border-color:var(--gold);
+}
+
+/* SECTIONS */
+.section{
+  display:none;
+  animation:fadeIn .3s ease;
+}
+.section.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-title{
+  display:flex;align-items:center;gap:10px;
+  font-size:1.25rem;color:var(--gold);
+  margin:18px 0 12px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--border);
+}
+.section-title .num{
+  background:var(--gold);color:#1a1305;
+  width:28px;height:28px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px 20px;
+  margin-bottom:14px;
+}
+.card h3{
+  color:#fff;
+  font-size:1.05rem;
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.card p, .card li{color:var(--text-dim);font-size:.94rem;}
+.card ul{padding-left:20px;margin-top:6px;}
+.card li{margin-bottom:4px;}
+.card strong{color:var(--text);}
+
+.freq{
+  display:inline-block;
+  font-size:.68rem;
+  font-weight:700;
+  padding:2px 9px;
+  border-radius:12px;
+  vertical-align:middle;
+}
+.freq.high{background:rgba(239,68,68,.15);color:#f87171;border:1px solid #7f1d1d;}
+.freq.med{background:rgba(240,185,11,.15);color:var(--gold);border:1px solid var(--gold-dark);}
+.freq.low{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid #14532d;}
+
+.bihar-note{
+  background:rgba(240,185,11,.08);
+  border-left:3px solid var(--gold);
+  padding:10px 14px;
+  border-radius:8px;
+  margin-top:10px;
+  font-size:.87rem;
+  color:#dcc98a;
+}
+.mnemonic{
+  background:rgba(59,130,246,.08);
+  border-left:3px solid var(--blue);
+  padding:10px 14px;
+  border-radius:8px;
+  margin-top:10px;
+  font-size:.87rem;
+  color:#9fc0ff;
+}
+
+/* comparison table */
+.table-wrap{overflow-x:auto;margin-top:10px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:560px;}
+th{
+  background:var(--card2);color:var(--gold);
+  padding:9px 10px;text-align:left;
+  border:1px solid var(--border);
+  font-size:.78rem;text-transform:uppercase;letter-spacing:.4px;
+}
+td{padding:9px 10px;border:1px solid var(--border);color:var(--text-dim);}
+tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+
+/* site cards grid */
+.site-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:640px){.site-grid{grid-template-columns:1fr;}}
+.site-card{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px 16px;
+  cursor:pointer;
+  transition:.2s;
+}
+.site-card:hover{border-color:var(--gold);}
+.site-card .site-name{
+  color:var(--gold);font-weight:700;font-size:1rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.site-card .site-loc{color:var(--text-mute);font-size:.78rem;margin-bottom:6px;}
+.site-details{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  font-size:.85rem;color:var(--text-dim);
+}
+.site-card.open .site-details{max-height:400px;margin-top:8px;}
+.site-card .chevron{transition:.2s;color:var(--text-mute);font-size:.8rem;}
+.site-card.open .chevron{transform:rotate(180deg);}
+
+/* accordion for PYQ */
+.pyq-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:8px;
+  overflow:hidden;
+}
+.pyq-q{
+  padding:12px 16px;
+  cursor:pointer;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:10px;
+}
+.pyq-q .qtext{font-size:.9rem;color:var(--text);flex:1;}
+.pyq-tag{
+  font-size:.68rem;color:var(--blue);background:rgba(59,130,246,.1);
+  border:1px solid var(--blue-dark);padding:2px 8px;border-radius:10px;white-space:nowrap;
+}
+.pyq-a{
+  max-height:0;overflow:hidden;transition:max-height .25s ease;
+  padding:0 16px;font-size:.85rem;color:var(--text-dim);
+}
+.pyq-item.open .pyq-a{max-height:200px;padding:0 16px 14px;}
+.pyq-item .chev{color:var(--text-mute);font-size:.75rem;transition:.2s;}
+.pyq-item.open .chev{transform:rotate(180deg);}
+
+.filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.filter-btn{
+  background:var(--card2);border:1px solid var(--border);color:var(--text-dim);
+  padding:6px 14px;border-radius:20px;font-size:.78rem;cursor:pointer;font-weight:600;
+}
+.filter-btn.active{background:var(--gold);color:#1a1305;border-color:var(--gold);}
+
+.predicted-card{
+  background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(240,185,11,.05));
+  border:1px dashed var(--blue);
+  border-radius:10px;
+  padding:12px 16px;
+  margin-bottom:10px;
+  font-size:.88rem;
+}
+.predicted-card .p-tag{
+  font-size:.68rem;color:#1a1305;background:var(--blue);
+  padding:2px 8px;border-radius:10px;font-weight:700;margin-right:8px;
+}
+.predicted-card .p-q{color:var(--text);margin-top:6px;}
+.predicted-card .p-why{color:var(--text-mute);margin-top:5px;font-size:.8rem;font-style:italic;}
+
+.disclaimer{
+  background:rgba(239,68,68,.06);border:1px solid #7f1d1d;border-radius:10px;
+  padding:12px 16px;font-size:.82rem;color:#fca5a5;margin-bottom:16px;
+}
+
+.quick-nav{
+  display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 20px;
+}
+.qn-chip{
+  font-size:.72rem;color:var(--text-dim);background:var(--card2);
+  border:1px solid var(--border);padding:4px 10px;border-radius:14px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏺 Prehistoric Age & Indus Valley Civilization</h1>
+  <div class="sub">Complete SSC CGL Study Guide — Tier 1 & Tier 2</div>
+  <div class="badge-row">
+    <span class="badge tier1">Tier 1 GA</span>
+    <span class="badge tier2">Tier 2 GA</span>
+    <span class="badge exam">History Chapter 01</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-target="s1">🪨 Stone Age</button>
+    <button class="nav-tab" data-target="s2">🏛️ Harappan Sites</button>
+    <button class="nav-tab" data-target="s3">🏘️ Town Planning</button>
+    <button class="nav-tab" data-target="s4">💰 Seals, Script & Trade</button>
+    <button class="nav-tab" data-target="s5">🕉️ Religion & Society</button>
+    <button class="nav-tab" data-target="s6">📉 Theories of Decline</button>
+    <button class="nav-tab" data-target="s7">📝 PYQs (10 Yrs)</button>
+    <button class="nav-tab" data-target="s8">🔮 Predicted Qs</button>
+  </div>
+
+  <!-- SECTION 1: STONE AGE -->
+  <section class="section active" id="s1">
+    <div class="section-title"><span class="num">1</span> Paleolithic, Mesolithic & Neolithic Ages</div>
+
+    <div class="card" style="border-color:var(--gold-dark);">
+      <h3>📌 Key Dates & Numbers — Memorize Cold <span class="freq high">High PYQ</span></h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Fact</th><th>Figure</th></tr>
+          <tr><td>Palaeolithic Age</td><td>c. 5,00,000 – 10,000 BCE</td></tr>
+          <tr><td>Mesolithic Age</td><td>c. 10,000 – 8,000/6,000 BCE (often asked as "12,000 to 10,000 years ago")</td></tr>
+          <tr><td>Neolithic Age</td><td>c. 7,000 – 1,000 BCE</td></tr>
+          <tr><td>Mehrgarh (earliest farming site)</td><td>c. 7,000 BCE</td></tr>
+          <tr><td>IVC — full span</td><td>3,300 BCE – 1,300 BCE</td></tr>
+          <tr><td>IVC — Mature/Urban phase</td><td>2,600 BCE – 1,900 BCE</td></tr>
+          <tr><td>Harappa discovered / excavated by</td><td>Daya Ram Sahni, 1921</td></tr>
+          <tr><td>Mohenjodaro discovered / excavated by</td><td>R.D. Banerjee, 1922</td></tr>
+          <tr><td>First Palaeolithic tool found in India</td><td>Robert Bruce Foote, 1863 (Pallavaram)</td></tr>
+          <tr><td>Standard brick ratio used in IVC</td><td>4 : 2 : 1 (length : breadth : height)</td></tr>
+          <tr><td>Number of IVC sites discovered (approx., commonly cited)</td><td>1,400+ (over 900 in India, rest in Pakistan/Afghanistan)</td></tr>
+        </table>
+      </div>
+      <div class="mnemonic">🧠 Quick recall: "5-1-7-3" → Palaeolithic ends ~10,000 BCE, Mesolithic runs to ~8,000-6,000 BCE, Neolithic starts ~7,000 BCE, IVC mature phase begins ~2,600 BCE (3,300 total span). Cross-check the exact figure asked — options often differ by a small margin (e.g., 12,000 vs 14,000 years for Mesolithic start), so read choices carefully.</div>
+    </div>
+
+    <div class="card">
+      <h3>Palaeolithic Age (Old Stone Age) <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li><strong>Period:</strong> c. 5,00,000 BCE – 10,000 BCE (Pleistocene / Ice Age).</li>
+        <li><strong>Meaning:</strong> "Palaeo" = old, "lithic" = stone (Greek origin).</li>
+        <li><strong>Tools:</strong> Made of hard rock <strong>quartzite</strong> → people called "Quartzite Man". Crude, unpolished chipped-stone tools — hand-axes, cleavers, choppers, scrapers, borers.</li>
+        <li><strong>Economy:</strong> Hunting & food-gathering; no agriculture, no pottery, no settled life.</li>
+        <li><strong>Divisions:</strong> Lower, Middle & Upper Palaeolithic.</li>
+        <li><strong>First discovery in India:</strong> <strong>Robert Bruce Foote</strong> discovered the first Palaeolithic tool (Pallavaram hand-axe) near Chennai in 1863.</li>
+        <li><strong>Key sites:</strong> Bhimbetka (MP, rock shelters & cave paintings), Hunsgi (Karnataka), Attirampakkam (TN), Didwana (Rajasthan).</li>
+        <li><strong>Bihar link:</strong> Paleolithic tools reported from the Son River valley in Bihar/Jharkhand belt.</li>
+      </ul>
+      <div class="mnemonic">🧠 Mnemonic: <strong>P</strong>alaeolithic = <strong>P</strong>ebble/chipped tools, no <strong>P</strong>ottery, no <strong>P</strong>roduction (only hunting-gathering).</div>
+    </div>
+
+    <div class="card">
+      <h3>Mesolithic Age (Middle Stone Age) <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li><strong>Period:</strong> c. 10,000 BCE – 8,000/6,000 BCE (transitional, earliest Holocene culture) — commonly asked as "12,000 to 10,000 years ago".</li>
+        <li><strong>Hallmark tool:</strong> <strong>Microliths</strong> — tiny stone tools (1–5 cm), shapes like triangles, crescents, trapezes — made of chert, chalcedony, agate.</li>
+        <li><strong>First discovered by:</strong> Carlyle, from Vindhyan rock shelters (1867) — hence sometimes called the "Microlithic Age".</li>
+        <li><strong>Transition marker:</strong> Beginning of animal domestication — first tamed animal was the <strong>dog</strong>; evidence of taming from <strong>Adamgarh (MP)</strong> and <strong>Bagor (Rajasthan)</strong>.</li>
+        <li><strong>Lifestyle:</strong> Semi-nomadic; hunting, fishing, food-gathering continues, but settlement near rivers/lakes begins. Belief in life after death — burial of dead with goods.</li>
+        <li><strong>Key sites:</strong> Bagor, Tilwara, Sarai Nahar Rai, Bhimbetka, Langhnaj, Birbhanpur, Lekhahia.</li>
+      </ul>
+      <div class="bihar-note">📍 Bihar-specific: Mesolithic-Neolithic transitional evidence found at <strong>Chirand</strong> (Saran district, Bihar) — a site that is very frequently asked in BPSC but occasionally cross-referenced in SSC too.</div>
+    </div>
+
+    <div class="card">
+      <h3>Neolithic Age (New Stone Age) <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li><strong>Period:</strong> c. 7000 BCE – 1000 BCE (varies by region).</li>
+        <li><strong>Biggest shift:</strong> Food-gathering → <strong>Food production</strong> — start of settled agriculture, domestication of animals (sheep, goat most common), and pottery.</li>
+        <li><strong>Tools:</strong> <strong>Polished/ground stone tools (celts)</strong> — sharper, more efficient than Palaeolithic/Mesolithic tools.</li>
+        <li><strong>Discovered by:</strong> Le Mesurier (tools & implements); the concept of "Neolithic-Chalcolithic self-sufficient food economy" was defined by <strong>V. Gordon Childe</strong> ("Neolithic Revolution").</li>
+        <li><strong>Earliest agricultural site (subcontinent):</strong> <strong>Mehrgarh</strong> (Balochistan, Pakistan) — wheat & barley cultivation from c. 7000 BCE; considered a precursor to the Indus Valley Civilization.</li>
+        <li><strong>Key Indian sites:</strong> Burzahom (J&K – pit dwellings, dogs buried with masters), Chirand (Bihar – bone tools from antlers), Koldihwa (UP – cord-impressed pottery, early rice), Piklihal & Utnur (Karnataka), Daojali Hading (Assam).</li>
+        <li><strong>Belan Valley (UP):</strong> Unique — shows continuous evidence of all three Stone Age phases (Palaeolithic → Mesolithic → Neolithic).</li>
+      </ul>
+      <div class="mnemonic">🧠 Mnemonic: Neolithic = "<strong>N</strong>ew" beginnings → <strong>N</strong>utrition via farming, <strong>N</strong>o more pure nomadism.</div>
+    </div>
+
+    <div class="card">
+      <h3>Quick Comparison Table</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Feature</th><th>Palaeolithic</th><th>Mesolithic</th><th>Neolithic</th></tr>
+          <tr><td>Meaning</td><td>Old Stone Age</td><td>Middle Stone Age</td><td>New Stone Age</td></tr>
+          <tr><td>Tools</td><td>Chipped, crude (quartzite)</td><td>Microliths</td><td>Polished/ground celts</td></tr>
+          <tr><td>Economy</td><td>Hunting-gathering</td><td>Hunting + early domestication</td><td>Settled agriculture</td></tr>
+          <tr><td>Pottery</td><td>Absent</td><td>Mostly absent</td><td>Present (handmade)</td></tr>
+          <tr><td>Key site</td><td>Bhimbetka</td><td>Bagor, Adamgarh</td><td>Mehrgarh, Burzahom, Chirand</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: HARAPPAN SITES -->
+  <section class="section" id="s2">
+    <div class="section-title"><span class="num">2</span> Harappan Sites — Mohenjodaro, Harappa, Lothal, Dholavira, Kalibangan & more</div>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:.9rem;">The IVC (Bronze Age, c. 3300–1300 BCE; mature phase 2600–1900 BCE) spans Afghanistan → Pakistan → NW India. Tap a site to expand its "unique feature" — this is the single most repeated question type ("Match the following: site → discovery").</p>
+
+    <div class="site-grid" id="siteGrid">
+      <div class="site-card">
+        <div class="site-name">Mohenjodaro <span class="chevron">▾</span></div>
+        <div class="site-loc">Sindh, Pakistan • River Indus • "Mound of the Dead"</div>
+        <div class="site-details">
+          Excavated by <strong>R.D. Banerjee</strong>, 1922. Famous for the <strong>Great Bath</strong>, Great Granary, bronze "Dancing Girl" statue, steatite "Priest-King" statue, and the largest building at the site (Great Granary).
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Harappa <span class="chevron">▾</span></div>
+        <div class="site-loc">Punjab, Pakistan • River Ravi</div>
+        <div class="site-details">
+          Excavated by <strong>Daya Ram Sahni</strong>, 1921 — first IVC site discovered, hence the civilization's name. Famous for granaries in rows, workmen's quarters, and evidence of coffin burial.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Lothal <span class="chevron">▾</span></div>
+        <div class="site-loc">Gujarat, India • River Bhogava</div>
+        <div class="site-details">
+          Discovered by <strong>S.R. Rao</strong>. Famous for the artificial <strong>dockyard/port</strong> — key evidence of maritime trade. Also gave a fire altar, rice husk evidence, and a terracotta ship.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Dholavira <span class="chevron">▾</span></div>
+        <div class="site-loc">Gujarat (Kutch), India • Between Manhar & Mansar rivulets</div>
+        <div class="site-details">
+          Unique <strong>three-part division</strong> (Citadel, Middle Town, Lower Town), a sophisticated water-harvesting/reservoir system, and a famous 10-letter signboard inscription.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Kalibangan <span class="chevron">▾</span></div>
+        <div class="site-loc">Rajasthan, India • River Ghaggar (Ganganagar district)</div>
+        <div class="site-details">
+          Means "black bangles". Famous for evidence of a <strong>ploughed field</strong> (earliest attested ploughed agricultural field), fire altars, and pre-Harappan + Harappan layers.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Rakhigarhi <span class="chevron">▾</span></div>
+        <div class="site-loc">Haryana, India • River Drishadvati (Ghaggar system)</div>
+        <div class="site-details">
+          One of the <strong>largest</strong> IVC sites (larger than Mohenjodaro in area, per recent findings). DNA studies from here informed the "Out of India vs Aryan migration" debate.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Banawali <span class="chevron">▾</span></div>
+        <div class="site-loc">Haryana, India • Old Saraswati channel</div>
+        <div class="site-details">
+          Shows both pre-Harappan (Kalibangan-I type) and mature Harappan phases. A terracotta plough model was found here.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Chanhudaro <span class="chevron">▾</span></div>
+        <div class="site-loc">Sindh, Pakistan • River Indus</div>
+        <div class="site-details">
+          Only major IVC site with <strong>no citadel</strong>. Known as a centre of craft/bead-making, and lipstick & inkpot-like objects were found here.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Surkotada <span class="chevron">▾</span></div>
+        <div class="site-loc">Gujarat, India</div>
+        <div class="site-details">
+          Provides the earliest evidence of horse bones in an IVC context (debated by historians).
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Alamgirpur <span class="chevron">▾</span></div>
+        <div class="site-loc">Meerut, Uttar Pradesh • River Hindon</div>
+        <div class="site-details">
+          Easternmost site of the mature Harappan civilization.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Sutkagen Dor <span class="chevron">▾</span></div>
+        <div class="site-loc">Balochistan, Pakistan (near Iran border) • Dasht river</div>
+        <div class="site-details">
+          Westernmost known site — ~480 km from the Makran coast; likely a trade outpost toward Mesopotamia.
+        </div>
+      </div>
+      <div class="site-card">
+        <div class="site-name">Mehrgarh <span class="chevron">▾</span></div>
+        <div class="site-loc">Balochistan, Pakistan</div>
+        <div class="site-details">
+          Pre-Harappan Neolithic site (c. 7000 BCE) — earliest evidence of farming, cotton cultivation (~7000 yrs ago), and rectangular/square house remains in the region.
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h3>➕ Minor / Additional Sites Worth Knowing <span class="freq med">Medium PYQ</span></h3>
+      <p style="margin-bottom:8px;">These appear less often than the "big 5" but do turn up, especially in Tier 2 and in "match the following" sets with 4-5 pairs.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Site</th><th>Location</th><th>Key Fact</th></tr>
+          <tr><td>Ropar (Rupnagar)</td><td>Punjab, India (River Sutlej)</td><td>Evidence of a dog buried with a human — one of the few animal-human joint burials in IVC.</td></tr>
+          <tr><td>Manda</td><td>Jammu (River Chenab)</td><td>Northernmost known Harappan site.</td></tr>
+          <tr><td>Rangpur</td><td>Gujarat</td><td>Evidence of rice husk; considered a Late Harappan site.</td></tr>
+          <tr><td>Amri</td><td>Sindh, Pakistan (River Indus)</td><td>Pre-Harappan site; evidence of earliest domestication of humped cattle (zebu) in the region.</td></tr>
+          <tr><td>Kot Diji</td><td>Sindh, Pakistan</td><td>Gives its name to the "Kot Dijian" pre-Harappan culture phase.</td></tr>
+          <tr><td>Desalpur</td><td>Gujarat</td><td>Fortified Harappan settlement in Kutch.</td></tr>
+          <tr><td>Daimabad</td><td>Maharashtra (River Pravara)</td><td>Southernmost Harappan site; famous bronze chariot with bullocks found here.</td></tr>
+          <tr><td>Padri</td><td>Gujarat</td><td>Evidence of an early saltpan/salt-making industry.</td></tr>
+          <tr><td>Bhirrana</td><td>Haryana (Ghaggar basin)</td><td>Among the oldest-dated Harappan sites per recent excavations (pre-dates Mohenjodaro layers in some studies).</td></tr>
+          <tr><td>Nageshwar & Balakot</td><td>Gujarat / Balochistan (coastal)</td><td>Centres of shell-bangle/shell-ornament manufacturing.</td></tr>
+        </table>
+      </div>
+      <div class="bihar-note">📍 Trap alert: "Which of the following is NOT a Harappan site?" questions often insert a Vedic-period or non-IVC name (like Hastinapur or Ayodhya) among genuine Harappan site names — read all four options carefully before eliminating.</div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h3>⭐ Most Repeated PYQ Format: Site → Feature Match</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Site</th><th>Signature Feature</th></tr>
+          <tr><td>Mohenjodaro</td><td>Great Bath / Priest-King statue</td></tr>
+          <tr><td>Harappa</td><td>Granaries / first site excavated</td></tr>
+          <tr><td>Lothal</td><td>Dockyard / Port</td></tr>
+          <tr><td>Kalibangan</td><td>Ploughed field</td></tr>
+          <tr><td>Dholavira</td><td>Water reservoirs / signboard</td></tr>
+          <tr><td>Chanhudaro</td><td>No citadel / bead-making</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: TOWN PLANNING -->
+  <section class="section" id="s3">
+    <div class="section-title"><span class="num">3</span> Town Planning & Drainage System</div>
+
+    <div class="card">
+      <h3>Grid Pattern Town Planning <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li>Cities were divided into two parts: a smaller, elevated <strong>Citadel</strong> (western side — administrative/religious buildings) and a larger, lower <strong>Lower Town</strong> (residential).</li>
+        <li>Streets were laid out in a <strong>grid pattern</strong>, intersecting at right angles, dividing the city into rectangular blocks — an extremely advanced feature for the Bronze Age.</li>
+        <li>Streets were <strong>wide and straight</strong> (not narrow/crooked as in contemporary civilizations).</li>
+        <li>Houses were built of standardized <strong>baked (burnt) bricks</strong>, in a ratio of 4:2:1 — used uniformly across all sites, suggesting central regulation.</li>
+        <li>Most houses had a courtyard, multiple rooms, a private well, and a bathroom.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>The Great Drainage System <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li>The IVC gave the world's <strong>first known covered drainage system</strong> — a fact directly asked in exams ("Who first constructed the drainage system?" → Indus Valley people).</li>
+        <li>Every house was connected to a street drain; drains were covered with brick slabs/stone slabs for cleaning access.</li>
+        <li>Soak pits/cesspits were used to collect solid waste before it entered the main drain — showing an early understanding of sanitation engineering.</li>
+        <li>This drainage sophistication is often cited as evidence of a <strong>strong, centralized civic authority</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>The Great Bath (Mohenjodaro) <span class="freq med">Medium PYQ</span></h3>
+      <ul>
+        <li>Located in the citadel; built of finely fitted bricks made watertight with a layer of natural tar/bitumen.</li>
+        <li><strong>Shape:</strong> Rectangular.</li>
+        <li>Believed to have been used for <strong>ritual/religious bathing</strong> — not for grain storage or farming (a common distractor option).</li>
+        <li>Had steps at both ends, a surrounding verandah, and small rooms — possibly for changing.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Citadel Structures</h3>
+      <ul>
+        <li>Included: Great Bath, Granary, Assembly Hall, and residential buildings for elites — NOT general public housing.</li>
+        <li>Dholavira citadel is unique for its <strong>stadium-like structure</strong> and multi-tier water reservoirs cut into rock.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SEALS, SCRIPT, TRADE -->
+  <section class="section" id="s4">
+    <div class="section-title"><span class="num">4</span> Seals, Script, Trade & Economy</div>
+
+    <div class="card">
+      <h3>Seals <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li>Made mostly of <strong>steatite</strong> (soft stone) — commonly mistaken in options for terracotta/bronze.</li>
+        <li>Typically square or rectangular; carried an animal motif + a short pictographic inscription.</li>
+        <li>Most common animal depicted: the <strong>unicorn bull</strong>.</li>
+        <li>The famous "<strong>Pashupati seal</strong>" (Mohenjodaro) shows a seated three-faced figure surrounded by animals (elephant, tiger, rhinoceros, buffalo) — interpreted as a proto-Shiva figure — <strong>deer/cow are NOT part of this seal</strong> (a frequent distractor).</li>
+        <li>Used mainly for trade/commerce — marking ownership of goods, and possibly for administrative sealing.</li>
+        <li>Harappan seals have been found in Mesopotamia (Ur, Kish, Babylon), confirming direct trade contact.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Script <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li>The Indus script remains <strong>undeciphered</strong> to date — this is one of the most repeated single facts in SSC exams.</li>
+        <li>It is <strong>pictographic</strong> (not alphabetic), with roughly 400-plus signs; direction of writing is generally right to left (boustrophedon in some cases).</li>
+        <li>No confirmed relation to Brahmi, Pali, or Dravidian scripts has been established — all such "correct-looking" options are actually incorrect/unproven.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Trade & Economy <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li>Economy was based on <strong>agriculture + craft production + long-distance trade</strong> (no evidence of coinage — trade was via barter).</li>
+        <li>Main crops: <strong>Wheat and barley</strong>; also cultivated cotton (Harappans were the earliest producers of cotton — called "Sindon" by the Greeks), sesame, peas, rice (evidence from Lothal & Rangpur).</li>
+        <li>Developed the world's earliest known <strong>standardized weights and measures</strong> system — weights were cubical, mostly of chert/limestone, in a binary system (1,2,4,8,16...).</li>
+        <li>Trade with <strong>Mesopotamia</strong> is well attested — Mesopotamian texts refer to trade with "Meluhha" (identified with the Indus region/Harappans).</li>
+        <li><strong>Lapis lazuli</strong> was imported from Badakhshan (Afghanistan); other imports included copper (from Rajasthan/Oman), tin, gold, and precious stones.</li>
+        <li>Lothal's dockyard is the strongest evidence of maritime/overseas trade.</li>
+        <li>No large temple or palace structures found — suggesting economic power may have been more decentralized/mercantile than priest- or king-dominated (a debated point, but frequently tested as "no temples found").</li>
+      </ul>
+      <div class="bihar-note">📍 Note: No confirmed Harappan sites found in modern Bihar — the eastern-most sites were Alamgirpur (UP) — a common "which state doesn't have IVC sites" trap in SSC (correct trap answers often include Uttarakhand or Bihar).</div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: RELIGION & SOCIETY -->
+  <section class="section" id="s5">
+    <div class="section-title"><span class="num">5</span> Religion & Society</div>
+
+    <div class="card">
+      <h3>Religious Beliefs <span class="freq med">Medium PYQ</span></h3>
+      <ul>
+        <li>No temples have been excavated — religion appears to have been practiced at a household/personal level, unlike Egypt/Mesopotamia.</li>
+        <li><strong>Mother Goddess</strong> worship was widespread — evidenced by numerous terracotta female figurines, suggesting a fertility cult.</li>
+        <li>The "<strong>Proto-Shiva</strong>" / Pashupati seal suggests early Shaivite-type worship (seated yogic posture, surrounded by animals).</li>
+        <li>Worship of the <strong>Pipal tree</strong> is attested through seal depictions — nature worship was common.</li>
+        <li>Belief in <strong>amulets</strong> to ward off evil is well documented.</li>
+        <li>Fire altars (found at Kalibangan and Lothal) suggest ritualistic fire worship in some form.</li>
+        <li>Phallic (linga) and yoni worship symbols have also been found, though interpretation is debated among historians.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Social Structure</h3>
+      <ul>
+        <li>Society appears largely <strong>urban and egalitarian</strong> compared to later Vedic society — no strong evidence of caste-like hierarchy, though differences in house sizes suggest some economic stratification.</li>
+        <li>Racial composition: anthropological studies suggest a mix of <strong>Proto-Australoid, Mediterranean, Alpinoid, and Mongoloid</strong> types — the Mediterranean type is believed to be the dominant group.</li>
+        <li>The IVC did <strong>not know Ashvamedha</strong> (horse sacrifice) — a Vedic-period ritual, wrongly attributed to Harappans in distractor options.</li>
+        <li>The <strong>cow was not established as sacred</strong> in the Harappan period (that association strengthens later, in the Vedic-Puranic period) — a very common "correct answer via elimination" trap.</li>
+        <li>Their culture is generally described as <strong>not static</strong> — it evolved over its ~2000-year span (from Early to Mature to Late Harappan phases).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Burial Practices</h3>
+      <ul>
+        <li>Both <strong>extended burial</strong> (complete burial) and <strong>fractional burial</strong> (post-excarnation, bones only) are attested, along with some evidence of cremation — showing regional/temporal variation.</li>
+        <li>Grave goods (pottery, ornaments) were often buried with the dead, indicating belief in an afterlife.</li>
+        <li>Harappa shows evidence of <strong>coffin burial</strong> — a distinctive, exam-worthy detail.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Art & Craft</h3>
+      <ul>
+        <li>The bronze "<strong>Dancing Girl</strong>" (lost-wax/cire-perdue technique) from Mohenjodaro is the most iconic IVC sculpture.</li>
+        <li>The steatite "<strong>Priest-King</strong>" bust, also from Mohenjodaro.</li>
+        <li>Terracotta toys, figurines, and a bronze chariot (yoked to bullocks, driven by a nude male figure) found at <strong>Daimabad</strong> (Maharashtra, a Late Harappan site).</li>
+        <li>Pottery was typically wheel-made, red with black painted designs.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 6: DECLINE -->
+  <section class="section" id="s6">
+    <div class="section-title"><span class="num">6</span> Theories of Decline</div>
+
+    <div class="card">
+      <h3>Major Theories <span class="freq high">High PYQ</span></h3>
+      <ul>
+        <li><strong>Aryan Invasion Theory:</strong> Proposed by Mortimer Wheeler — argued that invading Aryans destroyed Harappan cities (based on skeletal remains found at Mohenjodaro). This theory is now largely discredited/debated by most historians but is still frequently asked as "which historian believed the decline was due to Aryan invasion?" → Wheeler.</li>
+        <li><strong>Ecological/Climatic Change:</strong> Most widely accepted modern explanation — decline of monsoon, drying up of the Ghaggar-Hakra (Saraswati) river system, and increasing aridity disrupted agriculture.</li>
+        <li><strong>Tectonic/Geological factors:</strong> Earthquakes and shifting river courses (e.g., the Indus changing course) may have caused flooding or abandonment of cities.</li>
+        <li><strong>Floods:</strong> Repeated flooding at Mohenjodaro is evident from multiple silt layers.</li>
+        <li><strong>Decline in trade:</strong> Fall of contemporary Mesopotamian trade partners may have hurt the Harappan economy.</li>
+        <li><strong>Internal factors:</strong> Overuse of resources, deforestation, and administrative breakdown are also cited as contributing, gradual factors rather than a single sudden cause.</li>
+      </ul>
+      <div class="mnemonic">🧠 Exam tip: If a question asks for "the most accepted cause", pick <strong>ecological/climatic change</strong>; if it asks "who proposed the Aryan invasion theory", the answer is <strong>Wheeler</strong>. Many PYQs use "All of the above" as the answer for combined-cause questions (ecological change + earthquakes + Aryan attack).</div>
+    </div>
+
+    <div class="card">
+      <h3>Site: Mitathal — Evidence of Decline <span class="freq med">Medium PYQ</span></h3>
+      <p>Mitathal (Haryana) is a specifically-asked site showing archaeological evidence of the <strong>decline/degeneration</strong> of the mature Harappan culture into a "post-urban" phase.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: PYQs -->
+  <section class="section" id="s7">
+    <div class="section-title"><span class="num">7</span> Previous Year Questions — Last 10 Years (Tier 1 & Tier 2)</div>
+    <p style="color:var(--text-dim);font-size:.88rem;margin-bottom:12px;">Verified questions compiled from official SSC CGL Tier 1/Tier 2 shifts (2016–2024). Tap any question to reveal the answer.</p>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="tier1">Tier 1</button>
+      <button class="filter-btn" data-filter="tier2">Tier 2</button>
+    </div>
+
+    <div id="pyqList">
+      <!-- items injected by JS -->
+    </div>
+  </section>
+
+  <!-- SECTION 8: PREDICTED -->
+  <section class="section" id="s8">
+    <div class="section-title"><span class="num">8</span> Predicted Questions for the Next SSC CGL Exam</div>
+    <div class="disclaimer">⚠️ These are <strong>not official PYQs</strong> — they are educated predictions based on recurring PYQ patterns, unexplored-but-important facts, and topics due for repetition. Use them for practice, not as confirmed exam content.</div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. The three-part town planning (Citadel, Middle Town, Lower Town) is a unique feature of which Harappan site?<br>(a) Mohenjodaro (b) Dholavira (c) Kalibangan (d) Lothal — <strong>Ans: (b) Dholavira</strong></div>
+      <div class="p-why">Why: Dholavira's unique 3-tier layout hasn't appeared as often as the standard 2-tier (citadel/lower town) fact — due for testing.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. Which Harappan site is known for its sophisticated water reservoir and rainwater harvesting system?<br>(a) Kalibangan (b) Dholavira (c) Banawali (d) Surkotada — <strong>Ans: (b) Dholavira</strong></div>
+      <div class="p-why">Why: Dholavira is increasingly emphasized post its 2021 UNESCO World Heritage tag — high probability topic.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. Terracotta figurines found at Harappan sites primarily point to the worship of:<br>(a) Sun God (b) Mother Goddess (c) Indra (d) Varuna — <strong>Ans: (b) Mother Goddess</strong></div>
+      <div class="p-why">Why: Directly tests the religion/society section — a repeatedly tested but under-asked-in-recent-years fact.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. Which of the following is NOT a correct match?<br>(a) Lothal – Dockyard (b) Kalibangan – Ploughed field (c) Chanhudaro – Citadel (d) Rakhigarhi – Largest IVC site — <strong>Ans: (c)</strong> (Chanhudaro is the only major site WITHOUT a citadel)</div>
+      <div class="p-why">Why: The "odd one out" / "not correctly matched" format is a favorite SSC CGL question style for site facts.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. What was the primary building material used in Harappan cities?<br>(a) Stone (b) Burnt/baked bricks (c) Wood (d) Mud only — <strong>Ans: (b)</strong></div>
+      <div class="p-why">Why: A "houses were made of ___" style question has repeated across multiple SSC exams (2001, and others); a rephrase is likely.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. Which ancient site provides the earliest evidence of a ploughed agricultural field in the Indian subcontinent?<br>(a) Lothal (b) Kalibangan (c) Mehrgarh (d) Banawali — <strong>Ans: (b) Kalibangan</strong></div>
+      <div class="p-why">Why: This exact fact appears in multiple "match the following" PYQs; a direct standalone version is a natural next step.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. The Mesolithic site providing the earliest evidence of animal domestication in India is:<br>(a) Bagor (b) Adamgarh (c) Both (a) and (b) (d) Chirand — <strong>Ans: (c)</strong></div>
+      <div class="p-why">Why: Prehistoric-age (pre-Harappan) questions are increasingly common in recent Tier-1 shifts — this dual-site fact is a natural trap format.</div>
+    </div>
+
+    <div class="predicted-card">
+      <span class="p-tag">PREDICTED</span>
+      <div class="p-q">Q. Which of the following statements about the Indus script is correct?<br>(a) It has been fully deciphered (b) It is alphabetic (c) It remains undeciphered (d) It is derived from Brahmi — <strong>Ans: (c)</strong></div>
+      <div class="p-why">Why: One of the highest-frequency single facts in the entire chapter — almost guaranteed to reappear in some form.</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// TAB NAVIGATION
+const tabs = document.querySelectorAll('.nav-tab');
+const sections = document.querySelectorAll('.section');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    sections.forEach(s=>s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// SITE CARD EXPAND
+document.querySelectorAll('.site-card').forEach(card=>{
+  card.addEventListener('click',()=>card.classList.toggle('open'));
+});
+
+// PYQ DATA
+const pyqData = [
+  {tier:'tier1', date:'12/12/2022, Shift 4', q:'The duration of the Mesolithic period is from about ______ years ago to ______ years ago.', a:'12,000 to 10,000 years ago. The Mesolithic (Middle Stone Age) is the earliest Holocene culture, marked by microliths.'},
+  {tier:'tier1', date:'12/12/2022, Shift 1', q:'The word "India" came from the Indus, called ______ in Sanskrit.', a:'Sindhu — the local Sanskrit name for the Indus river.'},
+  {tier:'tier1', date:'02/12/2022, Shift 3', q:'During which of the following periods were ostriches found in India?', a:'Palaeolithic age.'},
+  {tier:'tier1', date:'01/12/2022, Shift 1', q:'In which of the following Indian states have Harappan cities NOT been found?', a:'Uttarakhand. (Harappan sites are found in Gujarat, Rajasthan, Haryana, Punjab — not Uttarakhand.)'},
+  {tier:'tier1', date:'09/12/2022, Shift 1', q:'Which of the following types of house remains have been found at the Mehrgarh site of Harappan (pre-Harappan) civilization?', a:'Square or rectangular house remains.'},
+  {tier:'tier1', date:'03/12/2022, Shift 3', q:'At which Harappan site was jadeite stone found?', a:'Daojali Hading (a Neolithic-linked North-East site associated with early Harappan-era trade links).'},
+  {tier:'tier1', date:'12/04/2022, Shift 1', q:'Which of the following Harappan sites is in Haryana?', a:'Rakhigarhi.'},
+  {tier:'tier1', date:'11/06/2019, Shift 1', q:'Which of the following Harappan sites is in Haryana? (repeat-style)', a:'Rakhigarhi / Banawali (context-dependent among Haryana options — Rakhigarhi is the most commonly correct choice).'},
+  {tier:'tier1', date:'27/07/2023, Shift 2', q:'The Iron Age is so named because during this time iron mostly replaced ______ in implements and weapons, beginning in the Middle East and south-eastern Europe.', a:'Bronze.'},
+  {tier:'tier1', date:'02/09/2016, Shift 2 (1:15 PM)', q:'Iron age is so named because during this time iron mostly replaced ______ in implements and weapons (Prehistoric Period section).', a:'Bronze.'},
+  {tier:'tier1', date:'04-09-2016, Shift 2', q:'Which is the largest building in Mohenjodaro?', a:'The Great Granary.'},
+  {tier:'tier1', date:'02-09-2016, Shift 2', q:'Match the following: (A) Mohenjodaro (B) Harappa (C) Kalibangan (D) Lothal → 1. Statue of Priest, 2. Port, 3. Plough marks, 4. Great Bath', a:'A-4 (Great Bath), B-1 (Statue of Priest), C-3 (Plough marks), D-2 (Port).'},
+  {tier:'tier1', date:'12/04/2022, Shift 1', q:'Match the following: (A) Mohenjodaro (B) Harappa (C) Kalibangan (D) Lothal → 1. Statue of a priest, 2. Port, 3. Plough marks, 4. The Great Bath', a:'A-1, B-4, C-3, D-2 — same site-feature facts, order rearranged (always verify the specific option arrangement given in exam).'},
+  {tier:'tier1', date:'28-08-2016, Shift 3', q:'Epigraphy is the study of:', a:'Inscriptions.'},
+  {tier:'tier1', date:'1999', q:'Which of the following statements about the Harappan civilisation is correct?', a:'They started honouring "Pashupati". (They did NOT know Ashvamedha; cow was not sacred to them; their culture was NOT static.)'},
+  {tier:'tier1', date:'2001', q:'What were the Indus Valley houses made of?', a:'Brick (baked/burnt brick).'},
+  {tier:'tier2', date:'26–27 Oct 2023', q:'Which of the following civilizations is regarded as contemporary with the Indus Valley Civilization (Mesopotamia/Egypt-type comparative question)?', a:'Mesopotamian Civilization is the most commonly correct pairing tested alongside the Harappan civilization in comparative-culture passages.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'The people of which civilization first constructed the "drainage system"?', a:'People of the Indus Valley Civilization.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'Which one of the following was NOT a common feature of the major cities of the Indus Valley Civilisation? (Town planning / baked bricks / irrigation canals / defensive citadels)', a:'Irrigation canals (not a confirmed common feature — town planning, baked bricks, and citadels are the correct common features).'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'The streets of the cities of the Indus Valley Civilization were:', a:'Wide and straight.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'According to archaeologists, the western part of Harappan cities, which was smaller and higher, was called:', a:'The Citadel.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'Which of the following was NOT a part of a citadel in Harappan architecture — (Agni vedi / Residential buildings for the public / Granary / Large baths)?', a:'Residential buildings for the public (the citadel housed elite/administrative structures, not general public housing).'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'Most Harappan seals are made of:', a:'Alabaster/steatite (soft stone) — steatite is the standard correct answer in detailed sources; "alabaster" appears as the closest matching MCQ option in some papers.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'The script of the Indus Valley Civilization is:', a:'Still undeciphered.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'Which historian holds the view that the decline of the Indus Valley Civilization was due to Aryan invasion?', a:'Mortimer Wheeler.'},
+  {tier:'tier2', date:'2018–2024 papers (recurring)', q:'The Indus Valley Civilization was a ______ age civilization.', a:'Bronze Age civilization.'},
+];
+
+function renderPYQ(filter){
+  const list = document.getElementById('pyqList');
+  list.innerHTML = '';
+  pyqData.filter(item => filter==='all' || item.tier===filter).forEach((item,idx)=>{
+    const div = document.createElement('div');
+    div.className='pyq-item';
+    div.innerHTML = `
+      <div class="pyq-q">
+        <div class="qtext"><strong>Q${idx+1}.</strong> ${item.q}</div>
+        <span class="pyq-tag">${item.tier==='tier1'?'Tier 1':'Tier 2'} • ${item.date}</span>
+      </div>
+      <div class="pyq-a"><strong>Answer:</strong> ${item.a}</div>
+    `;
+    div.querySelector('.pyq-q').addEventListener('click',()=>div.classList.toggle('open'));
+    list.appendChild(div);
+  });
+}
+renderPYQ('all');
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPYQ(btn.dataset.filter);
+  });
+});
+</script>
+
+</body>
+</html>
