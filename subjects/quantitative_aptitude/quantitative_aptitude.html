@@ -1,66 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notes</title>
-  <style>
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:#f5f7fb;
-      padding:40px;
-    }
-    h1{
-      text-align:center;
-      color:#333;
-      margin-bottom:30px;
-    }
-    .cards{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    .card{
-      width:220px;
-      padding:20px;
-      background:#fff;
-      border-radius:16px;
-      text-decoration:none;
-      color:#333;
-      box-shadow:0 4px 12px rgba(0,0,0,.1);
-      transition:.2s;
-    }
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 8px 20px rgba(0,0,0,.15);
-    }
-    .card h2{
-      margin:0 0 10px;
-      color:#4f46e5;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#eef0f3;
+    --card:#fffffe;
+    --ink:#232946;
+    --ink-soft:#5c6285;
+    --line:#dcdfe6;
+    --line-strong:#c2c6d1;
+
+    --c-eng:#e8556a;
+    --c-hist:#e2972b;
+    --c-geo:#1e9e6b;
+    --c-pol:#4457d9;
+    --c-quant:#7b4fe0;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    font-family:'IBM Plex Sans', Arial, sans-serif;
+    color:var(--ink);
+    background:
+      repeating-linear-gradient(to bottom, transparent 0px, transparent 37px, var(--line) 38px),
+      var(--paper);
+    min-height:100vh;
+    padding:56px 24px 80px;
+  }
+
+  .wrap{ max-width:960px; margin:0 auto; }
+
+  header{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:18px;
+    margin-bottom:22px;
+  }
+
+  .top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    color:var(--c-quant);
+    text-transform:uppercase;
+    margin:0 0 8px;
+  }
+
+  h1{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:38px;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+
+  .subtitle{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:8px 0 0;
+  }
+
+  .index-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.7;
+    padding:8px 12px;
+    border:1px solid var(--line-strong);
+    border-radius:2px;
+    background:var(--card);
+  }
+  .index-meta span{ color:var(--ink); font-weight:600; }
+
+  /* subject color key, like tabs on a ring-binder */
+  .legend{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.03em;
+    color:var(--ink-soft);
+  }
+  .legend .dot{
+    display:inline-block;
+    width:9px;
+    height:9px;
+    border-radius:2px;
+    margin-right:6px;
+  }
+  .legend span.item{ display:inline-flex; align-items:center; }
+  .legend span.item.active{ color:var(--ink); font-weight:600; }
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:30px 22px;
+    margin-top:36px;
+  }
+
+  .card{
+    --accent:var(--c-quant);
+    --rot:-0.6deg;
+    position:relative;
+    display:block;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--card);
+    border:1px solid var(--line-strong);
+    border-left:5px solid var(--accent);
+    border-radius:2px;
+    box-shadow:0 1px 0 var(--line-strong), 0 10px 20px -14px color-mix(in srgb, var(--accent) 45%, transparent);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+
+  .card:hover, .card:focus-visible{
+    transform:translateY(-4px) rotate(var(--rot));
+    box-shadow:0 1px 0 var(--line-strong), 0 18px 28px -14px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  .card:focus-visible{
+    outline:2px dashed var(--accent);
+    outline-offset:3px;
+  }
+
+  .tab{
+    position:absolute;
+    top:-13px;
+    left:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.08em;
+    color:#fff;
+    background:var(--accent);
+    padding:4px 10px 5px;
+    clip-path:polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+    transition:transform .18s ease;
+  }
+  .card:hover .tab, .card:focus-visible .tab{
+    transform:translateY(-2px) rotate(-2deg);
+  }
+
+  .stub{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 16px 10px;
+  }
+
+  .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    color:var(--accent);
+  }
+
+  .seal{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:1.5px solid var(--accent);
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transform:scale(.6);
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .seal svg{ width:11px; height:11px; }
+  .card:hover .seal, .card:focus-visible .seal{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  .body{ padding:2px 16px 22px; }
+
+  .card h2{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:19px;
+    line-height:1.3;
+    margin:0 0 8px;
+  }
+
+  .tag{ font-size:12px; color:var(--ink-soft); }
+
+  .card.back{
+    --accent:var(--ink);
+    background:var(--ink);
+    border-color:var(--ink);
+    display:flex;
+    align-items:center;
+    box-shadow:0 1px 0 var(--line-strong), 0 10px 20px -14px rgba(35,41,70,.5);
+  }
+  .card.back .body{
+    padding:22px 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .card.back h2{ color:#f4f5f7; font-size:16px; margin:0; }
+  .card.back .arrow{
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:16px;
+  }
+  .card.back:hover, .card.back:focus-visible{ --rot:0deg; }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .seal, .tab{ transition:none; }
+  }
+</style>
 </head>
 <body>
-  <h1>My Notes</h1>
- 
+  <div class="wrap">
+    <header>
+      <div class="top-row">
+        <div>
+          <p class="eyebrow">Study Index</p>
+          <h1>My Notes</h1>
+          <p class="subtitle">Personal reference sheets — SSC &amp; BPSC prep</p>
+        </div>
+        <div class="index-meta">
+          ENTRIES&nbsp; <span>02</span><br>
+          UPDATED&nbsp; <span>2026</span>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="item active"><span class="dot" style="background:var(--c-quant)"></span>Quant</span>
+        
+      </div>
+    </header>
 
-  <div class="cards">
-     <a class="card" href="../../index.html">
-      <h2>BACK</h2>
-      
-    </a>
-    <a class="card" href="ssc_cgl_quant_full_mock.html">
-      <h2>ssc_cgl_quant_full_mock</h2>
-      
-    </a>
+    <div class="cards">
+      <a class="card back" href="../../index.html">
+        <div class="body">
+          <span class="arrow">&larr;</span>
+          <h2>Back to hub</h2>
+        </div>
+      </a>
 
-    <a class="card" href="ssc-cgl-compound-interest-question-bank.html">
-      <h2>ssc-cgl-compound-interest-question-bank</h2>
-    </a>
+      <a class="card" data-subject="quant" href="ssc_cgl_quant_full_mock.html" style="--accent:var(--c-quant); --rot:0.7deg">
+        <span class="tab">QNT</span>
+        <div class="stub">
+          <span class="code">QNT · 05</span>
+          <span class="seal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+          </span>
+        </div>
+        <div class="body">
+          <h2>Quant — Full Mock</h2>
+          <p class="tag">Quantitative Aptitude · Full-length Test</p>
+        </div>
+      </a>
 
-    
+      <a class="card" data-subject="quant" href="ssc-cgl-compound-interest-question-bank.html" style="--accent:var(--c-quant); --rot:-0.5deg">
+        <span class="tab">QNT</span>
+        <div class="stub">
+          <span class="code">QNT · 02</span>
+          <span class="seal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+          </span>
+        </div>
+        <div class="body">
+          <h2>Compound Interest — Question Bank</h2>
+          <p class="tag">Quantitative Aptitude · Practice Set</p>
+        </div>
+      </a>
+    </div>
   </div>
 </body>
 </html>
