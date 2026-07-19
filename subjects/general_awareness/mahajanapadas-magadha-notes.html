@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.04 — Mahajanapadas & Rise of Magadha | SSC CGL T1+T2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#161310;
+  --bg-2:#1c1812;
+  --panel:#211c16;
+  --panel-2:#2a2319;
+  --line:#3c3325;
+  --line-soft:#2c261c;
+  --copper:#c1793d;
+  --copper-dim:#8a5a30;
+  --patina:#6f8f76;
+  --patina-dim:#4d6350;
+  --gold:#d9b36c;
+  --ivory:#ece3d1;
+  --ivory-dim:#c9beac;
+  --stone:#8f8674;
+  --danger:#b5654a;
+  --radius:14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(193,121,61,0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(111,143,118,0.08), transparent 55%),
+    var(--bg);
+  color:var(--ivory);
+  font-family:"Work Sans", sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Cinzel","Work Sans",serif; letter-spacing:0.01em; margin:0;}
+.mono{font-family:"IBM Plex Mono", monospace;}
+a{color:var(--copper);}
+::selection{background:var(--copper); color:#1c1812;}
+
+/* ---------- coin badge signature element ---------- */
+.coin{
+  --coin-color: var(--copper);
+  width:44px; height:44px; min-width:44px; border-radius:50%;
+  border:2px solid var(--coin-color);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.06), transparent 55%),
+    var(--panel-2);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.35);
+}
+.coin::before{
+  content:"";
+  position:absolute; inset:5px;
+  border-radius:50%;
+  border:1px dashed rgba(217,179,108,0.35);
+}
+.coin svg{width:20px; height:20px; stroke:var(--coin-color); fill:none; stroke-width:1.6; position:relative; z-index:1;}
+.coin.patina{--coin-color:var(--patina);}
+.coin.gold{--coin-color:var(--gold);}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  background:rgba(22,19,16,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.topbar-inner{
+  max-width:1080px; margin:0 auto; padding:10px 18px;
+  display:flex; align-items:center; gap:12px; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px;}
+.brand .coin{width:34px;height:34px;min-width:34px;}
+.brand .coin svg{width:15px;height:15px;}
+.brand-text{font-family:"Cinzel"; font-size:0.85rem; letter-spacing:0.05em; color:var(--ivory-dim);}
+.brand-text b{color:var(--gold); display:block; font-size:0.95rem;}
+.tabnav{display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px;}
+.tabnav::-webkit-scrollbar{display:none;}
+.tab-btn{
+  flex:none; background:transparent; border:1px solid transparent; color:var(--stone);
+  font-family:"IBM Plex Mono"; font-size:0.72rem; letter-spacing:0.03em;
+  padding:8px 12px; border-radius:999px; cursor:pointer; white-space:nowrap;
+  transition:all .15s ease;
+}
+.tab-btn:hover{color:var(--ivory); border-color:var(--line);}
+.tab-btn.active{color:#1c1812; background:var(--copper); font-weight:600;}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1080px; margin:0 auto; padding:0 18px 90px;}
+section.view{display:none; animation:fade .35s ease;}
+section.view.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+/* ---------- hero ---------- */
+.hero{padding:38px 0 22px; border-bottom:1px solid var(--line-soft); margin-bottom:26px;}
+.hero-eyebrow{
+  display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  font-family:"IBM Plex Mono"; font-size:0.72rem; color:var(--stone); letter-spacing:0.08em; text-transform:uppercase;
+}
+.hero-eyebrow .num{color:var(--gold);}
+.hero h1{font-size:clamp(1.9rem, 5vw, 3rem); color:var(--ivory); font-weight:600; max-width:11ch;}
+.hero h1 em{font-style:normal; color:var(--copper);}
+.hero p.lede{color:var(--ivory-dim); max-width:56ch; margin-top:14px; font-size:1rem;}
+.pillrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:20px;}
+.pill{
+  border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+  font-family:"IBM Plex Mono"; font-size:0.72rem; color:var(--ivory-dim);
+  display:flex; align-items:center; gap:6px;
+}
+.pill.t1{border-color:var(--copper-dim); color:var(--copper);}
+.pill.t2{border-color:var(--gold); color:var(--gold);}
+.statgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px;}
+.stat{background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius); padding:14px 12px;}
+.stat .n{font-family:"Cinzel"; font-size:1.5rem; color:var(--gold);}
+.stat .l{font-size:0.72rem; color:var(--stone); margin-top:2px;}
+@media(max-width:640px){.statgrid{grid-template-columns:repeat(2,1fr);}}
+
+/* ---------- generic section chrome ---------- */
+.sec-head{display:flex; align-items:center; gap:12px; margin:34px 0 16px;}
+.sec-head h2{font-size:1.35rem; color:var(--ivory);}
+.sec-head .tag{font-family:"IBM Plex Mono"; font-size:0.68rem; color:var(--stone); border:1px solid var(--line); padding:3px 9px; border-radius:999px;}
+.card{background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius); padding:18px 20px; margin-bottom:14px;}
+.card h3{font-size:1.02rem; color:var(--copper); margin-bottom:8px; font-family:"Work Sans"; font-weight:700;}
+.card p{color:var(--ivory-dim); margin:6px 0;}
+.card ul{margin:8px 0 0; padding-left:20px; color:var(--ivory-dim);}
+.card li{margin-bottom:5px;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+
+/* timeline */
+.timeline{display:flex; align-items:center; gap:0; overflow-x:auto; padding:20px 4px 26px; margin-bottom:6px;}
+.tl-node{flex:none; display:flex; flex-direction:column; align-items:center; width:150px; text-align:center; position:relative;}
+.tl-node .coin{margin-bottom:8px;}
+.tl-node .yr{font-family:"IBM Plex Mono"; font-size:0.68rem; color:var(--gold);}
+.tl-node .nm{font-size:0.82rem; color:var(--ivory); font-weight:600; margin-top:2px;}
+.tl-node .ds{font-size:0.72rem; color:var(--stone); margin-top:3px;}
+.tl-line{flex:none; width:60px; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px); margin-top:-46px;}
+
+/* table */
+.tablewrap{overflow-x:auto; border:1px solid var(--line-soft); border-radius:var(--radius);}
+table{width:100%; border-collapse:collapse; min-width:640px;}
+th{
+  background:var(--panel-2); text-align:left; font-family:"IBM Plex Mono"; font-size:0.68rem;
+  letter-spacing:0.04em; text-transform:uppercase; color:var(--stone); padding:11px 14px; border-bottom:1px solid var(--line);
+  position:sticky; top:0;
+}
+td{padding:11px 14px; border-bottom:1px solid var(--line-soft); font-size:0.87rem; color:var(--ivory-dim); vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(193,121,61,0.05);}
+td.name{color:var(--ivory); font-weight:600;}
+.badge{display:inline-block; font-family:"IBM Plex Mono"; font-size:0.65rem; padding:2px 7px; border-radius:6px; border:1px solid var(--line);}
+.badge.mon{color:var(--copper); border-color:var(--copper-dim);}
+.badge.rep{color:var(--patina); border-color:var(--patina-dim);}
+
+/* search / filter bar */
+.filterbar{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; align-items:center;}
+.search{
+  flex:1; min-width:180px; background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:10px 14px; color:var(--ivory); font-family:"Work Sans"; font-size:0.88rem;
+}
+.search:focus{outline:none; border-color:var(--copper);}
+.chip{
+  background:var(--panel); border:1px solid var(--line); color:var(--stone); font-family:"IBM Plex Mono"; font-size:0.7rem;
+  padding:8px 12px; border-radius:999px; cursor:pointer; transition:.15s;
+}
+.chip.on{background:var(--patina-dim); color:var(--ivory); border-color:var(--patina);}
+.count-tag{font-family:"IBM Plex Mono"; font-size:0.72rem; color:var(--stone); margin-left:auto;}
+
+/* question cards */
+.q{background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius); margin-bottom:12px; overflow:hidden;}
+.q-head{padding:15px 18px; display:flex; gap:12px; cursor:pointer;}
+.q-num{font-family:"IBM Plex Mono"; color:var(--gold); font-size:0.8rem; min-width:28px;}
+.q-body{flex:1;}
+.q-text{color:var(--ivory); font-size:0.93rem; font-weight:500;}
+.q-meta{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;}
+.freq{font-family:"IBM Plex Mono"; font-size:0.62rem; padding:2px 8px; border-radius:999px; border:1px solid;}
+.freq.high{color:#e08a5a; border-color:var(--copper-dim); background:rgba(193,121,61,0.08);}
+.freq.med{color:var(--gold); border-color:#6b5a37; background:rgba(217,179,108,0.06);}
+.freq.low{color:var(--stone); border-color:var(--line);}
+.freq.pred{color:var(--patina); border-color:var(--patina-dim); background:rgba(111,143,118,0.08);}
+.q-options{padding:0 18px 16px 58px; display:none;}
+.q.open .q-options{display:block;}
+.opt{padding:9px 12px; border:1px solid var(--line-soft); border-radius:9px; margin-bottom:7px; font-size:0.86rem; color:var(--ivory-dim); cursor:pointer;}
+.opt:hover{border-color:var(--line);}
+.opt.correct{border-color:var(--patina); color:var(--ivory); background:rgba(111,143,118,0.1);}
+.opt.wrong{border-color:var(--danger); color:var(--ivory); background:rgba(181,101,74,0.1);}
+.explain{margin-top:10px; padding:11px 13px; background:var(--bg-2); border-left:2px solid var(--copper); border-radius:0 8px 8px 0; font-size:0.82rem; color:var(--ivory-dim); display:none;}
+.explain.show{display:block;}
+.chev{margin-left:auto; color:var(--stone); transition:transform .2s;}
+.q.open .chev{transform:rotate(180deg);}
+
+/* freq analysis bars */
+.barrow{display:flex; align-items:center; gap:12px; margin-bottom:12px;}
+.barrow .lbl{width:150px; font-size:0.8rem; color:var(--ivory-dim); flex:none;}
+.bartrack{flex:1; height:10px; background:var(--bg-2); border-radius:6px; overflow:hidden; border:1px solid var(--line-soft);}
+.barfill{height:100%; background:linear-gradient(90deg, var(--copper-dim), var(--copper)); border-radius:6px;}
+.barval{width:38px; text-align:right; font-family:"IBM Plex Mono"; font-size:0.72rem; color:var(--gold); flex:none;}
+
+/* mnemonic strip */
+.mnemo{
+  border:1px dashed var(--line); border-radius:var(--radius); padding:16px 18px; background:var(--panel);
+}
+.mnemo .m-word{color:var(--gold); font-family:"IBM Plex Mono"; font-weight:600;}
+
+footer{text-align:center; padding:40px 18px 60px; color:var(--stone); font-size:0.75rem; font-family:"IBM Plex Mono";}
+
+@media(max-width:640px){
+  .brand-text{display:none;}
+  .q-options{padding-left:18px;}
+  th,td{padding:9px 10px; font-size:0.8rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="coin gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+      <div class="brand-text"><b>Ch. 04</b>Magadha &amp; the 16 Mahajanapadas</div>
+    </div>
+    <div class="tabnav" id="tabnav">
+      <button class="tab-btn active" data-view="overview">Overview</button>
+      <button class="tab-btn" data-view="janapadas">16 Mahajanapadas</button>
+      <button class="tab-btn" data-view="haryanka">Haryanka</button>
+      <button class="tab-btn" data-view="shishunaga">Shishunaga</button>
+      <button class="tab-btn" data-view="nanda">Nanda</button>
+      <button class="tab-btn" data-view="pyq">PYQ Analysis</button>
+      <button class="tab-btn" data-view="predicted">Predicted Qs</button>
+      <button class="tab-btn" data-view="revision">Quick Revision</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============ OVERVIEW ============ -->
+  <section class="view active" id="overview">
+    <div class="hero">
+      <div class="hero-eyebrow"><span class="num">04</span> · Ancient History · Bihar-relevant chapter</div>
+      <h1>Mahajanapadas &amp; the <em>Rise of Magadha</em></h1>
+      <p class="lede">Full Tier-1 + Tier-2 notes on the 16 Mahajanapadas, the Haryanka–Shishunaga–Nanda line, and why Magadha became India's first imperial power — built from a pattern-analysis of how SSC exams have repeatedly tested this chapter.</p>
+      <div class="pillrow">
+        <div class="pill t1">● Tier I — General Awareness</div>
+        <div class="pill t2">● Tier II — GK/GS paper</div>
+        <div class="pill">c. 600–322 BCE</div>
+        <div class="pill">4 dynasties → Mauryas</div>
+      </div>
+      <div class="statgrid">
+        <div class="stat"><div class="n">16</div><div class="l">Mahajanapadas</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">Magadhan dynasties</div></div>
+        <div class="stat"><div class="n">55+</div><div class="l">Practice &amp; pattern Qs inside</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Buddhist Councils covered here</div></div>
+      </div>
+    </div>
+
+    <div class="sec-head"><h2>Timeline at a glance</h2><span class="tag">tap chapter tabs above for detail</span></div>
+    <div class="timeline">
+      <div class="tl-node">
+        <div class="coin"><svg viewBox="0 0 24 24"><path d="M4 20 L12 4 L20 20 Z"/></svg></div>
+        <div class="yr">c. 600 BCE</div>
+        <div class="nm">16 Mahajanapadas</div>
+        <div class="ds">Anguttara Nikaya list</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-node">
+        <div class="coin"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="yr">544–412 BCE</div>
+        <div class="nm">Haryanka</div>
+        <div class="ds">Bimbisara → Ajatashatru → Udayin</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-node">
+        <div class="coin patina"><svg viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-5 6 5"/></svg></div>
+        <div class="yr">412–345 BCE</div>
+        <div class="nm">Shishunaga</div>
+        <div class="ds">Ends Avanti rivalry</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-node">
+        <div class="coin gold"><svg viewBox="0 0 24 24"><path d="M4 18c4-10 12-10 16 0" /><circle cx="12" cy="8" r="3"/></svg></div>
+        <div class="yr">345–322 BCE</div>
+        <div class="nm">Nanda</div>
+        <div class="ds">First pan-India empire-builders</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-node">
+        <div class="coin"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></svg></div>
+        <div class="yr">322 BCE</div>
+        <div class="nm">Maurya Empire</div>
+        <div class="ds">Chandragupta ends Dhana Nanda</div>
+      </div>
+    </div>
+
+    <div class="sec-head"><h2>Why Magadha, and not Kosala or Avanti?</h2></div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Geographic &amp; economic edge</h3>
+        <ul>
+          <li>Fertile Gangetic alluvium around Patna–Gaya gave large agricultural surplus.</li>
+          <li>Iron ore deposits near Rajgir gave Magadha superior weapons and tools before rivals.</li>
+          <li>Nearby forests supplied war elephants — the decisive arm of ancient Indian armies.</li>
+          <li>Control of the Ganga river trade route and timber/mineral wealth funded a standing army.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Political edge</h3>
+        <ul>
+          <li>Two near-impregnable capitals: Rajagriha (ringed by 5 hills) and later Pataliputra (guarded by the Ganga–Son confluence).</li>
+          <li>Unusually ambitious, long-lived rulers — Bimbisara, Ajatashatru, Mahapadma Nanda — who combined matrimonial alliance, conquest and deceit.</li>
+          <li>Magadha alone kept a permanent, paid standing army rather than relying on levies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:var(--copper-dim);">
+      <h3>High-yield exam fact</h3>
+      <p>Buddhist texts call <b>Magadha, Kosala, Vatsa and Avanti</b> the <b>"Chaturmahajanapada"</b> — the four most powerful of the 16. By 4th century BCE, Magadha had absorbed all three rivals.</p>
+    </div>
+  </section>
+
+  <!-- ============ 16 MAHAJANAPADAS ============ -->
+  <section class="view" id="janapadas">
+    <div class="sec-head"><h2>The 16 Mahajanapadas</h2><span class="tag">source: Anguttara Nikaya (Buddhist canon)</span></div>
+    <div class="card">
+      <p>"Mahajanapada" = <b>maha</b> (great) + <b>janapada</b> (foothold of a tribe/people). Between the decline of the later-Vedic tribal <i>janapadas</i> and the rise of large territorial states (2nd urbanisation, ~600 BCE), 16 major kingdoms/republics existed across the subcontinent. Two forms of government existed side by side: <b>monarchies</b> (Magadha, Kosala, Vatsa, Avanti, etc.) and <b>Gana-sanghas / republics</b> (Vajji, Malla).</p>
+    </div>
+    <div class="filterbar">
+      <input class="search" id="janSearch" placeholder="Search a Mahajanapada, capital or modern region…">
+    </div>
+    <div class="tablewrap">
+      <table id="janTable">
+        <thead><tr><th>#</th><th>Mahajanapada</th><th>Capital</th><th>Modern location</th><th>Govt.</th><th>Exam-relevant note</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="name">Anga</td><td>Champa</td><td>Bhagalpur–Munger, Bihar</td><td><span class="badge mon">Monarchy</span></td><td>Annexed by Bimbisara after defeating king Brahmadatta.</td></tr>
+          <tr><td>2</td><td class="name">Magadha</td><td>Girivraja/Rajagriha → Pataliputra</td><td>Patna–Gaya, Bihar</td><td><span class="badge mon">Monarchy</span></td><td>Became the imperial core; this whole chapter is its story.</td></tr>
+          <tr><td>3</td><td class="name">Kashi</td><td>Varanasi</td><td>Varanasi, UP</td><td><span class="badge mon">Monarchy</span></td><td>Fought Kosala repeatedly; finally merged into Kosala, then Magadha.</td></tr>
+          <tr><td>4</td><td class="name">Kosala</td><td>Shravasti (also Ayodhya)</td><td>Faizabad–Gonda, UP</td><td><span class="badge mon">Monarchy</span></td><td>King Prasenajit; contemporary and friend of Buddha; later annexed by Ajatashatru.</td></tr>
+          <tr><td>5</td><td class="name">Vajji (confederacy)</td><td>Vaishali</td><td>North Bihar</td><td><span class="badge rep">Republic</span></td><td>Confederacy of 8 clans incl. Lichchhavis; defeated by Ajatashatru via minister Vassakara's divide policy.</td></tr>
+          <tr><td>6</td><td class="name">Malla</td><td>Kushinagar &amp; Pava</td><td>Deoria–Gorakhpur, UP</td><td><span class="badge rep">Republic</span></td><td>Buddha attained Mahaparinirvana at Kushinagar.</td></tr>
+          <tr><td>7</td><td class="name">Chedi</td><td>Shuktimati</td><td>Bundelkhand, MP</td><td><span class="badge mon">Monarchy</span></td><td>Mentioned in the Mahabharata.</td></tr>
+          <tr><td>8</td><td class="name">Vatsa</td><td>Kaushambi</td><td>Prayagraj region, UP</td><td><span class="badge mon">Monarchy</span></td><td>King Udayana; near confluence of Yamuna; one of the Chaturmahajanapada.</td></tr>
+          <tr><td>9</td><td class="name">Kuru</td><td>Indraprastha/Hastinapur</td><td>Delhi–Meerut region</td><td><span class="badge mon">Monarchy</span></td><td>Epic-era association with the Mahabharata.</td></tr>
+          <tr><td>10</td><td class="name">Panchala</td><td>Ahichchhatra (N), Kampilya (S)</td><td>Bareilly–Farrukhabad, UP</td><td><span class="badge rep">Republic (later)</span></td><td>Split into North &amp; South Panchala.</td></tr>
+          <tr><td>11</td><td class="name">Matsya</td><td>Viratanagar</td><td>Jaipur–Alwar, Rajasthan</td><td><span class="badge mon">Monarchy</span></td><td>Mahabharata's Virata kingdom.</td></tr>
+          <tr><td>12</td><td class="name">Surasena</td><td>Mathura</td><td>Mathura, UP</td><td><span class="badge mon">Monarchy</span></td><td>King Avantiputra; early patron of Buddhism.</td></tr>
+          <tr><td>13</td><td class="name">Assaka (Ashmaka)</td><td>Potali/Potana</td><td>Godavari valley</td><td><span class="badge mon">Monarchy</span></td><td>Only Mahajanapada located south of the Vindhyas — a favourite trick-question fact.</td></tr>
+          <tr><td>14</td><td class="name">Avanti</td><td>Ujjain (N), Mahishmati (S)</td><td>Malwa region, MP</td><td><span class="badge mon">Monarchy</span></td><td>King Pradyota; chief rival of Magadha, finally annexed under the Shishunagas.</td></tr>
+          <tr><td>15</td><td class="name">Gandhara</td><td>Taxila</td><td>Peshawar–Rawalpindi, Pakistan</td><td><span class="badge mon">Monarchy</span></td><td>King Pukkusati; had diplomatic contact with Persia/Avanti.</td></tr>
+          <tr><td>16</td><td class="name">Kamboja</td><td>Rajapura/Hatak</td><td>Rajouri–Hazara region</td><td><span class="badge rep">Republic (mixed)</span></td><td>Famous for its horses; north-westernmost Mahajanapada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ HARYANKA ============ -->
+  <section class="view" id="haryanka">
+    <div class="sec-head"><h2>Haryanka Dynasty (c. 544–412 BCE)</h2><span class="tag">Bimbisara → Ajatashatru → Udayin</span></div>
+
+    <div class="card">
+      <h3>Bimbisara (c. 544–492 BCE)</h3>
+      <ul>
+        <li>Founder of the Haryanka dynasty; also known as <b>Seniya/Shrenika</b>; first ruler credited with a regular standing army.</li>
+        <li>Contemporary of both <b>Gautama Buddha</b> and <b>Mahavira</b>; became a lay disciple of the Buddha.</li>
+        <li>Expanded through <b>three strategic marriages</b>: a Kosalan princess (dowry = a Kashi village), a Lichchhavi princess of Vaishali (Chellana), and a Madra (Punjab) princess.</li>
+        <li>Conquered <b>Anga</b> (capital Champa), defeating king Brahmadatta — gave Magadha control of the lower Ganga trade route.</li>
+        <li>Maintained cordial diplomatic ties even with rival Avanti's king <b>Pradyota</b> — sent his royal physician Jivaka to treat him.</li>
+        <li>Capital: <b>Girivraja/Rajagriha</b>, a natural fortress ringed by five hills.</li>
+        <li>Imprisoned and killed by his own son, Ajatashatru.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Ajatashatru (c. 492–460 BCE)</h3>
+      <ul>
+        <li>Also called <b>Kunika</b>; seized the throne by killing (or imprisoning to death) his father Bimbisara.</li>
+        <li>Fought a prolonged ~16-year war against the <b>Vajji confederacy</b> of Vaishali, eventually winning through his minister <b>Vassakara's</b> divide-and-rule diplomacy that split the Lichchhavi clans.</li>
+        <li>Used two new war-engines credited to his reign: <b>Rathamusala</b> (a mace-fitted chariot) and <b>Mahashilakantaka</b> (a catapult hurling large stones).</li>
+        <li>Also defeated Kosala, annexing it into Magadha.</li>
+        <li>After the Buddha's death (Mahaparinirvana, c. 483 BCE), Ajatashatru sponsored the <b>First Buddhist Council</b> at the Saptaparni cave, Rajagriha — presided over by <b>Mahakassapa</b>.</li>
+        <li>Fortified the village of <b>Pataligrama</b>, at the Ganga–Son confluence, as a frontier fort against a possible Avanti invasion — most SSC-level sources describe this act as him "founding" Pataliputra.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Udayin (c. 460–440 BCE)</h3>
+      <ul>
+        <li>Son of Ajatashatru.</li>
+        <li><b>Shifted the capital</b> from Rajagriha to Pataliputra — building up the fort his father had raised at the Ganga–Son confluence into the new seat of government.</li>
+        <li>On the exact wording of "who founded Pataliputra," sources genuinely disagree: some credit <b>Ajatashatru</b> (he built the original fort), others credit <b>Udayin</b> (he made it the capital). If a question asks who <i>fortified Pataligrama</i>, the answer is Ajatashatru; if it asks who <i>shifted/established the capital</i> there, the answer is Udayin.</li>
+        <li>His weak successors could not hold the throne; the Haryanka line ends amid instability, and the people/ministers elevate <b>Shishunaga</b> to power.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SHISHUNAGA ============ -->
+  <section class="view" id="shishunaga">
+    <div class="sec-head"><h2>Shishunaga Dynasty (c. 412–345 BCE)</h2></div>
+    <div class="card">
+      <ul>
+        <li>Founded by <b>Shishunaga</b>, believed to be an amatya (minister) elected/installed to end the instability after the Haryankas.</li>
+        <li>His single biggest achievement: <b>destroyed the power of Avanti</b> (capital Ujjain), ending Magadha's oldest and most persistent rivalry, and annexed it into Magadha.</li>
+        <li>Temporarily moved the capital to <b>Vaishali</b>.</li>
+        <li>Succeeded by his son <b>Kalashoka (Kakavarna)</b>, who shifted the capital back to Pataliputra.</li>
+        <li>Kalashoka convened the <b>Second Buddhist Council at Vaishali (c. 383 BCE)</b> — this is where the Sangha split into the <b>Sthaviravadins</b> and <b>Mahasanghikas</b>.</li>
+        <li>Kalashoka was assassinated in a palace revolution, clearing the way for the Nanda dynasty.</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:var(--patina-dim);">
+      <h3>Two Councils — don't mix them up</h3>
+      <div class="tablewrap"><table><thead><tr><th>Council</th><th>Year</th><th>Place</th><th>Patron</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>1st Buddhist Council</td><td>c. 483 BCE</td><td>Saptaparni cave, Rajagriha</td><td>Ajatashatru</td><td>Compiled Sutta &amp; Vinaya Pitaka (headed by Mahakassapa)</td></tr>
+        <tr><td>2nd Buddhist Council</td><td>c. 383 BCE</td><td>Vaishali</td><td>Kalashoka</td><td>Sangha splits into Sthaviravadin &amp; Mahasanghika</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- ============ NANDA ============ -->
+  <section class="view" id="nanda">
+    <div class="sec-head"><h2>Nanda Dynasty (c. 345–322 BCE)</h2></div>
+    <div class="card">
+      <h3>Mahapadma Nanda — founder</h3>
+      <ul>
+        <li>Founder of the <b>first non-Kshatriya (Shudra-origin, per the Puranas) dynasty</b> to rule Magadha.</li>
+        <li>Titled <b>"Ekarat"</b> (sole sovereign) and <b>"Sarvakshatrantaka"</b> ("destroyer of all Kshatriyas"); also called Ugrasena.</li>
+        <li>Regarded as the first great empire-builder of northern India — extended Magadha's boundaries far beyond its earlier limits, fielding a huge standing army (infantry, cavalry, chariots and elephants, per later Greek accounts).</li>
+        <li>According to Puranic/Buddhist/Jaina tradition there were <b>9 Nanda kings</b> in total — Mahapadma Nanda plus his eight sons, together called the <b>"Navanandas."</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Dhana Nanda — last ruler</h3>
+      <ul>
+        <li>Last king of the dynasty; identified by Greek writers as <b>Agrammes/Xandrames</b>.</li>
+        <li>Was on the Magadhan throne when <b>Alexander invaded north-west India (326 BCE)</b> — fear of his massive army is cited as a reason Alexander's troops refused to march further east.</li>
+        <li>Extremely unpopular due to oppressive taxation.</li>
+        <li>Overthrown c. <b>322 BCE</b> by <b>Chandragupta Maurya</b>, guided by <b>Chanakya (Kautilya)</b> — founding the Mauryan Empire and ending this chapter's story.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PYQ ANALYSIS ============ -->
+  <section class="view" id="pyq">
+    <div class="sec-head"><h2>PYQ pattern analysis</h2><span class="tag">based on how SSC exams have repeatedly tested this chapter</span></div>
+    <div class="card" style="border-color:var(--copper-dim);">
+      <p><b>Honesty note:</b> I don't have a verified year-by-year archive of every SSC CGL paper to quote exact "2015 Tier-I / 2021 Tier-II" tags with certainty. What follows is a <b>frequency-pattern analysis</b> — which facts inside this chapter recur again and again across SSC CGL, CHSL and related exams — built from cross-checking multiple current question banks and coaching archives. Treat the frequency tags as "how likely this exact angle is to reappear," not as a claim of a specific past paper. This page was also spot-checked against NCERT Class XII's "Kings, Farmers and Towns" chapter after an initial draft — one question (on who fortified Pataligrama/founded Pataliputra) had the wrong ruler and has been corrected; see the Haryanka tab for the fuller nuance.</p>
+    </div>
+
+    <div class="sec-head"><h2 style="font-size:1.05rem;">Topic-wise frequency inside this chapter</h2></div>
+    <div class="card">
+      <div class="barrow"><div class="lbl">Haryanka rulers (Bimbisara/Ajatashatru)</div><div class="bartrack"><div class="barfill" style="width:92%;"></div></div><div class="barval">92%</div></div>
+      <div class="barrow"><div class="lbl">16 Mahajanapadas + capitals</div><div class="bartrack"><div class="barfill" style="width:85%;"></div></div><div class="barval">85%</div></div>
+      <div class="barrow"><div class="lbl">Nanda dynasty &amp; Dhana Nanda</div><div class="bartrack"><div class="barfill" style="width:70%;"></div></div><div class="barval">70%</div></div>
+      <div class="barrow"><div class="lbl">Buddhist Councils (1st &amp; 2nd)</div><div class="bartrack"><div class="barfill" style="width:60%;"></div></div><div class="barval">60%</div></div>
+      <div class="barrow"><div class="lbl">Shishunaga dynasty</div><div class="bartrack"><div class="barfill" style="width:45%;"></div></div><div class="barval">45%</div></div>
+      <div class="barrow"><div class="lbl">Reasons for Magadha's rise</div><div class="bartrack"><div class="barfill" style="width:40%;"></div></div><div class="barval">40%</div></div>
+    </div>
+
+    <div class="sec-head"><h2 style="font-size:1.05rem;">Practice bank — PYQ-pattern MCQs</h2></div>
+    <div class="filterbar">
+      <input class="search" id="pyqSearch" placeholder="Search a question, ruler or keyword…">
+      <span class="chip on" data-f="all">All</span>
+      <span class="chip" data-f="high">High freq</span>
+      <span class="chip" data-f="med">Medium</span>
+      <span class="chip" data-f="low">Low</span>
+      <span class="count-tag" id="pyqCount"></span>
+    </div>
+    <div id="pyqList"></div>
+  </section>
+
+  <!-- ============ PREDICTED ============ -->
+  <section class="view" id="predicted">
+    <div class="sec-head"><h2>Predicted / likely questions</h2><span class="tag">forward-looking — not from a confirmed past paper</span></div>
+    <div class="card" style="border-color:var(--patina-dim);">
+      <p>These target angles the practice bank <i>hasn't</i> already covered but are consistent with how SSC tends to twist this chapter next: assertion–reason format, "match the capital," crossovers with the Buddhism/Jainism chapter, and second-order facts (titles, war technology, council venues).</p>
+    </div>
+    <div class="filterbar"><input class="search" id="predSearch" placeholder="Search predicted questions…"><span class="count-tag" id="predCount"></span></div>
+    <div id="predList"></div>
+  </section>
+
+  <!-- ============ REVISION ============ -->
+  <section class="view" id="revision">
+    <div class="sec-head"><h2>60-second revision</h2></div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Ruler → one signature fact</h3>
+        <ul>
+          <li><b>Bimbisara</b> — 3 marriages, conquered Anga</li>
+          <li><b>Ajatashatru</b> — killed father; Rathamusala + Mahashilakantaka; 1st Buddhist Council</li>
+          <li><b>Udayin</b> — founded Pataliputra</li>
+          <li><b>Shishunaga</b> — destroyed Avanti's power</li>
+          <li><b>Kalashoka</b> — 2nd Buddhist Council at Vaishali</li>
+          <li><b>Mahapadma Nanda</b> — 1st non-Kshatriya ruler, "Ekarat"</li>
+          <li><b>Dhana Nanda</b> — on throne during Alexander's invasion; overthrown by Chandragupta Maurya</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Mnemonic — dynasty order</h3>
+        <div class="mnemo">
+          <p><span class="m-word">"Hari Shish Nanda Maur"</span> → <b>Har</b>yanka → <b>Shish</b>unaga → <b>Nanda</b> → <b>Maur</b>ya.</p>
+        </div>
+        <div class="mnemo" style="margin-top:10px;">
+          <p>Haryanka order: <span class="m-word">B–A–U</span> = Bimbisara, Ajatashatru, Udayin (father → son → grandson).</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Common confusions SSC likes to test</h3>
+      <ul>
+        <li>Pataliputra was <b>not</b> founded by Bimbisara. Ajatashatru fortified the original village (Pataligrama); Udayin later shifted the actual capital there — SSC options frequently swap these two.</li>
+        <li>It's <b>Shishunaga</b> who finished off Avanti, not Ajatashatru or Bimbisara (they only had diplomatic/rival relations with it).</li>
+        <li><b>Assaka/Ashmaka</b> is the only Mahajanapada south of the Vindhyas — everything else clusters in the north/northwest.</li>
+        <li>1st Council = Rajagriha (Ajatashatru); 2nd Council = Vaishali (Kalashoka) — years and venues are frequently swapped in distractor options.</li>
+        <li>Mahapadma Nanda is the <b>founder</b>; Dhana Nanda is the <b>last</b> ruler — both get asked, easy to reverse under time pressure.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>Built for SSC CGL Tier I &amp; Tier II prep · Cross-check high-stakes facts against NCERT Class XII, <i>Themes in Indian History – Part I</i>, Theme 2 "Kings, Farmers and Towns" (c.600 BCE–600 CE) before the exam. Ruler-by-ruler detail beyond that chapter (Rathamusala, Vassakara, royal marriages, exact titles) is drawn from standard reference works, not NCERT itself — verify those against a source like R.S. Sharma's <i>India's Ancient Past</i> if you need a citable authority.</footer>
+
+<script>
+// ---------- tab navigation ----------
+const tabBtns = document.querySelectorAll('.tab-btn');
+const views = document.querySelectorAll('.view');
+tabBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabBtns.forEach(b=>b.classList.remove('active'));
+    views.forEach(v=>v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.view).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+
+// ---------- 16 janapadas search ----------
+document.getElementById('janSearch').addEventListener('input', e=>{
+  const q = e.target.value.toLowerCase();
+  document.querySelectorAll('#janTable tbody tr').forEach(tr=>{
+    tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+
+// ---------- question data ----------
+const pyqData = [
+  {q:"Who is regarded as the founder of the Haryanka dynasty of Magadha?", opts:["Ajatashatru","Bimbisara","Shishunaga","Mahapadma Nanda"], a:1, f:"high", exp:"Bimbisara (c. 544–492 BCE) founded the Haryanka dynasty and was the first ruler credited with a standing army."},
+  {q:"Ajatashatru gained the throne of Magadha by:", opts:["Winning an election among ministers","Killing his father Bimbisara","Marrying into the Lichchhavi clan","Being appointed by the Vajji confederacy"], a:1, f:"high", exp:"Ajatashatru (also called Kunika) imprisoned/killed his father Bimbisara to seize power."},
+  {q:"Which two war-engines are associated with Ajatashatru's campaign against the Vajji confederacy?", opts:["Trishula and Chakra","Rathamusala and Mahashilakantaka","Vajra and Gada","Ratha and Dhanush"], a:1, f:"med", exp:"Rathamusala (mace-fitted chariot) and Mahashilakantaka (a giant catapult) were used in the 16-year war against the Vajjis."},
+  {q:"Who fortified the village of Pataligrama, an act most sources describe as 'founding' Pataliputra?", opts:["Bimbisara","Ajatashatru","Udayin","Kalashoka"], a:1, f:"high", exp:"Ajatashatru built the original frontier fort at Pataligrama (Ganga–Son confluence) against Avanti. His son Udayin later shifted the capital there — a distinction SSC options often blur, so read the verb (fortified vs. shifted capital) carefully."},
+  {q:"The First Buddhist Council was held at Rajagriha under the patronage of:", opts:["Ashoka","Kanishka","Ajatashatru","Kalashoka"], a:2, f:"high", exp:"Held c. 483 BCE at the Saptaparni cave, Rajagriha, sponsored by Ajatashatru and presided over by Mahakassapa."},
+  {q:"Which Magadhan ruler finally destroyed the power of Avanti, Magadha's oldest rival?", opts:["Bimbisara","Ajatashatru","Shishunaga","Mahapadma Nanda"], a:2, f:"high", exp:"Shishunaga annexed Avanti (capital Ujjain), ending the long Magadha–Avanti rivalry."},
+  {q:"The Second Buddhist Council, where the Sangha split into Sthaviravadins and Mahasanghikas, was held at:", opts:["Rajagriha","Vaishali","Pataliputra","Kashmir"], a:1, f:"med", exp:"Held at Vaishali c. 383 BCE, convened by Kalashoka (Kakavarna) of the Shishunaga dynasty."},
+  {q:"Mahapadma Nanda is significant as the first ruler of Magadha to be:", opts:["A Kshatriya by birth","Of non-Kshatriya origin","A patron of Jainism only","Defeated by a Greek army"], a:1, f:"high", exp:"Puranic tradition describes Mahapadma Nanda as of Shudra origin — the first non-Kshatriya dynasty founder in Magadha."},
+  {q:"The title \"Sarvakshatrantaka\" (destroyer of all Kshatriyas) is associated with:", opts:["Ajatashatru","Mahapadma Nanda","Dhana Nanda","Shishunaga"], a:1, f:"med", exp:"Along with \"Ekarat\" and \"Ugrasena,\" this title belongs to Mahapadma Nanda, founder of the Nanda dynasty."},
+  {q:"Which Nanda ruler was on the throne of Magadha at the time of Alexander's invasion of India?", opts:["Mahapadma Nanda","Dhana Nanda","Kalashoka","Udayin"], a:1, f:"high", exp:"Dhana Nanda (Greek: Agrammes/Xandrames), the last Nanda king, ruled during Alexander's 326 BCE invasion."},
+  {q:"Which Buddhist text provides the earliest list of the 16 Mahajanapadas?", opts:["Digha Nikaya","Anguttara Nikaya","Vinaya Pitaka","Milindapanho"], a:1, f:"med", exp:"The Anguttara Nikaya is the standard source cited for the list of 16 Mahajanapadas."},
+  {q:"Which of these is the only Mahajanapada located south of the Vindhyas?", opts:["Avanti","Kamboja","Assaka (Ashmaka)","Chedi"], a:2, f:"med", exp:"Assaka/Ashmaka, on the Godavari, is the sole Mahajanapada south of the Vindhya range."},
+  {q:"Vaishali was the capital of which Mahajanapada / political entity?", opts:["Magadha","The Vajji confederacy","Kosala","Malla"], a:1, f:"high", exp:"Vaishali was the capital of the Vajji confederacy, led politically by the Lichchhavi clan."},
+  {q:"Which Mahajanapada had Shravasti as its capital?", opts:["Kashi","Kosala","Vatsa","Kuru"], a:1, f:"med", exp:"Kosala's capital was Shravasti; its notable king was Prasenajit, a contemporary of the Buddha."},
+  {q:"King Udayana, a contemporary of the Buddha, ruled which Mahajanapada from Kaushambi?", opts:["Vatsa","Avanti","Surasena","Panchala"], a:0, f:"low", exp:"Vatsa, with capital Kaushambi near the Yamuna, was ruled by King Udayana."},
+  {q:"Which Mahajanapada's capital, Champa, was annexed into Magadha by Bimbisara?", opts:["Kashi","Anga","Chedi","Matsya"], a:1, f:"med", exp:"Bimbisara defeated Anga's king Brahmadatta and annexed the kingdom, capital Champa."},
+  {q:"Bimbisara's physician, sent to treat the ailing king of Avanti, was:", opts:["Charaka","Jivaka","Sushruta","Dhanvantari"], a:1, f:"low", exp:"Jivaka, Bimbisara's royal physician, was sent to treat Pradyota of Avanti — evidence of diplomatic ties despite rivalry."},
+  {q:"The 'Chaturmahajanapada' — the four most powerful Mahajanapadas — includes all EXCEPT:", opts:["Magadha","Kosala","Gandhara","Avanti"], a:2, f:"med", exp:"The four are Magadha, Kosala, Vatsa and Avanti; Gandhara is not among them."},
+  {q:"Which dynasty immediately preceded the Nandas in Magadha?", opts:["Haryanka","Shishunaga","Maurya","Shunga"], a:1, f:"high", exp:"The Shishunaga dynasty ruled directly before the Nandas took power."},
+  {q:"Chandragupta Maurya overthrew which last Nanda ruler to found the Mauryan Empire?", opts:["Mahapadma Nanda","Kalashoka","Dhana Nanda","Udayin"], a:2, f:"high", exp:"Chandragupta Maurya, guided by Chanakya, defeated Dhana Nanda c. 322 BCE."},
+  {q:"How many Nanda kings, according to Puranic tradition, ruled in total (the 'Navanandas')?", opts:["7","8","9","11"], a:2, f:"med", exp:"Mahapadma Nanda plus his 8 sons = 9 kings, together called the Navanandas."},
+  {q:"Which republic (Gana-sangha) was famous for a confederacy of eight clans including the Lichchhavis?", opts:["Malla","Vajji","Kamboja","Kuru"], a:1, f:"med", exp:"The Vajji confederacy of 8 clans, led by the Lichchhavis, had its capital at Vaishali."},
+  {q:"The Buddha attained Mahaparinirvana in the territory of which Mahajanapada?", opts:["Magadha","Kosala","Malla","Vatsa"], a:2, f:"low", exp:"Kushinagar, where the Buddha passed away, was the capital of the Malla republic."},
+  {q:"Which Mahajanapada is associated with Mathura as its capital?", opts:["Surasena","Panchala","Matsya","Kuru"], a:0, f:"low", exp:"Surasena, capital Mathura, was ruled by King Avantiputra, an early patron of Buddhism."},
+  {q:"Taxila was the capital of which north-western Mahajanapada?", opts:["Kamboja","Gandhara","Kuru","Panchala"], a:1, f:"low", exp:"Gandhara's capital Taxila (near modern Rawalpindi) was a major centre of learning and trade."}
+];
+
+const predData = [
+  {q:"Assertion (A): Pataliputra was chosen as capital mainly for religious reasons.\nReason (R): It lay at the confluence of the Ganga and Son rivers, offering natural defence and trade access.\nChoose the correct option:", opts:["Both A and R are true, R explains A","A is true, R is false","A is false, R is true","Both A and R are false"], a:2, f:"pred", exp:"The strategic/commercial river-confluence location (R) is the real reason — Pataliputra's selection was geo-strategic, not religious, so A is false and R is true."},
+  {q:"Match List I (Ruler) with List II (Achievement):\nI: 1-Bimbisara 2-Ajatashatru 3-Shishunaga 4-Mahapadma Nanda\nII: A-Destroyed Avanti B-Conquered Anga C-First non-Kshatriya ruler D-1st Buddhist Council patron", opts:["1B, 2D, 3A, 4C","1A, 2B, 3C, 4D","1C, 2A, 3D, 4B","1D, 2C, 3B, 4A"], a:0, f:"pred", exp:"Bimbisara→Anga; Ajatashatru→1st Council; Shishunaga→destroyed Avanti; Mahapadma Nanda→first non-Kshatriya ruler."},
+  {q:"Which of the following pairs of 'capital — Mahajanapada' is INCORRECTLY matched?", opts:["Kaushambi — Vatsa","Ujjain — Avanti","Rajagriha — Kosala","Champa — Anga"], a:2, f:"pred", exp:"Rajagriha was Magadha's capital, not Kosala's (Kosala's capital was Shravasti) — a classic reversed-pair trap."},
+  {q:"The shift of Magadha's capital from Rajagriha to Pataliputra reflects a broader ancient-Indian trend of locating capitals near:", opts:["Mountain passes for defence only","River confluences for trade and defence","Desert frontiers for isolation","Coastal ports for naval power"], a:1, f:"pred", exp:"Tests the underlying geography-of-power theme rather than rote recall — a likely GS-integration angle."},
+  {q:"With reference to the Nanda dynasty, consider the statements:\n1. Mahapadma Nanda was of Kshatriya lineage.\n2. Dhana Nanda's unpopularity is attributed to oppressive taxation.\nWhich is/are correct?", opts:["1 only","2 only","Both 1 and 2","Neither 1 nor 2"], a:1, f:"pred", exp:"Statement 1 is false — Mahapadma Nanda was of non-Kshatriya (Shudra) origin per the Puranas; statement 2 is correct."},
+  {q:"Which Magadhan ruler's reign saw BOTH a war using early siege technology AND a religious council?", opts:["Bimbisara","Ajatashatru","Udayin","Shishunaga"], a:1, f:"pred", exp:"Ajatashatru used Rathamusala/Mahashilakantaka against the Vajjis and also sponsored the 1st Buddhist Council."},
+  {q:"The transition of Magadhan capital across this chapter follows which correct sequence?", opts:["Pataliputra → Rajagriha → Vaishali","Rajagriha → Pataliputra → Vaishali (temporary)","Vaishali → Rajagriha → Pataliputra","Champa → Rajagriha → Pataliputra"], a:1, f:"pred", exp:"Rajagriha (Haryanka) → Pataliputra (from Udayin) → briefly Vaishali under early Shishunagas → back to Pataliputra."},
+  {q:"A Mahajanapada located partly in a region that today spans two Indian states, with capital Champa, is best described as being situated in the modern:", opts:["Bihar–West Bengal border belt","Uttar Pradesh–Bihar border belt","Madhya Pradesh–Rajasthan border belt","Punjab–Haryana border belt"], a:0, f:"pred", exp:"Anga corresponds broadly to the Bhagalpur–Munger belt, sometimes extended toward the West Bengal border — likely to appear as a 'modern region' identification question, relevant given Bihar-based aspirants."},
+  {q:"Which single feature is common to BOTH the Vajji and Malla Mahajanapadas?", opts:["Both were monarchies","Both were Gana-sangha (republican) polities","Both had Rajagriha as capital","Both were annexed by Shishunaga"], a:1, f:"pred", exp:"Vajji and Malla are the two classic republican (Gana-sangha) Mahajanapadas, often paired in 'type of government' questions."},
+  {q:"The defeat of the Vajji confederacy is significant in Indian political history chiefly because it:", opts:["Marked the end of monarchy in India","Marked the decline of the republican (Gana-sangha) model against monarchy","Led directly to Alexander's invasion","Caused the shift of capital to Ujjain"], a:1, f:"pred", exp:"Ajatashatru's victory over Vajji is often framed as symbolic of monarchy overpowering the republican Gana-sangha system — a likely conceptual (not just factual) question."},
+  {q:"Which of the following rulers is NOT correctly paired with his dynasty?", opts:["Kalashoka — Shishunaga","Udayin — Haryanka","Dhana Nanda — Nanda","Pradyota — Magadha"], a:3, f:"pred", exp:"Pradyota was the king of Avanti, not Magadha — testing whether students confuse rival kingdoms' rulers with Magadha's own line."},
+  {q:"In terms of exam weightage, this chapter is most frequently cross-linked with which other topic?", opts:["Indus Valley seals","Spread of Buddhism and Jainism","Mughal administration","Indian National Movement"], a:1, f:"pred", exp:"Because Bimbisara, Ajatashatru and Kalashoka are directly tied to the Buddha, Mahavira and the two Councils, expect combined questions with the Buddhism/Jainism chapter."},
+  {q:"A statement-based question may ask: 'Iron ore deposits near Rajgir gave Magadha an advantage in ___.' The best completion is:", opts:["Currency minting only","Weapon and tool manufacture","Temple architecture","Textile production"], a:1, f:"pred", exp:"Iron resources translated into superior weaponry/tools — a 'fill the reasoning gap' style question testing the 'why Magadha rose' theme."},
+  {q:"Which of these correctly orders the dynasties of Magadha from earliest to latest?", opts:["Nanda → Haryanka → Shishunaga → Maurya","Haryanka → Shishunaga → Nanda → Maurya","Shishunaga → Haryanka → Nanda → Maurya","Haryanka → Nanda → Shishunaga → Maurya"], a:1, f:"pred", exp:"Correct chronological order: Haryanka → Shishunaga → Nanda → Maurya — a very likely sequencing-type question."},
+  {q:"Which title distinguishes Mahapadma Nanda from all earlier Magadhan rulers discussed in this chapter?", opts:["Devanampiya","Ekarat","Chakravartin","Maharajadhiraja"], a:1, f:"pred", exp:"\"Ekarat\" (sole sovereign) is specifically linked with Mahapadma Nanda in most SSC-level sources, distinguishing him as the chapter's first true empire-builder."}
+];
+
+function buildQuestions(list, containerId, showFreqFilter){
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  list.forEach((item, i)=>{
+    const div = document.createElement('div');
+    div.className = 'q';
+    div.dataset.freq = item.f;
+    div.dataset.search = (item.q + ' ' + item.opts.join(' ')).toLowerCase();
+    const freqLabel = item.f === 'high' ? 'High freq' : item.f === 'med' ? 'Medium freq' : item.f === 'low' ? 'Low freq' : 'Predicted';
+    div.innerHTML = `
+      <div class="q-head">
+        <div class="q-num">Q${i+1}</div>
+        <div class="q-body">
+          <div class="q-text">${item.q.replace(/\n/g,'<br>')}</div>
+          <div class="q-meta"><span class="freq ${item.f}">${freqLabel}</span></div>
+        </div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="q-options">
+        ${item.opts.map((o,oi)=>`<div class="opt" data-oi="${oi}">${String.fromCharCode(65+oi)}. ${o}</div>`).join('')}
+        <div class="explain">${item.exp}</div>
+      </div>`;
+    const head = div.querySelector('.q-head');
+    head.addEventListener('click', ()=> div.classList.toggle('open'));
+    div.querySelectorAll('.opt').forEach(optEl=>{
+      optEl.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const oi = parseInt(optEl.dataset.oi);
+        div.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong'));
+        if(oi === item.a){ optEl.classList.add('correct'); }
+        else { optEl.classList.add('wrong'); div.querySelectorAll('.opt')[item.a].classList.add('correct'); }
+        div.querySelector('.explain').classList.add('show');
+      });
+    });
+    container.appendChild(div);
+  });
+}
+buildQuestions(pyqData, 'pyqList', true);
+buildQuestions(predData, 'predList', false);
+document.getElementById('pyqCount').textContent = pyqData.length + ' questions';
+document.getElementById('predCount').textContent = predData.length + ' questions';
+
+// pyq search + freq filter
+let activeFreq = 'all';
+document.getElementById('pyqSearch').addEventListener('input', filterPyq);
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+    chip.classList.add('on');
+    activeFreq = chip.dataset.f;
+    filterPyq();
+  });
+});
+function filterPyq(){
+  const q = document.getElementById('pyqSearch').value.toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('#pyqList .q').forEach(el=>{
+    const matchesText = el.dataset.search.includes(q);
+    const matchesFreq = activeFreq === 'all' || el.dataset.freq === activeFreq;
+    const show = matchesText && matchesFreq;
+    el.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  document.getElementById('pyqCount').textContent = visible + ' questions';
+}
+document.getElementById('predSearch').addEventListener('input', e=>{
+  const q = e.target.value.toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('#predList .q').forEach(el=>{
+    const show = el.dataset.search.includes(q);
+    el.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  document.getElementById('predCount').textContent = visible + ' questions';
+});
+</script>
+</body>
+</html>
