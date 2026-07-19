@@ -579,10 +579,17 @@ sscOnly.addEventListener('change', () => {
 // change on the same file, native viewers can silently ignore it after the
 // first load, so we force it by briefly clearing the iframe first.
 function loadChapterFile(filePath, hash){
+  const target = filePath + (hash ? ('#' + hash) : '');
+  // Wait for the blank page to actually finish loading before jumping to the
+  // real target. A fixed short delay (e.g. requestAnimationFrame) isn't
+  // reliable here — on slower loads the browser can drop the queued
+  // navigation and ignore the hash. Listening for the real 'load' event
+  // guarantees correct ordering every time.
+  frame.onload = function(){
+    frame.onload = null;
+    frame.src = target;
+  };
   frame.src = 'about:blank';
-  requestAnimationFrame(() => {
-    frame.src = filePath + (hash ? ('#' + hash) : '');
-  });
 }
 
 function goToLocalPage(page){
@@ -604,6 +611,7 @@ function openChapter(btn, secLabel, num, title, start, end, filePath){
   jumpBtns.style.display = 'flex';
 
   // Fresh chapter → brand-new file → plain, reliable navigation (page 1 by default).
+  frame.onload = null; // cancel any pending Start/End jump queued from the previous chapter
   frame.src = filePath;
   jumpStartBtn.classList.add('current');
   jumpEndBtn.classList.remove('current');
