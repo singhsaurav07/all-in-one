@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.S. Aggarwal — Reasoning | Chapter Navigator</title>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --paper:#f6f4ee;
+    --panel:#ffffff;
+    --line:#e2ded2;
+    --verbal:#2f5d50;      /* deep green - General Mental Ability */
+    --verbal-soft:#e7efe9;
+    --logic:#8a4b2f;       /* rust brown - Logical Deduction */
+    --logic-soft:#f3e7de;
+    --nonverbal:#2c4a7c;   /* steel blue - Non-Verbal */
+    --nonverbal-soft:#e6ecf5;
+    --muted:#6b6a63;
+    --accent:#c98a2c;
+    --ssc-must:#c0392b; --ssc-must-bg:#f8e2df;
+    --ssc-high:#c9782c; --ssc-high-bg:#f7ecdc;
+    --ssc-mod:#3f7d4a; --ssc-mod-bg:#e4efe3;
+    --ssc-skip:#8a8a82; --ssc-skip-bg:#eceae2;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:"Iowan Old Style","Georgia",serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+  }
+  header{
+    padding:18px 24px 14px;
+    border-bottom:2px solid var(--ink);
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    background:var(--paper);
+  }
+  header h1{
+    font-size:1.35rem;
+    margin:0;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+  header h1 small{
+    display:block;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    color:var(--muted);
+    margin-top:2px;
+    font-weight:500;
+  }
+  header .meta{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.72rem;
+    color:var(--muted);
+    text-align:right;
+  }
+  .layout{
+    flex:1;
+    display:flex;
+    min-height:0;
+  }
+  nav{
+    width:340px;
+    min-width:280px;
+    max-width:38vw;
+    overflow-y:auto;
+    border-right:2px solid var(--ink);
+    background:var(--panel);
+    padding:0 0 40px;
+  }
+  .section-block{
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    position:sticky;
+    top:0;
+    z-index:2;
+    padding:12px 16px 10px;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-head .dot{
+    width:9px;height:9px;border-radius:50%;flex:none;
+  }
+  .sec-verbal .section-head{background:var(--verbal-soft);color:var(--verbal);}
+  .sec-verbal .dot{background:var(--verbal);}
+  .sec-logic .section-head{background:var(--logic-soft);color:var(--logic);}
+  .sec-logic .dot{background:var(--logic);}
+  .sec-nonverbal .section-head{background:var(--nonverbal-soft);color:var(--nonverbal);}
+  .sec-nonverbal .dot{background:var(--nonverbal);}
+
+  .chapter{
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+    align-items:center;
+    row-gap:4px;
+    column-gap:8px;
+    padding:9px 16px;
+    border:none;
+    background:none;
+    text-align:left;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:0.92rem;
+    color:var(--ink);
+    border-left:3px solid transparent;
+    transition:background 0.12s ease, border-color 0.12s ease;
+  }
+  .chapter:hover{background:#faf8f2;}
+  .chapter.active{
+    font-weight:700;
+  }
+  .sec-verbal .chapter.active{background:var(--verbal-soft);border-left-color:var(--verbal);}
+  .sec-logic .chapter.active{background:var(--logic-soft);border-left-color:var(--logic);}
+  .sec-nonverbal .chapter.active{background:var(--nonverbal-soft);border-left-color:var(--nonverbal);}
+
+  .chapter .num{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.72rem;
+    color:var(--muted);
+    flex:none;
+  }
+  .chapter .title{flex:1 1 auto;min-width:120px;line-height:1.25;}
+  .chapter .pg{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.66rem;
+    color:var(--muted);
+    flex:none;
+    margin-left:auto;
+  }
+  .ssc-badge{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.62rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:2px 7px;
+    border-radius:20px;
+    flex:none;
+    white-space:nowrap;
+  }
+  .ssc-must{background:var(--ssc-must-bg);color:var(--ssc-must);}
+  .ssc-high{background:var(--ssc-high-bg);color:var(--ssc-high);}
+  .ssc-mod{background:var(--ssc-mod-bg);color:var(--ssc-mod);}
+  .ssc-skip{background:var(--ssc-skip-bg);color:var(--ssc-skip);}
+  .chapter.ssc-hidden{display:none;}
+
+  .legend{
+    padding:10px 16px 12px;
+    border-bottom:2px solid var(--ink);
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.7rem;
+    background:#fbf9f3;
+  }
+  .legend .legend-title{
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:6px;
+    font-size:0.64rem;
+  }
+  .legend-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .legend-toggle{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.7rem;
+    color:var(--ink);
+    cursor:pointer;
+    user-select:none;
+  }
+  .legend-toggle input{cursor:pointer;}
+
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    background:#3a3a36;
+  }
+  .toolbar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 18px;
+    background:#26261f;
+    color:#efece2;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.82rem;
+  }
+  .toolbar .crumb-label{
+    text-transform:uppercase;
+    font-size:0.62rem;
+    letter-spacing:0.12em;
+    color:#9b9a8e;
+    margin-right:4px;
+  }
+  .toolbar .crumb{font-weight:600;}
+  .toolbar .pageinfo{
+    margin-left:auto;
+    color:#c7c5b6;
+  }
+  .download-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 14px;
+    border-radius:5px;
+    background:var(--accent);
+    color:#26261f;
+    font-weight:700;
+    font-size:0.78rem;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:filter 0.12s ease;
+  }
+  .download-btn:hover{filter:brightness(1.08);}
+  .viewer-wrap{
+    flex:1;
+    min-height:0;
+    position:relative;
+  }
+  iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+    background:#555;
+  }
+  .empty-hint{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#cfcdbf;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:0.9rem;
+    text-align:center;
+    padding:0 40px;
+    pointer-events:none;
+  }
+
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-thumb{background:#d8d4c6;border-radius:6px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+
+  @media (max-width: 760px){
+    .layout{flex-direction:column;}
+    nav{width:100%;max-width:100%;border-right:none;border-bottom:2px solid var(--ink);max-height:42vh;}
+    main{min-height:52vh;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>A Modern Approach to Verbal &amp; Non-Verbal Reasoning
+    <small>R.S. Aggarwal — Chapter Navigator</small>
+  </h1>
+  <div class="meta">1171 pages · 47 chapters · 3 sections</div>
+</header>
+
+<div class="legend">
+  <div class="legend-title">SSC CGL relevance (Tier 1 + Tier 2 syllabus)</div>
+  <div class="legend-row">
+    <span class="ssc-badge ssc-must">Must-do</span>
+    <span class="ssc-badge ssc-high">High</span>
+    <span class="ssc-badge ssc-mod">Moderate</span>
+    <span class="ssc-badge ssc-skip">Not in SSC syllabus</span>
+    <label class="legend-toggle">
+      <input type="checkbox" id="sscOnly">Show only SSC CGL chapters
+    </label>
+  </div>
+</div>
+
+<div class="layout">
+  <nav id="nav"></nav>
+  <main>
+    <div class="toolbar">
+      <span class="crumb-label">Chapter</span>
+      <span class="crumb" id="crumb">Select a chapter to begin →</span>
+      <span class="pageinfo" id="pageinfo"></span>
+      <a id="downloadBtn" class="download-btn" style="display:none" download>⬇ Download this chapter</a>
+    </div>
+    <div class="viewer-wrap">
+      <iframe id="pdfFrame" src=""></iframe>
+      <div class="empty-hint" id="emptyHint">
+        Click any chapter on the left. It opens the PDF scrolled straight to that chapter's first page.<br>
+        (If your browser downloads the file instead of showing it inline, open the PDF once, then click a chapter again.)
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const PDF_FILE = "RS_Aggarwal_Reasoning.pdf";
+
+// Page numbers below are the actual PDF page indices (not the printed
+// in-book page numbers), located by scanning the file's text layer.
+const sections = [
+  {
+    key: "verbal1",
+    cls: "sec-verbal",
+    label: "Section I · General Mental Ability (Verbal)",
+    dir: "chapters/1_General_Mental_Ability",
+    chapters: [
+      ["1","Analogy",17,"01_Analogy.pdf","must"],
+      ["2","Classification",111,"02_Classification.pdf","must"],
+      ["3","Series Completion",155,"03_Series_Completion.pdf","must"],
+      ["4","Coding–Decoding",185,"04_Coding_Decoding.pdf","must"],
+      ["5","Blood Relations",236,"05_Blood_Relations.pdf","mod"],
+      ["6","Puzzle Test",258,"06_Puzzle_Test.pdf","must"],
+      ["7","Sequential Output Tracing",334,"07_Sequential_Output_Tracing.pdf","skip"],
+      ["8","Direction Sense Test",340,"08_Direction_Sense_Test.pdf","mod"],
+      ["9","Logical Venn Diagrams",362,"09_Logical_Venn_Diagrams.pdf","must"],
+      ["10","Alphabet Test",400,"10_Alphabet_Test.pdf","high"],
+      ["11","Number, Ranking & Time Sequence Test",433,"11_Number_Ranking_Time_Sequence_Test.pdf","mod"],
+      ["12","Mathematical Operations",449,"12_Mathematical_Operations.pdf","mod"],
+      ["13","Logical Sequence of Words",471,"13_Logical_Sequence_of_Words.pdf","high"],
+      ["14","Arithmetical Reasoning",475,"14_Arithmetical_Reasoning.pdf","skip"],
+      ["15","Inserting the Missing Character",491,"15_Inserting_the_Missing_Character.pdf","skip"],
+      ["16","Data Sufficiency",511,"16_Data_Sufficiency.pdf","skip"],
+      ["17","Decision Making",523,"17_Decision_Making.pdf","skip"],
+      ["18","Assertion and Reason",556,"18_Assertion_and_Reason.pdf","skip"],
+      ["19","Situation Reaction Test",567,"19_Situation_Reaction_Test.pdf","skip"],
+      ["20","Verification of Truth of the Statement",572,"20_Verification_of_Truth_of_the_Statement.pdf","skip"]
+    ]
+  },
+  {
+    key: "verbal2",
+    cls: "sec-logic",
+    label: "Section II · Logical Deduction (Verbal)",
+    dir: "chapters/2_Logical_Deduction",
+    chapters: [
+      ["1","Logic",577,"01_Logic.pdf","must"],
+      ["2","Statement — Arguments",604,"02_Statement_Arguments.pdf","skip"],
+      ["3","Statement — Assumptions",624,"03_Statement_Assumptions.pdf","high"],
+      ["4","Statement — Courses of Action",661,"04_Statement_Courses_of_Action.pdf","skip"],
+      ["5","Statement — Conclusions",676,"05_Statement_Conclusions.pdf","high"],
+      ["6","Deriving Conclusions from Passages",698,"06_Deriving_Conclusions_from_Passages.pdf","skip"],
+      ["7","Theme Detection",721,"07_Theme_Detection.pdf","skip"],
+      ["8","Question — Statements",727,"08_Question_Statements.pdf","skip"],
+      ["9","Miscellaneous Logical Puzzles",731,"09_Miscellaneous_Logical_Puzzles.pdf","mod"]
+    ]
+  },
+  {
+    key: "nonverbal",
+    cls: "sec-nonverbal",
+    label: "Non-Verbal Reasoning",
+    dir: "chapters/3_Non_Verbal_Reasoning",
+    chapters: [
+      ["1","Series",736,"01_Series.pdf","must"],
+      ["2","Analogy",871,"02_Analogy.pdf","must"],
+      ["3","Classification",941,"03_Classification.pdf","must"],
+      ["4","Analytical Reasoning",976,"04_Analytical_Reasoning.pdf","mod"],
+      ["5","Mirror Images",1001,"05_Mirror_Images.pdf","must"],
+      ["6","Water Images",1012,"06_Water_Images.pdf","must"],
+      ["7","Embedded Figures",1023,"07_Embedded_Figures.pdf","must"],
+      ["8","Completion of Incomplete Pattern",1037,"08_Completion_of_Incomplete_Pattern.pdf","high"],
+      ["9","Figure Matrix",1047,"09_Figure_Matrix.pdf","must"],
+      ["10","Paper Folding",1055,"10_Paper_Folding.pdf","must"],
+      ["11","Paper Cutting",1061,"11_Paper_Cutting.pdf","must"],
+      ["12","Rule Detection",1077,"12_Rule_Detection.pdf","skip"],
+      ["13","Grouping of Identical Figures",1080,"13_Grouping_of_Identical_Figures.pdf","mod"],
+      ["14","Cubes and Dice",1086,"14_Cubes_and_Dice.pdf","skip"],
+      ["15","Dot Situation",1129,"15_Dot_Situation.pdf","skip"],
+      ["16","Construction of Squares & Triangles",1138,"16_Construction_of_Squares_Triangles.pdf","skip"],
+      ["17","Figure Formation & Analysis",1149,"17_Figure_Formation_and_Analysis.pdf","mod"],
+      ["18","Practice Question Set",1157,"18_Practice_Question_Set.pdf","mod"]
+    ]
+  }
+];
+
+const navEl = document.getElementById('nav');
+const frame = document.getElementById('pdfFrame');
+const crumb = document.getElementById('crumb');
+const pageinfo = document.getElementById('pageinfo');
+const emptyHint = document.getElementById('emptyHint');
+const downloadBtn = document.getElementById('downloadBtn');
+const sscOnly = document.getElementById('sscOnly');
+
+const SSC_LABEL = {
+  must: "Must-do",
+  high: "High",
+  mod: "Moderate",
+  skip: "Not in SSC syllabus"
+};
+
+let buttons = [];
+
+sections.forEach(sec => {
+  const block = document.createElement('div');
+  block.className = 'section-block ' + sec.cls;
+
+  const head = document.createElement('div');
+  head.className = 'section-head';
+  head.innerHTML = '<span class="dot"></span>' + sec.label;
+  block.appendChild(head);
+
+  sec.chapters.forEach(([num, title, page, file, ssc]) => {
+    const btn = document.createElement('button');
+    btn.className = 'chapter';
+    btn.dataset.ssc = ssc;
+    btn.innerHTML = '<span class="num">'+num+'.</span><span class="title">'+title+'</span>'
+      + '<span class="ssc-badge ssc-'+ssc+'">'+SSC_LABEL[ssc]+'</span>'
+      + '<span class="pg">p.'+page+'</span>';
+    const filePath = sec.dir + '/' + file;
+    btn.addEventListener('click', () => openChapter(btn, sec.label, num, title, page, filePath));
+    block.appendChild(btn);
+    buttons.push(btn);
+  });
+
+  navEl.appendChild(block);
+});
+
+sscOnly.addEventListener('change', () => {
+  buttons.forEach(b => {
+    const show = !sscOnly.checked || b.dataset.ssc !== 'skip';
+    b.classList.toggle('ssc-hidden', !show);
+  });
+});
+
+function openChapter(btn, secLabel, num, title, page, filePath){
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  crumb.textContent = secLabel.split('·').pop().trim() + ' — ' + num + '. ' + title;
+  pageinfo.textContent = 'PDF page ' + page;
+  emptyHint.style.display = 'none';
+  // Force reload even if same page clicked twice, and land on the chapter's opening page.
+  frame.src = PDF_FILE + '#page=' + page + '&view=FitH&t=' + Date.now();
+
+  // Wire up the standalone single-chapter PDF for download.
+  downloadBtn.href = filePath;
+  downloadBtn.setAttribute('download', filePath.split('/').pop());
+  downloadBtn.style.display = 'inline-flex';
+}
+</script>
+
+</body>
+</html>
