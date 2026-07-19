@@ -69,22 +69,82 @@
     flex:1;
     display:flex;
     min-height:0;
+    position:relative;
   }
   nav{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
     width:340px;
     min-width:280px;
-    max-width:38vw;
+    max-width:85vw;
     overflow-y:auto;
     border-right:2px solid var(--ink);
     background:var(--panel);
     padding:0 0 40px;
+    z-index:200;
+    transform:translateX(-100%);
+    transition:transform 0.28s ease;
+    box-shadow:2px 0 24px rgba(0,0,0,0.25);
+  }
+  nav.nav-open{transform:translateX(0);}
+  .nav-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:150;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.25s ease;
+  }
+  .nav-backdrop.show{opacity:1;pointer-events:auto;}
+  .nav-close{
+    position:sticky;
+    top:0;
+    z-index:5;
+    display:flex;
+    justify-content:flex-end;
+    padding:10px 12px 0;
+    background:var(--panel);
+  }
+  .nav-close button{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:6px;
+    padding:4px 10px;
+    font-size:0.8rem;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .hamburger{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:4px;
+    width:34px;
+    height:30px;
+    border:1px solid #444;
+    border-radius:6px;
+    background:#2f2f27;
+    cursor:pointer;
+    flex:none;
+    padding:0;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:18px;
+    margin:0 auto;
+    background:#efece2;
+    border-radius:2px;
   }
   .section-block{
     border-bottom:1px solid var(--line);
   }
   .section-head{
     position:sticky;
-    top:0;
+    top:38px;
     z-index:2;
     padding:12px 16px 10px;
     font-family:"Helvetica Neue",Arial,sans-serif;
@@ -234,6 +294,20 @@
     transition:filter 0.12s ease;
   }
   .download-btn:hover{filter:brightness(1.08);}
+  .jump-btns{display:flex;gap:6px;}
+  .jump-btn{
+    border:1px solid #444;
+    background:#2f2f27;
+    color:#efece2;
+    padding:5px 11px;
+    border-radius:5px;
+    font-size:0.75rem;
+    cursor:pointer;
+    font-family:inherit;
+    white-space:nowrap;
+  }
+  .jump-btn:hover{background:#3a3a30;}
+  .jump-btn.current{background:var(--accent);color:#26261f;font-weight:700;border-color:var(--accent);}
   .viewer-wrap{
     flex:1;
     min-height:0;
@@ -265,18 +339,21 @@
   ::-webkit-scrollbar-track{background:transparent;}
 
   @media (max-width: 760px){
-    .layout{flex-direction:column;}
-    nav{width:100%;max-width:100%;border-right:none;border-bottom:2px solid var(--ink);max-height:42vh;}
-    main{min-height:52vh;}
+    nav{width:88vw;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>A Modern Approach to Verbal &amp; Non-Verbal Reasoning
-    <small>R.S. Aggarwal — Chapter Navigator</small>
-  </h1>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle chapter list" title="Chapter list">
+      <span></span><span></span><span></span>
+    </button>
+    <h1>A Modern Approach to Verbal &amp; Non-Verbal Reasoning
+      <small>R.S. Aggarwal — Chapter Navigator</small>
+    </h1>
+  </div>
   <div class="meta">1171 pages · 47 chapters · 3 sections</div>
 </header>
 
@@ -294,19 +371,26 @@
 </div>
 
 <div class="layout">
-  <nav id="nav"></nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <nav id="nav">
+    <div class="nav-close"><button id="navCloseBtn">Close ✕</button></div>
+  </nav>
   <main>
     <div class="toolbar">
       <span class="crumb-label">Chapter</span>
       <span class="crumb" id="crumb">Select a chapter to begin →</span>
       <span class="pageinfo" id="pageinfo"></span>
+      <div class="jump-btns" id="jumpBtns" style="display:none">
+        <button class="jump-btn" id="jumpStartBtn">⏮ Start</button>
+        <button class="jump-btn" id="jumpEndBtn">End ⏭</button>
+      </div>
       <a id="downloadBtn" class="download-btn" style="display:none" download>⬇ Download this chapter</a>
     </div>
     <div class="viewer-wrap">
       <iframe id="pdfFrame" src=""></iframe>
       <div class="empty-hint" id="emptyHint">
-        Click any chapter on the left. It opens the PDF scrolled straight to that chapter's first page.<br>
-        (If your browser downloads the file instead of showing it inline, open the PDF once, then click a chapter again.)
+        Tap the ☰ menu, top-left, to open the chapter list.<br>
+        Click any chapter — it opens the PDF scrolled straight to that chapter's first page.
       </div>
     </div>
   </main>
@@ -324,26 +408,26 @@ const sections = [
     label: "Section I · General Mental Ability (Verbal)",
     dir: "chapters/1_General_Mental_Ability",
     chapters: [
-      ["1","Analogy",17,"01_Analogy.pdf","must"],
-      ["2","Classification",111,"02_Classification.pdf","must"],
-      ["3","Series Completion",155,"03_Series_Completion.pdf","must"],
-      ["4","Coding–Decoding",185,"04_Coding_Decoding.pdf","must"],
-      ["5","Blood Relations",236,"05_Blood_Relations.pdf","mod"],
-      ["6","Puzzle Test",258,"06_Puzzle_Test.pdf","must"],
-      ["7","Sequential Output Tracing",334,"07_Sequential_Output_Tracing.pdf","skip"],
-      ["8","Direction Sense Test",340,"08_Direction_Sense_Test.pdf","mod"],
-      ["9","Logical Venn Diagrams",362,"09_Logical_Venn_Diagrams.pdf","must"],
-      ["10","Alphabet Test",400,"10_Alphabet_Test.pdf","high"],
-      ["11","Number, Ranking & Time Sequence Test",433,"11_Number_Ranking_Time_Sequence_Test.pdf","mod"],
-      ["12","Mathematical Operations",449,"12_Mathematical_Operations.pdf","mod"],
-      ["13","Logical Sequence of Words",471,"13_Logical_Sequence_of_Words.pdf","high"],
-      ["14","Arithmetical Reasoning",475,"14_Arithmetical_Reasoning.pdf","skip"],
-      ["15","Inserting the Missing Character",491,"15_Inserting_the_Missing_Character.pdf","skip"],
-      ["16","Data Sufficiency",511,"16_Data_Sufficiency.pdf","skip"],
-      ["17","Decision Making",523,"17_Decision_Making.pdf","skip"],
-      ["18","Assertion and Reason",556,"18_Assertion_and_Reason.pdf","skip"],
-      ["19","Situation Reaction Test",567,"19_Situation_Reaction_Test.pdf","skip"],
-      ["20","Verification of Truth of the Statement",572,"20_Verification_of_Truth_of_the_Statement.pdf","skip"]
+      ["1","Analogy",17,110,"01_Analogy.pdf","must"],
+      ["2","Classification",111,154,"02_Classification.pdf","must"],
+      ["3","Series Completion",155,184,"03_Series_Completion.pdf","must"],
+      ["4","Coding–Decoding",185,235,"04_Coding_Decoding.pdf","must"],
+      ["5","Blood Relations",236,257,"05_Blood_Relations.pdf","mod"],
+      ["6","Puzzle Test",258,333,"06_Puzzle_Test.pdf","must"],
+      ["7","Sequential Output Tracing",334,339,"07_Sequential_Output_Tracing.pdf","skip"],
+      ["8","Direction Sense Test",340,361,"08_Direction_Sense_Test.pdf","mod"],
+      ["9","Logical Venn Diagrams",362,399,"09_Logical_Venn_Diagrams.pdf","must"],
+      ["10","Alphabet Test",400,432,"10_Alphabet_Test.pdf","high"],
+      ["11","Number, Ranking & Time Sequence Test",433,448,"11_Number_Ranking_Time_Sequence_Test.pdf","mod"],
+      ["12","Mathematical Operations",449,470,"12_Mathematical_Operations.pdf","mod"],
+      ["13","Logical Sequence of Words",471,474,"13_Logical_Sequence_of_Words.pdf","high"],
+      ["14","Arithmetical Reasoning",475,490,"14_Arithmetical_Reasoning.pdf","skip"],
+      ["15","Inserting the Missing Character",491,510,"15_Inserting_the_Missing_Character.pdf","skip"],
+      ["16","Data Sufficiency",511,522,"16_Data_Sufficiency.pdf","skip"],
+      ["17","Decision Making",523,555,"17_Decision_Making.pdf","skip"],
+      ["18","Assertion and Reason",556,566,"18_Assertion_and_Reason.pdf","skip"],
+      ["19","Situation Reaction Test",567,571,"19_Situation_Reaction_Test.pdf","skip"],
+      ["20","Verification of Truth of the Statement",572,576,"20_Verification_of_Truth_of_the_Statement.pdf","skip"]
     ]
   },
   {
@@ -352,15 +436,15 @@ const sections = [
     label: "Section II · Logical Deduction (Verbal)",
     dir: "chapters/2_Logical_Deduction",
     chapters: [
-      ["1","Logic",577,"01_Logic.pdf","must"],
-      ["2","Statement — Arguments",604,"02_Statement_Arguments.pdf","skip"],
-      ["3","Statement — Assumptions",624,"03_Statement_Assumptions.pdf","high"],
-      ["4","Statement — Courses of Action",661,"04_Statement_Courses_of_Action.pdf","skip"],
-      ["5","Statement — Conclusions",676,"05_Statement_Conclusions.pdf","high"],
-      ["6","Deriving Conclusions from Passages",698,"06_Deriving_Conclusions_from_Passages.pdf","skip"],
-      ["7","Theme Detection",721,"07_Theme_Detection.pdf","skip"],
-      ["8","Question — Statements",727,"08_Question_Statements.pdf","skip"],
-      ["9","Miscellaneous Logical Puzzles",731,"09_Miscellaneous_Logical_Puzzles.pdf","mod"]
+      ["1","Logic",577,603,"01_Logic.pdf","must"],
+      ["2","Statement — Arguments",604,623,"02_Statement_Arguments.pdf","skip"],
+      ["3","Statement — Assumptions",624,660,"03_Statement_Assumptions.pdf","high"],
+      ["4","Statement — Courses of Action",661,675,"04_Statement_Courses_of_Action.pdf","skip"],
+      ["5","Statement — Conclusions",676,697,"05_Statement_Conclusions.pdf","high"],
+      ["6","Deriving Conclusions from Passages",698,720,"06_Deriving_Conclusions_from_Passages.pdf","skip"],
+      ["7","Theme Detection",721,726,"07_Theme_Detection.pdf","skip"],
+      ["8","Question — Statements",727,730,"08_Question_Statements.pdf","skip"],
+      ["9","Miscellaneous Logical Puzzles",731,735,"09_Miscellaneous_Logical_Puzzles.pdf","mod"]
     ]
   },
   {
@@ -369,24 +453,24 @@ const sections = [
     label: "Non-Verbal Reasoning",
     dir: "chapters/3_Non_Verbal_Reasoning",
     chapters: [
-      ["1","Series",736,"01_Series.pdf","must"],
-      ["2","Analogy",871,"02_Analogy.pdf","must"],
-      ["3","Classification",941,"03_Classification.pdf","must"],
-      ["4","Analytical Reasoning",976,"04_Analytical_Reasoning.pdf","mod"],
-      ["5","Mirror Images",1001,"05_Mirror_Images.pdf","must"],
-      ["6","Water Images",1012,"06_Water_Images.pdf","must"],
-      ["7","Embedded Figures",1023,"07_Embedded_Figures.pdf","must"],
-      ["8","Completion of Incomplete Pattern",1037,"08_Completion_of_Incomplete_Pattern.pdf","high"],
-      ["9","Figure Matrix",1047,"09_Figure_Matrix.pdf","must"],
-      ["10","Paper Folding",1055,"10_Paper_Folding.pdf","must"],
-      ["11","Paper Cutting",1061,"11_Paper_Cutting.pdf","must"],
-      ["12","Rule Detection",1077,"12_Rule_Detection.pdf","skip"],
-      ["13","Grouping of Identical Figures",1080,"13_Grouping_of_Identical_Figures.pdf","mod"],
-      ["14","Cubes and Dice",1086,"14_Cubes_and_Dice.pdf","skip"],
-      ["15","Dot Situation",1129,"15_Dot_Situation.pdf","skip"],
-      ["16","Construction of Squares & Triangles",1138,"16_Construction_of_Squares_Triangles.pdf","skip"],
-      ["17","Figure Formation & Analysis",1149,"17_Figure_Formation_and_Analysis.pdf","mod"],
-      ["18","Practice Question Set",1157,"18_Practice_Question_Set.pdf","mod"]
+      ["1","Series",736,870,"01_Series.pdf","must"],
+      ["2","Analogy",871,940,"02_Analogy.pdf","must"],
+      ["3","Classification",941,975,"03_Classification.pdf","must"],
+      ["4","Analytical Reasoning",976,1000,"04_Analytical_Reasoning.pdf","mod"],
+      ["5","Mirror Images",1001,1011,"05_Mirror_Images.pdf","must"],
+      ["6","Water Images",1012,1022,"06_Water_Images.pdf","must"],
+      ["7","Embedded Figures",1023,1036,"07_Embedded_Figures.pdf","must"],
+      ["8","Completion of Incomplete Pattern",1037,1046,"08_Completion_of_Incomplete_Pattern.pdf","high"],
+      ["9","Figure Matrix",1047,1054,"09_Figure_Matrix.pdf","must"],
+      ["10","Paper Folding",1055,1060,"10_Paper_Folding.pdf","must"],
+      ["11","Paper Cutting",1061,1076,"11_Paper_Cutting.pdf","must"],
+      ["12","Rule Detection",1077,1079,"12_Rule_Detection.pdf","skip"],
+      ["13","Grouping of Identical Figures",1080,1085,"13_Grouping_of_Identical_Figures.pdf","mod"],
+      ["14","Cubes and Dice",1086,1128,"14_Cubes_and_Dice.pdf","skip"],
+      ["15","Dot Situation",1129,1137,"15_Dot_Situation.pdf","skip"],
+      ["16","Construction of Squares & Triangles",1138,1148,"16_Construction_of_Squares_Triangles.pdf","skip"],
+      ["17","Figure Formation & Analysis",1149,1156,"17_Figure_Formation_and_Analysis.pdf","mod"],
+      ["18","Practice Question Set",1157,1171,"18_Practice_Question_Set.pdf","mod"]
     ]
   }
 ];
@@ -398,6 +482,12 @@ const pageinfo = document.getElementById('pageinfo');
 const emptyHint = document.getElementById('emptyHint');
 const downloadBtn = document.getElementById('downloadBtn');
 const sscOnly = document.getElementById('sscOnly');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navCloseBtn = document.getElementById('navCloseBtn');
+const navBackdrop = document.getElementById('navBackdrop');
+const jumpBtns = document.getElementById('jumpBtns');
+const jumpStartBtn = document.getElementById('jumpStartBtn');
+const jumpEndBtn = document.getElementById('jumpEndBtn');
 
 const SSC_LABEL = {
   must: "Must-do",
@@ -407,7 +497,22 @@ const SSC_LABEL = {
 };
 
 let buttons = [];
+let currentChapter = null; // {start, end}
 
+// --- Off-canvas nav toggle ---
+function openNav(){
+  document.getElementById('nav').classList.add('nav-open');
+  navBackdrop.classList.add('show');
+}
+function closeNav(){
+  document.getElementById('nav').classList.remove('nav-open');
+  navBackdrop.classList.remove('show');
+}
+hamburgerBtn.addEventListener('click', openNav);
+navCloseBtn.addEventListener('click', closeNav);
+navBackdrop.addEventListener('click', closeNav);
+
+// --- Build chapter list ---
 sections.forEach(sec => {
   const block = document.createElement('div');
   block.className = 'section-block ' + sec.cls;
@@ -417,15 +522,18 @@ sections.forEach(sec => {
   head.innerHTML = '<span class="dot"></span>' + sec.label;
   block.appendChild(head);
 
-  sec.chapters.forEach(([num, title, page, file, ssc]) => {
+  sec.chapters.forEach(([num, title, start, end, file, ssc]) => {
     const btn = document.createElement('button');
     btn.className = 'chapter';
     btn.dataset.ssc = ssc;
     btn.innerHTML = '<span class="num">'+num+'.</span><span class="title">'+title+'</span>'
       + '<span class="ssc-badge ssc-'+ssc+'">'+SSC_LABEL[ssc]+'</span>'
-      + '<span class="pg">p.'+page+'</span>';
+      + '<span class="pg">p.'+start+'–'+end+'</span>';
     const filePath = sec.dir + '/' + file;
-    btn.addEventListener('click', () => openChapter(btn, sec.label, num, title, page, filePath));
+    btn.addEventListener('click', () => {
+      openChapter(btn, sec.label, num, title, start, end, filePath);
+      closeNav(); // auto-collapse so the PDF gets full space right after picking a chapter
+    });
     block.appendChild(btn);
     buttons.push(btn);
   });
@@ -440,20 +548,44 @@ sscOnly.addEventListener('change', () => {
   });
 });
 
-function openChapter(btn, secLabel, num, title, page, filePath){
+// --- Reliable page navigation ---
+// Native PDF viewers (Chrome/Firefox/Safari) only read the #page= hash on a
+// fresh load of the document; changing iframe.src to the same file with a
+// different hash is often ignored after the first click. To force every
+// click to actually jump, we blank the iframe first, then load the target
+// hash on the next tick. We deliberately do NOT add a cache-busting query
+// string, so the browser reuses its cached copy of the (large) PDF instead
+// of re-downloading it every time — that's what was causing the slow
+// "full reload" feeling.
+function goToPage(page){
+  frame.src = 'about:blank';
+  requestAnimationFrame(() => {
+    frame.src = PDF_FILE + '#page=' + page + '&view=FitH';
+  });
+  jumpStartBtn.classList.toggle('current', currentChapter && page === currentChapter.start);
+  jumpEndBtn.classList.toggle('current', currentChapter && page === currentChapter.end);
+}
+
+function openChapter(btn, secLabel, num, title, start, end, filePath){
   buttons.forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  currentChapter = {start, end};
+
   crumb.textContent = secLabel.split('·').pop().trim() + ' — ' + num + '. ' + title;
-  pageinfo.textContent = 'PDF page ' + page;
+  pageinfo.textContent = 'Pages ' + start + '–' + end;
   emptyHint.style.display = 'none';
-  // Force reload even if same page clicked twice, and land on the chapter's opening page.
-  frame.src = PDF_FILE + '#page=' + page + '&view=FitH&t=' + Date.now();
+  jumpBtns.style.display = 'flex';
+
+  goToPage(start);
 
   // Wire up the standalone single-chapter PDF for download.
   downloadBtn.href = filePath;
   downloadBtn.setAttribute('download', filePath.split('/').pop());
   downloadBtn.style.display = 'inline-flex';
 }
+
+jumpStartBtn.addEventListener('click', () => { if(currentChapter) goToPage(currentChapter.start); });
+jumpEndBtn.addEventListener('click', () => { if(currentChapter) goToPage(currentChapter.end); });
 </script>
 
 </body>
