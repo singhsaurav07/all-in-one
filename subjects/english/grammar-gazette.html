@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grammar Gazette — SSC CGL English Rule Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFF7EC;
+    --paper-2:#FFF1DC;
+    --saffron:#FF6F1A;
+    --saffron-2:#FF8A3D;
+    --deep:#A6390A;
+    --deep-2:#7A2B08;
+    --ink:#2B1B0E;
+    --ink-soft:#5B4636;
+    --correct:#1F6B45;
+    --correct-bg:#E7F3EA;
+    --incorrect:#A6291D;
+    --incorrect-bg:#FBEAE6;
+    --gold-line:#E3B36A;
+    --seal:#FFE3C2;
+    --shadow: 0 10px 30px -12px rgba(122,43,8,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(255,111,26,0.08), transparent 40%),
+      radial-gradient(circle at 0% 20%, rgba(255,111,26,0.06), transparent 35%);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    background:linear-gradient(180deg, var(--deep) 0%, var(--deep-2) 100%);
+    color:#FFF4E6;
+    padding:14px 20px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .masthead::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:6px;
+    background:repeating-linear-gradient(90deg, var(--saffron) 0 18px, #FFE3C2 18px 20px);
+  }
+  .masthead-inner{
+    max-width:1080px; margin:0 auto; padding:18px 0 26px;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--saffron-2); margin:0 0 8px;
+  }
+  .masthead h1{
+    font-family:'Fraunces', serif; font-weight:700; font-size:44px; line-height:1.02;
+    margin:0; letter-spacing:-0.01em;
+  }
+  .masthead h1 em{font-style:italic; font-weight:500; color:var(--saffron-2);}
+  .masthead p.sub{
+    max-width:480px; margin:10px 0 0; color:#F3D9BB; font-size:14.5px; line-height:1.5;
+  }
+  .issue-box{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:#FFE3C2;
+    border:1px solid rgba(255,227,194,0.35); border-radius:10px; padding:12px 16px;
+    text-align:right; line-height:1.7; white-space:nowrap;
+  }
+  .issue-box b{color:#fff; font-size:13px;}
+
+  /* ===== Controls bar ===== */
+  .controls{
+    position:sticky; top:0; z-index:30;
+    background:rgba(255,247,236,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--gold-line);
+    padding:14px 20px;
+  }
+  .controls-inner{max-width:1080px; margin:0 auto;}
+  .search-row{display:flex; gap:10px; align-items:center;}
+  .search-row input{
+    flex:1; font-family:'Inter'; font-size:15px; padding:11px 16px;
+    border:1.5px solid var(--gold-line); border-radius:999px; background:#fff; color:var(--ink);
+    outline:none; transition:border-color .15s, box-shadow .15s;
+  }
+  .search-row input:focus{border-color:var(--saffron); box-shadow:0 0 0 3px rgba(255,111,26,0.15);}
+  .count-pill{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--deep);
+    background:var(--seal); border-radius:999px; padding:9px 14px; white-space:nowrap;
+    border:1px solid var(--gold-line);
+  }
+  .tabbar{
+    position:relative;
+    margin-top:14px;
+    border-top:1px solid var(--gold-line);
+    padding-top:10px;
+  }
+  .tabbar-scroll{
+    display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
+    padding-bottom:12px; scroll-behavior:smooth;
+  }
+  .tabbar-scroll::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto; white-space:nowrap; font-size:13px; font-weight:600; color:var(--ink-soft);
+    padding:8px 16px; border-radius:8px 8px 0 0; cursor:pointer; user-select:none;
+    transition:color .15s, background .15s; position:relative;
+  }
+  .tab .n{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; opacity:.6; margin-left:5px;
+  }
+  .tab:hover{color:var(--deep-2); background:rgba(255,111,26,0.08);}
+  .tab.active{color:var(--deep-2); background:var(--seal);}
+  .tab-indicator{
+    position:absolute; bottom:0; height:3px; background:var(--saffron);
+    border-radius:3px 3px 0 0; transition:left .28s cubic-bezier(.4,0,.2,1), width .28s cubic-bezier(.4,0,.2,1);
+  }
+  .tabbar-fade-l, .tabbar-fade-r{
+    position:absolute; top:10px; bottom:12px; width:28px; pointer-events:none; z-index:2;
+  }
+  .tabbar-fade-l{left:0; background:linear-gradient(90deg, rgba(255,247,236,0.95), transparent);}
+  .tabbar-fade-r{right:0; background:linear-gradient(270deg, rgba(255,247,236,0.95), transparent);}
+
+  /* ===== Content ===== */
+  main{max-width:1080px; margin:0 auto; padding:34px 20px 80px;}
+  .category{margin-bottom:44px;}
+  .category-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:18px;
+    padding-bottom:10px; border-bottom:2px solid var(--deep);
+  }
+  .category-head h2{
+    font-family:'Fraunces', serif; font-weight:700; font-size:24px; margin:0; color:var(--deep-2);
+  }
+  .category-head .tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--deep);
+    background:var(--seal); padding:4px 10px; border-radius:6px;
+  }
+  .category-note{font-size:13px; color:var(--ink-soft); margin:-12px 0 18px; max-width:640px;}
+
+  .grid{display:grid; grid-template-columns:1fr; gap:14px;}
+
+  .rule-card{
+    background:#fff; border:1px solid var(--gold-line); border-radius:14px;
+    padding:20px 22px 18px 22px; box-shadow:var(--shadow);
+    display:grid; grid-template-columns:56px 1fr; gap:18px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .rule-card:hover{transform:translateY(-2px); box-shadow:0 16px 34px -14px rgba(122,43,8,0.32);}
+  .seal{
+    width:52px; height:52px; border-radius:50%;
+    background:
+      repeating-conic-gradient(var(--saffron) 0deg 10deg, var(--saffron-2) 10deg 20deg);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .seal::before{
+    content:""; position:absolute; width:38px; height:38px; border-radius:50%;
+    background:#fff;
+  }
+  .seal span{
+    position:relative; font-family:'JetBrains Mono', monospace; font-weight:700;
+    font-size:14px; color:var(--deep-2);
+  }
+  .rule-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px; margin:0 0 4px;
+    color:var(--ink);
+  }
+  .rule-statement{font-size:13.5px; color:var(--ink-soft); margin:0 0 12px; line-height:1.5;}
+  .example-row{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;
+  }
+  .example{
+    flex:1; min-width:220px; border-radius:9px; padding:9px 12px; font-size:13.5px;
+    font-family:'JetBrains Mono', monospace; line-height:1.5;
+  }
+  .example.wrong{background:var(--incorrect-bg); color:var(--incorrect);}
+  .example.right{background:var(--correct-bg); color:var(--correct);}
+  .example b{font-family:'Inter'; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; display:block; margin-bottom:3px; opacity:.85;}
+  .reason{
+    font-size:13.5px; color:var(--ink); line-height:1.55; margin:0;
+    border-left:3px solid var(--saffron); padding:9px 14px; background:var(--paper-2); border-radius:0 8px 8px 0;
+  }
+  .reason b{color:var(--deep-2); font-family:'Inter'; font-size:12px; text-transform:uppercase; letter-spacing:.06em;}
+
+  .no-results{
+    text-align:center; padding:60px 20px; color:var(--ink-soft); font-family:'Fraunces', serif; font-size:18px;
+  }
+
+  footer{
+    text-align:center; padding:30px 20px 50px; color:var(--ink-soft); font-size:12.5px;
+    border-top:1px solid var(--gold-line);
+  }
+  footer b{color:var(--deep-2);}
+
+  @media (max-width:600px){
+    .masthead h1{font-size:32px;}
+    .issue-box{display:none;}
+    .rule-card{grid-template-columns:1fr; }
+    .seal{width:40px; height:40px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <p class="eyebrow">Vol. I · Bihar Edition · For Circulation Among Aspirants</p>
+      <h1>The Grammar <em>Gazette</em></h1>
+      <p class="sub">An official-style rule book of English usage — compiled and expanded for SSC CGL Tier&nbsp;I &amp; Tier&nbsp;II (and equally useful for BPSC). Every rule carries its error, its correction, and the reasoning behind it.</p>
+    </div>
+    <div class="issue-box">
+      RULES FILED: <b id="totalCount">—</b><br>
+      SECTIONS: <b>14</b><br>
+      SOURCE: Error Spotting · Sentence Improvement
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-row">
+      <input id="searchBox" type="text" placeholder="Search a rule, a word, an error… e.g. &quot;than&quot;, &quot;gerund&quot;, &quot;its&quot;">
+      <span class="count-pill" id="resultCount">— shown</span>
+    </div>
+    <div class="tabbar">
+      <div class="tabbar-fade-l"></div>
+      <div class="tabbar-fade-r"></div>
+      <div class="tabbar-scroll" id="tabScroll">
+        <div class="tab-indicator" id="tabIndicator"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main"></main>
+
+<footer>
+  Compiled for exam revision — rules 1–70 filtered from classroom notes, rules 71–85 added for SSC CGL Tier&nbsp;I/II error‑spotting &amp; sentence‑improvement patterns, and rules 86–98 added after a pass against SSC CGL Tier&nbsp;I/II papers from the last 15 years (Voice, Narration, Correlatives, Prepositions &amp; Connectors, Punctuation).<br>
+  <b>Tip:</b> read the Reason line, not just the correction — SSC traps are built on the "why," not the "what."
+</footer>
+
+<script>
+const DATA = [
+  // ===== 1. SUBJECT–VERB AGREEMENT =====
+  {id:1, cat:"Subject–Verb Agreement", title:"Basic Agreement", rule:"A singular subject takes a singular verb; a plural subject takes a plural verb.", wrong:"The list of items are on the desk.", right:"The list of items is on the desk.", reason:"The real subject is 'list' (singular) — 'of items' is only a descriptive phrase and doesn't change the verb."},
+  {id:2, cat:"Subject–Verb Agreement", title:"Intervening Phrases", rule:"Ignore phrases between subject and verb when deciding the verb form.", wrong:"The bouquet of flowers smell nice.", right:"The bouquet of flowers smells nice.", reason:"'Of flowers' sits between subject and verb but has no vote — 'bouquet' alone decides agreement."},
+  {id:3, cat:"Subject–Verb Agreement", title:"Compound Subjects with 'and'", rule:"Two subjects joined by 'and' usually take a plural verb.", wrong:"Ali and Waqar is friends.", right:"Ali and Waqar are friends.", reason:"'And' combines two subjects into one plural unit, so a plural verb is required."},
+  {id:4, cat:"Subject–Verb Agreement", title:"Either…or / Neither…nor", rule:"The verb agrees with the nearer subject.", wrong:"Neither the boys nor the teacher were present.", right:"Neither the boys nor the teacher was present.", reason:"In either/or and neither/nor constructions, only the subject closest to the verb controls its form."},
+  {id:5, cat:"Subject–Verb Agreement", title:"Collective Nouns", rule:"Treat as singular when the group acts as one unit.", wrong:"The team are winning the match.", right:"The team is winning the match.", reason:"'Team' names one unit acting together, so it takes a singular verb — unless members are acting individually."},
+  {id:6, cat:"Subject–Verb Agreement", title:"Indefinite Pronouns", rule:"Words like everyone, each, nobody take a singular verb.", wrong:"Everyone have submitted the form.", right:"Everyone has submitted the form.", reason:"Indefinite pronouns ending in -one, -body, -thing are grammatically singular by definition."},
+  {id:7, cat:"Subject–Verb Agreement", title:"'Each / Every'", rule:"Each and every are followed by a singular noun and verb.", wrong:"Every students were ready.", right:"Every student was ready.", reason:"'Every' and 'each' individualise the noun — they can never combine with a plural noun or verb."},
+  {id:71, cat:"Subject–Verb Agreement", title:"'One of the + plural noun'", rule:"'One' is the true subject; the plural noun after 'of the' is inside a prepositional phrase.", wrong:"One of the boy is absent.", right:"One of the boys is absent.", reason:"SSC loves reversing this: the noun after 'of the' must be plural, but the verb still agrees with the singular 'one'."},
+  {id:72, cat:"Subject–Verb Agreement", title:"'As well as / along with / together with'", rule:"These connector phrases don't create a compound subject — the verb agrees only with the subject before them.", wrong:"The manager, as well as the workers, are unhappy.", right:"The manager, as well as the workers, is unhappy.", reason:"Unlike 'and', these phrases are treated as parenthetical add-ons, so they're invisible to the verb."},
+
+  // ===== 2. TENSE & NARRATION =====
+  {id:8, cat:"Tense & Narration", title:"Tense Consistency", rule:"Keep tenses consistent within a sentence.", wrong:"He came in and sits down.", right:"He came in and sat down.", reason:"Two actions in the same timeframe of a sentence must share the same tense unless there's a real time shift."},
+  {id:9, cat:"Tense & Narration", title:"Past Perfect for Earlier Action", rule:"Use past perfect for the action that happened first.", wrong:"After he finished dinner, he had left.", right:"After he had finished dinner, he left.", reason:"The earlier of two past actions takes 'had + V3'; the later one stays in simple past."},
+  {id:10, cat:"Tense & Narration", title:"Reported Speech", rule:"Shift the tense back one step in indirect speech.", wrong:"He said that he is tired.", right:"He said that he was tired.", reason:"When the reporting verb is in the past ('said'), the reported clause's tense normally shifts one step back."},
+  {id:74, cat:"Tense & Narration", title:"Indirect Imperatives", rule:"Commands/requests reported indirectly use 'to + verb' (affirmative) or 'not to + verb' (negative) — never 'that'.", wrong:"He told me that go there.", right:"He told me to go there.", reason:"Imperative sentences lose their 'that' clause entirely in reported speech and become an infinitive instruction."},
+  {id:57, cat:"Tense & Narration", title:"'Ago' with Past Simple", rule:"Use 'ago' with the simple past, not present perfect.", wrong:"I have met him two days ago.", right:"I met him two days ago.", reason:"'Ago' measures back from now to a finished point — that's the job of simple past, not present perfect."},
+  {id:58, cat:"Tense & Narration", title:"'Yet' with Present Perfect", rule:"Use 'yet' with the present perfect in negative/question forms.", wrong:"He did not finish yet.", right:"He has not finished yet.", reason:"'Yet' signals an action expected but still incomplete up to now — the present perfect's core meaning."},
+  {id:59, cat:"Tense & Narration", title:"'Already' Placement", rule:"'Already' suggests something happened sooner than expected — pair it correctly with present perfect.", wrong:"Have you eaten yet your meal already?", right:"Have you already eaten?", reason:"Mixing 'yet' (expectation) and 'already' (earlier than expected) in one clause is contradictory; use only the one that fits the meaning."},
+
+  // ===== 3. ARTICLES =====
+  {id:11, cat:"Articles", title:"'A / An'", rule:"Use 'an' before a vowel sound, 'a' before a consonant sound.", wrong:"He is a honest man.", right:"He is an honest man.", reason:"The rule follows sound, not spelling — 'honest' starts with a silent 'h', so the vowel sound 'o' takes 'an'."},
+  {id:12, cat:"Articles", title:"Definite Article 'the'", rule:"Use 'the' for unique or already-specified nouns.", wrong:"Sun rises in the east.", right:"The sun rises in the east.", reason:"'Sun' is a unique object known to everyone, so it must always carry the definite article."},
+  {id:13, cat:"Articles", title:"Omitting Articles", rule:"Do not use articles before uncountable or abstract nouns used generally.", wrong:"She gave me an advice.", right:"She gave me advice.", reason:"'Advice' is uncountable in English (unlike in many Indian languages) — it never takes 'a/an' in general use."},
+
+  // ===== 4. COMPARISON & DEGREE =====
+  {id:14, cat:"Comparison & Degree", title:"Double Comparatives", rule:"Never combine 'more' with the '-er' form.", wrong:"She is more taller than me.", right:"She is taller than me.", reason:"'-er' already marks the comparative degree; adding 'more' duplicates the same job."},
+  {id:15, cat:"Comparison & Degree", title:"Double Superlatives", rule:"Never combine 'most' with the '-est' form.", wrong:"It was the most easiest task.", right:"It was the easiest task.", reason:"Same duplication error as double comparatives, but at the superlative degree."},
+  {id:16, cat:"Comparison & Degree", title:"Comparison with 'than'", rule:"Use the comparative degree with 'than'.", wrong:"He is more wiser than his brother.", right:"He is wiser than his brother.", reason:"'Wiser' is already comparative; 'than' should never trigger an extra 'more'."},
+  {id:17, cat:"Comparison & Degree", title:"'Less' vs 'Fewer'", rule:"Use 'fewer' for countable nouns, 'less' for uncountable.", wrong:"There are less chairs here.", right:"There are fewer chairs here.", reason:"'Chairs' can be counted one by one, so it needs the countable-noun comparative 'fewer'."},
+  {id:18, cat:"Comparison & Degree", title:"'Much' vs 'Many'", rule:"Use 'many' with countable nouns, 'much' with uncountable.", wrong:"He has much books.", right:"He has many books.", reason:"'Books' is countable, matching 'many'; 'much' belongs with mass nouns like water or advice."},
+  {id:19, cat:"Comparison & Degree", title:"'Amount' vs 'Number'", rule:"Use 'number' for countable nouns, 'amount' for uncountable.", wrong:"A large amount of people came.", right:"A large number of people came.", reason:"'People' is countable, so the quantifier must be 'number', not 'amount'."},
+  {id:20, cat:"Comparison & Degree", title:"Preposition after 'Different'", rule:"Use 'different from', not 'different than'.", wrong:"This is different than that.", right:"This is different from that.", reason:"'Different' idiomatically pairs with 'from' in standard English, marking separation between two things."},
+  {id:76, cat:"Comparison & Degree", title:"Few / A Few / The Few", rule:"'Few' = almost none (negative); 'a few' = some (positive); 'the few' = a specific limited group.", wrong:"I have few friends, so I am never lonely.", right:"I have a few friends, so I am never lonely.", reason:"'Few' alone carries a negative, scarce sense — pairing it with a positive result is contradictory; 'a few' gives the positive meaning the sentence needs."},
+  {id:77, cat:"Comparison & Degree", title:"Little / A Little / The Little", rule:"The same negative/positive split as few/a few applies to uncountable nouns.", wrong:"There is little water left, so we won't have any problem.", right:"There is a little water left, so we can manage.", reason:"'Little' implies scarcity/worry; 'a little' implies a small but sufficient amount — match it to the sentence's intended meaning."},
+
+  // ===== 5. VERB + PREPOSITION TRAPS =====
+  {id:22, cat:"Verb + Preposition Traps", title:"'Comprise'", rule:"'Comprise' is not followed by 'of'.", wrong:"The team comprises of ten players.", right:"The team comprises ten players.", reason:"'Comprise' already means 'to consist of' — adding 'of' repeats the same meaning twice."},
+  {id:23, cat:"Verb + Preposition Traps", title:"'Discuss'", rule:"'Discuss' is not followed by 'about'.", wrong:"Let us discuss about the issue.", right:"Let us discuss the issue.", reason:"'Discuss' is transitive and takes a direct object directly — 'about' is redundant."},
+  {id:24, cat:"Verb + Preposition Traps", title:"'Reach'", rule:"'Reach' takes no preposition before a place.", wrong:"We reached at the station.", right:"We reached the station.", reason:"'Reach' is a transitive verb that directly takes its destination as an object, no 'at' needed."},
+  {id:25, cat:"Verb + Preposition Traps", title:"'Resemble'", rule:"'Resemble' takes no preposition.", wrong:"He resembles to his father.", right:"He resembles his father.", reason:"'Resemble' is transitive; inserting 'to' is a common carry-over error from translation."},
+
+  // ===== 6. MODIFIERS & SENTENCE STRUCTURE =====
+  {id:26, cat:"Modifiers & Sentence Structure", title:"Misplaced Modifiers", rule:"Place modifiers next to the word they modify.", wrong:"She almost drove the kids to school every day.", right:"She drove the kids to school almost every day.", reason:"As written, 'almost' modifies 'drove', implying she nearly didn't drive at all — moving it fixes the intended meaning."},
+  {id:27, cat:"Modifiers & Sentence Structure", title:"Dangling Modifiers", rule:"Ensure the modifier clearly refers to the right subject.", wrong:"Walking down the road, the trees looked lovely.", right:"Walking down the road, I found the trees lovely.", reason:"As written, the trees appear to be doing the walking — the modifier needs a human subject right after the comma."},
+  {id:28, cat:"Modifiers & Sentence Structure", title:"Parallel Structure", rule:"Keep items in a series grammatically parallel.", wrong:"She likes reading, writing, and to swim.", right:"She likes reading, writing, and swimming.", reason:"All items joined by 'and' in a list must share the same grammatical form — here, all gerunds."},
+  {id:81, cat:"Modifiers & Sentence Structure", title:"Double Conjunctions", rule:"Don't use two conjunctions for one contrast or reason.", wrong:"Although he was tired, but he finished the work.", right:"Although he was tired, he finished the work.", reason:"'Although' already signals the contrast — adding 'but' duplicates the same logical connector."},
+  {id:75, cat:"Modifiers & Sentence Structure", title:"Redundancy / Tautology", rule:"Avoid pairing words that repeat the same meaning.", wrong:"He returned back home.", right:"He returned home.", reason:"'Return' already means 'to go back' — 'back' adds nothing and is a classic SSC redundancy trap."},
+
+  // ===== 7. PRONOUNS =====
+  {id:29, cat:"Pronouns", title:"Pronoun–Antecedent Agreement", rule:"A pronoun must agree with its antecedent in number.", wrong:"Each student must bring their book.", right:"Each student must bring his or her book.", reason:"'Each student' is singular, so the pronoun referring back to it must also be singular in formal/exam English."},
+  {id:30, cat:"Pronouns", title:"Ambiguous Pronouns", rule:"Avoid pronouns with unclear reference.", wrong:"Ali told Sami that he had passed.", right:"Ali told Sami, \"You have passed.\"", reason:"'He' could point to either Ali or Sami — rewriting with direct speech removes the ambiguity."},
+  {id:31, cat:"Pronouns", title:"Pronoun Case (Subject)", rule:"Use subject pronouns as the subject.", wrong:"Me and him went out.", right:"He and I went out.", reason:"Subjects of a verb need subject-case pronouns (I, he, she) — not object-case forms (me, him)."},
+  {id:32, cat:"Pronouns", title:"Pronoun Case (Object)", rule:"Use object pronouns after prepositions.", wrong:"Between you and I, it is wrong.", right:"Between you and me, it is wrong.", reason:"'Between' is a preposition, and prepositions always take object-case pronouns."},
+  {id:33, cat:"Pronouns", title:"'Who' vs 'Whom'", rule:"Use 'who' as subject, 'whom' as object.", wrong:"Whom is calling?", right:"Who is calling?", reason:"The pronoun here performs the action of calling, so it needs the subject form 'who'."},
+  {id:34, cat:"Pronouns", title:"'Who' vs 'Which'", rule:"Use 'who' for people, 'which' for things.", wrong:"The man which came is here.", right:"The man who came is here.", reason:"Relative pronouns split by category: people get 'who/whom', things and animals get 'which'."},
+  {id:35, cat:"Pronouns", title:"Reflexive Pronouns", rule:"Do not use reflexive pronouns as subjects.", wrong:"John and myself will attend.", right:"John and I will attend.", reason:"Reflexive pronouns (myself, himself) must reflect back on a subject already stated — they can't stand in as the subject itself."},
+
+  // ===== 8. NEGATIVES & CORRELATIVES =====
+  {id:36, cat:"Negatives & Correlatives", title:"Double Negatives", rule:"Avoid two negatives in one clause.", wrong:"I don't know nothing.", right:"I don't know anything.", reason:"Two negatives ('don't' and 'nothing') cancel each other logically and are non-standard in formal English."},
+  {id:37, cat:"Negatives & Correlatives", title:"'Hardly / Scarcely'", rule:"These words are already negative — do not add 'not'.", wrong:"I cannot hardly see.", right:"I can hardly see.", reason:"'Hardly' itself means 'almost not', so combining it with 'cannot' creates an unwanted double negative."},
+  {id:38, cat:"Negatives & Correlatives", title:"'Hardly…when'", rule:"Use 'hardly…when', not 'hardly…than'.", wrong:"Hardly had he left than it rained.", right:"Hardly had he left when it rained.", reason:"'Hardly' pairs with 'when' to mark a sudden next event — 'than' belongs to comparisons, not this structure."},
+  {id:39, cat:"Negatives & Correlatives", title:"'No sooner…than'", rule:"Use 'no sooner…than', the fixed correlative pair.", wrong:"No sooner did he arrive then he slept.", right:"No sooner did he arrive than he slept.", reason:"'No sooner' is idiomatically fixed with 'than' — 'then' is a sound-alike trap, not a grammatical option."},
+  {id:40, cat:"Negatives & Correlatives", title:"'Such…that'", rule:"Use 'such…that' for emphasis with a noun.", wrong:"It was so a good film that I watched it twice.", right:"It was such a good film that I watched it twice.", reason:"'Such' modifies a noun phrase (a good film); 'so' is reserved for adjectives/adverbs alone."},
+  {id:41, cat:"Negatives & Correlatives", title:"'So…that'", rule:"Use 'so…that' with adjectives or adverbs, not nouns.", wrong:"He is such tired that he slept.", right:"He is so tired that he slept.", reason:"'Tired' is an adjective with no noun attached, so it takes 'so', mirroring the rule above in reverse."},
+  {id:42, cat:"Negatives & Correlatives", title:"'Too…to'", rule:"'Too' implies a negative result, paired directly with an adjective.", wrong:"He is too much weak to walk.", right:"He is too weak to walk.", reason:"'Too' already carries the intensifying meaning of 'much' — stacking both is redundant."},
+
+  // ===== 9. NON-FINITE VERBS & MODALS =====
+  {id:43, cat:"Non-Finite Verbs & Modals", title:"'Enough' Placement", rule:"'Enough' follows the adjective it modifies.", wrong:"He is not enough strong.", right:"He is not strong enough.", reason:"Unlike most modifiers, 'enough' is placed after the adjective, not before it."},
+  {id:44, cat:"Non-Finite Verbs & Modals", title:"Gerund after Preposition", rule:"Use a gerund (-ing) after a preposition.", wrong:"She is fond of to read.", right:"She is fond of reading.", reason:"A preposition must be followed by a noun-form verb — the infinitive 'to read' cannot fill that slot."},
+  {id:45, cat:"Non-Finite Verbs & Modals", title:"Infinitive vs Gerund", rule:"Some verbs take infinitives, others take gerunds — learn them by verb.", wrong:"I enjoy to swim.", right:"I enjoy swimming.", reason:"'Enjoy' is one of a fixed set of verbs (enjoy, avoid, finish, mind) that must be followed by a gerund, never an infinitive."},
+  {id:46, cat:"Non-Finite Verbs & Modals", title:"'Used to' (habit)", rule:"Use 'used to' + base verb for past habits.", wrong:"I used to played cricket.", right:"I used to play cricket.", reason:"'Used to' already carries the past-tense meaning, so the verb after it stays in its base form."},
+  {id:47, cat:"Non-Finite Verbs & Modals", title:"'Be used to' (familiarity)", rule:"'Be used to' is followed by a gerund, not a base verb.", wrong:"She is used to wake early.", right:"She is used to waking early.", reason:"Here 'used to' functions as an adjective phrase meaning 'accustomed to', which needs a gerund like other 'accustomed to' phrases."},
+  {id:48, cat:"Non-Finite Verbs & Modals", title:"Modal + Base Verb", rule:"A modal verb is always followed by the base form.", wrong:"He can plays well.", right:"He can play well.", reason:"Modals (can, may, must, should) never inflect the following verb — it stays uninflected."},
+  {id:49, cat:"Non-Finite Verbs & Modals", title:"'Could have' (not 'of')", rule:"Use 'have', not 'of', after modals.", wrong:"I could of done it.", right:"I could have done it.", reason:"'Of' is a spelling trap from the spoken contraction 'could've' — the grammatical word is always 'have'."},
+  {id:80, cat:"Non-Finite Verbs & Modals", title:"'Let' + Object + Base Verb", rule:"'Let' is a causative verb followed directly by the base form, never 'to'.", wrong:"Let him to go.", right:"Let him go.", reason:"Causative verbs like let, make, and have take a bare infinitive (no 'to') after their object."},
+  {id:85, cat:"Non-Finite Verbs & Modals", title:"'Lest' + Should", rule:"'Lest' (meaning 'in case') is always followed by 'should'.", wrong:"He ran fast lest he will miss the train.", right:"He ran fast lest he should miss the train.", reason:"'Lest' is a fixed conjunction that grammatically demands 'should' in the following clause, regardless of tense elsewhere."},
+
+  // ===== 10. CONDITIONALS & SUBJUNCTIVE =====
+  {id:50, cat:"Conditionals & Subjunctive", title:"Conditional Type 1", rule:"Use present + will for real future conditions.", wrong:"If it rains, I will stayed home.", right:"If it rains, I will stay home.", reason:"The 'if' clause stays in simple present; only the result clause takes 'will + base verb'."},
+  {id:51, cat:"Conditionals & Subjunctive", title:"Conditional Type 2", rule:"Use past + would for unreal present conditions.", wrong:"If I was rich, I would travel.", right:"If I were rich, I would travel.", reason:"Unreal/hypothetical conditions use the subjunctive 'were' for all subjects, not 'was'."},
+  {id:52, cat:"Conditionals & Subjunctive", title:"Conditional Type 3", rule:"Use past perfect + would have for past unreal conditions.", wrong:"If he studied, he would have passed.", right:"If he had studied, he would have passed.", reason:"To talk about a past that didn't happen, the 'if' clause must go one step further back into the past perfect."},
+  {id:53, cat:"Conditionals & Subjunctive", title:"'Wish' + Past", rule:"'Wish' about the present takes a past tense.", wrong:"I wish I am taller.", right:"I wish I were taller.", reason:"'Wish' expresses something contrary to present fact, which grammatically requires the past subjunctive."},
+  {id:54, cat:"Conditionals & Subjunctive", title:"'As if / As though'", rule:"Use the past subjunctive for unreal comparisons.", wrong:"He talks as if he knows everything.", right:"He talks as if he knew everything.", reason:"'As if' introduces a comparison that isn't literally true, so it takes the same unreal past as Type 2 conditionals."},
+  {id:55, cat:"Conditionals & Subjunctive", title:"Misused 'Since' / 'For'", rule:"'Since' marks a point in time; 'for' marks a duration.", wrong:"I have lived here since five years.", right:"I have lived here for five years.", reason:"'Since' needs a starting point (since 2010); 'for' needs a length of time — 'five years' is a duration, so it needs 'for'."},
+  {id:56, cat:"Conditionals & Subjunctive", title:"Present Perfect with 'Since'", rule:"Use the present perfect with 'since'.", wrong:"I live here since 2010.", right:"I have lived here since 2010.", reason:"'Since' marks an action continuing from a past point to now — exactly what present perfect is built to express."},
+
+  // ===== 11. VOICE =====
+  {id:73, cat:"Voice & Passive Forms", title:"Passive Voice with Modals", rule:"Passive voice after a modal always needs 'be + past participle'.", wrong:"The work must finished by him.", right:"The work must be finished by him.", reason:"Passive constructions require 'be' as a helper before the past participle — modals don't replace it, they precede it."},
+
+  // ===== 12. CONFUSABLE WORDS =====
+  {id:60, cat:"Confusable Word Pairs", title:"'Lie' vs 'Lay'", rule:"'Lie' is intransitive; 'lay' takes an object.", wrong:"I will lay down for a rest.", right:"I will lie down for a rest.", reason:"Since there's no object being placed down, the intransitive verb 'lie' is correct, not 'lay'."},
+  {id:61, cat:"Confusable Word Pairs", title:"'Rise' vs 'Raise'", rule:"'Rise' is intransitive; 'raise' takes an object.", wrong:"Prices raise every year.", right:"Prices rise every year.", reason:"'Prices' rise on their own with no object — an intransitive verb, so 'rise' is correct."},
+  {id:62, cat:"Confusable Word Pairs", title:"'Its' vs \"It's\"", rule:"'Its' is possessive; \"it's\" means 'it is'.", wrong:"The dog wagged it's tail.", right:"The dog wagged its tail.", reason:"Possession needs no apostrophe here — the apostrophe form is reserved strictly for the contraction 'it is'."},
+  {id:63, cat:"Confusable Word Pairs", title:"'Your' vs \"You're\"", rule:"'Your' is possessive; \"you're\" means 'you are'.", wrong:"Your very kind.", right:"You're very kind.", reason:"The sentence means 'you are kind', which can only be written with the contraction, not the possessive."},
+  {id:64, cat:"Confusable Word Pairs", title:"'There / Their / They're'", rule:"Distinguish place, possession, and 'they are'.", wrong:"Their going to the park.", right:"They're going to the park.", reason:"The sentence means 'they are going', so only the contraction 'they're' fits — 'their' would need a noun to possess."},
+  {id:65, cat:"Confusable Word Pairs", title:"'Affect' vs 'Effect'", rule:"'Affect' is a verb; 'effect' is usually a noun.", wrong:"The medicine had a good affect.", right:"The medicine had a good effect.", reason:"'Had a good ___' needs a noun slot, and 'effect' is the noun form; 'affect' is the action verb."},
+  {id:66, cat:"Confusable Word Pairs", title:"'Accept' vs 'Except'", rule:"'Accept' means receive; 'except' means excluding.", wrong:"Everyone came accept Ali.", right:"Everyone came except Ali.", reason:"The sentence is excluding Ali from 'everyone', which is exactly what 'except' signals."},
+  {id:67, cat:"Confusable Word Pairs", title:"'Than' vs 'Then'", rule:"'Than' compares; 'then' refers to time.", wrong:"She is taller then me.", right:"She is taller than me.", reason:"This sentence is a comparison of height, which grammatically requires 'than', not the time-word 'then'."},
+  {id:68, cat:"Confusable Word Pairs", title:"'Loose' vs 'Lose'", rule:"'Loose' means not tight; 'lose' means misplace.", wrong:"Don't loose your keys.", right:"Don't lose your keys.", reason:"The intended meaning is 'misplace', which is the verb 'lose' — 'loose' is only an adjective for tightness."},
+  {id:69, cat:"Confusable Word Pairs", title:"'Principal' vs 'Principle'", rule:"'Principal' = head/main; 'principle' = a rule or belief.", wrong:"Honesty is a good principal.", right:"Honesty is a good principle.", reason:"Honesty is being described as a moral rule, which is the meaning carried by 'principle', not 'principal'."},
+  {id:70, cat:"Confusable Word Pairs", title:"'Advice' vs 'Advise'", rule:"'Advice' is a noun; 'advise' is a verb.", wrong:"Please advice me.", right:"Please advise me.", reason:"The sentence needs an action verb after 'please', so 'advise' (verb) is correct, not the noun 'advice'."},
+  {id:82, cat:"Confusable Word Pairs", title:"'Stationary' vs 'Stationery'", rule:"'Stationary' means not moving; 'stationery' means paper/writing goods.", wrong:"I bought stationary items for school.", right:"I bought stationery items for school.", reason:"School supplies are 'stationery' (with -ery, like grocery) — 'stationary' with -ary describes something motionless."},
+  {id:83, cat:"Confusable Word Pairs", title:"'Complement' vs 'Compliment'", rule:"'Compliment' = praise; 'complement' = something that completes.", wrong:"She paid him a nice complement.", right:"She paid him a nice compliment.", reason:"Paying someone praise is a 'compliment' — 'complement' would mean something that completes or matches him."},
+  {id:84, cat:"Confusable Word Pairs", title:"'Later' vs 'Latter'", rule:"'Later' relates to time; 'latter' refers to the second of two items.", wrong:"Of the two options, the later one is better.", right:"Of the two options, the latter one is better.", reason:"The sentence picks the second of two named options, which is exactly what 'latter' means — 'later' is about time, not order."},
+
+  // ===== 13. PREPOSITIONS OF TIME & PLACE =====
+  {id:78, cat:"Prepositions & Connectors", title:"Time: in / on / at", rule:"Use 'at' for precise time, 'on' for days/dates, 'in' for months/years/longer periods.", wrong:"I will meet you in Monday at 5 pm.", right:"I will meet you on Monday at 5 pm.", reason:"Days of the week always pair with 'on'; only clock times pair with 'at' — mixing them is a frequent SSC fill-in-the-blank trap."},
+  {id:79, cat:"Prepositions & Connectors", title:"Place: in / at / on", rule:"Use 'in' for larger enclosed areas, 'at' for specific points, 'on' for surfaces.", wrong:"She lives at Mumbai.", right:"She lives in Mumbai.", reason:"A city is a large enclosed area, which takes 'in' — 'at' is reserved for precise points like an address or a landmark."},
+  {id:93, cat:"Prepositions & Connectors", title:"'Because of / Due to' + noun", rule:"'Because of' and 'due to' are followed by a noun or noun phrase, never a full clause with a verb.", wrong:"He failed due to he did not study.", right:"He failed because he did not study.", reason:"'Due to/because of' need a noun-phrase object; once you have a subject+verb clause, only the conjunction 'because' can introduce it."},
+  {id:94, cat:"Prepositions & Connectors", title:"'In spite of / Despite' + noun/gerund", rule:"'In spite of' and 'despite' take a noun or gerund, never 'that' or a full clause.", wrong:"In spite of he was ill, he came.", right:"In spite of being ill, he came.", reason:"These are prepositional phrases and need a noun-form object — a full clause needs 'although/though' instead."},
+
+  // ===== 14. VOICE (EXPANDED) =====
+  {id:86, cat:"Voice & Passive Forms", title:"Active → Passive: Basic Transformation", rule:"The object of the active sentence becomes the subject of the passive one, and the verb becomes 'be + past participle'.", wrong:"The cake was ate by her.", right:"The cake was eaten by her.", reason:"Passive voice always needs the past participle (V3) after 'be', not the simple past form (V2)."},
+
+  // ===== 15. NARRATION (EXPANDED) =====
+  {id:87, cat:"Tense & Narration", title:"Indirect Statements — Triple Shift", rule:"Reporting a statement in the past shifts three things together: the tense, the pronouns, and time/place words (now→then, today→that day, here→there).", wrong:"She said that I am going home now.", right:"She said that she was going home then.", reason:"SSC often tests only one shift at a time in the options — check tense, pronoun, and time-word together, not just one."},
+  {id:88, cat:"Tense & Narration", title:"Indirect Questions", rule:"Reported questions drop the question mark and restore statement word order; yes/no questions add 'if' or 'whether'.", wrong:"He asked me that where did I live.", right:"He asked me where I lived.", reason:"A reported question is no longer a question grammatically — it loses 'that', drops the auxiliary-first order, and never ends in '?'."},
+
+  // ===== 16. CORRELATIVES (EXPANDED) =====
+  {id:89, cat:"Negatives & Correlatives", title:"'Not only…but also'", rule:"The two halves of this correlative pair must be followed by matching, parallel structures.", wrong:"He not only plays cricket but also football he plays.", right:"He plays not only cricket but also football.", reason:"Each part of a correlative pair must sit directly before the element it pairs with, so both halves stay grammatically parallel."},
+  {id:90, cat:"Negatives & Correlatives", title:"'Both…and'", rule:"'Both…and' joins two elements into one plural subject and always takes a plural verb.", wrong:"Both Ram and Shyam is going.", right:"Both Ram and Shyam are going.", reason:"'Both...and' behaves like 'and' — it always builds a plural subject, unlike 'either...or' or 'neither...nor'."},
+  {id:91, cat:"Subject–Verb Agreement", title:"'Neither / Either' Standing Alone", rule:"When 'neither' or 'either' is itself the subject (not part of a neither…nor pair), it takes a singular verb.", wrong:"Neither of the answers are correct.", right:"Neither of the answers is correct.", reason:"'Neither/either' means 'not one of the two' — a singular idea — regardless of the plural noun that follows 'of'."},
+  {id:92, cat:"Negatives & Correlatives", title:"Inversion after Negative Adverbials", rule:"When a sentence opens with a negative adverb (never, rarely, seldom, hardly), the subject and auxiliary verb invert.", wrong:"Never I have seen such a mess.", right:"Never have I seen such a mess.", reason:"Fronting a negative adverbial for emphasis borrows question-style word order — the auxiliary jumps ahead of the subject."},
+
+  // ===== 17. PUNCTUATION & TRICKY FORMS =====
+  {id:96, cat:"Punctuation & Tricky Forms", title:"'This kind of' vs 'These kind of'", rule:"'Kind/type/sort' is the true head noun — it must agree in number with the demonstrative before it.", wrong:"These kind of mistakes are common.", right:"This kind of mistake is common.", reason:"'These' is plural and 'kind' is singular — a mismatched pair is a very common SSC error-spotting trap; either both go singular or both go plural (these kinds of mistakes)."},
+  {id:97, cat:"Punctuation & Tricky Forms", title:"Question Tags", rule:"A positive statement takes a negative tag and a negative statement takes a positive tag, reusing the same auxiliary/modal.", wrong:"You are coming, are you?", right:"You are coming, aren't you?", reason:"Tags must flip polarity against the main clause — a positive statement can't be confirmed with another positive tag."},
+  {id:98, cat:"Punctuation & Tricky Forms", title:"Apostrophe for Plural Possessive", rule:"For a plural noun already ending in -s, add only an apostrophe after the s to show possession.", wrong:"The boy's bags were all torn.", right:"The boys' bags were all torn.", reason:"\"Boy's\" (apostrophe before s) wrongly signals one boy; \"boys'\" (apostrophe after s) correctly signals possession by many boys."},
+  {id:95, cat:"Confusable Word Pairs", title:"'Beside' vs 'Besides'", rule:"'Beside' means next to (position); 'besides' means in addition to.", wrong:"Besides the table, there is a chair.", right:"Beside the table, there is a chair.", reason:"The sentence describes physical position (next to the table), which needs 'beside' — 'besides' would wrongly suggest an additional item."}
+];
+
+const categories = [...new Set(DATA.map(d=>d.cat))];
+let activeCat = "All";
+
+const tabScroll = document.getElementById('tabScroll');
+const tabIndicator = document.getElementById('tabIndicator');
+const tabEls = {};
+
+function makeTab(label, value, count){
+  const tab = document.createElement('div');
+  tab.className = 'tab';
+  tab.dataset.value = value;
+  tab.innerHTML = label + (count!==undefined ? `<span class="n">${count}</span>` : '');
+  tab.addEventListener('click', ()=>setCat(value));
+  tabScroll.appendChild(tab);
+  tabEls[value] = tab;
+}
+
+makeTab('All Sections', 'All', DATA.length);
+categories.forEach(c=> makeTab(c, c, DATA.filter(d=>d.cat===c).length));
+
+function moveIndicator(){
+  const tab = tabEls[activeCat];
+  if(!tab) return;
+  tabIndicator.style.width = tab.offsetWidth + 'px';
+  tabIndicator.style.left = tab.offsetLeft + 'px';
+  tab.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+}
+
+function setCat(c){
+  activeCat = c;
+  Object.values(tabEls).forEach(t=>t.classList.remove('active'));
+  tabEls[c].classList.add('active');
+  moveIndicator();
+  render();
+}
+
+window.addEventListener('resize', moveIndicator);
+
+document.getElementById('searchBox').addEventListener('input', render);
+document.getElementById('totalCount').textContent = DATA.length;
+
+function render(){
+  const q = document.getElementById('searchBox').value.trim().toLowerCase();
+  const main = document.getElementById('main');
+  main.innerHTML='';
+
+  let shown = 0;
+  const grouped = {};
+  categories.forEach(c=>grouped[c]=[]);
+
+  DATA.forEach(d=>{
+    if(activeCat!=='All' && d.cat!==activeCat) return;
+    const hay = (d.title+' '+d.rule+' '+d.wrong+' '+d.right+' '+d.reason+' '+d.cat).toLowerCase();
+    if(q && !hay.includes(q)) return;
+    grouped[d.cat].push(d);
+    shown++;
+  });
+
+  document.getElementById('resultCount').textContent = shown + ' shown';
+
+  if(shown===0){
+    main.innerHTML = '<div class="no-results">No rule matches that search — try a shorter word, like “gerund” or “its”.</div>';
+    return;
+  }
+
+  categories.forEach(cat=>{
+    const rules = grouped[cat];
+    if(rules.length===0) return;
+    const section = document.createElement('section');
+    section.className='category';
+    section.innerHTML = `
+      <div class="category-head">
+        <h2>${cat}</h2>
+        <span class="tag">${rules.length} rule${rules.length>1?'s':''}</span>
+      </div>
+      <div class="grid">
+        ${rules.map(r=>`
+          <div class="rule-card">
+            <div class="seal"><span>${r.id}</span></div>
+            <div>
+              <h3 class="rule-title">${r.title}</h3>
+              <p class="rule-statement">${r.rule}</p>
+              <div class="example-row">
+                <div class="example wrong"><b>✕ Incorrect</b>${r.wrong}</div>
+                <div class="example right"><b>✓ Correct</b>${r.right}</div>
+              </div>
+              <p class="reason"><b>Why:</b> ${r.reason}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    main.appendChild(section);
+  });
+}
+
+setCat('All');
+</script>
+</body>
+</html>
