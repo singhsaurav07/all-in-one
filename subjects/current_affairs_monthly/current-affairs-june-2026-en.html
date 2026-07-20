@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Affairs June 2026 — SSC CGL Exam Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b1220;
+    --bg-2: #0e1830;
+    --card: #121e38;
+    --card-hover: #16264a;
+    --line: #223057;
+    --text: #e9edf6;
+    --muted: #90a0c2;
+    --muted-2: #5f6f92;
+    --gold: #e0ab53;
+    --gold-soft: rgba(224,171,83,.14);
+    --teal: #5fc4b8;
+    --teal-soft: rgba(95,196,184,.14);
+    --rose: #e2708a;
+    --rose-soft: rgba(226,112,138,.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 600px at 12% -10%, #16264d 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, #142042 0%, transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-soft); color:var(--gold);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:64px 24px 40px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity:.18;
+    mask-image: radial-gradient(700px 300px at 20% 0%, black, transparent);
+  }
+  .hero-inner{position:relative; max-width:1080px; margin:0 auto;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold); background:var(--gold-soft);
+    border:1px solid rgba(224,171,83,.35);
+    padding:6px 12px; border-radius:100px; margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold); box-shadow:0 0 8px var(--gold);}
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(34px,5.4vw,58px);
+    line-height:1.06;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{font-style:italic; color:var(--teal); font-weight:500;}
+  .hero p.sub{
+    max-width:640px; color:var(--muted); font-size:16.5px; line-height:1.65; margin:0 0 30px;
+  }
+  .stat-row{display:flex; flex-wrap:wrap; gap:14px;}
+  .stat{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:14px 18px; min-width:130px;
+  }
+  .stat .num{font-family:'Fraunces',serif; font-size:26px; color:var(--gold); font-weight:600;}
+  .stat .lbl{font-size:11.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.08em; margin-top:2px;}
+
+  /* ---------- IMPORTANCE LEGEND ---------- */
+  .legend{
+    max-width:1080px; margin:28px auto 0; padding:0 24px;
+    display:flex; flex-wrap:wrap; gap:10px; font-size:13px; color:var(--muted);
+  }
+  .legend span.tag{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:5px 11px; border-radius:8px; border:1px solid var(--line);
+  }
+  .flame{font-size:13px;}
+
+  /* ---------- CONTROLS ---------- */
+  .controls{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,32,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding:16px 24px;
+  }
+  .controls-inner{max-width:1080px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
+  #search{
+    flex:1 1 220px;
+    background:var(--card); border:1px solid var(--line); color:var(--text);
+    padding:11px 16px; border-radius:10px; font-size:14.5px; font-family:'Inter',sans-serif;
+    outline:none;
+  }
+  #search:focus{border-color:var(--teal);}
+  #search::placeholder{color:var(--muted-2);}
+  .chip{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.03em;
+    background:var(--card); color:var(--muted);
+    border:1px solid var(--line); border-radius:100px;
+    padding:8px 14px; cursor:pointer; user-select:none;
+    transition:all .15s ease; white-space:nowrap;
+  }
+  .chip:hover{border-color:var(--teal); color:var(--text);}
+  .chip.active{background:var(--teal-soft); border-color:var(--teal); color:var(--teal);}
+  .chip.star-only{background:var(--gold-soft); border-color:rgba(224,171,83,.4); color:var(--gold);}
+  .chip.star-only.active{background:var(--gold); color:#20180a;}
+  .chip.extra-only{background:var(--rose-soft); border-color:rgba(226,112,138,.4); color:var(--rose);}
+  .chip.extra-only.active{background:var(--rose); color:#2a0a13;}
+  #count{font-size:12.5px; color:var(--muted-2); margin-left:auto; font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- MAIN ---------- */
+  main{max-width:1080px; margin:0 auto; padding:36px 24px 90px;}
+  .section{margin-bottom:44px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:16px;
+    padding-bottom:10px; border-bottom:1px dashed var(--line);
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif; font-weight:600; font-size:22px; margin:0; color:var(--text);
+  }
+  .section-head .n{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-2);}
+  .section.extra .section-head{border-bottom-color:rgba(226,112,138,.4);}
+  .section.extra .section-head h2{color:var(--rose);}
+  .section.extra .badge{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.05em;
+    background:var(--rose-soft); color:var(--rose); border:1px solid rgba(226,112,138,.4);
+    padding:3px 9px; border-radius:100px; text-transform:uppercase;
+  }
+  .section.extra p.note{
+    font-size:13.5px; color:var(--muted); margin:-6px 0 16px; line-height:1.6;
+  }
+
+  .grid{display:grid; gap:12px;}
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px; transition:border-color .15s ease, background .15s ease;
+  }
+  .card:hover{border-color:#2c3d6e; background:var(--card-hover);}
+  .section.extra .card{border-left:3px solid var(--rose);}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:8px;}
+  .q{font-size:15.5px; font-weight:600; line-height:1.5; color:var(--text);}
+  .stars{white-space:nowrap; font-size:13px; letter-spacing:1px; flex-shrink:0; padding-top:2px;}
+  .a{
+    font-size:14.5px; color:var(--teal); line-height:1.6; font-weight:500;
+    border-left:2px solid var(--teal); padding-left:12px; margin-top:8px;
+  }
+  .section.extra .a{color:var(--rose); border-left-color:var(--rose);}
+  .hidden{display:none !important;}
+
+  .empty-state{
+    text-align:center; padding:60px 20px; color:var(--muted-2);
+    font-family:'JetBrains Mono',monospace; font-size:13.5px;
+  }
+
+  footer{
+    text-align:center; padding:34px 24px 50px; color:var(--muted-2);
+    font-size:12.5px; border-top:1px solid var(--line); line-height:1.7;
+  }
+
+  @media (max-width:640px){
+    .hero{padding:48px 18px 32px;}
+    .controls{padding:12px 16px;}
+    main{padding:28px 16px 70px;}
+    .card{padding:15px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span>Utkarsh Classes source + Additional Added · June 2026 digest</div>
+    <h1>Current Affairs <em>Exam Radar</em></h1>
+    <p class="sub">Every important Current Affairs Q&A from June 2026 in one place — each question is rated for SSC CGL relevance, with an extra hand-picked set of appointments, RBI policy, and international-day facts added on top of the source material.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">148</div><div class="lbl">Total Questions</div></div>
+      <div class="stat"><div class="num">10</div><div class="lbl">Topic Categories</div></div>
+      <div class="stat"><div class="num">18</div><div class="lbl">Additional Added</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <span class="tag"><span class="flame">★★★</span> High-frequency SSC topics — appointments, index rankings, schemes, defence</span>
+  <span class="tag"><span class="flame">★★</span> Likely to appear — sports records, summits, awards</span>
+  <span class="tag"><span class="flame">★</span> Supplementary — state-level / background detail</span>
+  <span class="tag" style="border-color:rgba(226,112,138,.4); color:var(--rose);">● Rose border = Additional Added, not in the source PDF</span>
+</div>
+
+<div class="controls">
+  <div class="controls-inner">
+    <input id="search" type="text" placeholder="Search a question or answer… (e.g. UPSC, IPL, missile)">
+    <div class="chip star-only" data-star="3">★★★ High-priority only</div>
+    <div class="chip extra-only">Additional Added only</div>
+    <div class="chip active" data-cat="all">Reset</div>
+    <span id="count"></span>
+  </div>
+</div>
+
+<main id="main"></main>
+
+<footer>Source: Utkarsh Classes Current Affairs PDF (June 2026), supplemented with additional verified June 2026 events researched separately.<br>Star ratings are a general estimate of SSC CGL exam relevance, not part of any official syllabus.</footer>
+
+<script>
+const DATA = [
+{cat:"Sports", items:[
+  [3,"Who was the runner-up of IPL 2026?","Gujarat Titans"],
+  [3,"Who won IPL 2026?","Royal Challengers Bengaluru"],
+  [3,"Who won the Orange Cap in IPL 2026?","Vaibhav Suryavanshi"],
+  [2,"Where was the IPL 2026 final held?","Ahmedabad, Gujarat"],
+  [2,"Who created the record for hitting the most sixes in a single IPL season?","Vaibhav Suryavanshi"],
+  [2,"How many gold medals did India win at the Hong Kong Asian U-20 Athletics Championships?","10 gold medals"],
+  [2,"Which position did India secure in the medal tally at the Hong Kong Asian U-20 Athletics Championships?","Second"],
+  [1,"Who secured the first position at the Hong Kong Asian U-20 Athletics Championships?","China"],
+  [2,"India's Satwik-Chirag recently won the doubles title at which Badminton Open?","Singapore Open"],
+  [1,"Who won the singles titles at the Singapore Badminton Open 2026?","Men's Singles: Alex Lanier (France); Women's Singles: An Se-young (South Korea)"],
+  [2,"Satwik and Chirag Shetty have achieved what global ranking in men's doubles badminton?","1st, October 2023"],
+  [1,"Where did the 2026 FIFA World Cup recently begin?","Mexico"],
+  [1,"Who played the opening match of the 2026 FIFA World Cup?","Mexico vs South Africa"],
+  [3,"Which countries will host the 2026 FIFA World Cup?","Mexico, Canada, USA"],
+  [2,"Where has the ICC Women's T20 World Cup 2026 recently commenced?","England"],
+  [2,"Which edition of the ICC Women's T20 World Cup has begun?","10th"],
+  [1,"Which team won the ICC Women's T20 World Cup 2024?","New Zealand"],
+  [1,"When was the ICC Women's T20 World Cup hosted by India?","2016"],
+  [2,"Who is the first Indian to win the Russia Grand Sand Master Cup 2026?","Sudarsan Pattnaik"],
+  [1,"Which Indian state is Sudarsan Pattnaik from?","Odisha"],
+  [1,"When did Sudarsan Pattnaik set a Guinness World Record for the world's tallest sandcastle on Puri Beach?","2017"],
+  [2,"Where was the FIH Women's Hockey Nations Cup 2026 held?","Auckland, New Zealand"],
+  [1,"How many times has the FIH Women's Hockey Nations Cup been held?","2 times"],
+  [1,"Which country hosted the FIH Nations Cup in 2022?","Spain"],
+  [3,"Who received the 'Best Male Athlete of the Year' award at the Indian Athletics Award 2025?","Neeraj Chopra"],
+  [2,"Who received the 'Best Female Athlete of the Year' award at the Indian Athletics Award 2025?","Parul Chaudhary"],
+  [1,"Where were the Indian Athletics Awards 2025 organised?","New Delhi"],
+  [3,"Who is the only Indian athlete included in the TIME100 Sports list of the most influential people of 2026?","Smriti Mandhana"],
+  [1,"Which footballers are included in the TIME100 Sports list of the most influential people of 2026?","Lionel Messi and Cristiano Ronaldo"],
+  [1,"Which WPL titles has Smriti Mandhana won?","2024 and 2026"],
+]},
+
+{cat:"Defence & Armed Forces", items:[
+  [3,"Where did the Union Defence Minister inaugurate the 'Nau Sena Shaurya Vatika'?","Lucknow, Uttar Pradesh"],
+  [2,"Artifacts from which ship are displayed at the 'Nau Sena Shaurya Vatika'?","INS Gomati"],
+  [1,"When was INS Gomati commissioned into the Indian Navy?","16 April, 1988"],
+  [3,"Where was the successful flight test of the RudraM-II missile conducted?","Chandipur Range, Odisha"],
+  [2,"Who developed the RudraM-II missile?","Hyderabad-based Research Centre Imarat (RCI)"],
+  [2,"What is the key characteristic of the RudraM-II missile?","It is an air-to-surface missile"],
+  [3,"Who has recently been appointed as the Army Chief?","Dhiraj Seth"],
+  [2,"In whose place has Dhiraj Seth been appointed?","General Upendra Dwivedi"],
+  [3,"What are the 106 Peacekeeper 'Agnivaag' units recently inducted into the Indian Army?","Kamikaze drones"],
+  [2,"In collaboration with whom were the 106 'Agnivaag' units manufactured?","Belarus's KB Indela"],
+  [1,"What are the specifications of the 106 Peacekeeper 'Agnivaag' units?","Operational range 180 km, maximum speed 450 kmph, Circular Error Probable (CEP) under 5 metres"],
+  [3,"Which three ships were newly commissioned into the Indian Navy?","INS Dunagiri, INS Agray, and INS Sanshodhak"],
+  [3,"Who is the current Chief of the Naval Staff in 2026?","Admiral Krishna Swaminathan"],
+  [1,"INS Dunagiri, launched in Kolkata in July 2022, belongs to which class of warships?","Project-17A Nilgiri-class stealth frigate"],
+  [2,"What is the recently discussed Exercise KHAAN Quest 2026 related to?","An India-Mongolia multinational peacekeeping military exercise"],
+  [2,"Which Indian regiment participated in Khaan Quest 2026?","JAT Regiment"],
+  [2,"In which country did the Indian Army take part in the Khaan Quest 2026 exercise?","Mongolia"],
+]},
+
+{cat:"Awards & Honours", items:[
+  [3,"Which Indian peacekeepers were announced to be posthumously honoured with the UN 'Dag Hammarskjöld Medal'?","Havildar Harbhajan Singh and Naib Subedar Sujeet Kumar Pradhan"],
+  [2,"Who will be honoured with a UN award for promoting gender inclusion and empowerment?","Major Abhilasha Barak"],
+  [3,"Where were the Padma Awards 2026 held?","Rashtrapati Bhavan, New Delhi"],
+  [3,"How many Padma Awards were announced for 2026?","131 Padma Awards — 5 Padma Vibhushan, 13 Padma Bhushan, and 113 Padma Shri recipients"],
+  [2,"Which cricketers received Padma Awards in 2026?","Rohit Sharma and Harmanpreet Kaur"],
+  [3,"Jainendra K. Jain became the first physicist of Indian origin to win the Wolf Prize in Physics — which state is he from?","Rajasthan"],
+  [1,"Is the Wolf Prize related to the Nobel Prize?","Yes, it is widely regarded as a 'forerunner to the Nobel Prize'"],
+  [1,"Who gives the Wolf Prize?","The Wolf Foundation, Jerusalem, Israel"],
+  [3,"Which country recently honoured PM Modi with its highest state honour, 'The Order of the White Double Cross, First Class'?","Slovakia"],
+  [2,"How many highest state honours has PM Modi received so far?","33"],
+  [1,"At the Slovak Presidential Palace, PM Modi viewed a painting exhibition featuring which Indian city?","Varanasi, Uttar Pradesh"],
+  [3,"What award did PM Modi receive from Seychelles?","The Presidential Distinction 'Guardian of the Blue Horizon'"],
+  [1,"Who conferred the Seychelles award on PM Modi?","Seychelles' President Dr. Patrick Herminie"],
+  [2,"Why was PM Modi given this honour?","For his green leadership and work on the Blue Economy, climate action, and ocean sustainability"],
+]},
+
+{cat:"Schemes & Government Initiatives", items:[
+  [3,"Which state recently launched 'Project Zero' to make the state corruption-free?","Keralamm"],
+  [2,"Who is the new Chief Minister of Keralamm?","Shri V. D. Satheesan"],
+  [1,"When was the state of Keralamm formed?","1 November 1956"],
+  [3,"Which state became the country's 5th 'Fully Literate State' under the ULLAS initiative?","Sikkim"],
+  [2,"Which was the first state to achieve 'Fully Literate State' status under ULLAS?","Mizoram"],
+  [2,"What is the objective of the ULLAS initiative?","A programme running until 2027, aiming to empower citizens aged 15 years and above who missed formal schooling"],
+  [3,"Under which fund was the Nirbhay Chetna Initiative launched?","Nirbhaya Fund"],
+  [2,"Who launched the Nirbhay Chetna Initiative?","Ministry of Panchayati Raj"],
+  [1,"What are the two complementary pillars of the Nirbhay Chetna Initiative?","Nirbhay Netri and Nirbhay Drishti"],
+  [2,"The 'Thaaimaaman Thanga Mothira Thittam' (Maternal Uncle's Gold Ring Scheme) is a major welfare initiative of which state?","Tamil Nadu"],
+  [1,"Who is eligible for the 'Thaaimaaman Thanga Mothira Thittam' scheme?","All children born in government hospitals on or after 22 June 2026"],
+  [1,"Who introduced the Vetri Thamizhagan Vision Document?","Tamil Nadu Chief Minister Vijay"],
+  [3,"Which state started the Mukhyamantri Kanya Sumangala Yojana 2026?","Uttar Pradesh"],
+  [2,"What is the total amount under Mukhyamantri Kanya Sumangala Yojana 2026?","₹25,000"],
+  [2,"Who is eligible for the Mukhyamantri Kanya Sumangala Yojana 2026?","A permanent resident of UP with an annual family income below ₹3 lakh"],
+]},
+
+{cat:"Economy & Business", items:[
+  [3,"India's UPI recently partnered with ACLEDA Bank of which country?","Cambodia"],
+  [1,"What is the capital of Cambodia?","Phnom Penh"],
+  [3,"When was the Unified Payments Interface (UPI) launched?","11 April, 2016"],
+  [3,"Which new base year has the Ministry of Statistics and Programme Implementation (MoSPI) set for the IIP?","2022-23"],
+  [1,"In the revised IIP series, the number of items has been increased from 839 to what figure?","1,042 products (463 item groups)"],
+  [2,"Which sector, with ~76% weight in the IIP basket, recorded 6.2% growth in April 2026?","The manufacturing sector"],
+  [3,"Which company recently became India's 130th unicorn?","Sarvam AI"],
+  [1,"Which are India's prominent unicorns of 2026?","KreditBee, Neysa, Juspay, and Aerospace"],
+  [1,"Who founded Sarvam AI?","Pratyush Kumar and Vivek Raghavan, in 2023"],
+  [3,"Which is the only Indian company to feature in WIPO's global top 20 patent rankings?","Jio Platforms"],
+  [2,"What rank has India secured in WIPO's global top 20 patent rankings?","12th"],
+  [1,"Which country secured the top spot in WIPO's global top 20 patent rankings?","China"],
+  [1,"Where is the headquarters of the World Intellectual Property Organization?","Geneva, Switzerland"],
+  [3,"Who recently received Navratna status?","Chennai Petroleum Corporation"],
+  [2,"How many Navratna companies does India have in 2026?","27"],
+  [2,"Which is the 27th Navratna-status company?","Numaligarh Refinery Limited (NRL)"],
+  [1,"Which is the 25th Navratna company?","Indian Railway Catering and Tourism Corporation (IRCTC)"],
+  [3,"Who publishes the Energy Transition Index 2026?","The World Economic Forum (WEF) — the 2026 edition covers 120 countries using 44 indicators"],
+  [2,"Which country topped the Energy Transition Index 2026?","Sweden (ranked 1st)"],
+  [2,"What is India's rank in the Energy Transition Index 2026?","70th"],
+  [2,"According to a recent UNCTAD report, what rank did India achieve in global ship recycling for 2025?","First"],
+  [1,"What is the Ship Recycling Act in India?","Recycling of Ships Act, 2019"],
+  [1,"Who is the Union Cabinet Minister for Ports, Shipping, and Waterways?","Sarbananda Sonowal"],
+]},
+
+{cat:"States & Politics", items:[
+  [3,"Who has recently taken the oath as the Chief Minister of Karnataka?","D.K. Shivakumar"],
+  [2,"Who has taken the oath as the Deputy Chief Minister of Karnataka?","G. Parameshwara"],
+  [1,"What was the voter turnout percentage in the Karnataka Assembly elections?","73.84%"],
+]},
+
+{cat:"International Affairs", items:[
+  [3,"Which five countries were elected as non-permanent members of the UN Security Council starting 1 January 2027?","Austria, Kyrgyzstan, Portugal, Zimbabwe, and Trinidad and Tobago"],
+  [2,"What is the total number of members in the United Nations Security Council?","15 members"],
+  [1,"What is the minimum number of votes needed to win a non-permanent UNSC seat if all 193 member states vote?","129 votes"],
+  [2,"What significant responsibility did India undertake in the UNSC in August 2021?","India assumed the presidency of the UNSC for one month"],
+  [3,"In which year did India become a member of FATF?","25 June, 2010"],
+  [3,"Who is the first Indian to be appointed Vice President of the Financial Action Task Force (FATF)?","Vivek Aggarwal"],
+  [1,"India became which numbered member of FATF?","36th member"],
+  [2,"What rank did India secure in the Global Peace Index 2026?","127th"],
+  [1,"Which country secured the top spot in the Global Peace Index 2026?","Iceland"],
+  [1,"Which country ranked last in the Global Peace Index 2026?","Russia"],
+  [2,"Where is the headquarters of the International Big Cat Alliance (IBCA)?","New Delhi"],
+  [2,"Bangladesh became which member of the IBCA in June 2026?","27th"],
+  [1,"When was IBCA launched?","April 2023"],
+  [2,"Where was the recent India-Saudi Arabia water MoU signed?","Saudi Water Week in Jeddah"],
+  [1,"What is the main focus of the recent India-Saudi MoU?","Cooperation in water resources planning, sustainable management, irrigation, and capacity building"],
+  [1,"Who else attended the MoU signing ceremony between Saudi Arabia and India?","Fahad Suri, Consul General of India in Jeddah"],
+  [2,"Where is the 11th BRICS Energy Ministers' Meeting to be hosted?","Gurugram, Haryana, India"],
+  [1,"What is the Energy Track theme of the 11th BRICS Energy Meeting?","'Sarveshaam Oorjam' (Energy for All)"],
+  [1,"How many member countries does BRICS have?","11"],
+]},
+
+{cat:"Rankings & Indices", items:[
+  [3,"Which institution secured the top spot in the Government University category of the International Institutional Ranking Framework 2026?","Jawaharlal Nehru University"],
+  [2,"Which institution topped the Management University category of the same ranking framework?","IIM Ahmedabad, Gujarat"],
+  [2,"Which institution topped the Engineering University category of the same ranking framework?","IIT Bombay"],
+  [2,"What is the number of Indian universities in the global top 200?","3"],
+  [3,"When did the QS World Future Skills Index start?","First published in 2025"],
+  [2,"Which country ranks 1st in the QS World Future Skills Index 2027?","USA, with a score of 99.2"],
+  [3,"Where does India rank in the QS World Future Skills Index 2027?","13th"],
+  [2,"According to the World Bank's Container Port Performance Index 2025, which is India's top-ranked container port?","Jawaharlal Nehru Port"],
+  [1,"Which container port secured the top spot in the World Bank's Container Port Performance Index 2025?","Fuzhou, China"],
+  [1,"Who publishes the Container Port Performance Index?","The World Bank"],
+  [3,"How many Indian companies recently joined the WEF's 2026 Tech Pioneers Group?","9"],
+  [2,"How many Indian companies are included in the WEF's Tech Pioneers Group in total?","28"],
+  [1,"Who founded the World Economic Forum?","German professor Klaus Schwab"],
+]},
+
+{cat:"Miscellaneous", items:[
+  [2,"Which is the first temple in the country to obtain a trademark for its 'Nilachakra' logo and two specific words?","Jagannath Temple"],
+  [1,"In which state is the Jagannath Temple located?","Odisha"],
+  [1,"Who built the Jagannath Temple?","Anantavarman Chodaganga Deva of the Ganga Dynasty"],
+  [2,"How long is the Qadian–Beas Railway Line?","39.68 km"],
+  [2,"Which two districts does the Qadian–Beas Railway Line connect?","Gurdaspur and Amritsar"],
+  [2,"Which state is the Qadian–Beas railway line project associated with?","Punjab"],
+  [2,"What is the total budget of the Ambabai Temple Development Project?","₹1,445 crore"],
+  [1,"In which state was the Ambabai Temple Development Project started?","Maharashtra"],
+  [1,"What is the guiding idea behind the Ambabai Temple development project?","'Vikas Bhi, Virasat Bhi' (Development as well as Heritage)"],
+  [1,"Where is the Hemis festival celebrated?","Hemis Monastery, Ladakh — roughly 40 km from Leh city"],
+  [1,"Which is the biggest festival in Ladakh?","Hemis Festival, celebrated annually in early summer for 2 days"],
+  [1,"On which dates was the Hemis Festival celebrated in 2026?","24 to 25 June 2026"],
+  [2,"Why was AIR Suvidha 2.0 launched by the Ministry of Civil Aviation?","In response to the WHO declaring the Ebola/Bundibugyo Virus Disease"],
+  [1,"When was AIR Suvidha 2.0 launched?","25 June 2026"],
+  [1,"Who released the book 'Sanskritir Ratna Bhandar: Bhaowaiyar Itibritto'?","Vice-President C. P. Radhakrishnan, on 25 June 2026"],
+  [1,"Who are the authors of 'Sanskritir Ratna Bhandar: Bhaowaiyar Itibritto'?","Lok Sabha MP Dr. Jayanta Kumar Roy and Ms. Sangita Roy"],
+  [3,"Who was recently appointed as the chief of the Indian Intelligence Bureau?","Mahesh Dixit, on 26 June 2026"],
+  [1,"Which ministry oversees the Indian Intelligence Bureau?","Ministry of Home Affairs"],
+  [2,"Who recently announced new rules and regulations for the Indian film industry?","The Ministry of Information & Broadcasting"],
+  [2,"Who chairs the newly formed Study Group on Indian cinema?","Prasoon Joshi"],
+  [1,"What are the two new major decisions taken for the Indian film industry?","Model State Cinema Regulations and a Study Group"],
+  [3,"When and where was the Yamuna Water Project agreement signed between Rajasthan and Haryana?","New Delhi, 29 June 2026"],
+  [2,"Which districts will benefit from the Yamuna Water Project agreement?","Sikar, Churu, Jhunjhunu (Rajasthan) and Bhiwani, Fatehabad (Haryana)"],
+  [1,"How much water will Rajasthan receive under this agreement?","Approximately 580 Million Cubic Metres"],
+  [2,"IMI-resistant hybrid mustard, which India will cultivate at scale in the 2026-27 Rabi season, was developed by whom?","Dr. Deepak Pental at the Centre for Genetic Manipulation of Crop Plants (CGMCP), University of Delhi"],
+  [1,"What is the key feature of IMI-resistant hybrid crop varieties?","They withstand imidazolinone herbicides and help manage the parasitic weed Orobanche"],
+  [3,"Who recently became the world's first trillionaire?","Elon Musk"],
+  [3,"Which company made the world's largest IPO?","SpaceX"],
+  [1,"When was SpaceX established?","2002"],
+]},
+
+{cat:"Additional Added — June 2026, Not in the Source PDF", extra:true, items:[
+  [3,"What did the RBI's Monetary Policy Committee decide at its June 2026 meeting?","It kept the repo rate unchanged at 5.25% and retained a neutral policy stance"],
+  [2,"Who chaired the RBI's June 2026 MPC meeting?","RBI Governor Sanjay Malhotra"],
+  [1,"What are the SDF, MSF, and Bank Rate levels set alongside the June 2026 repo rate decision?","SDF at 5%; MSF and Bank Rate at 5.5%"],
+  [2,"What was India's revised FY27 GDP growth forecast announced in the June 2026 RBI policy?","6.6%, revised down from the earlier 6.9% estimate"],
+  [1,"What was India's revised FY27 inflation forecast announced in the June 2026 RBI policy?","5.1%"],
+  [3,"Which country hosted World Environment Day 2026 (5 June)?","Azerbaijan, in its capital Baku"],
+  [2,"What does the World Environment Day 2026 theme focus on?","Climate change and climate action — 'Inspired by Nature. For Climate. For Our Future.'"],
+  [3,"What is the theme of the 12th International Day of Yoga (21 June 2026)?","'Yoga for Healthy Ageing'"],
+  [1,"Where was the United Nations' formal celebration of International Day of Yoga 2026 held?","UN Headquarters, New York (18 June 2026)"],
+  [3,"Who was appointed India's Executive Director at the World Bank in June 2026?","Economist Neelkanth Mishra"],
+  [1,"Whom did Neelkanth Mishra succeed as India's Executive Director at the World Bank?","Parameswaran Iyer"],
+  [2,"Who was appointed India's next Ambassador to Saudi Arabia in June 2026?","Veteran diplomat Vipul"],
+  [2,"Who was appointed Chairperson of the CBSE in June 2026?","Lokhande Prashant Sitaram, with Varun Bhardwaj as Secretary"],
+  [1,"How many new Supreme Court judges did the President approve in June 2026?","Five"],
+  [2,"Who was named the new Chairman of GIC Re in June 2026?","Hitesh Joshi"],
+  [2,"Who was reappointed Solicitor General of India for a three-year term in June 2026?","Tushar Mehta"],
+  [2,"Which Indian jurist was elected as a judge of the International Tribunal for the Law of the Sea (ITLOS) in June 2026?","Bimal Patel"],
+  [1,"Which company appointed Kumar Shanker as its new Managing Director in June 2026?","Indraprastha Gas Limited (IGL)"],
+]},
+];
+
+const main = document.getElementById('main');
+const searchInput = document.getElementById('search');
+const starChip = document.querySelector('.chip.star-only');
+const extraChip = document.querySelector('.chip.extra-only');
+const countEl = document.getElementById('count');
+let starOnly = false;
+let extraOnly = false;
+
+function starHTML(n){
+  const gold = '★'.repeat(n);
+  const empty = '☆'.repeat(3-n);
+  const color = n===3 ? 'var(--gold)' : (n===2 ? 'var(--teal)' : 'var(--muted-2)');
+  return `<span class="stars" style="color:${color}">${gold}${empty}</span>`;
+}
+
+function render(){
+  main.innerHTML = '';
+  let total = 0, visible = 0;
+  const q = searchInput.value.trim().toLowerCase();
+
+  DATA.forEach(section => {
+    const section_el = document.createElement('div');
+    section_el.className = 'section' + (section.extra ? ' extra' : '');
+    let sectionVisibleCount = 0;
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+
+    section.items.forEach(([star, ques, ans]) => {
+      total++;
+      const matchesSearch = !q || ques.toLowerCase().includes(q) || ans.toLowerCase().includes(q);
+      const matchesStar = !starOnly || star === 3;
+      const matchesExtra = !extraOnly || section.extra === true;
+      const show = matchesSearch && matchesStar && matchesExtra;
+      if(show){ visible++; sectionVisibleCount++; }
+      const card = document.createElement('div');
+      card.className = 'card' + (show ? '' : ' hidden');
+      card.innerHTML = `
+        <div class="card-top">
+          <div class="q">${ques}</div>
+          ${starHTML(star)}
+        </div>
+        <div class="a">${ans}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    section_el.innerHTML = `<div class="section-head"><h2>${section.cat}</h2>${section.extra ? '<span class="badge">Additional Added</span>' : ''}<span class="n">${section.items.length} questions</span></div>`;
+    if(section.extra){
+      const note = document.createElement('p');
+      note.className = 'note';
+      note.textContent = "These weren't in the uploaded PDF — researched separately from June 2026 news for extra SSC CGL coverage (RBI policy, key appointments, and international observance days).";
+      section_el.appendChild(note);
+    }
+    section_el.appendChild(grid);
+    if(sectionVisibleCount === 0){ section_el.classList.add('hidden'); }
+    main.appendChild(section_el);
+  });
+
+  countEl.textContent = `${visible} / ${total} questions shown`;
+
+  if(visible === 0){
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.textContent = 'No questions found — try a different search or filter.';
+    main.appendChild(empty);
+  }
+}
+
+searchInput.addEventListener('input', render);
+starChip.addEventListener('click', () => {
+  starOnly = !starOnly;
+  starChip.classList.toggle('active', starOnly);
+  render();
+});
+extraChip.addEventListener('click', () => {
+  extraOnly = !extraOnly;
+  extraChip.classList.toggle('active', extraOnly);
+  render();
+});
+document.querySelector('.chip[data-cat="all"]').addEventListener('click', () => {
+  searchInput.value = '';
+  starOnly = false;
+  extraOnly = false;
+  starChip.classList.remove('active');
+  extraChip.classList.remove('active');
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
