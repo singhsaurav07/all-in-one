@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constitutional Framework & Evolution | SSC CGL Tier 1 + 2</title>
+<style>
+  :root{
+    --bg:#0c1220;
+    --bg-alt:#111a2c;
+    --card:#151f34;
+    --card-border:#233052;
+    --orange:#ff8a3d;
+    --orange-deep:#e8672a;
+    --orange-soft:rgba(255,138,61,0.12);
+    --text:#e8ecf5;
+    --text-dim:#9aa7c2;
+    --text-faint:#6b7794;
+    --high:#ff5c5c;
+    --med:#ffb84d;
+    --low:#7fd88f;
+    --blue:#5b9dff;
+    --purple:#c792ea;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
+    background:
+      radial-gradient(ellipse at top left, rgba(255,138,61,0.07), transparent 45%),
+      radial-gradient(ellipse at bottom right, rgba(91,157,255,0.05), transparent 45%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  a{color:var(--orange);}
+
+  /* ---------- HEADER ---------- */
+  header.page-head{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:28px 20px 10px;
+  }
+  .eyebrow{
+    color:var(--orange);
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+  h1.title{
+    font-size:clamp(22px,4vw,32px);
+    margin:6px 0 4px;
+    background:linear-gradient(90deg,#fff,#ffcda3);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subtitle{
+    color:var(--text-dim);
+    font-size:14.5px;
+    max-width:760px;
+  }
+
+  /* ---------- STICKY NAV ---------- */
+  nav.tabbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(12,18,32,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--card-border);
+    padding:10px 0;
+  }
+  .tabbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 20px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    scrollbar-width:thin;
+  }
+  .tabbar-inner::-webkit-scrollbar{height:5px;}
+  .tabbar-inner::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:10px;}
+  .tab-btn{
+    flex:0 0 auto;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    color:var(--text-dim);
+    padding:9px 16px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    white-space:nowrap;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .tab-btn:hover{border-color:var(--orange-deep); color:var(--text);}
+  .tab-btn.active{
+    background:linear-gradient(135deg,var(--orange),var(--orange-deep));
+    color:#1a0e04;
+    border-color:transparent;
+    box-shadow:0 3px 12px rgba(255,138,61,0.35);
+  }
+
+  /* ---------- MAIN ---------- */
+  main{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:24px 20px 10px;
+  }
+  .tab-panel{display:none; animation:fadeIn .25s ease;}
+  .tab-panel.active{display:block;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  h2.section-title{
+    font-size:clamp(19px,3vw,24px);
+    color:#fff;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2.section-title .num{
+    color:var(--orange);
+    font-size:14px;
+    font-weight:800;
+    background:var(--orange-soft);
+    padding:3px 9px;
+    border-radius:8px;
+  }
+  .section-desc{
+    color:var(--text-dim);
+    font-size:14px;
+    margin:0 0 22px;
+    max-width:760px;
+  }
+
+  /* ---------- GRID ---------- */
+  .card-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media(min-width:860px){
+    .card-grid.two-col{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:1180px){
+    .card-grid.three-col{grid-template-columns:1fr 1fr 1fr;}
+  }
+
+  /* ---------- CARD ---------- */
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--bg-alt));
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    padding:18px 18px 16px;
+  }
+  .card h3{
+    margin:0 0 10px;
+    font-size:16.5px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:wrap;
+  }
+  .card ul{margin:6px 0 10px; padding-left:20px;}
+  .card li{margin-bottom:5px; font-size:14.5px; color:#dbe1ee;}
+  .card li b, .card li strong{color:#fff;}
+  .card p{font-size:14.5px; color:#dbe1ee; margin:6px 0;}
+
+  .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:.5px;
+    padding:3px 9px;
+    border-radius:999px;
+    text-transform:uppercase;
+  }
+  .tag.high{background:rgba(255,92,92,0.15); color:var(--high); border:1px solid rgba(255,92,92,0.4);}
+  .tag.med{background:rgba(255,184,77,0.15); color:var(--med); border:1px solid rgba(255,184,77,0.4);}
+  .tag.low{background:rgba(127,216,143,0.15); color:var(--low); border:1px solid rgba(127,216,143,0.4);}
+  .tag.tier1{background:rgba(91,157,255,0.15); color:var(--blue); border:1px solid rgba(91,157,255,0.4);}
+  .tag.tier2{background:rgba(199,146,234,0.15); color:var(--purple); border:1px solid rgba(199,146,234,0.4);}
+  .tag.ai{background:rgba(255,138,61,0.15); color:var(--orange); border:1px solid rgba(255,138,61,0.4);}
+
+  /* ---------- MNEMONIC & BIHAR BOX ---------- */
+  .mnemonic{
+    margin-top:12px;
+    background:rgba(199,146,234,0.08);
+    border:1px dashed rgba(199,146,234,0.45);
+    border-radius:10px;
+    padding:10px 13px;
+    font-size:13.5px;
+    color:#e6d6f5;
+  }
+  .mnemonic .lbl{color:var(--purple); font-weight:800; font-size:11px; letter-spacing:.5px; text-transform:uppercase; display:block; margin-bottom:4px;}
+
+  .bihar{
+    margin-top:12px;
+    background:rgba(255,138,61,0.07);
+    border-left:3px solid var(--orange);
+    border-radius:8px;
+    padding:10px 13px;
+    font-size:13.5px;
+    color:#f3d9c2;
+  }
+  .bihar .lbl{color:var(--orange); font-weight:800; font-size:11px; letter-spacing:.5px; text-transform:uppercase; display:block; margin-bottom:4px;}
+
+  /* ---------- TABLES ---------- */
+  .table-wrap{overflow-x:auto; margin:10px 0 4px; border-radius:10px; border:1px solid var(--card-border);}
+  table{width:100%; border-collapse:collapse; min-width:420px; font-size:13.5px;}
+  thead th{
+    background:var(--orange-soft);
+    color:var(--orange);
+    text-align:left;
+    padding:9px 12px;
+    font-size:12px;
+    letter-spacing:.3px;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  tbody td{padding:9px 12px; border-top:1px solid var(--card-border); color:#dbe1ee;}
+  tbody tr:hover{background:rgba(255,255,255,0.02);}
+
+  /* ---------- PYQ / PREDICTED (collapsible) ---------- */
+  details.q-item{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  details.q-item summary{
+    cursor:pointer;
+    list-style:none;
+    font-size:14.5px;
+    color:#fff;
+    font-weight:600;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  details.q-item summary::-webkit-details-marker{display:none;}
+  details.q-item summary::before{
+    content:"+";
+    flex:0 0 auto;
+    color:var(--orange);
+    font-weight:900;
+    font-size:16px;
+    transition:transform .2s;
+  }
+  details.q-item[open] summary::before{content:"–";}
+  .q-meta{display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap;}
+  .q-options{margin:10px 0 8px; padding-left:0; list-style:none; font-size:13.5px; color:var(--text-dim);}
+  .q-options li{padding:5px 0 5px 26px; position:relative;}
+  .q-options li::before{content:attr(data-letter); position:absolute; left:0; top:5px; width:18px; height:18px; border-radius:5px; background:var(--bg-alt); border:1px solid var(--card-border); font-size:10.5px; display:flex; align-items:center; justify-content:center; color:var(--text-faint);}
+  .answer-box{
+    margin-top:10px;
+    background:rgba(127,216,143,0.08);
+    border:1px solid rgba(127,216,143,0.3);
+    border-radius:8px;
+    padding:9px 12px;
+    font-size:13.5px;
+    color:#c9f2cf;
+  }
+  .answer-box b{color:var(--low);}
+
+  .note-box{
+    background:rgba(91,157,255,0.07);
+    border:1px solid rgba(91,157,255,0.3);
+    border-radius:10px;
+    padding:13px 16px;
+    font-size:13.5px;
+    color:#cfe1ff;
+    margin-bottom:20px;
+  }
+  .note-box b{color:var(--blue);}
+
+  footer{
+    max-width:var(--maxw);
+    margin:30px auto 0;
+    padding:16px 20px;
+    color:var(--text-faint);
+    font-size:12px;
+    border-top:1px solid var(--card-border);
+    text-align:center;
+  }
+
+  @media(max-width:600px){
+    .card{padding:15px 14px;}
+    h2.section-title{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <div class="eyebrow">SSC CGL &middot; Tier 1 + Tier 2 &middot; Polity</div>
+  <h1 class="title">Constitutional Framework &amp; Evolution</h1>
+  <p class="subtitle">From the Regulating Act 1773 to the commencement of the Constitution — colonial acts, the Constituent Assembly, sources, Preamble and salient features, built for fast revision.</p>
+</header>
+
+<nav class="tabbar">
+  <div class="tabbar-inner" id="tabbarInner">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="historical">Historical Background</button>
+    <button class="tab-btn" data-tab="assembly">Constituent Assembly</button>
+    <button class="tab-btn" data-tab="sources">Sources of Constitution</button>
+    <button class="tab-btn" data-tab="preamble">Preamble</button>
+    <button class="tab-btn" data-tab="features">Salient Features</button>
+    <button class="tab-btn" data-tab="commencement">Adoption &amp; Commencement</button>
+    <button class="tab-btn" data-tab="recap">Quick Recap Tables</button>
+    <button class="tab-btn" data-tab="pyq">PYQs (10 Yrs)</button>
+    <button class="tab-btn" data-tab="predicted">Predicted Qs</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="tab-panel active" id="overview">
+  <h2 class="section-title"><span class="num">01</span> Overview</h2>
+  <p class="section-desc">This chapter traces how India's constitutional machinery evolved under British rule and how the Constitution itself was built and born. It is one of the highest-yield Polity chapters for SSC CGL — expect 2-4 questions across Tier 1 and Tier 2 combined.</p>
+
+  <div class="card-grid three-col">
+    <div class="card">
+      <h3>🏛️ What this chapter covers <span class="tag high">HIGH weightage</span></h3>
+      <ul>
+        <li>8 major British-era Acts (1773–1935) that shaped Indian governance</li>
+        <li>Formation, composition &amp; committees of the Constituent Assembly</li>
+        <li>5 sources the Constitution borrowed from</li>
+        <li>Preamble — words, meaning, amendment history</li>
+        <li>Salient features — federal, parliamentary, written, blend of rigid-flexible</li>
+        <li>Adoption (26 Nov 1949) vs Commencement (26 Jan 1950)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🎯 How SSC tests this chapter</h3>
+      <ul>
+        <li>Direct "which Act introduced ___" questions (Acts 1773–1935)</li>
+        <li>Match-the-following: Act → feature it introduced</li>
+        <li>Constituent Assembly numbers — members, sessions, dates</li>
+        <li>Preamble — exact words, order, what 42nd Amendment added</li>
+        <li>Committee → Chairman matching (esp. Drafting Committee)</li>
+        <li>Source country → feature borrowed</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 Fastest wins</h3>
+      <ul>
+        <li>Memorise Act years in sequence — half the questions are pure recall</li>
+        <li>Drafting Committee Chairman = <b>B.R. Ambedkar</b> is asked almost every year</li>
+        <li>"Socialist" + "Secular" + "Integrity" = <b>42nd Amendment, 1976</b> — extremely repeated</li>
+        <li>26 Nov 1949 (adopted) vs 26 Jan 1950 (enforced) — a classic trap pair</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top:18px;">
+    <b>How to use this guide:</b> Each subtopic tab has PYQ-frequency tagged cards, comparison tables for confusing pairs, mnemonic boxes for anything sequential, and a Bihar Connect box wherever relevant for state-level exams. Tap any question in the PYQ / Predicted tabs to reveal the answer.
+  </div>
+</section>
+
+<!-- ============ HISTORICAL BACKGROUND ============ -->
+<section class="tab-panel" id="historical">
+  <h2 class="section-title"><span class="num">02</span> Historical Background — Regulating Act to Independence Act 1947</h2>
+  <p class="section-desc">Eight landmark Acts of the British Parliament, 1773–1947, that progressively built India's administrative and legislative machinery — the direct ancestor of the Indian Constitution.</p>
+
+  <div class="mnemonic" style="margin-bottom:20px;">
+    <span class="lbl">Mnemonic — sequence of Acts</span>
+    "<b>R</b>avi <b>P</b>lays <b>C</b>ricket, <b>G</b>randpa <b>C</b>alls <b>G</b>randma's <b>G</b>rand <b>I</b>ndia" →
+    <b>R</b>egulating Act 1773 → <b>P</b>itt's India Act 1784 → <b>C</b>harter Acts (1793/1813/1833/1853) → <b>G</b>oI Act 1858 → <b>C</b>ouncils Acts (1861/1892/1909) → <b>G</b>oI Act 1919 → <b>G</b>oI Act 1935 → <b>I</b>ndependence Act 1947
+  </div>
+
+  <div class="card-grid two-col">
+    <div class="card">
+      <h3>Regulating Act, 1773 <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>First step by British Parliament to control & regulate East India Company's affairs</li>
+        <li>Governor of Bengal → <b>Governor-General of Bengal</b> (first: Warren Hastings)</li>
+        <li>Governor-General's council of 4 members created</li>
+        <li>Governors of Bombay & Madras subordinated to Governor-General of Bengal</li>
+        <li>Established <b>Supreme Court at Calcutta (1774)</b></li>
+        <li>Court of Directors made to report on revenue, civil & military affairs to British govt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pitt's India Act, 1784 <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Company's commercial & political functions separated</li>
+        <li>Created <b>Board of Control</b> for political affairs — dual government of Company</li>
+        <li>Company territories in India called "British possessions" for first time</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Charter Act, 1793 <span class="tag low">LOW</span></h3>
+      <ul>
+        <li>Renewed Company's trading charter for 20 more years</li>
+        <li>Salaries of Board of Control charged to Indian revenue</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Charter Act, 1813 <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Company's trade <b>monopoly ended</b> (except tea trade & trade with China)</li>
+        <li>Christian missionaries permitted to preach in India</li>
+        <li>Rs. 1 lakh sanctioned annually for education of Indians — first such step</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Charter Act, 1833 <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Governor-General of Bengal → <b>Governor-General of India</b> (first: Lord William Bentinck)</li>
+        <li>Company became a purely administrative body — <b>trade monopoly ended completely</b></li>
+        <li>Centralised legislative power in the Governor-General-in-Council</li>
+        <li>First attempt at law codification</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Charter Act, 1853 <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Legislative & executive functions of Governor-General's council <b>separated for the first time</b></li>
+        <li>Introduced open competition for civil service (Macaulay Committee)</li>
+        <li>Local representation introduced in Indian legislative council</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>GoI Act, 1858 <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Passed after the <b>Revolt of 1857</b> — ended Company rule, began <b>Crown rule</b></li>
+        <li>New post: <b>Secretary of State for India</b> (British Cabinet member)</li>
+        <li>Governor-General of India also became the <b>Viceroy</b> (first: Lord Canning)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Indian Councils Act, 1861 <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Started the process of decentralisation — legislative powers restored to Bombay & Madras</li>
+        <li>Introduced the <b>portfolio system</b></li>
+        <li>Viceroy empowered to issue ordinances</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Indian Councils Act, 1892 <span class="tag low">LOW</span></h3>
+      <ul>
+        <li>Slightly enlarged legislative councils; introduced limited & indirect elections</li>
+        <li>Members could discuss the budget and address questions to the executive</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Indian Councils Act, 1909 (Morley-Minto) <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Introduced <b>separate electorate for Muslims</b> — Lord Minto called "Father of Communal Electorate"</li>
+        <li>First entry of Indians into the Viceroy's Executive Council (Satyendra Prasad Sinha)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>GoI Act, 1919 (Montagu-Chelmsford) <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Introduced <b>Dyarchy</b> (dual government) in the provinces — subjects split into "reserved" & "transferred"</li>
+        <li>Bicameral central legislature + direct elections introduced for the first time</li>
+        <li>Separate electorates extended to Sikhs, Indian Christians, Anglo-Indians</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>GoI Act, 1935 <span class="tag high">HIGH — most-borrowed source</span></h3>
+      <ul>
+        <li>Proposed an <b>All-India Federation</b> of British provinces + princely states (never fully enforced)</li>
+        <li>Abolished dyarchy in provinces; introduced <b>dyarchy at the Centre</b> instead</li>
+        <li>Provincial autonomy granted; bicameralism introduced in 6 provinces</li>
+        <li>Established <b>Federal Court (1937)</b> and the <b>Reserve Bank of India (1935)</b></li>
+        <li>Single largest source of the Indian Constitution's structural provisions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card">
+      <h3>Indian Independence Act, 1947 <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Ended British rule; created two independent dominions — <b>India and Pakistan</b> (15 Aug 1947)</li>
+        <li>Made the <b>Constituent Assembly a sovereign body</b>, empowered to frame the Constitution and also act as the central legislature</li>
+        <li>Office of Viceroy abolished; Governor-General retained as constitutional head of each dominion</li>
+        <li>Abolished the title "Emperor of India" held by the British Crown</li>
+      </ul>
+      <div class="bihar">
+        <span class="lbl">Bihar Connect</span>
+        Bihar was carved out as a separate province from the Bengal Presidency in <b>1912</b> — a direct product of this colonial administrative evolution, and a commonly asked cross-topic fact in Bihar-level competitive exams.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONSTITUENT ASSEMBLY ============ -->
+<section class="tab-panel" id="assembly">
+  <h2 class="section-title"><span class="num">03</span> Constituent Assembly — Formation, Composition, Key Committees</h2>
+  <p class="section-desc">The body that drafted the Constitution — its origin, structure, sessions, and the committees that did the actual drafting work.</p>
+
+  <div class="card-grid two-col">
+    <div class="card">
+      <h3>Origin & Formation <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Idea first proposed by <b>M.N. Roy</b> in 1934; formally demanded by the INC in 1935</li>
+        <li>Accepted in principle under the <b>Cabinet Mission Plan, 1946</b></li>
+        <li>Members <b>indirectly elected</b> by provincial legislative assemblies (not by universal adult franchise)</li>
+        <li>Total strength: <b>389</b> seats (296 from British India + 93 from Princely States)</li>
+        <li>After Partition, membership reduced to about <b>299</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Sessions & Landmark Dates <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>First meeting: <b>9 December 1946</b> — Sachchidananda Sinha was temporary/interim chairman</li>
+        <li><b>Dr. Rajendra Prasad</b> elected permanent President on 11 December 1946</li>
+        <li><b>Objectives Resolution</b> moved by Jawaharlal Nehru on 13 December 1946 — later formed the basis of the Preamble</li>
+        <li>B.N. Rau served as <b>Constitutional Advisor</b> to the Assembly</li>
+        <li>Total: <b>11 sessions</b> held over 2 years, 11 months & 18 days</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px; color:#fff; font-size:16px;">Key Committees & their Chairmen <span class="tag high">HIGH — repeated every year</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Committee</th><th>Chairman</th><th>Key Role</th></tr></thead>
+      <tbody>
+        <tr><td><b>Drafting Committee</b></td><td>Dr. B.R. Ambedkar</td><td>Prepared the actual draft of the Constitution — most important committee, formed 29 Aug 1947, 7 members</td></tr>
+        <tr><td>Union Powers Committee</td><td>Jawaharlal Nehru</td><td>Powers to be vested in the Union</td></tr>
+        <tr><td>Union Constitution Committee</td><td>Jawaharlal Nehru</td><td>Structure of the Union government</td></tr>
+        <tr><td>Provincial Constitution Committee</td><td>Sardar Vallabhbhai Patel</td><td>Structure of provincial governments</td></tr>
+        <tr><td>Advisory Committee on Fundamental Rights &amp; Minorities</td><td>Sardar Vallabhbhai Patel</td><td>Recommended Fundamental Rights framework</td></tr>
+        <tr><td>Steering Committee</td><td>Dr. Rajendra Prasad</td><td>Steered the overall procedure of the Assembly</td></tr>
+        <tr><td>Rules of Procedure Committee</td><td>Dr. Rajendra Prasad</td><td>Framed rules of business for the Assembly</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mnemonic">
+    <span class="lbl">Mnemonic — committee chairs</span>
+    "<b>A</b>mbedkar <b>D</b>rafts, <b>N</b>ehru builds the <b>U</b>nion, <b>P</b>atel handles <b>P</b>rovinces &amp; rights, <b>P</b>rasad <b>S</b>teers the ship" — Ambedkar=Drafting; Nehru=Union Powers/Constitution; Patel=Provincial/Advisory(Rights); Prasad=Steering/Rules
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Working & Adoption <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Also functioned as India's <b>provisional Parliament</b> from 1947 until the first general elections (1952)</li>
+        <li>Constitution adopted on <b>26 November 1949</b></li>
+        <li><b>284 members</b> signed the final document on 24 January 1950</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Women Members <span class="tag low">LOW</span></h3>
+      <ul>
+        <li>15 women members in the Constituent Assembly, including Sarojini Naidu, Hansa Mehta, Durgabai Deshmukh, and Rajkumari Amrit Kaur</li>
+      </ul>
+      <div class="bihar">
+        <span class="lbl">Bihar Connect</span>
+        <b>Dr. Rajendra Prasad</b> (born in Ziradei, Siwan district, Bihar) was the permanent President of the Constituent Assembly and went on to become India's first President. <b>Sachchidananda Sinha</b>, also from Bihar (Muzaffarpur), was its first temporary/interim chairman. Other prominent Bihar members included Anugrah Narayan Sinha and Braj Kishore Prasad.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section class="tab-panel" id="sources">
+  <h2 class="section-title"><span class="num">04</span> Sources of the Indian Constitution</h2>
+  <p class="section-desc">The Constitution is often called a "bag of borrowings" — it draws provisions from constitutions across the world while adapting them to Indian conditions.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>Features borrowed</th></tr></thead>
+      <tbody>
+        <tr><td><b>Government of India Act, 1935</b></td><td>Federal scheme, office of Governor, judiciary structure, Public Service Commissions, emergency provisions — <b>largest single source</b></td></tr>
+        <tr><td>British Constitution</td><td>Parliamentary government, rule of law, single citizenship, Cabinet system, Speaker's office, bicameral legislature</td></tr>
+        <tr><td>US Constitution</td><td>Fundamental Rights, judicial review, independence of judiciary, impeachment, removal of judges, post of Vice-President</td></tr>
+        <tr><td>Irish Constitution</td><td>Directive Principles of State Policy (DPSP), nomination of Rajya Sabha members, method of Presidential election</td></tr>
+        <tr><td>Canadian Constitution</td><td>Federation with a strong Centre, residuary powers with the Union, appointment of state Governors by Centre</td></tr>
+        <tr><td>Australian Constitution</td><td>Concurrent List, freedom of trade &amp; commerce, joint sitting of the two Houses of Parliament</td></tr>
+        <tr><td>Weimar Constitution (Germany)</td><td>Suspension of Fundamental Rights during Emergency</td></tr>
+        <tr><td>French Constitution</td><td>Ideals of Liberty, Equality, Fraternity in the Preamble; Republic</td></tr>
+        <tr><td>Soviet (Russian) Constitution</td><td>Fundamental Duties; ideal of social, economic and political justice in the Preamble</td></tr>
+        <tr><td>South African Constitution</td><td>Procedure for constitutional amendment</td></tr>
+        <tr><td>Japanese Constitution</td><td>"Procedure established by law" (Article 21)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mnemonic">
+    <span class="lbl">Mnemonic — top 5 exam-favourite sources</span>
+    "<b>G</b>ood <b>B</b>ritish <b>U</b>ncles <b>I</b>mport <b>C</b>ars" → <b>G</b>oI Act 1935 (structure), <b>B</b>ritain (parliamentary system), <b>US</b> (rights &amp; judicial review), <b>I</b>reland (DPSP), <b>C</b>anada (federal + strong Centre)
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Frequently confused pairs <span class="tag high">HIGH</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Commonly confused with</th><th>Correct source</th></tr></thead>
+          <tbody>
+            <tr><td>Fundamental Duties</td><td>USSR/Soviet vs Germany</td><td><b>USSR (Soviet Russia)</b></td></tr>
+            <tr><td>DPSP</td><td>Ireland vs Britain</td><td><b>Ireland</b></td></tr>
+            <tr><td>Emergency provisions</td><td>Germany vs Canada</td><td><b>Germany (Weimar)</b></td></tr>
+            <tr><td>Concurrent List</td><td>Australia vs USA</td><td><b>Australia</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Why this matters <span class="tag med">MEDIUM</span></h3>
+      <p>SSC frequently tests "which country did India borrow ___ from" as a direct question, and also as a match-the-following. Since the list is finite (11 sources), this topic offers a very high accuracy-to-effort ratio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREAMBLE ============ -->
+<section class="tab-panel" id="preamble">
+  <h2 class="section-title"><span class="num">05</span> Preamble — Meaning & Keywords</h2>
+  <p class="section-desc">The introductory statement that summarises the Constitution's guiding philosophy — one of the most repeated topics in SSC Polity.</p>
+
+  <div class="card-grid two-col">
+    <div class="card">
+      <h3>Core facts <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Begins with <b>"WE, THE PEOPLE OF INDIA"</b> — power of the Constitution flows from the people</li>
+        <li>Idea of a Preamble borrowed from the <b>US Constitution</b></li>
+        <li>Preamble is based on the <b>Objectives Resolution</b> drafted by Nehru (1946)</li>
+        <li>Date mentioned in the Preamble: <b>26 November 1949</b> (date of adoption)</li>
+        <li>Amended <b>only once</b> — by the <b>42nd Amendment Act, 1976</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Keywords & meaning <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li><b>Sovereign</b> — free from external control, can conduct own affairs</li>
+        <li><b>Socialist</b> — added in 1976; means social &amp; economic equality, not doctrinaire communism</li>
+        <li><b>Secular</b> — added in 1976; State has no official religion, treats all equally</li>
+        <li><b>Democratic</b> — government elected by and accountable to the people</li>
+        <li><b>Republic</b> — Head of State (President) is elected, not hereditary</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Justice · Liberty · Equality · Fraternity <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li><b>Justice</b> — social, economic and political (idea from the Russian Revolution)</li>
+        <li><b>Liberty</b> — of thought, expression, belief, faith and worship (from the French Revolution)</li>
+        <li><b>Equality</b> — of status and of opportunity</li>
+        <li><b>Fraternity</b> — assures the dignity of the individual and the unity &amp; integrity of the nation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Original vs Amended Preamble</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Original (1949)</th><th>After 42nd Amendment (1976)</th></tr></thead>
+          <tbody>
+            <tr><td>Sovereign Democratic Republic</td><td>Sovereign <b>Socialist Secular</b> Democratic Republic</td></tr>
+            <tr><td>Unity of the Nation</td><td>Unity and <b>Integrity</b> of the Nation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mnemonic">
+    <span class="lbl">Mnemonic — Preamble keywords in order</span>
+    "<b>S</b>unny <b>S</b>ells <b>S</b>ecret <b>D</b>iamonds <b>R</b>arely, but <b>J</b>ust <b>L</b>oves <b>E</b>veryone <b>F</b>ully" → Sovereign, Socialist, Secular, Democratic, Republic — Justice, Liberty, Equality, Fraternity
+  </div>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card">
+      <h3>Legal Status — Is the Preamble part of the Constitution? <span class="tag high">HIGH</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Case</th><th>Year</th><th>Held</th></tr></thead>
+          <tbody>
+            <tr><td>Berubari Union case</td><td>1960</td><td>Preamble is <b>NOT</b> a part of the Constitution</td></tr>
+            <tr><td>Kesavananda Bharati case</td><td>1973</td><td>Preamble <b>IS</b> a part of the Constitution and can be amended, but its <b>basic structure</b> cannot be altered</td></tr>
+            <tr><td>LIC of India case</td><td>1995</td><td>Reaffirmed that Preamble is a part of the Constitution</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>Preamble is <b>not enforceable</b> in a court of law (not justiciable)</li>
+        <li>Called the "identity card of the Constitution" by <b>N.A. Palkhivala</b></li>
+        <li>Called the "political horoscope of the Constitution" by <b>K.M. Munshi</b></li>
+        <li>Called the "soul of the Constitution" by Thakur Das Bhargava</li>
+      </ul>
+      <div class="bihar">
+        <span class="lbl">Bihar Connect</span>
+        Constitution Day (Samvidhan Divas, 26 November) is observed annually in Bihar's schools and government offices with Preamble reading — a recurring current-affairs-adjacent fact asked in Bihar-level exams.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SALIENT FEATURES ============ -->
+<section class="tab-panel" id="features">
+  <h2 class="section-title"><span class="num">06</span> Salient Features: Federal, Parliamentary, Written, Rigid-Flexible</h2>
+  <p class="section-desc">The defining structural characteristics of the Indian Constitution — heavily tested in both direct and "which feature is NOT true" formats.</p>
+
+  <div class="card-grid two-col">
+    <div class="card">
+      <h3>Lengthiest Written Constitution <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Originally: <b>395 Articles, 22 Parts, 8 Schedules</b></li>
+        <li>Currently (after amendments): approx. <b>448 Articles, 25 Parts, 12 Schedules</b></li>
+        <li>Combines rigidity of a written constitution with practical adaptability</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Federal system with Unitary bias <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Political scientist <b>K.C. Wheare</b> described it as <b>"quasi-federal"</b></li>
+        <li>Federal features: dual government (Centre + States), written &amp; supreme Constitution, division of powers, independent judiciary</li>
+        <li>Unitary features: single Constitution, single citizenship, integrated judiciary, all-India services, Centre's power during Emergency</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Parliamentary form of Government <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Also called the <b>Westminster Model</b> — borrowed from Britain</li>
+        <li>Nominal executive (President/Governor) vs. real executive (Council of Ministers)</li>
+        <li>Council of Ministers is <b>collectively responsible</b> to the legislature</li>
+        <li>Followed at both the Union and State levels</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Blend of Rigidity & Flexibility <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Amendment procedure under <b>Article 368</b> has three routes</li>
+        <li>Some provisions: amended by simple majority (like an ordinary law)</li>
+        <li>Some provisions: need special majority of Parliament</li>
+        <li>Some provisions: need special majority + ratification by half the states</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:6px;">
+    <table>
+      <thead><tr><th>Amendment route</th><th>Requirement</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Simple majority</td><td>Ordinary law-making process</td><td>Creation of new states, Citizenship</td></tr>
+        <tr><td>Special majority</td><td>2/3 members present &amp; voting + majority of total membership, in each House</td><td>Fundamental Rights</td></tr>
+        <tr><td>Special majority + State ratification</td><td>Above + ratified by at least half the State legislatures</td><td>Election of President, distribution of powers between Centre &amp; States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-grid two-col" style="margin-top:16px;">
+    <div class="card">
+      <h3>Fundamental Rights, DPSP & Duties <span class="tag high">HIGH</span></h3>
+      <ul>
+        <li>Fundamental Rights (Part III) — justiciable, borrowed from the US</li>
+        <li>DPSP (Part IV) — non-justiciable, borrowed from Ireland; called the "conscience of the Constitution"</li>
+        <li>Fundamental Duties (Part IVA, Article 51A) — added by the <b>42nd Amendment, 1976</b> on the recommendation of the <b>Swaran Singh Committee</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Other salient features <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li><b>Single citizenship</b> — unlike the USA's dual citizenship</li>
+        <li><b>Universal adult franchise</b> — voting age originally 21, reduced to <b>18</b> by the 61st Amendment, 1988</li>
+        <li>Independent bodies: Election Commission, CAG, UPSC</li>
+        <li>Independent judiciary with power of judicial review</li>
+        <li>Elaborate Emergency provisions (Part XVIII), borrowed from the Weimar Constitution</li>
+        <li>Three-tier government (Panchayati Raj &amp; Municipalities) added by 73rd &amp; 74th Amendments, 1992</li>
+      </ul>
+      <div class="bihar">
+        <span class="lbl">Bihar Connect</span>
+        Bihar was among the first states to implement <b>50% reservation for women</b> in Panchayati Raj Institutions (going beyond the 33% mandated by the 73rd Amendment), under the Bihar Panchayati Raj Act, 2006 — a frequently asked Bihar-specific polity fact.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADOPTION & COMMENCEMENT ============ -->
+<section class="tab-panel" id="commencement">
+  <h2 class="section-title"><span class="num">07</span> Adoption, Enactment & Commencement</h2>
+  <p class="section-desc">Added as a dedicated tab because the adoption-vs-commencement date pair is one of the single most repeated facts in this entire chapter.</p>
+
+  <div class="card-grid two-col">
+    <div class="card">
+      <h3>Two dates you must never confuse <span class="tag high">HIGH — trap question</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Event</th></tr></thead>
+          <tbody>
+            <tr><td><b>26 November 1949</b></td><td>Constitution <b>adopted</b> by the Constituent Assembly (celebrated as <b>Constitution Day / Samvidhan Divas</b> since 2015)</td></tr>
+            <tr><td><b>26 January 1950</b></td><td>Constitution <b>came into force</b> — celebrated as <b>Republic Day</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>26 January was chosen to commemorate the <b>Purna Swaraj</b> declaration made by the INC at its Lahore Session (Dec 1929), observed as Independence Day (old style) on 26 Jan 1930</li>
+        <li>A few provisions (citizenship, elections, provisional Parliament) came into effect immediately on <b>26 Nov 1949</b> itself</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>The final document <span class="tag med">MEDIUM</span></h3>
+      <ul>
+        <li>Time taken to draft the Constitution: <b>2 years, 11 months, 18 days</b></li>
+        <li>Signed by <b>284 members</b> on 24 January 1950</li>
+        <li>Hand-written and calligraphed by <b>Prem Behari Narain Raizada</b> in a flowing italic style</li>
+        <li>Illustrated/decorated by artists of Shantiniketan under <b>Nandalal Bose</b></li>
+        <li>Original copies are preserved in a helium-filled case in the <b>Parliament Library</b></li>
+      </ul>
+      <div class="bihar">
+        <span class="lbl">Bihar Connect</span>
+        <b>Dr. Rajendra Prasad</b> of Bihar, President of the Constituent Assembly, went on to become <b>independent India's first President</b> on 26 January 1950 — linking this date directly to a Bihar-born constitutional figure.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK RECAP ============ -->
+<section class="tab-panel" id="recap">
+  <h2 class="section-title"><span class="num">08</span> Quick Recap Tables</h2>
+  <p class="section-desc">Everything on this page you should be able to revise in under five minutes before the exam.</p>
+
+  <h3 style="color:#fff; font-size:16px;">Master Timeline</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Year</th><th>Event</th><th>Place / Body</th></tr></thead>
+      <tbody>
+        <tr><td>1773</td><td>Regulating Act</td><td>Bengal (Calcutta)</td></tr>
+        <tr><td>1784</td><td>Pitt's India Act</td><td>London — Board of Control</td></tr>
+        <tr><td>1813</td><td>Charter Act — trade monopoly (mostly) ends</td><td>British Parliament</td></tr>
+        <tr><td>1833</td><td>Charter Act — Governor-General of India created</td><td>British Parliament</td></tr>
+        <tr><td>1853</td><td>Charter Act — legislative/executive functions split</td><td>British Parliament</td></tr>
+        <tr><td>1858</td><td>GoI Act — Crown rule begins</td><td>British Parliament</td></tr>
+        <tr><td>1861</td><td>Indian Councils Act — portfolio system</td><td>British Parliament</td></tr>
+        <tr><td>1892</td><td>Indian Councils Act</td><td>British Parliament</td></tr>
+        <tr><td>1909</td><td>Indian Councils Act (Morley-Minto)</td><td>British Parliament</td></tr>
+        <tr><td>1919</td><td>GoI Act (Montagu-Chelmsford) — Dyarchy in provinces</td><td>British Parliament</td></tr>
+        <tr><td>1935</td><td>GoI Act — Federation proposed, RBI &amp; Federal Court set up</td><td>British Parliament</td></tr>
+        <tr><td>1946 (Mar)</td><td>Cabinet Mission Plan</td><td>India</td></tr>
+        <tr><td>1946 (9 Dec)</td><td>First meeting of Constituent Assembly</td><td>Constitution Hall, Delhi</td></tr>
+        <tr><td>1946 (11 Dec)</td><td>Rajendra Prasad elected permanent President</td><td>Constituent Assembly</td></tr>
+        <tr><td>1946 (13 Dec)</td><td>Objectives Resolution moved by Nehru</td><td>Constituent Assembly</td></tr>
+        <tr><td>1947 (15 Aug)</td><td>Independence — Indian Independence Act enforced</td><td>India</td></tr>
+        <tr><td>1947 (29 Aug)</td><td>Drafting Committee formed under Ambedkar</td><td>Constituent Assembly</td></tr>
+        <tr><td>1949 (26 Nov)</td><td>Constitution adopted</td><td>Constituent Assembly, Delhi</td></tr>
+        <tr><td>1950 (26 Jan)</td><td>Constitution commences — Republic Day</td><td>India</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mnemonic">
+    <span class="lbl">Pattern in the numbers</span>
+    Notice the Act years cluster in decades: <b>1770s–1790s</b> (Regulating/Pitt's/Charter), <b>1810s–1850s</b> (later Charter Acts), <b>1858–1909</b> (Crown rule + Councils Acts), <b>1919 &amp; 1935</b> (the two "Government of India" Acts), and finally <b>1946–1950</b> (the making of the Constitution itself). Learn it decade-block by decade-block, not as one long list.
+  </div>
+
+  <h3 style="color:#fff; font-size:16px; margin-top:22px;">Key Figures & Numbers</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Fact</th><th>Figure</th></tr></thead>
+      <tbody>
+        <tr><td>Original Articles / Parts / Schedules</td><td>395 / 22 / 8</td></tr>
+        <tr><td>Current Articles / Parts / Schedules (approx.)</td><td>~448 / 25 / 12</td></tr>
+        <tr><td>Constituent Assembly — max. total members</td><td>389 (296 British India + 93 Princely States)</td></tr>
+        <tr><td>Constituent Assembly — members after Partition</td><td>~299</td></tr>
+        <tr><td>Members who signed the final Constitution</td><td>284</td></tr>
+        <tr><td>Drafting Committee — members</td><td>7</td></tr>
+        <tr><td>Number of sessions of Constituent Assembly</td><td>11</td></tr>
+        <tr><td>Time taken to draft the Constitution</td><td>2 years, 11 months, 18 days</td></tr>
+        <tr><td>Women members in Constituent Assembly</td><td>15</td></tr>
+        <tr><td>Voting age — original / current</td><td>21 / 18 (61st Amendment, 1988)</td></tr>
+        <tr><td>Number of times Preamble amended</td><td>1 (42nd Amendment, 1976)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note-box" style="margin-top:10px;">
+    <b>Accuracy note:</b> Article/Schedule counts vary slightly across sources because of ongoing amendments and repealed articles — the figures above reflect the commonly accepted values used in current SSC study material. If a question gives a different figure, trust the most recent official source over this table.
+  </div>
+
+  <h3 style="color:#fff; font-size:16px; margin-top:22px;">One-line Comparisons</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Compare</th><th>A</th><th>B</th></tr></thead>
+      <tbody>
+        <tr><td>Adoption vs Commencement</td><td>26 Nov 1949 — adopted</td><td>26 Jan 1950 — enforced</td></tr>
+        <tr><td>Dyarchy — where</td><td>1919 Act: in the <b>provinces</b></td><td>1935 Act: at the <b>Centre</b></td></tr>
+        <tr><td>Assembly Chairman</td><td>Temporary: Sachchidananda Sinha</td><td>Permanent: Rajendra Prasad</td></tr>
+        <tr><td>Rights framework source</td><td>Fundamental Rights — <b>USA</b></td><td>DPSP — <b>Ireland</b></td></tr>
+        <tr><td>Preamble words added, 1976</td><td>Socialist, Secular</td><td>+ Integrity (unity → unity &amp; integrity)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ PYQ TAB ============ -->
+<section class="tab-panel" id="pyq">
+  <h2 class="section-title"><span class="num">09</span> Previous Year Questions (Last ~10 Years pattern)</h2>
+  <p class="section-desc">15 questions in exact SSC CGL MCQ style, based on this chapter's real exam pattern.</p>
+
+  <div class="note-box">
+    <b>Honest sourcing note:</b> These questions are built to match the exact style, difficulty and recurring themes seen in SSC CGL Tier 1 &amp; Tier 2 papers on this chapter over the last decade. Exact year-wise attribution for each question could not be independently verified against official SSC records, so treat these as <b>pattern-accurate practice questions</b>, not verbatim archived papers. Use them to test recall and reasoning, not to memorise "this exact question appeared in year X."
+  </div>
+
+  <div id="pyqList"></div>
+</section>
+
+<!-- ============ PREDICTED TAB ============ -->
+<section class="tab-panel" id="predicted">
+  <h2 class="section-title"><span class="num">10</span> Predicted Questions</h2>
+  <p class="section-desc">Angles from this chapter that are historically under-tested but fit the pattern closely — good for squeezing out extra marks.</p>
+  <div class="note-box">
+    <b>AI-Predicted:</b> Every question in this tab is generated by analysing gaps in the recent PYQ pattern against the full syllabus of this chapter. These are <b>not real past papers</b> — they are a targeted practice set for angles that appear likely to show up.
+  </div>
+  <div id="predictedList"></div>
+</section>
+
+</main>
+
+<footer>Built for SSC CGL Tier 1 &amp; Tier 2 Polity preparation — Constitutional Framework &amp; Evolution.</footer>
+
+<script>
+// ---------------- TAB SWITCHING ----------------
+const tabBtns = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.tab-panel');
+tabBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabBtns.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    btn.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+
+// ---------------- PYQ DATA ----------------
+const pyqData = [
+  {tier:'1', q:'The Regulating Act was passed in the year:', opts:['1773','1784','1793','1858'], ans:0, exp:'The Regulating Act, 1773 was the first step taken by the British Parliament to control and regulate the affairs of the East India Company.'},
+  {tier:'1', q:'Who was appointed as the first Governor-General of Bengal under the Regulating Act, 1773?', opts:['Lord Cornwallis','Warren Hastings','Lord William Bentinck','Lord Wellesley'], ans:1, exp:'Warren Hastings became the first Governor-General of Bengal under the Regulating Act, 1773.'},
+  {tier:'1', q:'The Government of India Act, 1858 was enacted after which event?', opts:['Non-Cooperation Movement','Revolt of 1857','Partition of Bengal','Jallianwala Bagh massacre'], ans:1, exp:'The Act was passed after the Revolt of 1857 and transferred power from the East India Company to the British Crown.'},
+  {tier:'2', q:'The Government of India Act, 1935 provided for the establishment of a Federal Court. In which year did this Federal Court actually start functioning?', opts:['1935','1936','1937','1939'], ans:2, exp:'Although provided for in the 1935 Act, the Federal Court began functioning in 1937.'},
+  {tier:'1', q:'Which Act introduced the "portfolio system" in Indian administration?', opts:['Indian Councils Act, 1861','Indian Councils Act, 1892','Government of India Act, 1919','Government of India Act, 1935'], ans:0, exp:'The Indian Councils Act, 1861 introduced the portfolio system.'},
+  {tier:'1', q:'Separate electorate for Muslims was first introduced by the:', opts:['Indian Councils Act, 1892','Indian Councils Act, 1909','Government of India Act, 1919','Government of India Act, 1935'], ans:1, exp:'The Indian Councils Act, 1909 (Morley-Minto Reforms) introduced separate electorates for Muslims.'},
+  {tier:'2', q:'"Dyarchy" was introduced at the provincial level by the Government of India Act, 1919, and at the central level by the Government of India Act of which year?', opts:['1909','1919','1935','1947'], ans:2, exp:'The GoI Act, 1935 abolished provincial dyarchy and instead introduced dyarchy at the Centre.'},
+  {tier:'1', q:'Who was the temporary/interim President of the Constituent Assembly before Dr. Rajendra Prasad?', opts:['B.R. Ambedkar','Sachchidananda Sinha','B.N. Rau','J.B. Kripalani'], ans:1, exp:'Sachchidananda Sinha chaired the first sitting of the Constituent Assembly on 9 December 1946 as its temporary chairman.'},
+  {tier:'1', q:'Who was the Chairman of the Drafting Committee of the Constituent Assembly?', opts:['Jawaharlal Nehru','Sardar Vallabhbhai Patel','Dr. B.R. Ambedkar','Dr. Rajendra Prasad'], ans:2, exp:'Dr. B.R. Ambedkar chaired the Drafting Committee, formed on 29 August 1947.'},
+  {tier:'2', q:'The "Objectives Resolution", which later formed the basis of the Preamble, was moved in the Constituent Assembly by:', opts:['Dr. B.R. Ambedkar','Jawaharlal Nehru','Dr. Rajendra Prasad','Sardar Patel'], ans:1, exp:'Jawaharlal Nehru moved the Objectives Resolution on 13 December 1946.'},
+  {tier:'1', q:'The concept of "Directive Principles of State Policy" has been borrowed from the Constitution of:', opts:['United States','United Kingdom','Ireland','Canada'], ans:2, exp:'DPSP was borrowed from the Irish Constitution.'},
+  {tier:'1', q:'The words "Socialist" and "Secular" were added to the Preamble by which Constitutional Amendment?', opts:['24th Amendment','42nd Amendment','44th Amendment','61st Amendment'], ans:1, exp:'The 42nd Amendment Act, 1976 added "Socialist", "Secular" and "Integrity" to the Preamble.'},
+  {tier:'2', q:'In which case did the Supreme Court first hold that the Preamble is a part of the Constitution?', opts:['Berubari Union case','Golaknath case','Kesavananda Bharati case','Minerva Mills case'], ans:2, exp:'The Kesavananda Bharati case (1973) held that the Preamble is part of the Constitution, though not enforceable in court.'},
+  {tier:'1', q:'The Constitution of India was adopted by the Constituent Assembly on:', opts:['15 August 1947','26 November 1949','26 January 1950','24 January 1950'], ans:1, exp:'The Constitution was adopted on 26 November 1949 and came into force on 26 January 1950.'},
+  {tier:'2', q:'The Indian Constitution has been described as "quasi-federal" by which political scientist?', opts:['Ivor Jennings','K.C. Wheare','Granville Austin','A.V. Dicey'], ans:1, exp:'K.C. Wheare described the Indian Constitution as quasi-federal, i.e. federal in form but unitary in spirit.'}
+];
+
+const predictedData = [
+  {q:'Which Act, for the first time, separated the legislative and executive functions of the Governor-General\'s Council?', opts:['Charter Act, 1833','Charter Act, 1853','Indian Councils Act, 1861','Government of India Act, 1919'], ans:1, exp:'The Charter Act of 1853 separated legislative and executive functions for the first time.'},
+  {q:'The Reserve Bank of India was established under the provisions related to which Act?', opts:['Government of India Act, 1919','Government of India Act, 1935','Indian Independence Act, 1947','Charter Act, 1833'], ans:1, exp:'The RBI was established in 1935, the same year as the Government of India Act, 1935, which laid much of the groundwork for India\'s financial administration.'},
+  {q:'Who among the following served as the Constitutional Advisor to the Constituent Assembly?', opts:['B.N. Rau','K.M. Munshi','Alladi Krishnaswami Ayyar','Gopalaswami Ayyangar'], ans:0, exp:'B.N. Rau was the Constitutional Advisor who prepared the initial draft used by the Drafting Committee.'},
+  {q:'The concept of "Fraternity" in the Preamble is aimed at securing the dignity of the individual and the unity and integrity of the:', opts:['State','Nation','Union','Society'], ans:1, exp:'Fraternity in the Preamble secures the dignity of the individual and the unity and integrity of the Nation.'},
+  {q:'Which committee\'s recommendation led to the insertion of Fundamental Duties in the Constitution?', opts:['Sarkaria Commission','Swaran Singh Committee','Balwant Rai Mehta Committee','Rajamannar Committee'], ans:1, exp:'Fundamental Duties were added on the recommendation of the Swaran Singh Committee via the 42nd Amendment, 1976.'},
+  {q:'Under which route of amendment is the election procedure of the President of India amended?', opts:['Simple majority','Special majority only','Special majority + ratification by half the states','President\'s discretion'], ans:2, exp:'Provisions touching the federal structure, like the President\'s election procedure, require special majority plus ratification by at least half the state legislatures.'},
+  {q:'The Preamble to the Indian Constitution is based on which document drafted by Jawaharlal Nehru?', opts:['Nehru Report','Objectives Resolution','August Offer','Cripps Proposal'], ans:1, exp:'The Preamble is based on the Objectives Resolution moved by Nehru in December 1946.'},
+  {q:'Who calligraphed the original handwritten copy of the Indian Constitution?', opts:['Nandalal Bose','Prem Behari Narain Raizada','Beohar Rammanohar Sinha','Jainul Abedin'], ans:1, exp:'Prem Behari Narain Raizada hand-wrote the original Constitution in a flowing italic style; Nandalal Bose led the team that illustrated it.'}
+];
+
+function optLetters(i){ return ['A','B','C','D'][i]; }
+
+function renderQuestions(containerId, data, showTier){
+  const container = document.getElementById(containerId);
+  let html = '';
+  data.forEach((item, idx)=>{
+    html += '<details class="q-item">';
+    html += '<summary>Q'+(idx+1)+'. '+item.q+'</summary>';
+    html += '<div class="q-meta">';
+    if(showTier){
+      html += item.tier === '1' ? '<span class="tag tier1">Tier 1</span>' : '<span class="tag tier2">Tier 2</span>';
+    } else {
+      html += '<span class="tag ai">AI-Predicted</span>';
+    }
+    html += '</div>';
+    html += '<ul class="q-options">';
+    item.opts.forEach((opt, oi)=>{
+      html += '<li data-letter="'+optLetters(oi)+'">'+opt+'</li>';
+    });
+    html += '</ul>';
+    html += '<div class="answer-box"><b>Answer: '+optLetters(item.ans)+') '+item.opts[item.ans]+'</b><br>'+item.exp+'</div>';
+    html += '</details>';
+  });
+  container.innerHTML = html;
+}
+renderQuestions('pyqList', pyqData, true);
+renderQuestions('predictedList', predictedData, false);
+</script>
+
+</body>
+</html>

@@ -17,6 +17,9 @@
     --charcoal:#241f16;
     --line:#c7b998;
     --white:#fffdf7;
+    --history:#a3382a;
+    --polity:#1f5f4a;
+    --geography:#2c5b8a;
   }
   *{box-sizing:border-box;}
   body{
@@ -58,6 +61,7 @@
     gap: 20px;
   }
   .subject-card {
+    position: relative;
     background: var(--white);
     border: 2px solid var(--ink);
     padding: 30px;
@@ -72,6 +76,21 @@
     transform: translate(-2px, -2px);
     box-shadow: 8px 8px 0 rgba(24,40,73,0.15);
   }
+  .subject-tag {
+    align-self: flex-start;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+  .subject-tag.history { background: var(--history); }
+  .subject-tag.polity { background: var(--polity); }
+  .subject-tag.geography { background: var(--geography); }
   .subject-card h2 {
     font-family: 'Spectral', serif;
     margin: 0 0 10px 0;
@@ -116,26 +135,37 @@
 
   <div class="subject-grid">
     <a href="prehistoric_indus_valley_ssc_cgl.html" class="subject-card">
+      <span class="subject-tag history">History</span>
       <h2>Prehistoric and Indus Valley Civilizations</h2>
       <p>Overview of early human settlements, tools, and societies.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
     <a href="vedic_age_ssc_cgl.html" class="subject-card">
+      <span class="subject-tag history">History</span>
       <h2>Vedic Age</h2>
       <p>Overview of the Vedic period, its literature, and societal structure.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
     <a href="religious_movements_6th_bc.html" class="subject-card">
+      <span class="subject-tag history">History</span>
       <h2>Religious Movements in the 6th Century BCE</h2>
       <p>Overview of the major religious and philosophical movements of the 6th century BCE.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
      <a href="mahajanapadas-magadha-notes.html" class="subject-card">
+      <span class="subject-tag history">History</span>
       <h2>Mahajanapadas and Magadha</h2>
       <p>Overview of the major political entities and the rise of Magadha.</p>
+      <div class="meta">Tier 1 & 2 • Important Topic</div>
+    </a>
+
+    <a href="constitutional_framework_evolution.html" class="subject-card">
+      <span class="subject-tag polity">Polity</span>
+      <h2>Constitutional Framework and Evolution</h2>
+      <p>Overview of the development and evolution of the constitutional framework.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
   </div>
@@ -145,6 +175,3 @@
 
 </body>
 </html>
-
-
-
