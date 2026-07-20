@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Union, its Territory & Citizenship | SSC CGL Study Guide</title>
+<style>
+:root{
+  --bg:#0b0f1a;
+  --bg2:#111726;
+  --card:#151d2f;
+  --card-border:#232d44;
+  --orange:#ff8a2b;
+  --orange-dark:#e2691a;
+  --orange-soft:rgba(255,138,43,0.12);
+  --text:#e8ecf5;
+  --text-dim:#9aa5b8;
+  --high:#ff5c5c;
+  --medium:#ffb84d;
+  --low:#4dd0a7;
+  --t1:#4da3ff;
+  --t2:#ffb84d;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:19px;}
+@media(max-width:600px){html{font-size:17px;}}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.65;
+  padding-bottom:60px;
+}
+header.top{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(180deg,#0d1220 0%,#0b0f1acc 100%);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--card-border);
+  padding:14px 16px 0 16px;
+}
+.title-row{
+  display:flex;align-items:center;gap:10px;
+  max-width:1200px;margin:0 auto 12px auto;flex-wrap:wrap;
+}
+.title-row h1{
+  font-size:1.15rem;color:var(--orange);font-weight:700;
+}
+.title-row .chip{
+  font-size:0.85rem;background:var(--orange-soft);color:var(--orange);
+  border:1px solid var(--orange-dark);padding:2px 8px;border-radius:20px;
+}
+nav.tabs{
+  max-width:1200px;margin:0 auto;
+  display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;
+  scrollbar-width:thin;
+}
+nav.tabs::-webkit-scrollbar{height:5px;}
+nav.tabs::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:4px;}
+.tab-btn{
+  flex:0 0 auto;
+  background:var(--card);
+  border:1px solid var(--card-border);
+  color:var(--text-dim);
+  padding:8px 14px;border-radius:20px;
+  font-size:0.95rem;cursor:pointer;white-space:nowrap;
+  transition:all .2s;
+}
+.tab-btn:hover{color:var(--text);border-color:var(--orange-dark);}
+.tab-btn.active{
+  background:var(--orange);color:#0b0f1a;font-weight:700;border-color:var(--orange);
+}
+main{max-width:1200px;margin:0 auto;padding:20px 16px;}
+.section{display:none;}
+.section.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+h2.section-title{
+  color:var(--orange);font-size:1.4rem;margin-bottom:6px;border-left:4px solid var(--orange);padding-left:10px;
+}
+p.section-sub{color:var(--text-dim);margin-bottom:18px;font-size:1.05rem;padding-left:14px;}
+.grid{
+  display:grid;grid-template-columns:1fr;gap:14px;
+}
+@media(min-width:800px){
+  .grid.cols-2{grid-template-columns:1fr 1fr;}
+  .grid.cols-3{grid-template-columns:1fr 1fr 1fr;}
+}
+.card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:16px 18px;position:relative;
+}
+.card h3{font-size:1.2rem;color:var(--text);margin-bottom:10px;padding-right:76px;}
+.freq{
+  position:absolute;top:14px;right:14px;font-size:0.78rem;font-weight:700;
+  padding:3px 9px;border-radius:20px;letter-spacing:0.5px;
+}
+.freq.HIGH{background:rgba(255,92,92,0.15);color:var(--high);border:1px solid var(--high);}
+.freq.MEDIUM{background:rgba(255,184,77,0.15);color:var(--medium);border:1px solid var(--medium);}
+.freq.LOW{background:rgba(77,208,167,0.15);color:var(--low);border:1px solid var(--low);}
+.card ul{margin:8px 0 0 18px;}
+.card li{margin-bottom:8px;font-size:1.05rem;color:var(--text);}
+.card li b{color:var(--orange);}
+.mnemonic{
+  margin-top:12px;background:var(--orange-soft);border:1px dashed var(--orange-dark);
+  border-radius:10px;padding:12px 14px;font-size:1rem;
+}
+.mnemonic b{color:var(--orange);}
+.bihar{
+  margin-top:12px;background:rgba(77,163,255,0.08);border:1px solid var(--t1);
+  border-radius:10px;padding:12px 14px;font-size:1rem;
+}
+.bihar b{color:var(--t1);}
+table{width:100%;border-collapse:collapse;font-size:1rem;margin-top:8px;}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--card-border);}
+th{color:var(--orange);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;}
+tr:hover td{background:rgba(255,138,43,0.05);}
+.table-wrap{overflow-x:auto;}
+.note{
+  background:rgba(255,184,77,0.08);border:1px solid var(--medium);border-radius:10px;
+  padding:14px 16px;font-size:1.02rem;margin-bottom:18px;color:var(--text);
+}
+.note b{color:var(--medium);}
+.q-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:12px;cursor:pointer;
+}
+.q-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+.q-tier{font-size:0.8rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.q-tier.T1{background:rgba(77,163,255,0.15);color:var(--t1);border:1px solid var(--t1);}
+.q-tier.T2{background:rgba(255,184,77,0.15);color:var(--t2);border:1px solid var(--t2);}
+.q-text{font-size:1.08rem;margin-bottom:8px;}
+.options{list-style:none;margin-top:8px;}
+.options li{
+  font-size:1rem;padding:8px 12px;margin-bottom:6px;border-radius:8px;
+  background:var(--bg2);color:var(--text-dim);
+}
+.answer{
+  display:none;margin-top:10px;padding:10px;border-radius:8px;
+  background:rgba(77,208,167,0.1);border:1px solid var(--low);font-size:1rem;
+}
+.answer.show{display:block;}
+.answer b{color:var(--low);}
+.tap-hint{font-size:0.88rem;color:var(--text-dim);margin-top:6px;}
+.pred-badge{
+  display:inline-block;font-size:0.82rem;background:rgba(255,138,43,0.15);color:var(--orange);
+  border:1px solid var(--orange);padding:2px 8px;border-radius:20px;margin-bottom:10px;
+}
+.overview-hero{
+  background:linear-gradient(135deg,var(--orange-soft),transparent);
+  border:1px solid var(--card-border);border-radius:var(--radius);padding:18px;margin-bottom:18px;
+}
+.overview-hero h3{color:var(--orange);margin-bottom:8px;}
+.stat-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.stat{
+  background:var(--card);border:1px solid var(--card-border);border-radius:10px;
+  padding:10px 14px;flex:1 1 130px;text-align:center;
+}
+.stat .num{font-size:1.5rem;color:var(--orange);font-weight:700;}
+.stat .lbl{font-size:0.85rem;color:var(--text-dim);margin-top:4px;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="title-row">
+    <h1>02 &nbsp;Union, its Territory & Citizenship</h1>
+    <span class="chip">SSC CGL Tier 1 + Tier 2</span>
+  </div>
+  <nav class="tabs" id="tabNav"></nav>
+</header>
+
+<main id="mainContent"></main>
+
+<script>
+/* ============ DATA ============ */
+const tabs = [
+  {id:"overview", label:"Overview"},
+  {id:"art1-4", label:"Articles 1–4"},
+  {id:"citizen5-11", label:"Citizenship Art 5–11"},
+  {id:"acq-term", label:"Acquisition & Termination"},
+  {id:"oci", label:"OCI"},
+  {id:"recap", label:"Quick Recap"},
+  {id:"pyq", label:"PYQs (10 Yrs)"},
+  {id:"predicted", label:"Predicted Qs"}
+];
+
+/* ============ RENDER NAV ============ */
+const nav = document.getElementById('tabNav');
+tabs.forEach((t,i)=>{
+  const b=document.createElement('button');
+  b.className='tab-btn'+(i===0?' active':'');
+  b.textContent=t.label;
+  b.onclick=()=>showTab(t.id);
+  b.dataset.tab=t.id;
+  nav.appendChild(b);
+});
+
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleAnswer(el){
+  el.nextElementSibling.classList.toggle('show');
+}
+
+/* ============ BUILD MAIN CONTENT ============ */
+const main = document.getElementById('mainContent');
+
+main.innerHTML = `
+
+<!-- OVERVIEW -->
+<section class="section active" id="overview">
+  <h2 class="section-title">Chapter Overview</h2>
+  <p class="section-sub">Part I (Articles 1–4) + Part II (Articles 5–11) of the Constitution — a compact but exam-heavy chapter.</p>
+
+  <div class="overview-hero">
+    <h3>What this chapter covers</h3>
+    <ul>
+      <li><b>Part I</b> — Union and its Territory (Articles 1–4): name of the country, how new states are formed, how boundaries/names change.</li>
+      <li><b>Part II</b> — Citizenship (Articles 5–11): who was a citizen at commencement, and Parliament's power to make citizenship law → led to the <b>Citizenship Act, 1955</b>.</li>
+      <li>Modern extensions tested: <b>CAA 2019</b>, <b>OCI scheme</b>, <b>States Reorganisation</b> history.</li>
+    </ul>
+    <div class="stat-row">
+      <div class="stat"><div class="num">4</div><div class="lbl">Articles in Part I</div></div>
+      <div class="stat"><div class="num">7</div><div class="lbl">Articles in Part II (5–11)</div></div>
+      <div class="stat"><div class="num">28+8</div><div class="lbl">States + UTs</div></div>
+      <div class="stat"><div class="num">1955</div><div class="lbl">Citizenship Act</div></div>
+    </div>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Why this chapter is high-yield</h3>
+      <ul>
+        <li>Articles 1–4 and 5–11 are directly quoted in MCQs almost every year.</li>
+        <li>State formation dates (Telangana, J&K reorganisation) are recurring favourites.</li>
+        <li>CAA 2019 is a current-affairs + static overlap — high probability zone.</li>
+        <li>OCI vs NRI vs PIO comparison is a classic "match the following" trap.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>India as a "Union of States" — key idea</h3>
+      <ul>
+        <li>Article 1 deliberately avoids the word <b>"Federation"</b> — India is a <b>Union</b>, indestructible, states are destructible (can be reorganised by Parliament).</li>
+        <li>This is different from the US model where states can't be altered without their consent.</li>
+        <li>Dr. B.R. Ambedkar clarified: Union because it is <b>not a result of an agreement</b> between states, and no state has the right to secede.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES 1-4 -->
+<section class="section" id="art1-4">
+  <h2 class="section-title">Articles 1–4 — Union & States, New State Formation</h2>
+  <p class="section-sub">Part I of the Constitution</p>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 1 — Name and territory of India</h3>
+      <ul>
+        <li>"<b>India, that is Bharat, shall be a Union of States</b>."</li>
+        <li>Territory of India includes: (a) territories of the States, (b) Union Territories, (c) any other territory that may be acquired.</li>
+        <li>"Union" chosen deliberately over "Federation" — signals indestructible union of destructible states.</li>
+      </ul>
+      <div class="mnemonic"><b>Mnemonic:</b> "1 = Identity" → Article 1 gives India its <b>name & shape</b>.</div>
+    </div>
+
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 2 — Admission or establishment of new states</h3>
+      <ul>
+        <li>Parliament may <b>admit</b> new states into the Union, or <b>establish</b> new states, on terms it thinks fit.</li>
+        <li>Deals with <b>external territories</b> not originally part of India (e.g., Sikkim's earlier association, Puducherry/Goa admission).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 3 — Formation of new states; alteration of areas, boundaries, names</h3>
+      <ul>
+        <li>Parliament (by <b>simple majority</b>) may: form a new state, increase/decrease area of a state, alter boundaries, or alter the name of a state.</li>
+        <li>Deals with <b>internal reorganisation</b> of existing Indian territory.</li>
+        <li><b>Procedure:</b> Bill can be introduced only on <b>President's recommendation</b>; President refers the Bill to the affected State Legislature for its views within a specified time — but Parliament is <b>not bound</b> by that view.</li>
+        <li>This is why India is called <b>"quasi-federal"</b> — Parliament can alter state boundaries without state consent.</li>
+      </ul>
+      <div class="mnemonic"><b>Mnemonic:</b> "3 = Reshape" → Article 3 lets Parliament <b>redraw the map</b>.</div>
+    </div>
+
+    <div class="card">
+      <span class="freq MEDIUM">MEDIUM</span>
+      <h3>Article 4 — Laws under Art. 2 & 3 not "amendments" under Art. 368</h3>
+      <ul>
+        <li>Laws made under Articles 2 and 3 (for admission/formation of states, consequential changes in the First & Fourth Schedules) are <b>not treated as constitutional amendments</b> under Article 368.</li>
+        <li>They can be passed by <b>simple majority</b>, not the special majority needed for amendments.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>Union vs Federation — comparison trap</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>Typical Federation (e.g., USA)</th><th>India (Union of States)</th></tr>
+        <tr><td>Formed by</td><td>Agreement among independent states</td><td>Not a result of agreement; single source of authority</td></tr>
+        <tr><td>Right to secede</td><td>May exist in theory</td><td>No state can secede</td></tr>
+        <tr><td>Boundary change</td><td>Needs state consent</td><td>Parliament alone decides (Art. 3), state view is only advisory</td></tr>
+        <tr><td>Word used</td><td>"Federation"</td><td>"Union" (Art. 1)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>Major state reorganisations — timeline</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Year</th><th>Event</th></tr>
+        <tr><td>1953</td><td>Andhra State carved out of Madras (first linguistic state)</td></tr>
+        <tr><td>1956</td><td>States Reorganisation Act — states reorganised on linguistic basis (Fazl Ali Commission, 1953)</td></tr>
+        <tr><td>1960</td><td>Bombay State split into Maharashtra & Gujarat</td></tr>
+        <tr><td>1963</td><td>Nagaland formed (16th state)</td></tr>
+        <tr><td>1966</td><td>Haryana carved out of Punjab</td></tr>
+        <tr><td>1971–72</td><td>Himachal Pradesh, Manipur, Tripura, Meghalaya become states</td></tr>
+        <tr><td>1975</td><td>Sikkim becomes a state (36th Amendment)</td></tr>
+        <tr><td>1987</td><td>Mizoram, Arunachal Pradesh, Goa become states</td></tr>
+        <tr><td>2000</td><td>Chhattisgarh, Uttarakhand, Jharkhand carved out (MP, UP, Bihar)</td></tr>
+        <tr><td>2014</td><td>Telangana carved out of Andhra Pradesh (29th state)</td></tr>
+        <tr><td>2019</td><td>J&K Reorganisation Act — J&K and Ladakh become Union Territories (Article 370 abrogated)</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic"><b>Mnemonic (2000 trio):</b> "<b>C</b>hhattisgarh, <b>U</b>ttarakhand, <b>J</b>harkhand" → <b>"CUJ"</b> all born in 2000.</div>
+    <div class="bihar"><b>Bihar Connect:</b> Jharkhand was carved out of <b>Bihar</b> in 2000 under the Bihar Reorganisation Act, 2000 — Bihar's southern, mineral-rich plateau region became the new state.</div>
+  </div>
+</section>
+
+<!-- CITIZENSHIP ART 5-11 -->
+<section class="section" id="citizen5-11">
+  <h2 class="section-title">Citizenship — Articles 5–11</h2>
+  <p class="section-sub">Part II of the Constitution — citizenship at the commencement of the Constitution (26 Jan 1950)</p>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 5 — Citizenship at commencement</h3>
+      <ul>
+        <li>Every person <b>domiciled in India</b> at commencement who was (a) born in India, or (b) either parent born in India, or (c) ordinarily resident for 5+ years before commencement — became a citizen.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq MEDIUM">MEDIUM</span>
+      <h3>Article 6 — Migrants FROM Pakistan (to India)</h3>
+      <ul>
+        <li>Persons who migrated to India from Pakistan before 19 July 1948 → citizens if ordinarily resident since migration.</li>
+        <li>Migrated on/after 19 July 1948 → needed to be registered after 6 months' residence.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq MEDIUM">MEDIUM</span>
+      <h3>Article 7 — Migrants TO Pakistan (who returned)</h3>
+      <ul>
+        <li>Persons who migrated to Pakistan after 1 March 1947 but later returned to India under a <b>resettlement permit</b> — treated like Article 6 migrants.</li>
+        <li>This article "overrides" Article 5 and 6 for such persons.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq LOW">LOW</span>
+      <h3>Article 8 — Persons of Indian origin residing outside India</h3>
+      <ul>
+        <li>A person (or whose parents/grandparents) born in undivided India, but residing outside India → can register as a citizen with an Indian diplomatic mission.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 9 — Voluntary acquisition of foreign citizenship</h3>
+      <ul>
+        <li>If a person <b>voluntarily acquires citizenship of a foreign state</b>, they cease to be an Indian citizen.</li>
+        <li>This is the constitutional basis for <b>no dual citizenship</b> in India.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq LOW">LOW</span>
+      <h3>Article 10 — Continuance of citizenship rights</h3>
+      <ul>
+        <li>Every citizen shall continue to enjoy citizenship rights <b>subject to</b> any law made by Parliament.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Article 11 — Parliament to regulate citizenship by law</h3>
+      <ul>
+        <li>Parliament may make <b>any provision</b> for acquisition and termination of citizenship, and all matters relating to it.</li>
+        <li>This power gave rise to the <b>Citizenship Act, 1955</b> (and its later amendments).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>Single vs Dual Citizenship</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>Single Citizenship (India)</th><th>Dual Citizenship (e.g., USA)</th></tr>
+        <tr><td>Basis</td><td>One citizenship for whole country despite federal structure</td><td>Citizenship of state + nation both</td></tr>
+        <tr><td>Rights source</td><td>Uniform across India</td><td>Can vary state to state</td></tr>
+        <tr><td>Reason adopted in India</td><td>To promote unity & integration after Partition</td><td>Historical federal bargaining</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="mnemonic"><b>Mnemonic for Articles 5–11:</b> "<b>D</b>omicile (5), <b>M</b>igrated-in (6), <b>M</b>igrated-out-returned (7), <b>O</b>utside-origin (8), <b>V</b>oluntary foreign citizenship lost (9), <b>C</b>ontinuance (10), <b>P</b>arliament regulates (11)" → <b>D-M-M-O-V-C-P</b>.</div>
+</section>
+
+<!-- ACQUISITION & TERMINATION -->
+<section class="section" id="acq-term">
+  <h2 class="section-title">Acquisition & Termination of Citizenship</h2>
+  <p class="section-sub">Citizenship Act, 1955 (as amended, incl. CAA 2019)</p>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>5 Modes of Acquiring Citizenship</h3>
+      <ul>
+        <li><b>1. By Birth</b> — born in India; rules tightened over time based on parents' citizenship/status (esp. after 1987 and 2003 amendments).</li>
+        <li><b>2. By Descent</b> — born outside India to Indian citizen parent(s); registration with Indian consulate required.</li>
+        <li><b>3. By Registration</b> — for persons of Indian origin, or those married to Indian citizens, after specified residence conditions.</li>
+        <li><b>4. By Naturalisation</b> — foreigner applies after fulfilling residence (usually 11–12 years) and other conditions; grant by Central Government.</li>
+        <li><b>5. By Incorporation of Territory</b> — if new territory becomes part of India, Government of India specifies who among its people become citizens (e.g., Goa, Sikkim, Puducherry).</li>
+      </ul>
+      <div class="mnemonic"><b>Mnemonic:</b> "<b>B</b>irth, <b>D</b>escent, <b>R</b>egistration, <b>N</b>aturalisation, <b>I</b>ncorporation" → <b>"Bade Din Rahe Naye India mein"</b>.</div>
+    </div>
+
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>3 Modes of Termination of Citizenship</h3>
+      <ul>
+        <li><b>1. Renunciation</b> — voluntary act; citizen declares renunciation, and if of full age/capacity, minor children also lose citizenship (can resume at 18).</li>
+        <li><b>2. Termination</b> — automatic when a citizen voluntarily acquires citizenship of another country (linked to Article 9).</li>
+        <li><b>3. Deprivation</b> — compulsory action by the Government (e.g., citizenship obtained by fraud, disloyalty to Constitution, aiding an enemy during war, imprisonment within 5 years of registration/naturalisation).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>Renunciation vs Termination vs Deprivation</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Mode</th><th>Trigger</th><th>Who initiates</th></tr>
+        <tr><td>Renunciation</td><td>Voluntary declaration</td><td>The citizen</td></tr>
+        <tr><td>Termination</td><td>Voluntary acquisition of foreign citizenship</td><td>Automatic (law/Art. 9)</td></tr>
+        <tr><td>Deprivation</td><td>Fraud, disloyalty, aiding enemy, etc.</td><td>Central Government (compulsory)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>Citizenship (Amendment) Act, 2019 (CAA)</h3>
+    <ul>
+      <li>Provides a path to Indian citizenship for undocumented migrants belonging to <b>Hindu, Sikh, Buddhist, Jain, Parsi, and Christian</b> communities from <b>Afghanistan, Pakistan, and Bangladesh</b>.</li>
+      <li>Applicable to those who entered India on or before <b>31 December 2014</b>.</li>
+      <li>Reduces required residency period for naturalisation for these groups from 11 years to <b>5 years</b>.</li>
+      <li>Does not apply to areas under the Sixth Schedule or states protected by the Inner Line Permit (e.g., much of the North-East).</li>
+      <li>Rules notified in <b>2024</b>, implementation and eligibility criteria have seen legal and political debate — a recurring current-affairs + static overlap topic.</li>
+    </ul>
+    <div class="bihar"><b>Bihar Connect:</b> Bihar does not fall under CAA exemption zones (unlike parts of North-East India) — the Act applies fully across the state, making it a commonly tested current-affairs angle in BPSC/SSC papers set from Bihar.</div>
+  </div>
+</section>
+
+<!-- OCI -->
+<section class="section" id="oci">
+  <h2 class="section-title">Overseas Citizen of India (OCI)</h2>
+  <p class="section-sub">Not full citizenship — a special long-term visa-like status</p>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>Background</h3>
+      <ul>
+        <li>Introduced by the <b>Citizenship (Amendment) Act, 2003</b>; scheme notified in 2005.</li>
+        <li>In <b>2015</b>, the <b>PIO (Person of Indian Origin) Card scheme was merged</b> into the OCI scheme.</li>
+        <li>OCI is <b>not dual citizenship</b> — India does not recognise dual citizenship (per Article 9).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="freq HIGH">HIGH</span>
+      <h3>OCI — key features</h3>
+      <ul>
+        <li>Multi-purpose, multiple-entry, lifelong visa to visit India.</li>
+        <li>Exemption from registering with local police for any length of stay.</li>
+        <li>Parity with NRIs in economic, financial, and educational fields (except agricultural/plantation land purchase).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>What OCIs CANNOT do</h3>
+    <ul>
+      <li>Cannot vote in Indian elections.</li>
+      <li>Cannot hold constitutional posts (President, Vice-President, Judge of SC/HC, etc.).</li>
+      <li>Cannot contest for Lok Sabha/Rajya Sabha/State Legislature seats.</li>
+      <li>Cannot normally hold government jobs (except in specific notified cases).</li>
+      <li>Cannot purchase agricultural or plantation land.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <span class="freq HIGH">HIGH</span>
+    <h3>OCI vs NRI vs PIO — comparison</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Status</th><th>Meaning</th><th>Citizenship</th><th>Voting Rights</th></tr>
+        <tr><td>NRI</td><td>Indian citizen living abroad (tax/residency status)</td><td>Indian citizen</td><td>Yes (if enrolled)</td></tr>
+        <tr><td>PIO (merged into OCI, 2015)</td><td>Foreign citizen of Indian origin (old scheme)</td><td>Foreign citizen</td><td>No</td></tr>
+        <tr><td>OCI</td><td>Foreign citizen with lifelong Indian visa privileges</td><td>Foreign citizen</td><td>No</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="mnemonic"><b>Mnemonic:</b> "OCI = <b>O</b>nly <b>C</b>ard, not <b>I</b>ndian passport" — remember OCI holders never get full citizenship rights (no vote, no constitutional post).</div>
+</section>
+
+<!-- QUICK RECAP -->
+<section class="section" id="recap">
+  <h2 class="section-title">Quick Recap Tables</h2>
+  <p class="section-sub">Revise this entire chapter in under 5 minutes</p>
+
+  <div class="card">
+    <h3>Master Dates Table</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Year</th><th>Event</th><th>Place / Context</th></tr>
+        <tr><td>1947</td><td>Partition; Article 7 cut-off (migration to Pakistan)</td><td>India–Pakistan</td></tr>
+        <tr><td>1948 (19 Jul)</td><td>Article 6 cut-off date for migrants from Pakistan</td><td>India</td></tr>
+        <tr><td>1950 (26 Jan)</td><td>Constitution commences; Article 5 citizenship determined</td><td>India</td></tr>
+        <tr><td>1953</td><td>Fazl Ali Commission set up; Andhra State formed</td><td>Madras Presidency</td></tr>
+        <tr><td>1955</td><td>Citizenship Act passed (under Art. 11)</td><td>Parliament</td></tr>
+        <tr><td>1956</td><td>States Reorganisation Act — linguistic states</td><td>Pan-India</td></tr>
+        <tr><td>1960</td><td>Maharashtra & Gujarat formed from Bombay State</td><td>Western India</td></tr>
+        <tr><td>1975</td><td>Sikkim becomes 22nd state</td><td>North-East</td></tr>
+        <tr><td>1987</td><td>Mizoram, Arunachal Pradesh, Goa become states</td><td>NE & West</td></tr>
+        <tr><td>2000</td><td>Chhattisgarh, Uttarakhand, Jharkhand formed</td><td>MP, UP, Bihar</td></tr>
+        <tr><td>2003/2005</td><td>OCI scheme introduced/notified</td><td>Citizenship (Amendment) Act</td></tr>
+        <tr><td>2014</td><td>Telangana formed (29th state)</td><td>Andhra Pradesh</td></tr>
+        <tr><td>2015</td><td>PIO scheme merged into OCI</td><td>MHA notification</td></tr>
+        <tr><td>2019</td><td>J&K Reorganisation Act; CAA passed</td><td>J&K, Ladakh + Parliament</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic"><b>Pattern:</b> Notice most state-formation years cluster around <b>1960s (NE push)</b>, <b>1987 (NE+Goa)</b>, and <b>2000 (central India trio)</b> — group them in threes for faster recall.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>Key Figures & Numbers</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Fact</th><th>Number</th></tr>
+        <tr><td>Articles in Part I</td><td>4 (Art. 1–4)</td></tr>
+        <tr><td>Articles in Part II</td><td>7 (Art. 5–11)</td></tr>
+        <tr><td>States in India (current)</td><td>28</td></tr>
+        <tr><td>Union Territories (current)</td><td>8</td></tr>
+        <tr><td>Modes of acquiring citizenship</td><td>5</td></tr>
+        <tr><td>Modes of terminating citizenship</td><td>3</td></tr>
+        <tr><td>Naturalisation residency (general)</td><td>~11–12 years</td></tr>
+        <tr><td>Naturalisation residency (CAA-eligible groups)</td><td>5 years</td></tr>
+        <tr><td>CAA entry cut-off date</td><td>31 Dec 2014</td></tr>
+        <tr><td>Article 6 migration cut-off</td><td>19 Jul 1948</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>One-Line Comparison Summary</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Concept A</th><th>vs</th><th>Concept B</th><th>Key Difference</th></tr>
+        <tr><td>Article 2</td><td>vs</td><td>Article 3</td><td>Art 2 = external admission; Art 3 = internal reorganisation</td></tr>
+        <tr><td>Article 6</td><td>vs</td><td>Article 7</td><td>Art 6 = migrated IN from Pakistan; Art 7 = migrated OUT, later returned</td></tr>
+        <tr><td>Renunciation</td><td>vs</td><td>Termination</td><td>Renunciation = voluntary declaration; Termination = automatic on foreign citizenship</td></tr>
+        <tr><td>OCI</td><td>vs</td><td>Dual Citizenship</td><td>OCI is a visa privilege, not actual citizenship</td></tr>
+        <tr><td>Union</td><td>vs</td><td>Federation</td><td>Union = indestructible whole, destructible parts (India); Federation = mutual agreement</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PYQ -->
+<section class="section" id="pyq">
+  <h2 class="section-title">Previous Year Questions (Last ~10 Years)</h2>
+  <div class="note">
+    <b>Honest sourcing note:</b> These questions are built to match the exact <b>pattern, phrasing style, and difficulty level</b> seen in past SSC CGL Tier 1/Tier 2 papers on this chapter. Exact year-wise attribution (e.g., "asked in 2019 Tier 1") cannot be verified with certainty for every question, so specific years have been intentionally left unlabeled to avoid misattribution. Treat these as <b>pattern-accurate practice questions</b>, not confirmed-year archives.
+  </div>
+
+  <div id="pyqList"></div>
+</section>
+
+<!-- PREDICTED -->
+<section class="section" id="predicted">
+  <h2 class="section-title">Predicted Questions</h2>
+  <span class="pred-badge">⚡ AI-Predicted — not real PYQs</span>
+  <p class="section-sub">Targeting under-tested angles that fit the historical pattern (CAA specifics, OCI restrictions, Article 3 procedure nuances)</p>
+  <div id="predList"></div>
+</section>
+`;
+
+/* ============ PYQ DATA ============ */
+const pyqs = [
+{tier:"T1", q:"Which Article of the Indian Constitution declares 'India, that is Bharat, shall be a Union of States'?", opts:["Article 1","Article 2","Article 3","Article 4"], ans:"Article 1", exp:"Article 1 defines India's name and territory, using 'Union' instead of 'Federation'."},
+{tier:"T1", q:"New states can be formed by Parliament under which Article?", opts:["Article 1","Article 2","Article 3","Article 5"], ans:"Article 3", exp:"Article 3 empowers Parliament to form new states, alter boundaries/names by simple majority."},
+{tier:"T2", q:"Laws made under Articles 2 and 3 are NOT considered amendments under which Article?", opts:["Article 368","Article 4","Article 356","Article 370"], ans:"Article 4", exp:"Article 4 states such laws don't require the special majority procedure of Art. 368."},
+{tier:"T1", q:"The States Reorganisation Act was passed in which year, mainly on what basis?", opts:["1950, religious basis","1956, linguistic basis","1960, administrative basis","1966, economic basis"], ans:"1956, linguistic basis", exp:"Based on Fazl Ali Commission (1953) recommendations."},
+{tier:"T1", q:"Which was the first state formed purely on a linguistic basis?", opts:["Maharashtra","Andhra Pradesh (Andhra State)","Gujarat","Punjab"], ans:"Andhra Pradesh (Andhra State)", exp:"Andhra State was carved out of Madras Presidency in 1953."},
+{tier:"T2", q:"Jharkhand was carved out of which state, and in which year?", opts:["Bihar, 2000","Bihar, 1990","Odisha, 2000","West Bengal, 2000"], ans:"Bihar, 2000", exp:"Jharkhand, along with Chhattisgarh and Uttarakhand, was formed in 2000."},
+{tier:"T1", q:"Telangana, India's 29th state, was carved out of which state?", opts:["Karnataka","Andhra Pradesh","Tamil Nadu","Maharashtra"], ans:"Andhra Pradesh", exp:"Telangana was formed in 2014 through bifurcation of Andhra Pradesh."},
+{tier:"T1", q:"As per Article 5, a person is a citizen at the commencement of the Constitution if domiciled in India and:", opts:["Only born in India","Born in India OR either parent born in India OR ordinarily resident for 5+ years", "Only resident for 10 years", "Only if parents were government employees"], ans:"Born in India OR either parent born in India OR ordinarily resident for 5+ years", exp:"Article 5 lists three alternative conditions, any one of which qualifies."},
+{tier:"T2", q:"Article 9 of the Constitution deals with:", opts:["Continuance of citizenship","Termination of citizenship on voluntary acquisition of foreign citizenship","Migration from Pakistan","Parliament's power to regulate citizenship"], ans:"Termination of citizenship on voluntary acquisition of foreign citizenship", exp:"This is the constitutional basis for India not allowing dual citizenship."},
+{tier:"T1", q:"Which Article empowers Parliament to make laws on acquisition and termination of citizenship?", opts:["Article 5","Article 9","Article 11","Article 3"], ans:"Article 11", exp:"Article 11 led to the enactment of the Citizenship Act, 1955."},
+{tier:"T1", q:"How many ways can Indian citizenship be acquired under the Citizenship Act, 1955?", opts:["3","4","5","6"], ans:"5", exp:"Birth, Descent, Registration, Naturalisation, Incorporation of territory."},
+{tier:"T2", q:"Citizenship can be terminated in India through all of the following EXCEPT:", opts:["Renunciation","Termination","Deprivation","Inheritance"], ans:"Inheritance", exp:"The three legal modes are Renunciation, Termination, and Deprivation."},
+{tier:"T1", q:"The Citizenship (Amendment) Act, 2019 provides citizenship eligibility to persecuted minorities from which three countries?", opts:["Nepal, Bhutan, Sri Lanka","Afghanistan, Pakistan, Bangladesh","China, Myanmar, Nepal","Pakistan, Bangladesh, Myanmar"], ans:"Afghanistan, Pakistan, Bangladesh", exp:"Applicable to Hindu, Sikh, Buddhist, Jain, Parsi, Christian communities entering before 31 Dec 2014."},
+{tier:"T2", q:"The PIO Card scheme was merged with the OCI scheme in which year?", opts:["2003","2005","2015","2019"], ans:"2015", exp:"Government merged the two overlapping schemes to simplify overseas engagement."},
+{tier:"T2", q:"An OCI cardholder is entitled to which of the following?", opts:["Right to vote in Indian elections","Right to hold a constitutional post","Lifelong multiple-entry visa to visit India","Right to purchase agricultural land"], ans:"Lifelong multiple-entry visa to visit India", exp:"OCI is not citizenship — voting, constitutional posts, and agricultural land purchase remain restricted."}
+];
+
+const pyqList = document.getElementById('pyqList');
+pyqs.forEach((item,idx)=>{
+  const div=document.createElement('div');
+  div.className='q-card';
+  div.innerHTML=`
+    <div class="q-head">
+      <div class="q-text"><b>Q${idx+1}.</b> ${item.q}</div>
+      <span class="q-tier ${item.tier}">${item.tier==='T1'?'Tier 1':'Tier 2'}</span>
+    </div>
+    <ul class="options">
+      ${item.opts.map(o=>`<li>${o}</li>`).join('')}
+    </ul>
+    <div class="tap-hint" onclick="toggleAnswer(this)">▼ Tap to reveal answer</div>
+    <div class="answer"><b>Answer:</b> ${item.ans}<br><b>Why:</b> ${item.exp}</div>
+  `;
+  pyqList.appendChild(div);
+});
+
+/* ============ PREDICTED DATA ============ */
+const predicted = [
+{q:"Which body's recommendations led to the States Reorganisation Act, 1956?", opts:["Sarkaria Commission","Fazl Ali Commission","Dhar Commission","JVP Committee"], ans:"Fazl Ali Commission", exp:"The Dhar Commission (1948) and JVP Committee (1948-49) preceded it; Fazl Ali Commission (1953) directly led to the 1956 Act — a commonly confused sequence."},
+{q:"Under the Citizenship (Amendment) Act, 2019, the naturalisation residency requirement for eligible migrants was reduced from 11 years to:", opts:["3 years","5 years","7 years","9 years"], ans:"5 years", exp:"A frequently tested numeric detail from the CAA amendment."},
+{q:"A resettlement permit under Article 7 relates to persons who:", opts:["Migrated to India before 1948","Migrated to Pakistan after March 1947 but returned to India","Are of Indian origin residing abroad","Acquired foreign citizenship voluntarily"], ans:"Migrated to Pakistan after March 1947 but returned to India", exp:"Article 7 is often confused with Article 6 — this nuance is under-tested but fits the pattern."},
+{q:"Which of these Indian states/UTs was formed most recently through Article 3 procedure?", opts:["Telangana","Ladakh (UT)","Uttarakhand","Chhattisgarh"], ans:"Ladakh (UT)", exp:"Ladakh became a UT under the J&K Reorganisation Act, 2019 — the most recent Article 3-based change."},
+{q:"Deprivation of citizenship under the Citizenship Act, 1955 can occur if a naturalised citizen is imprisoned within how many years of acquiring citizenship?", opts:["2 years","5 years","10 years","No time limit"], ans:"5 years", exp:"A specific, exam-style numeric detail that's often skipped in general reading."},
+{q:"Which Schedule areas are exempted from the applicability of the CAA, 2019?", opts:["Fifth Schedule areas","Sixth Schedule areas","Ninth Schedule areas","Tenth Schedule areas"], ans:"Sixth Schedule areas", exp:"Sixth Schedule (tribal areas of Assam, Meghalaya, Tripura, Mizoram) and Inner Line Permit states are exempted."},
+{q:"India's decision to adopt single citizenship despite having a federal structure was primarily to:", opts:["Reduce administrative cost","Promote national unity and integration","Follow the British model exactly","Simplify tax collection"], ans:"Promote national unity and integration", exp:"A conceptual question testing the 'why' behind single citizenship, not just the fact."},
+{q:"Which Article makes it clear that a State Legislature's views on a boundary-change Bill are NOT binding on Parliament?", opts:["Article 1","Article 2","Article 3","Article 4"], ans:"Article 3", exp:"A frequently missed procedural nuance within Article 3 itself, likely to appear as a 'not binding' trap question."}
+];
+
+const predList = document.getElementById('predList');
+predicted.forEach((item,idx)=>{
+  const div=document.createElement('div');
+  div.className='q-card';
+  div.innerHTML=`
+    <div class="q-head">
+      <div class="q-text"><b>P${idx+1}.</b> ${item.q}</div>
+    </div>
+    <ul class="options">
+      ${item.opts.map(o=>`<li>${o}</li>`).join('')}
+    </ul>
+    <div class="tap-hint" onclick="toggleAnswer(this)">▼ Tap to reveal answer</div>
+    <div class="answer"><b>Answer:</b> ${item.ans}<br><b>Why:</b> ${item.exp}</div>
+  `;
+  predList.appendChild(div);
+});
+</script>
+</body>
+</html>
