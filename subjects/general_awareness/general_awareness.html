@@ -38,7 +38,7 @@
   }
   header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-bottom: 2px solid var(--ink);
     padding-bottom: 20px;
   }
@@ -55,6 +55,50 @@
     color: var(--stamp);
     font-size: 14px;
   }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--white);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: 9px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 3px 3px 0 rgba(24,40,73,0.1);
+  }
+  .filter-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 rgba(24,40,73,0.15);
+  }
+  .filter-btn.active {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .filter-btn[data-filter="history"].active { background: var(--history); border-color: var(--history); }
+  .filter-btn[data-filter="polity"].active { background: var(--polity); border-color: var(--polity); }
+  .filter-btn[data-filter="geography"].active { background: var(--geography); border-color: var(--geography); }
+
+  .count-note {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+
   .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -75,6 +119,9 @@
   .subject-card:hover {
     transform: translate(-2px, -2px);
     box-shadow: 8px 8px 0 rgba(24,40,73,0.15);
+  }
+  .subject-card.hidden {
+    display: none;
   }
   .subject-tag {
     align-self: flex-start;
@@ -112,6 +159,13 @@
     border-top: 1px dashed var(--line);
     padding-top: 10px;
   }
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    display: none;
+  }
   .nav-links {
     margin-top: 40px;
     text-align: center;
@@ -133,50 +187,59 @@
     <h1>SSC CGL Subject Hub</h1>
   </header>
 
-  <div class="subject-grid">
-    <a href="prehistoric_indus_valley_ssc_cgl.html" class="subject-card">
+  <div class="filter-bar" role="group" aria-label="Filter by subject">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="history">History</button>
+    <button class="filter-btn" data-filter="polity">Polity</button>
+    <button class="filter-btn" data-filter="geography">Geography</button>
+  </div>
+
+  <div class="count-note" id="countNote"></div>
+
+  <div class="subject-grid" id="subjectGrid">
+    <a href="prehistoric_indus_valley_ssc_cgl.html" class="subject-card" data-subject="history">
       <span class="subject-tag history">History</span>
       <h2>Prehistoric and Indus Valley Civilizations</h2>
       <p>Overview of early human settlements, tools, and societies.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-    <a href="vedic_age_ssc_cgl.html" class="subject-card">
+    <a href="vedic_age_ssc_cgl.html" class="subject-card" data-subject="history">
       <span class="subject-tag history">History</span>
       <h2>Vedic Age</h2>
       <p>Overview of the Vedic period, its literature, and societal structure.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-    <a href="religious_movements_6th_bc.html" class="subject-card">
+    <a href="religious_movements_6th_bc.html" class="subject-card" data-subject="history">
       <span class="subject-tag history">History</span>
       <h2>Religious Movements in the 6th Century BCE</h2>
       <p>Overview of the major religious and philosophical movements of the 6th century BCE.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-     <a href="mahajanapadas-magadha-notes.html" class="subject-card">
+     <a href="mahajanapadas-magadha-notes.html" class="subject-card" data-subject="history">
       <span class="subject-tag history">History</span>
       <h2>Mahajanapadas and Magadha</h2>
       <p>Overview of the major political entities and the rise of Magadha.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-    <a href="constitutional_framework_evolution.html" class="subject-card">
+    <a href="constitutional_framework_evolution.html" class="subject-card" data-subject="polity">
       <span class="subject-tag polity">Polity</span>
       <h2>Constitutional Framework and Evolution</h2>
       <p>Overview of the development and evolution of the constitutional framework.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-    <a href="union_territory_citizenship.html" class="subject-card">
+    <a href="union_territory_citizenship.html" class="subject-card" data-subject="polity">
       <span class="subject-tag polity">Polity</span>
       <h2>Union Territories and Citizenship</h2>
       <p>Overview of the legal status and rights of union territory residents.</p>
       <div class="meta">Tier 1 & 2 • Important Topic</div>
     </a>
 
-    <a href="geography_notes_parmar\geograohy_notes_pramar.html" class="subject-card">
+    <a href="geography_notes_parmar/geograohy_notes_pramar.html" class="subject-card" data-subject="geography">
       <span class="subject-tag geography">Geography</span>
       <h2>Geography Notes</h2>
       <p>Comprehensive notes on Indian geography.</p>
@@ -184,8 +247,37 @@
     </a>
   </div>
 
-  
+  <div class="empty-state" id="emptyState">No topics found for this filter.</div>
+
 </div>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.subject-card');
+  const countNote = document.getElementById('countNote');
+  const emptyState = document.getElementById('emptyState');
+
+  function applyFilter(filter) {
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const matches = filter === 'all' || card.dataset.subject === filter;
+      card.classList.toggle('hidden', !matches);
+      if (matches) visibleCount++;
+    });
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    countNote.textContent = `Showing ${visibleCount} of ${cards.length} topics`;
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  applyFilter('all');
+</script>
 
 </body>
 </html>
