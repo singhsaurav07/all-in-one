@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC GK Geography — Chapter Navigator</title>
+<style>
+  :root{
+    --cream:#f7f1e3;
+    --cream-2:#efe6d0;
+    --cream-border:#ddccaa;
+    --ink:#3b2f1e;
+    --ink-soft:#6b5c40;
+    --accent:#b5651d;
+    --dark:#1f1a14;
+    --dark-2:#2a231b;
+    --dark-3:#332b20;
+    --toolbar-text:#f2e9d8;
+    --sec1:#8a4b2c;
+    --sec2:#2f6b4f;
+    --sec3:#2c4f7c;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--dark);
+    color:var(--ink);
+    overflow:hidden;
+  }
+  #app{
+    display:flex;
+    height:100vh;
+    width:100vw;
+    position:relative;
+  }
+
+  /* ---------- Sidebar (off-canvas) ---------- */
+  #sidebar{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:320px;
+    max-width:85vw;
+    background:var(--cream);
+    border-right:1px solid var(--cream-border);
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+    z-index:40;
+    display:flex;
+    flex-direction:column;
+    box-shadow:2px 0 18px rgba(0,0,0,.35);
+  }
+  #sidebar.open{ transform:translateX(0); }
+
+  #sidebar-header{
+    padding:16px 16px 12px 16px;
+    border-bottom:1px solid var(--cream-border);
+    background:var(--cream-2);
+  }
+  #sidebar-header h1{
+    font-size:16px;
+    margin:0 0 4px 0;
+    color:var(--ink);
+  }
+  #sidebar-header p{
+    margin:0;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  #sidebar-close{
+    position:absolute;
+    top:10px; right:12px;
+    background:none;
+    border:none;
+    font-size:20px;
+    line-height:1;
+    color:var(--ink-soft);
+    cursor:pointer;
+    padding:4px 8px;
+    border-radius:6px;
+  }
+  #sidebar-close:hover{ background:var(--cream-border); }
+
+  #chapter-list{
+    flex:1;
+    overflow-y:auto;
+    padding-bottom:20px;
+  }
+  .section-header{
+    padding:10px 16px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:1;
+  }
+  .section-header.sec1{ background:var(--sec1); }
+  .section-header.sec2{ background:var(--sec2); }
+  .section-header.sec3{ background:var(--sec3); }
+
+  .chapter-item{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:10px 16px 10px 20px;
+    border:none;
+    border-bottom:1px solid var(--cream-border);
+    background:var(--cream);
+    cursor:pointer;
+    font-size:13.5px;
+    color:var(--ink);
+    transition:background .12s ease;
+  }
+  .chapter-item:hover{ background:var(--cream-2); }
+  .chapter-item.active{
+    background:var(--cream-border);
+    border-left:4px solid var(--accent);
+    padding-left:16px;
+    font-weight:600;
+  }
+  .chapter-item .ch-title{
+    display:block;
+    margin-bottom:2px;
+  }
+  .chapter-item .ch-meta{
+    display:block;
+    font-size:11px;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+
+  #backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease;
+    z-index:30;
+  }
+  #backdrop.show{ opacity:1; pointer-events:auto; }
+
+  /* ---------- Main viewer ---------- */
+  #main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    width:100vw;
+    background:var(--dark);
+  }
+  #toolbar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    background:var(--dark-2);
+    border-bottom:1px solid var(--dark-3);
+    color:var(--toolbar-text);
+    flex-wrap:wrap;
+  }
+  #toolbar button, #toolbar a.tb-btn{
+    background:var(--dark-3);
+    color:var(--toolbar-text);
+    border:1px solid #48402f;
+    border-radius:6px;
+    padding:8px 12px;
+    font-size:13px;
+    cursor:pointer;
+    text-decoration:none;
+    white-space:nowrap;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  #toolbar button:hover, #toolbar a.tb-btn:hover{
+    background:#463c2b;
+    border-color:var(--accent);
+  }
+  #toolbar button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+  }
+  #hamburger{
+    font-size:18px;
+    padding:8px 11px;
+  }
+  #chapter-title-bar{
+    flex:1;
+    min-width:120px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--toolbar-text);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    padding:0 6px;
+  }
+  #chapter-title-bar .sub{
+    display:block;
+    font-size:11px;
+    font-weight:400;
+    color:#c9bd9f;
+  }
+
+  #viewer-area{
+    flex:1;
+    position:relative;
+    background:#0e0b08;
+  }
+  #pdf-frame{
+    width:100%;
+    height:100%;
+    border:none;
+    background:#fff;
+  }
+  #welcome{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--toolbar-text);
+    padding:24px;
+  }
+  #welcome h2{
+    margin:0 0 8px 0;
+    font-size:22px;
+  }
+  #welcome p{
+    margin:0 0 18px 0;
+    color:#c9bd9f;
+    max-width:420px;
+    font-size:14px;
+  }
+  #welcome button{
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:12px 20px;
+    font-size:14px;
+    cursor:pointer;
+  }
+
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-thumb{ background:var(--cream-border); border-radius:4px; }
+
+  @media (max-width:600px){
+    #chapter-title-bar{ font-size:12.5px; }
+    #toolbar button, #toolbar a.tb-btn{ padding:8px 9px; font-size:12px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div id="backdrop" onclick="closeSidebar()"></div>
+
+  <nav id="sidebar" aria-label="Chapter list">
+    <div id="sidebar-header">
+      <button id="sidebar-close" onclick="closeSidebar()" aria-label="Close sidebar">✕</button>
+      <h1>SSC GK Geography</h1>
+      <p>Complete Notes — 17 chapters · 214 pages</p>
+    </div>
+    <div id="chapter-list"></div>
+  </nav>
+
+  <div id="main">
+    <div id="toolbar">
+      <a class="tb-btn" href="../../../index.html">← Back</a>
+      <button id="hamburger" onclick="openSidebar()" aria-label="Open chapter list">☰</button>
+      <div id="chapter-title-bar">Select a chapter<span class="sub">Use the ☰ menu to browse chapters</span></div>
+      <button id="btn-start" onclick="jumpStart()" disabled>⏮ Start</button>
+      <button id="btn-end" onclick="jumpEnd()" disabled>End ⏭</button>
+      <a id="btn-download" class="tb-btn" href="#" download style="opacity:.4;pointer-events:none;">⬇ Download this chapter</a>
+    </div>
+    <div id="viewer-area">
+      <div id="welcome">
+        <h2>SSC GK Geography — Chapter Navigator</h2>
+        <p>Pick a chapter from the sidebar to open it. Each chapter is its own standalone PDF, so the page counter and navigation always match that chapter's real length.</p>
+        <button onclick="openSidebar()">☰ Browse Chapters</button>
+      </div>
+      <iframe id="pdf-frame" style="display:none;" title="Chapter PDF viewer"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const manifest = [
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/01_Solar_System_and_Earth.pdf","title":"Solar System & Earth","start":1,"end":40,"pages":40},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/02_Rocks_Continents_Oceans.pdf","title":"Rocks, Continents and Oceans","start":41,"end":50,"pages":10},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/03_Geomorphology_and_Landforms.pdf","title":"Geomorphology and Landforms","start":51,"end":59,"pages":9},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/04_Atmosphere_and_Water_in_Atmosphere.pdf","title":"Atmosphere and Water in the Atmosphere","start":60,"end":74,"pages":15},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/05_Winds_Climate_Ocean_Currents.pdf","title":"Winds, Climate, Ocean Currents","start":75,"end":95,"pages":21},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/06_India_and_Its_Boundary.pdf","title":"India and Its Boundary","start":96,"end":104,"pages":9},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/07_Himalayas.pdf","title":"Himalayas","start":105,"end":115,"pages":11},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/08_Peninsular_Plateaus.pdf","title":"Peninsular Plateaus","start":116,"end":124,"pages":9},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/09_Northern_Plains_and_Islands.pdf","title":"Northern Plains and Islands","start":125,"end":132,"pages":8},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/10_Drainage_System.pdf","title":"Drainage System","start":133,"end":142,"pages":10},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/11_Peninsular_Rivers.pdf","title":"Peninsular Rivers","start":143,"end":153,"pages":11},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/12_Dams_Lakes_Waterfalls.pdf","title":"Dams, Lakes, Waterfalls","start":154,"end":163,"pages":10},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/13_Monsoon_Forests.pdf","title":"Monsoon / Forests","start":164,"end":173,"pages":10},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/14_Soil_and_National_Parks.pdf","title":"Soil and National Parks / Biosphere Reserves","start":174,"end":185,"pages":12},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/15_Agriculture.pdf","title":"Agriculture","start":186,"end":193,"pages":8},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/16_Minerals.pdf","title":"Minerals","start":194,"end":200,"pages":7},
+  {"section":"03_World_Geography","sectionLabel":"World Geography","file":"chapters/03_World_Geography/17_World_Map.pdf","title":"World Map / World Geography","start":201,"end":214,"pages":14}
+];
+
+const sectionClass = {
+  "01_Physical_Geography_World":"sec1",
+  "02_Indian_Geography":"sec2",
+  "03_World_Geography":"sec3"
+};
+
+let currentChapter = null;
+
+function buildSidebar(){
+  const list = document.getElementById('chapter-list');
+  let lastSection = null;
+  manifest.forEach((ch, idx) => {
+    if(ch.section !== lastSection){
+      const h = document.createElement('div');
+      h.className = 'section-header ' + sectionClass[ch.section];
+      h.textContent = ch.sectionLabel;
+      list.appendChild(h);
+      lastSection = ch.section;
+    }
+    const btn = document.createElement('button');
+    btn.className = 'chapter-item';
+    btn.id = 'ch-item-' + idx;
+    btn.innerHTML = '<span class="ch-title">' + (idx+1) + '. ' + ch.title + '</span>' +
+                     '<span class="ch-meta">Book pages ' + ch.start + '\u2013' + ch.end + ' &middot; ' + ch.pages + ' pp</span>';
+    btn.onclick = () => selectChapter(idx);
+    list.appendChild(btn);
+  });
+}
+
+function openSidebar(){
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('backdrop').classList.add('show');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('backdrop').classList.remove('show');
+}
+
+function selectChapter(idx){
+  currentChapter = manifest[idx];
+  const frame = document.getElementById('pdf-frame');
+  const welcome = document.getElementById('welcome');
+
+  document.querySelectorAll('.chapter-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('ch-item-' + idx).classList.add('active');
+
+  welcome.style.display = 'none';
+  frame.style.display = 'block';
+  frame.src = currentChapter.file;
+
+  document.getElementById('chapter-title-bar').innerHTML =
+    (idx+1) + '. ' + currentChapter.title +
+    '<span class="sub">Book pages ' + currentChapter.start + '\u2013' + currentChapter.end + ' &middot; ' + currentChapter.pages + ' pp</span>';
+
+  document.getElementById('btn-start').disabled = false;
+  document.getElementById('btn-end').disabled = false;
+
+  const dl = document.getElementById('btn-download');
+  dl.href = currentChapter.file;
+  dl.download = currentChapter.file.split('/').pop();
+  dl.style.opacity = '1';
+  dl.style.pointerEvents = 'auto';
+
+  closeSidebar();
+}
+
+// Exact reload pattern specified: reliable hash jump via about:blank reload
+function loadPage(filePath, hash){
+  const frame = document.getElementById('pdf-frame');
+  frame.onload = function(){
+    frame.onload = null;
+    frame.src = filePath + '#' + hash;
+  };
+  frame.src = 'about:blank';
+}
+
+function jumpStart(){
+  if(!currentChapter) return;
+  loadPage(currentChapter.file, 'page=1');
+}
+function jumpEnd(){
+  if(!currentChapter) return;
+  loadPage(currentChapter.file, 'page=' + currentChapter.pages);
+}
+
+buildSidebar();
+</script>
+</body>
+</html>
