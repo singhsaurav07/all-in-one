@@ -19,6 +19,10 @@
     --sec1:#8a4b2c;
     --sec2:#2f6b4f;
     --sec3:#2c4f7c;
+    --p-must:#b3261e;
+    --p-high:#c9760f;
+    --p-mod:#b8960b;
+    --p-low:#7a7266;
   }
   *{box-sizing:border-box;}
   html,body{height:100%;margin:0;}
@@ -81,6 +85,57 @@
   }
   #sidebar-close:hover{ background:var(--cream-border); }
 
+  #legend{
+    padding:10px 16px 12px 16px;
+    border-bottom:1px solid var(--cream-border);
+    background:var(--cream-2);
+  }
+  #legend .legend-title{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  #legend .legend-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 14px;
+    margin-bottom:8px;
+  }
+  #legend .legend-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:11.5px;
+    color:var(--ink);
+  }
+  #legend .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  #legend .dot.must{ background:var(--p-must); }
+  #legend .dot.high{ background:var(--p-high); }
+  #legend .dot.mod{ background:var(--p-mod); }
+  #legend .dot.low{ background:var(--p-low); }
+
+  #filter-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:var(--ink);
+  }
+  #filter-row input{
+    cursor:pointer;
+  }
+  #filter-row label{
+    cursor:pointer;
+  }
+
   #chapter-list{
     flex:1;
     overflow-y:auto;
@@ -102,7 +157,10 @@
   .section-header.sec3{ background:var(--sec3); }
 
   .chapter-item{
-    display:block;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:8px;
     width:100%;
     text-align:left;
     padding:10px 16px 10px 20px;
@@ -121,6 +179,11 @@
     padding-left:16px;
     font-weight:600;
   }
+  .chapter-item.hidden{ display:none; }
+  .chapter-item .ch-main{
+    flex:1;
+    min-width:0;
+  }
   .chapter-item .ch-title{
     display:block;
     margin-bottom:2px;
@@ -131,6 +194,23 @@
     color:var(--ink-soft);
     font-weight:400;
   }
+  .weightage-badge{
+    flex-shrink:0;
+    display:inline-block;
+    margin-top:1px;
+    padding:2px 8px;
+    border-radius:10px;
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:#fff;
+    white-space:nowrap;
+  }
+  .weightage-badge.must{ background:var(--p-must); }
+  .weightage-badge.high{ background:var(--p-high); }
+  .weightage-badge.mod{ background:var(--p-mod); }
+  .weightage-badge.low{ background:var(--p-low); }
 
   #backdrop{
     position:fixed;
@@ -268,6 +348,19 @@
       <h1>SSC GK Geography</h1>
       <p>Complete Notes — 17 chapters · 214 pages</p>
     </div>
+    <div id="legend">
+      <div class="legend-title">SSC CGL Weightage</div>
+      <div class="legend-row">
+        <span class="legend-item"><span class="dot must"></span>Must-do</span>
+        <span class="legend-item"><span class="dot high"></span>High</span>
+        <span class="legend-item"><span class="dot mod"></span>Moderate</span>
+        <span class="legend-item"><span class="dot low"></span>Low</span>
+      </div>
+      <div id="filter-row">
+        <input type="checkbox" id="filter-checkbox" onchange="applyFilter()">
+        <label for="filter-checkbox">Show only Must-do / High chapters</label>
+      </div>
+    </div>
     <div id="chapter-list"></div>
   </nav>
 
@@ -294,24 +387,26 @@
 
 <script>
 const manifest = [
-  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/01_Solar_System_and_Earth.pdf","title":"Solar System & Earth","start":1,"end":40,"pages":40},
-  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/02_Rocks_Continents_Oceans.pdf","title":"Rocks, Continents and Oceans","start":41,"end":50,"pages":10},
-  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/03_Geomorphology_and_Landforms.pdf","title":"Geomorphology and Landforms","start":51,"end":59,"pages":9},
-  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/04_Atmosphere_and_Water_in_Atmosphere.pdf","title":"Atmosphere and Water in the Atmosphere","start":60,"end":74,"pages":15},
-  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/05_Winds_Climate_Ocean_Currents.pdf","title":"Winds, Climate, Ocean Currents","start":75,"end":95,"pages":21},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/06_India_and_Its_Boundary.pdf","title":"India and Its Boundary","start":96,"end":104,"pages":9},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/07_Himalayas.pdf","title":"Himalayas","start":105,"end":115,"pages":11},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/08_Peninsular_Plateaus.pdf","title":"Peninsular Plateaus","start":116,"end":124,"pages":9},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/09_Northern_Plains_and_Islands.pdf","title":"Northern Plains and Islands","start":125,"end":132,"pages":8},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/10_Drainage_System.pdf","title":"Drainage System","start":133,"end":142,"pages":10},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/11_Peninsular_Rivers.pdf","title":"Peninsular Rivers","start":143,"end":153,"pages":11},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/12_Dams_Lakes_Waterfalls.pdf","title":"Dams, Lakes, Waterfalls","start":154,"end":163,"pages":10},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/13_Monsoon_Forests.pdf","title":"Monsoon / Forests","start":164,"end":173,"pages":10},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/14_Soil_and_National_Parks.pdf","title":"Soil and National Parks / Biosphere Reserves","start":174,"end":185,"pages":12},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/15_Agriculture.pdf","title":"Agriculture","start":186,"end":193,"pages":8},
-  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/16_Minerals.pdf","title":"Minerals","start":194,"end":200,"pages":7},
-  {"section":"03_World_Geography","sectionLabel":"World Geography","file":"chapters/03_World_Geography/17_World_Map.pdf","title":"World Map / World Geography","start":201,"end":214,"pages":14}
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/01_Solar_System_and_Earth.pdf","title":"Solar System & Earth","start":1,"end":40,"pages":40,"priority":"high"},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/02_Rocks_Continents_Oceans.pdf","title":"Rocks, Continents and Oceans","start":41,"end":50,"pages":10,"priority":"mod"},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/03_Geomorphology_and_Landforms.pdf","title":"Geomorphology and Landforms","start":51,"end":59,"pages":9,"priority":"mod"},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/04_Atmosphere_and_Water_in_Atmosphere.pdf","title":"Atmosphere and Water in the Atmosphere","start":60,"end":74,"pages":15,"priority":"high"},
+  {"section":"01_Physical_Geography_World","sectionLabel":"Physical Geography (World)","file":"chapters/01_Physical_Geography_World/05_Winds_Climate_Ocean_Currents.pdf","title":"Winds, Climate, Ocean Currents","start":75,"end":95,"pages":21,"priority":"high"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/06_India_and_Its_Boundary.pdf","title":"India and Its Boundary","start":96,"end":104,"pages":9,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/07_Himalayas.pdf","title":"Himalayas","start":105,"end":115,"pages":11,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/08_Peninsular_Plateaus.pdf","title":"Peninsular Plateaus","start":116,"end":124,"pages":9,"priority":"high"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/09_Northern_Plains_and_Islands.pdf","title":"Northern Plains and Islands","start":125,"end":132,"pages":8,"priority":"high"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/10_Drainage_System.pdf","title":"Drainage System","start":133,"end":142,"pages":10,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/11_Peninsular_Rivers.pdf","title":"Peninsular Rivers","start":143,"end":153,"pages":11,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/12_Dams_Lakes_Waterfalls.pdf","title":"Dams, Lakes, Waterfalls","start":154,"end":163,"pages":10,"priority":"high"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/13_Monsoon_Forests.pdf","title":"Monsoon / Forests","start":164,"end":173,"pages":10,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/14_Soil_and_National_Parks.pdf","title":"Soil and National Parks / Biosphere Reserves","start":174,"end":185,"pages":12,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/15_Agriculture.pdf","title":"Agriculture","start":186,"end":193,"pages":8,"priority":"must"},
+  {"section":"02_Indian_Geography","sectionLabel":"Indian Geography","file":"chapters/02_Indian_Geography/16_Minerals.pdf","title":"Minerals","start":194,"end":200,"pages":7,"priority":"must"},
+  {"section":"03_World_Geography","sectionLabel":"World Geography","file":"chapters/03_World_Geography/17_World_Map.pdf","title":"World Map / World Geography","start":201,"end":214,"pages":14,"priority":"low"}
 ];
+
+const priorityLabel = { must:"Must-do", high:"High", mod:"Moderate", low:"Low" };
 
 const sectionClass = {
   "01_Physical_Geography_World":"sec1",
@@ -335,10 +430,34 @@ function buildSidebar(){
     const btn = document.createElement('button');
     btn.className = 'chapter-item';
     btn.id = 'ch-item-' + idx;
-    btn.innerHTML = '<span class="ch-title">' + (idx+1) + '. ' + ch.title + '</span>' +
-                     '<span class="ch-meta">Book pages ' + ch.start + '\u2013' + ch.end + ' &middot; ' + ch.pages + ' pp</span>';
+    btn.dataset.priority = ch.priority;
+    btn.innerHTML =
+      '<span class="ch-main">' +
+        '<span class="ch-title">' + (idx+1) + '. ' + ch.title + '</span>' +
+        '<span class="ch-meta">Book pages ' + ch.start + '\u2013' + ch.end + ' &middot; ' + ch.pages + ' pp</span>' +
+      '</span>' +
+      '<span class="weightage-badge ' + ch.priority + '">' + priorityLabel[ch.priority] + '</span>';
     btn.onclick = () => selectChapter(idx);
     list.appendChild(btn);
+  });
+}
+
+function applyFilter(){
+  const onlyRelevant = document.getElementById('filter-checkbox').checked;
+  document.querySelectorAll('.chapter-item').forEach(el => {
+    const p = el.dataset.priority;
+    const relevant = (p === 'must' || p === 'high');
+    el.classList.toggle('hidden', onlyRelevant && !relevant);
+  });
+  // Hide section headers with no visible chapters beneath them
+  document.querySelectorAll('.section-header').forEach(h => {
+    let sib = h.nextElementSibling;
+    let anyVisible = false;
+    while(sib && !sib.classList.contains('section-header')){
+      if(!sib.classList.contains('hidden')) anyVisible = true;
+      sib = sib.nextElementSibling;
+    }
+    h.classList.toggle('hidden', onlyRelevant && !anyVisible);
   });
 }
 
